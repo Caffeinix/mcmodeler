@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>skybox_down.png</file>
+        <file>skybox_east.png</file>
+        <file>skybox_north.png</file>
+        <file>skybox_south.png</file>
+        <file>skybox_up.png</file>
+        <file>skybox_west.png</file>
+        <file>terrain.png</file>
+        <file>grid_background.png</file>
+        <file>origin.png</file>
+        <file>null_sprite.png</file>
+    </qresource>
+</RCC>

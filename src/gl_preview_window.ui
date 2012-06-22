@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GLPreviewWindow</class>
+ <widget class="QMainWindow" name="GLPreviewWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>639</width>
+    <height>497</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>3D Preview</string>
+  </property>
+  <widget class="QWidget" name="central_widget_">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="GLWidget" name="gl_widget_" native="true"/>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="frame_rate_check_box_">
+      <property name="text">
+       <string>Show frame rate</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="status_bar_"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>GLWidget</class>
+   <extends>QWidget</extends>
+   <header>gl_widget.h</header>
+   <container>1</container>
+   <slots>
+    <signal>frameRateChanged(QString)</signal>
+    <signal>frameStatsChanged(QString)</signal>
+    <slot>enableFrameRate(bool)</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>gl_widget_</sender>
+   <signal>frameRateChanged(QString)</signal>
+   <receiver>status_bar_</receiver>
+   <slot>showMessage(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>399</x>
+     <y>288</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>589</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>frame_rate_check_box_</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>gl_widget_</receiver>
+   <slot>enableFrameRate(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>147</x>
+     <y>564</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>165</x>
+     <y>452</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>frame_rate_check_box_</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>status_bar_</receiver>
+   <slot>clearMessage()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>241</x>
+     <y>561</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>243</x>
+     <y>591</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
