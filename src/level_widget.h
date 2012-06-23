@@ -42,7 +42,7 @@ class LevelWidget : public QGraphicsView {
  public slots:
   void setLevel(int level);
 
-  void setBlockType(BlockType type);
+  void setBlockType(blocktype_t type);
 
   void copyLevel();
   void pasteLevel();
@@ -91,7 +91,7 @@ class LevelWidget : public QGraphicsView {
   bool in_pan_mode_;
   BlockPosition last_block_position_;
   QPoint last_move_event_pos_;
-  BlockType block_type_;
+  blocktype_t block_type_;
   QPixmap template_image_;
   int copied_level_;
 };

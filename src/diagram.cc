@@ -71,7 +71,7 @@ void Diagram::load(QDataStream* stream) {
     BlockPosition position(position_x, position_y, position_z);
     qint32 type_byte;
     *stream >> type_byte;
-    BlockType type = static_cast<BlockType>(type_byte);
+    blocktype_t type = static_cast<blocktype_t>(type_byte);
     BlockPrototype* prototype = block_mgr_->getPrototype(type);
     // TODO(phoenix): Read/write orientation data!
     BlockInstance new_block(prototype, position, prototype->defaultOrientation());
@@ -143,7 +143,7 @@ void Diagram::commit(const BlockTransaction& transaction) {
   emit diagramChanged(transaction);
 }
 
-void Diagram::drawLine(const BlockPosition& start_pos, const BlockPosition& end_pos, const BlockType& type, BlockOrientation* orientation) {
+void Diagram::drawLine(const BlockPosition& start_pos, const BlockPosition& end_pos, const blocktype_t& type, BlockOrientation* orientation) {
   BlockTransaction transaction;
   ScopedTransactionCommitter committer(this, transaction);
   BlockPrototype* prototype = block_mgr_->getPrototype(type);
@@ -153,19 +153,19 @@ void Diagram::drawLine(const BlockPosition& start_pos, const BlockPosition& end_
   tool.draw(prototype, orientation, &transaction);
 }
 
-void Diagram::fillBlocks(const BlockPosition& start_pos, const BlockType& type, BlockOrientation* orientation) {
+void Diagram::fillBlocks(const BlockPosition& start_pos, const blocktype_t& type, BlockOrientation* orientation) {
   BlockTransaction transaction;
   ScopedTransactionCommitter committer(this, transaction);
 
   BlockInstance start_block = blockAt(start_pos);
-  const BlockType source_type = start_block.prototype()->type();
+  const blocktype_t source_type = start_block.prototype()->type();
   QSet<BlockPosition> filled_blocks;
   fillBlocksRecurse(start_pos, source_type, type, orientation, start_pos, 1, &filled_blocks, &transaction);
 }
 
 void Diagram::fillBlocksRecurse(const BlockPosition& pos,
-                                const BlockType& source_type,
-                                const BlockType& dest_type,
+                                const blocktype_t& source_type,
+                                const blocktype_t& dest_type,
                                 BlockOrientation* dest_orientation,
                                 const BlockPosition& start_pos,
                                 int depth,
@@ -274,8 +274,8 @@ int Diagram::blockCount() const {
   return block_map_.size();
 }
 
-QMap<BlockType, int> Diagram::blockCounts() const {
-  QMap<BlockType, int> map;
+QMap<blocktype_t, int> Diagram::blockCounts() const {
+  QMap<blocktype_t, int> map;
   foreach(const BlockInstance& instance, block_map_.values()) {
     int count = 0;
     if (map.contains(instance.prototype()->type())) {

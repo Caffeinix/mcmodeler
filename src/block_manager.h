@@ -30,10 +30,10 @@ class BlockManager {
   BlockManager(BlockOracle* oracle, QGLWidget* widget);
   ~BlockManager();
 
-  BlockPrototype* getPrototype(BlockType type) const;
+  BlockPrototype* getPrototype(blocktype_t type) const;
 
  private:
-  mutable QHash<BlockType, BlockPrototype*> blocks_;
+  mutable QHash<blocktype_t, BlockPrototype*> blocks_;
   BlockOracle* oracle_;
   QGLWidget* widget_;
 };

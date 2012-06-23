@@ -45,7 +45,12 @@ class BlockPrototype : public RenderDelegate {
     * Returns the name for a block of the given type.
     * @param type The type of block you want the name of.
     */
-  static QString nameOfType(BlockType type);
+  static QString nameOfType(blocktype_t type);
+
+  /**
+    * Returns the number of unique block types known to MCModeler.
+    */
+  static int blockCount();
 
   /**
     * Constructs a BlockPrototype.
@@ -57,7 +62,7 @@ class BlockPrototype : public RenderDelegate {
     * @param oracle The BlockOracle the prototype will use to determine neighboring face information.
     * @param widget The QGLWidget into which blocks of this type will be rendered.
     */
-  explicit BlockPrototype(BlockType type, BlockOracle* oracle, QGLWidget* widget);
+  explicit BlockPrototype(blocktype_t type, BlockOracle* oracle, QGLWidget* widget);
 
   virtual bool shouldRenderFace(const Renderable* renderable, Face face, const QVector3D& location) const;
 
@@ -74,9 +79,9 @@ class BlockPrototype : public RenderDelegate {
   }
 
   /**
-    * Returns the BlockType enum constant for this block type.
+    * Returns the blocktype_t constant for blocks of this type.
     */
-  inline BlockType type() const {
+  inline blocktype_t type() const {
     return type_;
   }
 
@@ -114,10 +119,10 @@ class BlockPrototype : public RenderDelegate {
 
  private:
   /**
-    * The mapping from BlockType enum constants to BlockProperties objects.  This is a static non-POD type, so it must
+    * The mapping from blocktype_t enum constants to BlockProperties objects.  This is a static non-POD type, so it must
     * NOT be initialized at static initialization time.  It is populated in setupBlockProperties().
     */
-  static QMap<BlockType, BlockProperties> s_type_mapping;
+  static QMap<blocktype_t, BlockProperties> s_type_mapping;
 
   /**
     * Returns the prototype of the block that would be adjacent to the \p face Face of a block of this type that is
@@ -134,7 +139,7 @@ class BlockPrototype : public RenderDelegate {
 
   Texture sprite_texture_;
   BlockProperties properties_;
-  BlockType type_;
+  blocktype_t type_;
   BlockOracle* oracle_;
   QScopedPointer<Renderable> renderable_;
 };

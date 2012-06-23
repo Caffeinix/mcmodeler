@@ -26,7 +26,7 @@ BlockManager::~BlockManager() {
   qDeleteAll(blocks_);
 }
 
-BlockPrototype* BlockManager::getPrototype(BlockType type) const {
+BlockPrototype* BlockManager::getPrototype(blocktype_t type) const {
   BlockPrototype* block = blocks_.value(type);
   if (block) {
     return block;

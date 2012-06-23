@@ -282,7 +282,7 @@ void LevelWidget::setLevel(int level) {
   emit levelChanged(level);
 }
 
-void LevelWidget::setBlockType(BlockType type) {
+void LevelWidget::setBlockType(blocktype_t type) {
   block_type_ = type;
 }
 

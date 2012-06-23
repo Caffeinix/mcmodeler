@@ -40,11 +40,11 @@ void BillOfMaterialsWindow::updateBillOfMaterials() {
   if (!isVisible()) {
     return;
   }
-  QMap<BlockType, int> block_counts = diagram_->blockCounts();
-  QList<BlockType> sorted_types = block_counts.keys();
+  QMap<blocktype_t, int> block_counts = diagram_->blockCounts();
+  QList<blocktype_t> sorted_types = block_counts.keys();
   qSort(sorted_types);
   ui.bill_of_materials_text_->clear();
-  foreach (BlockType type, sorted_types) {
+  foreach (blocktype_t type, sorted_types) {
     QString line = QString("%1: %2 (%3 stacks)")
                    .arg(BlockPrototype::nameOfType(type))
                    .arg(block_counts.value(type))

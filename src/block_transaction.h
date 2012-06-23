@@ -66,8 +66,8 @@ class BlockTransaction {
     * Only the first replacement per position per transaction will be honored.  So in the following code:
     *
     * @code
-    * BlockPrototype* dirt = BlockManager::getPrototype(kBlockTypeDirt);
-    * BlockPrototype* grass = BlockManager::getPrototype(kBlockTypeGrass);
+    * BlockPrototype* dirt = BlockManager::getPrototype(0);
+    * BlockPrototype* grass = BlockManager::getPrototype(1);
     * BlockInstance dirt_block(dirt, BlockPosition(0, 0, 0), dirt->defaultOrientation());
     * BlockInstance grass_block(grass, BlockPosition(0, 0, 0), grass->defaultOrientation());
     * BlockTransaction transaction;
@@ -93,8 +93,8 @@ class BlockTransaction {
     * Only the first addition per position per transaction will be honored.  So in the following code:
     *
     * @code
-    * BlockPrototype* dirt = BlockManager::getPrototype(kBlockTypeDirt);
-    * BlockPrototype* grass = BlockManager::getPrototype(kBlockTypeGrass);
+    * BlockPrototype* dirt = BlockManager::getPrototype(0);
+    * BlockPrototype* grass = BlockManager::getPrototype(1);
     * BlockInstance dirt_block(dirt, BlockPosition(0, 0, 0), dirt->defaultOrientation());
     * BlockInstance grass_block(grass, BlockPosition(0, 0, 0), grass->defaultOrientation());
     * BlockTransaction transaction;

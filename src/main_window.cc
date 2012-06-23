@@ -55,7 +55,7 @@ void MainWindow::setBlockManager(BlockManager* block_mgr) {
 
 void MainWindow::toolButtonClicked() {
   QToolButton* button = qobject_cast<QToolButton*>(sender());
-  BlockType type = static_cast<BlockType>(button->property("blockType").toInt());
+  blocktype_t type = button->property("blockType").toInt();
   ui.level_widget_->setBlockType(type);
 }
 
@@ -65,9 +65,9 @@ void MainWindow::setupToolbox() {
   }
   QButtonGroup* group = new QButtonGroup(this);
   FlowLayout* layout = new FlowLayout(4, 1, 1);
-  for (int i = 0; i <= kBlockTypeLastBlock; ++i) {
+  for (blocktype_t i = 0; i < BlockPrototype::blockCount(); ++i) {
     QToolButton* button = new QToolButton(ui.toolbox_frame_);
-    BlockPrototype* block = block_mgr_->getPrototype(static_cast<BlockType>(i));
+    BlockPrototype* block = block_mgr_->getPrototype(i);
     button->setIcon(block->sprite().texturePixmap());
     button->setProperty("blockType", QVariant(i));
     QString block_name = block->name();

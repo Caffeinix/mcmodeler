@@ -47,8 +47,8 @@ class Diagram : public QObject, public BlockOracle {
 
   void setBlock(const BlockPosition& pos, const BlockInstance& block);
   void clearBlock(const BlockPosition& pos);
-  void fillBlocks(const BlockPosition& start_pos, const BlockType& type, BlockOrientation* orientation);
-  void drawLine(const BlockPosition& start_pos, const BlockPosition& end_pos, const BlockType& type, BlockOrientation* orientation);
+  void fillBlocks(const BlockPosition& start_pos, const blocktype_t& type, BlockOrientation* orientation);
+  void drawLine(const BlockPosition& start_pos, const BlockPosition& end_pos, const blocktype_t& type, BlockOrientation* orientation);
 
   void commit(const BlockTransaction& transaction);
 
@@ -56,7 +56,7 @@ class Diagram : public QObject, public BlockOracle {
 
   int blockCount() const;
 
-  QMap<BlockType, int> blockCounts() const;
+  QMap<blocktype_t, int> blockCounts() const;
 
   QHash<BlockPosition, BlockInstance> level(int level_index);
 
@@ -68,8 +68,8 @@ class Diagram : public QObject, public BlockOracle {
   void removeBlockInternal(const BlockPosition& position);
 
   void fillBlocksRecurse(const BlockPosition& pos,
-                         const BlockType& source_type,
-                         const BlockType& dest_type,
+                         const blocktype_t& source_type,
+                         const blocktype_t& dest_type,
                          BlockOrientation* dest_orientation,
                          const BlockPosition& start_pos,
                          int depth,

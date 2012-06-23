@@ -30,7 +30,7 @@
 #include "renderable.h"
 #include "texture.h"
 
-QMap<BlockType, BlockProperties> BlockPrototype::s_type_mapping;
+QMap<blocktype_t, BlockProperties> BlockPrototype::s_type_mapping;
 
 // Static.
 void BlockPrototype::setupBlockProperties() {
@@ -72,14 +72,14 @@ void BlockPrototype::setupBlockProperties() {
   int i = 0;
   foreach (QVariant block_variant, blocks) {
     QVariantMap block = block_variant.toMap();
-    s_type_mapping.insert((BlockType) i, BlockProperties(block));
+    s_type_mapping.insert(i, BlockProperties(block));
     ++i;
   }
   qApp->exit(0);
 }
 
 // static
-QString BlockPrototype::nameOfType(BlockType type) {
+QString BlockPrototype::nameOfType(blocktype_t type) {
   if (s_type_mapping.contains(type)) {
     return s_type_mapping.value(type).name();
   } else {
@@ -87,11 +87,16 @@ QString BlockPrototype::nameOfType(BlockType type) {
   }
 }
 
+// static
+int BlockPrototype::blockCount() {
+  return s_type_mapping.size();
+}
+
 const BlockProperties& BlockPrototype::properties() const {
   return properties_;
 }
 
-BlockPrototype::BlockPrototype(BlockType type, BlockOracle* oracle, QGLWidget* widget) : type_(type), oracle_(oracle) {
+BlockPrototype::BlockPrototype(blocktype_t type, BlockOracle* oracle, QGLWidget* widget) : type_(type), oracle_(oracle) {
   if (s_type_mapping.isEmpty()) {
     qWarning() << "You forgot to call setupBlockProperties!";
   }

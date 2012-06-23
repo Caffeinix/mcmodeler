@@ -27,7 +27,7 @@ class BlockInstance;
 class BlockOracle {
  public:
   /**
-    * Returns the BlockInstance at \p position.  If there is no block there, the BlockType of the returned instance
+    * Returns the BlockInstance at \p position.  If there is no block there, the block type of the returned instance
     * will be kBlockTypeAir.  The position of the instance will always equal \p position.
     */
   virtual BlockInstance blockAt(const BlockPosition& position) = 0;
