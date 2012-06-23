@@ -34,12 +34,20 @@ QMap<BlockType, BlockProperties> BlockPrototype::s_type_mapping;
 
 // Static.
 void BlockPrototype::setupBlockProperties() {
+#ifdef Q_OS_MACX
+  QFile f("../Resources/blocks.json");
+#else
   QFile f("blocks.json");
+#endif
   if (!f.exists()) {
     QMessageBox msg;
     msg.setIcon(QMessageBox::Critical);
     msg.setWindowTitle(qApp->applicationName());
+#ifdef Q_OS_MACX
+    msg.setText("The blocks.json file could not be found in the Resources folder inside the application bundle.");
+#else
     msg.setText("The blocks.json file could not be found in the application directory.");
+#endif
     msg.setInformativeText(
         QString("Without this file, %1 cannot continue. Please replace it or reinstall and try again.")
         .arg(qApp->applicationName()));

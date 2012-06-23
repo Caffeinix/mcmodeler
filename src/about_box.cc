@@ -23,4 +23,6 @@ AboutBox::AboutBox(QWidget* parent) : QDialog(parent) {
   ui.app_name_label_->setText(app_name);
   QString app_version = QCoreApplication::instance()->applicationVersion();
   ui.version_label_->setText(QString("version %1").arg(app_version));
+  ui.web_site_label_->setAttribute(Qt::WA_MacSmallSize, true);
+  ui.license_label_->setAttribute(Qt::WA_MacSmallSize, true);
 }
