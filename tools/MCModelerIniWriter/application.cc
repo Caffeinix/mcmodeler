@@ -35,6 +35,8 @@ QVariantList toArray(const QPoint& point) {
   return list;
 }
 
+// Texture face ordering for most cubic geometries:
+// FRONT, BACK, BOTTOM, RIGHT, TOP, LEFT
 QVariantList textures(const QList<QPoint>& indices) {
   QVariantList textures;
   foreach (const QPoint& point, indices) {
@@ -177,7 +179,7 @@ Application::Application(int argc, char *argv[]) :
                   false);
   blocks << block("Chest",
                   kGeometryCube,
-                  QPoint(12, 2),
+                  QPoint(11, 1),
                   QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
                   textures(QList<QPoint>() << QPoint(11, 1) << QPoint(10, 1) << QPoint(9, 1) << QPoint(10, 1) << QPoint(9, 1) << QPoint(10, 1)),
                   false);
@@ -405,7 +407,7 @@ Application::Application(int argc, char *argv[]) :
                   false);
   blocks << block("Bookcase",
                   kGeometryCube,
-                  QPoint(10, 2),
+                  QPoint(3, 2),
                   QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
                   textures(QList<QPoint>() << QPoint(3, 2) << QPoint(4, 0) << QPoint(4, 0) << QPoint(4, 0) << QPoint(4, 0) << QPoint(4, 0)),
                   false);
@@ -483,8 +485,8 @@ Application::Application(int argc, char *argv[]) :
                   false);
   blocks << block("Record Player",
                   kGeometryCube,
-                  QPoint(10, 4),
-                  QVariantList() << kOrientationNone,
+                  QPoint(11, 4),
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
                   textures(QList<QPoint>() << QPoint(10, 4) << QPoint(10, 4) << QPoint(9, 1) << QPoint(10, 4) << QPoint(11, 4) << QPoint(10, 4)),
                   false);
   blocks << block("Field",
@@ -553,6 +555,25 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationNone,
                   textures(QList<QPoint>() << QPoint(5, 14) << QPoint(5, 14) << QPoint(0, 13) << QPoint(5, 14) << QPoint(0, 11) << QPoint(5, 14)),
                   false);
+  blocks << block("Note Block",
+                  kGeometryCube,
+                  QPoint(10, 4),
+                  QVariantList() << kOrientationNone,
+                  textures(QPoint(10, 4)),
+                  false);
+  blocks << block("Bed (Bottom Half)",
+                  kGeometrySlab,
+                  QPoint(6, 9),
+                  QVariantList() << kOrientationNone,
+                  textures(QList<QPoint>() << QPoint(5, 9) << QPoint(5, 9) << QPoint(4, 0) << QPoint(6, 9) << QPoint(6, 8) << QPoint(6, 9)),
+                  true);
+  blocks << block("Bed (Top Half)",
+                  kGeometrySlab,
+                  QPoint(7, 9),
+                  QVariantList() << kOrientationNone,
+                  textures(QList<QPoint>() << QPoint(8, 9) << QPoint(8, 9) << QPoint(4, 0) << QPoint(7, 9) << QPoint(7, 8) << QPoint(7, 9)),
+                  true);
+
 
   QJson::Serializer serializer;
   QByteArray json = serializer.serialize(blocks);
