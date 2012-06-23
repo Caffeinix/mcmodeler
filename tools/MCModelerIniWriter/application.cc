@@ -565,13 +565,13 @@ Application::Application(int argc, char *argv[]) :
                   kGeometrySlab,
                   QPoint(6, 9),
                   QVariantList() << kOrientationNone,
-                  textures(QList<QPoint>() << QPoint(5, 9) << QPoint(5, 9) << QPoint(4, 0) << QPoint(6, 9) << QPoint(6, 8) << QPoint(6, 9)),
+                  textures(QList<QPoint>() << QPoint(5, 9) << QPoint(5, 11) << QPoint(4, 0) << QPoint(6, 9) << QPoint(6, 8) << QPoint(6, 9)),
                   true);
   blocks << block("Bed (Top Half)",
                   kGeometrySlab,
                   QPoint(7, 9),
                   QVariantList() << kOrientationNone,
-                  textures(QList<QPoint>() << QPoint(8, 9) << QPoint(8, 9) << QPoint(4, 0) << QPoint(7, 9) << QPoint(7, 8) << QPoint(7, 9)),
+                  textures(QList<QPoint>() << QPoint(5, 11) << QPoint(8, 9) << QPoint(4, 0) << QPoint(7, 9) << QPoint(7, 8) << QPoint(7, 9)),
                   true);
 
 

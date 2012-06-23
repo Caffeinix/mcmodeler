@@ -15,8 +15,7 @@
 
 #include "rectangular_prism_renderable.h"
 
-#include <QVector>
-
+#include "block_orientation.h"
 #include "enums.h"
 #include "render_delegate.h"
 
@@ -24,9 +23,8 @@
 #define GL_CLAMP_TO_EDGE 0x812F
 #endif
 
-RectangularPrismRenderable::RectangularPrismRenderable(const QVector3D& size) {
-  // TODO(phoenix): This works for half blocks, but probably does not generalize to blocks whose x and z sizes are
-  // not 1.
+
+RectangularPrismRenderable::Geometry RectangularPrismRenderable::createGeometry(const QVector3D& size) {
   QVector<QVector3D> verts;
   verts.resize(4);
   verts[kBottomRightCorner].setX(size.x());
@@ -39,66 +37,128 @@ RectangularPrismRenderable::RectangularPrismRenderable(const QVector3D& size) {
   for (int i = 0; i < 4; ++i) {
     back[i].setZ(-size.z());
   }
+  return qMakePair(verts, back);
+}
 
+RectangularPrismRenderable::TextureCoords RectangularPrismRenderable::createTextureCoords(
+    const Geometry& geometry, TextureSizing sizing) {
   QVector<QVector2D> top_tex;
   top_tex.resize(4);
-  top_tex[0] = QVector2D(verts[0].x(), -verts[0].z()); // 0, 0
-  top_tex[1] = QVector2D(verts[1].x(), -verts[1].z()); // 1, 0
-  top_tex[2] = QVector2D(verts[2].x(), -back[2].z());  // 1, 1
-  top_tex[3] = QVector2D(verts[3].x(), -back[3].z());  // 0, 1
-
   QVector<QVector2D> front_tex;
   front_tex.resize(4);
-  front_tex[0] = verts[0].toVector2D();
-  front_tex[1] = verts[1].toVector2D();
-  front_tex[2] = verts[2].toVector2D();
-  front_tex[3] = verts[3].toVector2D();
-
   QVector<QVector2D> back_tex;
   back_tex.resize(4);
-  back_tex[0] = verts[0].toVector2D();
-  back_tex[1] = verts[1].toVector2D();
-  back_tex[2] = verts[2].toVector2D();
-  back_tex[3] = verts[3].toVector2D();
-
   QVector<QVector2D> right_tex;
   right_tex.resize(4);
-  right_tex[0] = verts[1].toVector2D();
-  right_tex[1] = verts[2].toVector2D();
-  right_tex[2] = verts[3].toVector2D();
-  right_tex[3] = verts[0].toVector2D();
-
   QVector<QVector2D> bottom_tex;
   bottom_tex.resize(4);
-  bottom_tex[0] = QVector2D(verts[2].x(), -verts[2].z()); // 0, 0
-  bottom_tex[1] = QVector2D(verts[3].x(), -verts[3].z()); // 1, 0
-  bottom_tex[2] = QVector2D(verts[0].x(), -back[0].z());  // 1, 1
-  bottom_tex[3] = QVector2D(verts[1].x(), -back[1].z());  // 0, 1
-
   QVector<QVector2D> left_tex;
   left_tex.resize(4);
-  left_tex[0] = verts[3].toVector2D();
-  left_tex[1] = verts[0].toVector2D();
-  left_tex[2] = verts[1].toVector2D();
-  left_tex[3] = verts[2].toVector2D();
 
-  // now move verts half cube width across so cube is centered on origin
+  QVector<QVector3D> verts = geometry.first;
+  QVector<QVector3D> back = geometry.second;
+
+  if (sizing == kTextureClip) {
+    // Align the textures as they would appear on a 1x1x1 cube.
+    top_tex[0] = QVector2D(verts[0].x(), -verts[0].z());
+    top_tex[1] = QVector2D(verts[1].x(), -verts[1].z());
+    top_tex[2] = QVector2D(verts[2].x(), -back[2].z());
+    top_tex[3] = QVector2D(verts[3].x(), -back[3].z());
+
+    front_tex[0] = verts[0].toVector2D();
+    front_tex[1] = verts[1].toVector2D();
+    front_tex[2] = verts[2].toVector2D();
+    front_tex[3] = verts[3].toVector2D();
+
+    back_tex[0] = verts[0].toVector2D();
+    back_tex[1] = verts[1].toVector2D();
+    back_tex[2] = verts[2].toVector2D();
+    back_tex[3] = verts[3].toVector2D();
+
+    right_tex[0] = verts[1].toVector2D();
+    right_tex[1] = verts[2].toVector2D();
+    right_tex[2] = verts[3].toVector2D();
+    right_tex[3] = verts[0].toVector2D();
+
+    bottom_tex[0] = QVector2D(verts[2].x(), -verts[2].z());
+    bottom_tex[1] = QVector2D(verts[3].x(), -verts[3].z());
+    bottom_tex[2] = QVector2D(verts[0].x(), -back[0].z());
+    bottom_tex[3] = QVector2D(verts[1].x(), -back[1].z());
+
+    left_tex[0] = verts[3].toVector2D();
+    left_tex[1] = verts[0].toVector2D();
+    left_tex[2] = verts[1].toVector2D();
+    left_tex[3] = verts[2].toVector2D();
+  } else {
+    // Align the textures directly to the faces.
+    top_tex[0] = QVector2D(0, 0);
+    top_tex[1] = QVector2D(1, 0);
+    top_tex[2] = QVector2D(1, 1);
+    top_tex[3] = QVector2D(0, 1);
+
+    front_tex[0] = QVector2D(0, 0);
+    front_tex[1] = QVector2D(1, 0);
+    front_tex[2] = QVector2D(1, 1);
+    front_tex[3] = QVector2D(0, 1);
+
+    back_tex[0] = QVector2D(0, 0);
+    back_tex[1] = QVector2D(1, 0);
+    back_tex[2] = QVector2D(1, 1);
+    back_tex[3] = QVector2D(0, 1);
+
+    right_tex[0] = QVector2D(1, 0);
+    right_tex[1] = QVector2D(1, 1);
+    right_tex[2] = QVector2D(0, 1);
+    right_tex[3] = QVector2D(0, 0);
+
+    bottom_tex[0] = QVector2D(1, 1);
+    bottom_tex[1] = QVector2D(0, 1);
+    bottom_tex[2] = QVector2D(0, 0);
+    bottom_tex[3] = QVector2D(1, 0);
+
+    left_tex[0] = QVector2D(0, 1);
+    left_tex[1] = QVector2D(0, 0);
+    left_tex[2] = QVector2D(1, 0);
+    left_tex[3] = QVector2D(1, 1);
+  }
+
+//  To mirror horizontally:
+//  left_tex[0] = verts[2].toVector2D();
+//  left_tex[1] = verts[1].toVector2D();
+//  left_tex[2] = verts[0].toVector2D();
+//  left_tex[3] = verts[3].toVector2D();
+
+  return TextureCoords() << front_tex << back_tex << bottom_tex << right_tex << top_tex << left_tex;
+}
+
+RectangularPrismRenderable::RectangularPrismRenderable(const QVector3D& size, TextureSizing sizing) {
+  Geometry geometry = createGeometry(size);
+  TextureCoords texture_coords = createTextureCoords(geometry, sizing);
+
+  // Now move verts half cube width across so cube is centered on origin.
+  // (But keep it flat on the ground below it.)
   for (int i = 0; i < 4; ++i) {
-    verts[i] -= QVector3D(size.x() / 2.0f, 0.5f, -size.z() / 2.0f);
-    back[i] -= QVector3D(size.x() / 2.0f, 0.5f, -size.z() / 2.0f);
+    geometry.first[i] -= QVector3D(size.x() / 2.0f, 0.5f, -size.z() / 2.0f);
+    geometry.second[i] -= QVector3D(size.x() / 2.0f, 0.5f, -size.z() / 2.0f);
   }
 
   // add the front face
-  addQuad(verts[kBottomLeftCorner], verts[kBottomRightCorner], verts[kTopRightCorner], verts[kTopLeftCorner], front_tex);
+  addQuad(geometry.first[kBottomLeftCorner], geometry.first[kBottomRightCorner],
+          geometry.first[kTopRightCorner], geometry.first[kTopLeftCorner], texture_coords.at(0));
 
   // add the back face
-  addQuad(back[kBottomRightCorner], back[kBottomLeftCorner], back[kTopLeftCorner], back[kTopRightCorner], back_tex);
+  addQuad(geometry.second[kBottomRightCorner], geometry.second[kBottomLeftCorner],
+          geometry.second[kTopLeftCorner], geometry.second[kTopRightCorner], texture_coords.at(1));
 
   // add the sides
-  addQuad(back[kBottomLeftCorner], back[kBottomRightCorner], verts[kBottomRightCorner], verts[kBottomLeftCorner], bottom_tex); // Bottom
-  addQuad(back[kBottomRightCorner], back[kTopRightCorner], verts[kTopRightCorner], verts[kBottomRightCorner], right_tex);      // Right
-  addQuad(back[kTopRightCorner], back[kTopLeftCorner], verts[kTopLeftCorner], verts[kTopRightCorner], top_tex);                // Top
-  addQuad(back[kTopLeftCorner], back[kBottomLeftCorner], verts[kBottomLeftCorner], verts[kTopLeftCorner], left_tex);           // Left
+  addQuad(geometry.second[kBottomLeftCorner], geometry.second[kBottomRightCorner],
+          geometry.first[kBottomRightCorner], geometry.first[kBottomLeftCorner], texture_coords.at(2));  // Bottom
+  addQuad(geometry.second[kBottomRightCorner], geometry.second[kTopRightCorner],
+          geometry.first[kTopRightCorner], geometry.first[kBottomRightCorner], texture_coords.at(3));    // Right
+  addQuad(geometry.second[kTopRightCorner], geometry.second[kTopLeftCorner],
+          geometry.first[kTopLeftCorner], geometry.first[kTopRightCorner], texture_coords.at(4));        // Top
+  addQuad(geometry.second[kTopLeftCorner], geometry.second[kBottomLeftCorner],
+          geometry.first[kBottomLeftCorner], geometry.first[kTopLeftCorner], texture_coords.at(5));      // Left
 }
 
 void RectangularPrismRenderable::appendVertex(const QVector3D& vertex,
@@ -133,7 +193,7 @@ void RectangularPrismRenderable::renderAt(const QVector3D& location, const Block
     if (renderDelegate() && !renderDelegate()->shouldRenderFace(this, static_cast<Face>(start / 4), location)) {
       continue;
     }
-    glBindTexture(GL_TEXTURE_2D, texture(start / 4).textureId());
+    glBindTexture(GL_TEXTURE_2D, texture(rotatedTextureIndex(start / 4, orientation)).textureId());
     glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -143,4 +203,48 @@ void RectangularPrismRenderable::renderAt(const QVector3D& location, const Block
     glDrawElements(GL_QUADS, 4, GL_UNSIGNED_SHORT, indices);
   }
   glPopMatrix();
+}
+
+int RectangularPrismRenderable::rotatedTextureIndex(int local_index, const BlockOrientation* orientation) const {
+  if (orientation == BlockOrientation::get("Facing North")) {
+    switch (local_index) {
+    case kFrontFace:
+      return kBackFace;
+    case kBackFace:
+      return kFrontFace;
+    case kRightFace:
+      return kLeftFace;
+    case kLeftFace:
+      return kRightFace;
+    default:
+      break;
+    }
+  } else if (orientation == BlockOrientation::get("Facing East")) {
+    switch (local_index) {
+    case kFrontFace:
+      return kLeftFace;
+    case kBackFace:
+      return kRightFace;
+    case kRightFace:
+      return kFrontFace;
+    case kLeftFace:
+      return kBackFace;
+    default:
+      break;
+    }
+  } else if (orientation == BlockOrientation::get("Facing West")) {
+    switch (local_index) {
+    case kFrontFace:
+      return kRightFace;
+    case kBackFace:
+      return kLeftFace;
+    case kRightFace:
+      return kBackFace;
+    case kLeftFace:
+      return kFrontFace;
+    default:
+      break;
+    }
+  }
+  return local_index;
 }
