@@ -24,7 +24,6 @@
 
 #include "block_oracle.h"
 #include "block_position.h"
-#include "cubic_renderable.h"
 #include "overlapping_faces_renderable.h"
 #include "rectangular_prism_renderable.h"
 #include "renderable.h"
@@ -103,11 +102,16 @@ BlockPrototype::BlockPrototype(blocktype_t type, BlockOracle* oracle, QGLWidget*
   properties_ = s_type_mapping.value(type_);
   switch (properties_.geometry()) {
     case kBlockGeometryCube:
-      renderable_.reset(new CubicRenderable(1.0f));
+    renderable_.reset(new RectangularPrismRenderable(QVector3D(1.0f, 1.0f, 1.0f)));
       break;
     case kBlockGeometrySlab:
       renderable_.reset(new RectangularPrismRenderable(QVector3D(1.0f, 0.5f, 1.0f)));
       break;
+    case kBlockGeometryChest:
+      renderable_.reset(new RectangularPrismRenderable(QVector3D(0.9f, 0.9f, 0.9f),
+                                                       RectangularPrismRenderable::kTextureScale));
+    case kBlockGeometryPressurePlate:
+      renderable_.reset(new RectangularPrismRenderable(QVector3D(0.8f, 0.2f, 0.8f)));
     case kBlockGeometryCactus:
       renderable_.reset(new OverlappingFacesRenderable(1.0f, QVector3D(1.f/16.f, 0.f, 1.f/16.f)));
       break;
