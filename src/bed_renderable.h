@@ -8,7 +8,7 @@ class BedRenderable : public RectangularPrismRenderable {
   explicit BedRenderable();
 
  protected:
-  virtual TextureCoords createTextureCoords(const Geometry& geometry, TextureSizing sizing);
+  virtual TextureCoords createTextureCoords(const Geometry& geometry);
   virtual void addGeometry(const Geometry& geometry, const TextureCoords& texture_coords);
 
 };

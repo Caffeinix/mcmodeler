@@ -109,8 +109,7 @@ StairsRenderable::TextureCoords StairsRenderable::createTextureCoords(const Geom
   TextureCoords front_coords = createTextureCoordsForBlock(geometry[0], geometry[1]);
   TextureCoords back_coords = createTextureCoordsForBlock(geometry[2], geometry[3]);
 
-  qDebug() << "Left tex before:" << front_coords[kLeftFace];
-
+  // See http://goo.gl/OSz2U.
   front_coords[kLeftFace][kBottomLeftCorner] += QVector2D(0.5, 0);
   front_coords[kLeftFace][kBottomRightCorner] += QVector2D(0.5, 0);
   front_coords[kLeftFace][kTopRightCorner] += QVector2D(0.5, 0);
@@ -120,8 +119,6 @@ StairsRenderable::TextureCoords StairsRenderable::createTextureCoords(const Geom
   back_coords[kLeftFace][kBottomRightCorner] += QVector2D(-0.5, 0);
   back_coords[kLeftFace][kTopRightCorner] += QVector2D(-0.5, 0);
   back_coords[kLeftFace][kTopLeftCorner] += QVector2D(-0.5, 0);
-
-  qDebug() << "Left tex after:" << front_coords[kLeftFace];
 
   return TextureCoords() << front_coords << back_coords;
 }

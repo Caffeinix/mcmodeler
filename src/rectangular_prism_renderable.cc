@@ -23,69 +23,65 @@
 #endif
 
 RectangularPrismRenderable::RectangularPrismRenderable(const QVector3D& size, TextureSizing sizing)
-    : size_(size),
+    : BasicRenderable(size),
       sizing_(sizing) {
-}
-
-void RectangularPrismRenderable::initialize() {
-  Geometry geometry = createGeometry(size_);
-  TextureCoords texture_coords = createTextureCoords(geometry, sizing_);
-  geometry = moveToOrigin(size_, geometry);
-  addGeometry(geometry, texture_coords);
 }
 
 void RectangularPrismRenderable::addGeometry(const RectangularPrismRenderable::Geometry& geometry,
                                              const RectangularPrismRenderable::TextureCoords& texture_coords) {
   // add the front face
-  addQuad(geometry.first[kBottomLeftCorner], geometry.first[kBottomRightCorner],
-          geometry.first[kTopRightCorner], geometry.first[kTopLeftCorner], texture_coords.at(0));
+  addQuad(geometry[0][kBottomLeftCorner], geometry[0][kBottomRightCorner],
+          geometry[0][kTopRightCorner], geometry[0][kTopLeftCorner], texture_coords.at(0));
 
   // add the back face
-  addQuad(geometry.second[kBottomRightCorner], geometry.second[kBottomLeftCorner],
-          geometry.second[kTopLeftCorner], geometry.second[kTopRightCorner], texture_coords.at(1));
+  addQuad(geometry[1][kBottomRightCorner], geometry[1][kBottomLeftCorner],
+          geometry[1][kTopLeftCorner], geometry[1][kTopRightCorner], texture_coords.at(1));
 
   // add the sides
-  addQuad(geometry.second[kBottomLeftCorner], geometry.second[kBottomRightCorner],
-          geometry.first[kBottomRightCorner], geometry.first[kBottomLeftCorner], texture_coords.at(2));  // Bottom
-  addQuad(geometry.second[kBottomRightCorner], geometry.second[kTopRightCorner],
-          geometry.first[kTopRightCorner], geometry.first[kBottomRightCorner], texture_coords.at(3));    // Right
-  addQuad(geometry.second[kTopRightCorner], geometry.second[kTopLeftCorner],
-          geometry.first[kTopLeftCorner], geometry.first[kTopRightCorner], texture_coords.at(4));        // Top
-  addQuad(geometry.second[kTopLeftCorner], geometry.second[kBottomLeftCorner],
-          geometry.first[kBottomLeftCorner], geometry.first[kTopLeftCorner], texture_coords.at(5));      // Left
+  addQuad(geometry[1][kBottomLeftCorner], geometry[1][kBottomRightCorner],
+          geometry[0][kBottomRightCorner], geometry[0][kBottomLeftCorner], texture_coords.at(2));  // Bottom
+  addQuad(geometry[1][kBottomRightCorner], geometry[1][kTopRightCorner],
+          geometry[0][kTopRightCorner], geometry[0][kBottomRightCorner], texture_coords.at(3));    // Right
+  addQuad(geometry[1][kTopRightCorner], geometry[1][kTopLeftCorner],
+          geometry[0][kTopLeftCorner], geometry[0][kTopRightCorner], texture_coords.at(4));        // Top
+  addQuad(geometry[1][kTopLeftCorner], geometry[1][kBottomLeftCorner],
+          geometry[0][kBottomLeftCorner], geometry[0][kTopLeftCorner], texture_coords.at(5));      // Left
 }
 
 RectangularPrismRenderable::Geometry RectangularPrismRenderable::moveToOrigin(
-    const QVector3D& size, const RectangularPrismRenderable::Geometry& geometry) {
+    const RectangularPrismRenderable::Geometry& geometry) {
   // Now move verts half cube width across so cube is centered on origin.
   // (But keep it flat on the ground below it.)
+  const QVector3D& sz = size();
   Geometry out_geometry = geometry;
   for (int i = 0; i < 4; ++i) {
-    out_geometry.first[i] -= QVector3D(size.x() / 2.0f, 0.5f, -size.z() / 2.0f);
-    out_geometry.second[i] -= QVector3D(size.x() / 2.0f, 0.5f, -size.z() / 2.0f);
+    out_geometry[0][i] -= QVector3D(sz.x() / 2.0f, 0.5f, -sz.z() / 2.0f);
+    out_geometry[1][i] -= QVector3D(sz.x() / 2.0f, 0.5f, -sz.z() / 2.0f);
   }
   return out_geometry;
 }
 
 
-RectangularPrismRenderable::Geometry RectangularPrismRenderable::createGeometry(const QVector3D& size) {
+RectangularPrismRenderable::Geometry RectangularPrismRenderable::createGeometry() {
+  const QVector3D& sz = size();
   QVector<QVector3D> verts;
   verts.resize(4);
-  verts[kBottomRightCorner].setX(size.x());
-  verts[kTopRightCorner].setX(size.x());
-  verts[kTopRightCorner].setY(size.y());
-  verts[kTopLeftCorner].setY(size.y());
+  verts[kBottomRightCorner].setX(sz.x());
+  verts[kTopRightCorner].setX(sz.x());
+  verts[kTopRightCorner].setY(sz.y());
+  verts[kTopLeftCorner].setY(sz.y());
 
   // back face - "extrude" verts down
   QVector<QVector3D> back(verts);
   for (int i = 0; i < 4; ++i) {
-    back[i].setZ(-size.z());
+    back[i].setZ(-sz.z());
   }
-  return qMakePair(verts, back);
+  return Geometry() << verts << back;
 }
 
 RectangularPrismRenderable::TextureCoords RectangularPrismRenderable::createTextureCoords(
-    const Geometry& geometry, TextureSizing sizing) {
+    const Geometry& geometry) {
+  TextureSizing szng = sizing();
   QVector<QVector2D> top_tex;
   top_tex.resize(4);
   QVector<QVector2D> front_tex;
@@ -99,10 +95,10 @@ RectangularPrismRenderable::TextureCoords RectangularPrismRenderable::createText
   QVector<QVector2D> left_tex;
   left_tex.resize(4);
 
-  QVector<QVector3D> verts = geometry.first;
-  QVector<QVector3D> back = geometry.second;
+  QVector<QVector3D> verts = geometry[0];
+  QVector<QVector3D> back = geometry[1];
 
-  if (sizing == kTextureClip) {
+  if (szng == kTextureClip) {
     // Align the textures as they would appear on a 1x1x1 cube.
     top_tex[kBottomLeftCorner] = QVector2D(verts[kTopLeftCorner].x(), -back[kTopLeftCorner].z());
     top_tex[kBottomRightCorner] = QVector2D(verts[kTopRightCorner].x(), -back[kTopRightCorner].z());
@@ -169,24 +165,6 @@ RectangularPrismRenderable::TextureCoords RectangularPrismRenderable::createText
   return TextureCoords() << front_tex << back_tex << bottom_tex << right_tex << top_tex << left_tex;
 }
 
-void RectangularPrismRenderable::appendVertex(const QVector3D& vertex,
-                                              const QVector3D& normal,
-                                              const QVector2D& tex_coord) {
-  vertices_.append(vertex);
-  normals_.append(normal);
-  tex_coords_.append(tex_coord);
-}
-
-void RectangularPrismRenderable::addQuad(const QVector3D &a, const QVector3D &b,
-                                         const QVector3D &c, const QVector3D &d,
-                                         const QVector<QVector2D> &tex) {
-  QVector3D norm = QVector3D::normal(a, b, c);
-  appendVertex(a, norm, tex[kBottomLeftCorner]);
-  appendVertex(b, norm, tex[kBottomRightCorner]);
-  appendVertex(c, norm, tex[kTopRightCorner]);
-  appendVertex(d, norm, tex[kTopLeftCorner]);
-}
-
 void RectangularPrismRenderable::renderAt(const QVector3D& location, const BlockOrientation* orientation) const {
   glPushMatrix();
   glTranslatef(location.x(), location.y(), location.z());
@@ -202,10 +180,10 @@ void RectangularPrismRenderable::renderAt(const QVector3D& location, const Block
   glEnableClientState(GL_VERTEX_ARRAY);
   glEnableClientState(GL_NORMAL_ARRAY);
   glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-  glVertexPointer(3, GL_FLOAT, 0, vertices_.constData());
-  glNormalPointer(GL_FLOAT, 0, normals_.constData());
-  glTexCoordPointer(2, GL_FLOAT, 0, tex_coords_.constData());
-  for (int start = 0; start < vertices_.size(); start += 4) {
+  glVertexPointer(3, GL_FLOAT, 0, vertices().constData());
+  glNormalPointer(GL_FLOAT, 0, normals().constData());
+  glTexCoordPointer(2, GL_FLOAT, 0, textureCoords().constData());
+  for (int start = 0; start < vertices().size(); start += 4) {
     // Front, back, bottom, right, top, left.
     Face face = mapToDefaultOrientation(static_cast<Face>(start / 4), orientation);
     if (renderDelegate() && !renderDelegate()->shouldRenderFace(this, face, location)) {

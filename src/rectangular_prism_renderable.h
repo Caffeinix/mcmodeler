@@ -17,14 +17,13 @@
 #define RECTANGULAR_PRISM_RENDERABLE_H
 
 #include "enums.h"
-#include "renderable.h"
+#include "basic_renderable.h"
 
-#include <QPair>
 #include <QVector>
 #include <QVector2D>
 #include <QVector3D>
 
-class RectangularPrismRenderable : public Renderable {
+class RectangularPrismRenderable : public BasicRenderable {
  public:
   enum TextureSizing {
     kTextureClip,
@@ -34,26 +33,17 @@ class RectangularPrismRenderable : public Renderable {
   explicit RectangularPrismRenderable(const QVector3D& size, TextureSizing sizing = kTextureClip);
   virtual ~RectangularPrismRenderable() {}
 
-  virtual void initialize();
-
   virtual void renderAt(const QVector3D& location, const BlockOrientation* orientation) const;
 
  protected:
-  typedef QPair< QVector<QVector3D>, QVector<QVector3D> > Geometry;
-  typedef QVector< QVector<QVector2D> > TextureCoords;
+  TextureSizing sizing() const {
+    return sizing_;
+  }
 
-  virtual Geometry createGeometry(const QVector3D& size);
-  virtual TextureCoords createTextureCoords(const Geometry& geometry, TextureSizing sizing);
-  virtual Geometry moveToOrigin(const QVector3D& size, const Geometry& geometry);
+  virtual Geometry createGeometry();
+  virtual TextureCoords createTextureCoords(const Geometry& geometry);
+  virtual Geometry moveToOrigin(const Geometry& geometry);
   virtual void addGeometry(const Geometry& geometry, const TextureCoords& texture_coords);
-
-  void appendVertex(const QVector3D &vertex,
-                    const QVector3D &normal,
-                    const QVector2D &tex_coord);
-
-  void addQuad(const QVector3D &a, const QVector3D &b,
-               const QVector3D &c, const QVector3D &d,
-               const QVector<QVector2D> &tex);
 
   /**
     * Translates faces from \p from_orientation into the default orientation.
@@ -69,11 +59,7 @@ class RectangularPrismRenderable : public Renderable {
   virtual Face mapToDefaultOrientation(Face local_face, const BlockOrientation* from_orientation) const;
 
  private:
-  QVector3D size_;
   TextureSizing sizing_;
-  QVector<QVector3D> vertices_;
-  QVector<QVector3D> normals_;
-  QVector<QVector2D> tex_coords_;
 };
 
 #endif // RECTANGULAR_PRISM_RENDERABLE_H

@@ -8,8 +8,8 @@ class DoorRenderable : public RectangularPrismRenderable {
   explicit DoorRenderable();
 
  protected:
-  virtual TextureCoords createTextureCoords(const Geometry& geometry, TextureSizing sizing);
-  virtual Geometry moveToOrigin(const QVector3D& size, const Geometry& geometry);
+  virtual TextureCoords createTextureCoords(const Geometry& geometry);
+  virtual Geometry moveToOrigin(const Geometry& geometry);
 
 };
 

@@ -8,9 +8,8 @@
 BedRenderable::BedRenderable() : RectangularPrismRenderable(QVector3D(1.0f, 0.5f, 1.0f)) {
 }
 
-BedRenderable::TextureCoords BedRenderable::createTextureCoords(
-    const Geometry& geometry, TextureSizing sizing) {
-  BedRenderable::TextureCoords coords = RectangularPrismRenderable::createTextureCoords(geometry, sizing);
+BedRenderable::TextureCoords BedRenderable::createTextureCoords(const Geometry& geometry) {
+  BedRenderable::TextureCoords coords = RectangularPrismRenderable::createTextureCoords(geometry);
   // Flip the front face horizontally.
   QVector<QVector2D> front_texture = coords[kFrontFace];
   qSwap(front_texture[kBottomLeftCorner], front_texture[kBottomRightCorner]);
@@ -22,25 +21,25 @@ BedRenderable::TextureCoords BedRenderable::createTextureCoords(
 void BedRenderable::addGeometry(const BedRenderable::Geometry& geometry,
                                 const BedRenderable::TextureCoords& texture_coords) {
   // add the front face
-  addQuad(geometry.first[kBottomLeftCorner], geometry.first[kBottomRightCorner],
-          geometry.first[kTopRightCorner], geometry.first[kTopLeftCorner], texture_coords.at(0));
+  addQuad(geometry[0][kBottomLeftCorner], geometry[0][kBottomRightCorner],
+          geometry[0][kTopRightCorner], geometry[0][kTopLeftCorner], texture_coords.at(0));
 
   // add the back face
-  addQuad(geometry.second[kBottomRightCorner], geometry.second[kBottomLeftCorner],
-          geometry.second[kTopLeftCorner], geometry.second[kTopRightCorner], texture_coords.at(1));
+  addQuad(geometry[1][kBottomRightCorner], geometry[1][kBottomLeftCorner],
+          geometry[1][kTopLeftCorner], geometry[1][kTopRightCorner], texture_coords.at(1));
 
   // add the sides
 
   // Lift the mattress bottom up past the legs.
   QVector3D mattress_lift = QVector3D(0.0f, 0.25f, 0.0f);
-  addQuad(geometry.second[kBottomLeftCorner] + mattress_lift, geometry.second[kBottomRightCorner] + mattress_lift,
-          geometry.first[kBottomRightCorner] + mattress_lift, geometry.first[kBottomLeftCorner] + mattress_lift,
+  addQuad(geometry[1][kBottomLeftCorner] + mattress_lift, geometry[1][kBottomRightCorner] + mattress_lift,
+          geometry[0][kBottomRightCorner] + mattress_lift, geometry[0][kBottomLeftCorner] + mattress_lift,
           texture_coords.at(2));  // Bottom
-  addQuad(geometry.second[kBottomRightCorner], geometry.second[kTopRightCorner],
-          geometry.first[kTopRightCorner], geometry.first[kBottomRightCorner], texture_coords.at(3));    // Right
-  addQuad(geometry.second[kTopRightCorner], geometry.second[kTopLeftCorner],
-          geometry.first[kTopLeftCorner], geometry.first[kTopRightCorner], texture_coords.at(4));        // Top
-  addQuad(geometry.second[kTopLeftCorner], geometry.second[kBottomLeftCorner],
-          geometry.first[kBottomLeftCorner], geometry.first[kTopLeftCorner], texture_coords.at(5));      // Left
+  addQuad(geometry[1][kBottomRightCorner], geometry[1][kTopRightCorner],
+          geometry[0][kTopRightCorner], geometry[0][kBottomRightCorner], texture_coords.at(3));    // Right
+  addQuad(geometry[1][kTopRightCorner], geometry[1][kTopLeftCorner],
+          geometry[0][kTopLeftCorner], geometry[0][kTopRightCorner], texture_coords.at(4));        // Top
+  addQuad(geometry[1][kTopLeftCorner], geometry[1][kBottomLeftCorner],
+          geometry[0][kBottomLeftCorner], geometry[0][kTopLeftCorner], texture_coords.at(5));      // Left
 }
 

@@ -33,7 +33,8 @@ HEADERS = \
     line_tool.h \
     bed_renderable.h \
     door_renderable.h \
-    stairs_renderable.h
+    stairs_renderable.h \
+    basic_renderable.h
 
 SOURCES = \
     about_box.cc \
@@ -64,7 +65,8 @@ SOURCES = \
     line_tool.cc \
     bed_renderable.cc \
     door_renderable.cc \
-    stairs_renderable.cc
+    stairs_renderable.cc \
+    basic_renderable.cc
 
 QT += opengl
 
@@ -103,6 +105,12 @@ win32 {
 }
 
 TARGET = "MCModeler"
+
+
+
+
+
+
 
 
 
