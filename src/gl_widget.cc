@@ -105,10 +105,10 @@ void GLWidget::initializeGL() {
   static GLfloat light_position[4] = { 0.5, 0.0, 0.0, 1.0 };
   static GLfloat light_ambient_intensity[4] = { 0.0, 0.0, 0.0, 1.0 };
   static GLfloat light_diffuse_intensity[4] = { 2.0, 2.0, 2.0, 1.0 };
-  glLightfv(GL_LIGHT1, GL_POSITION, light_position);
-  glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient_intensity);
-  glLightfv(GL_LIGHT1, GL_DIFFUSE, light_diffuse_intensity);
-  glLightf(GL_LIGHT1, GL_QUADRATIC_ATTENUATION, 0.1f);
+  glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+  glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient_intensity);
+  glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse_intensity);
+  glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.1f);
 
   GLfloat global_ambient[] = { 0.0f, 0.0f, 0.0f, 1.0f };
   glLightModelfv(GL_LIGHT_MODEL_AMBIENT, global_ambient);
