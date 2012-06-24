@@ -105,8 +105,6 @@ RectangularPrismRenderable::TextureCoords RectangularPrismRenderable::createText
     top_tex[kTopRightCorner] = QVector2D(verts[kBottomLeftCorner].x(), -verts[kBottomLeftCorner].z());
     top_tex[kTopLeftCorner] = QVector2D(verts[kBottomRightCorner].x(), -verts[kBottomRightCorner].z());
 
-    qDebug() << "Top tex coords:" << top_tex;
-
     front_tex[kBottomLeftCorner] = verts[kBottomLeftCorner].toVector2D();
     front_tex[kBottomRightCorner] = verts[kBottomRightCorner].toVector2D();
     front_tex[kTopRightCorner] = verts[kTopRightCorner].toVector2D();

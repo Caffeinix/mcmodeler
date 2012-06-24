@@ -20,6 +20,7 @@
 
 BlockProperties::BlockProperties()
     : name_(QString()),
+      categories_(QStringList()),
       geometry_(kBlockGeometryCube),
       valid_orientations_(QVector<BlockOrientation*>()),
       tile_offsets_(QVector<QPoint>()),
@@ -37,6 +38,8 @@ BlockProperties::BlockProperties(const QVariantMap& block_data) {
     QVariant value = block_data.value(key);
     if (key == "name") {
       name_ = value.toString();
+    } else if (key == "categories") {
+      categories_ = value.toStringList();
     } else if (key == "isTransparent") {
       is_transparent_ = value.toBool();
     } else if (key == "isBiomeGrass") {
@@ -91,27 +94,12 @@ BlockProperties::BlockProperties(const QVariantMap& block_data) {
   is_valid_ = true;
 }
 
-BlockProperties::BlockProperties(QString name,
-                                 BlockGeometry geometry,
-                                 QVector<BlockOrientation*> valid_orientations,
-                                 QVector<QPoint> tile_offsets,
-                                 QPoint sprite_offset,
-                                 bool is_transparent,
-                                 bool is_biome_grass,
-                                 bool is_biome_tree)
-    : name_(name),
-      geometry_(geometry),
-      valid_orientations_(valid_orientations),
-      tile_offsets_(tile_offsets),
-      sprite_offset_(sprite_offset),
-      is_transparent_(is_transparent),
-      is_biome_grass_(is_biome_grass),
-      is_biome_tree_(is_biome_tree),
-      is_valid_(true) {
-}
-
 QString BlockProperties::name() const {
   return name_;
+}
+
+QStringList BlockProperties::categories() const {
+  return categories_;
 }
 
 BlockGeometry BlockProperties::geometry() const {

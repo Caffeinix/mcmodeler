@@ -79,6 +79,13 @@ class BlockPrototype : public RenderDelegate {
   }
 
   /**
+    * Returns the names of the categories to which this block belongs.
+    */
+  QStringList categories() const {
+    return properties().categories();
+  }
+
+  /**
     * Returns the blocktype_t constant for blocks of this type.
     */
   inline blocktype_t type() const {

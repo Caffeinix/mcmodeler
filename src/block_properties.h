@@ -18,6 +18,7 @@
 
 #include <QPoint>
 #include <QString>
+#include <QStringList>
 #include <QVariantMap>
 #include <QVector>
 
@@ -49,24 +50,9 @@ class BlockProperties {
     */
   explicit BlockProperties(const QVariantMap& block_data);
 
-  /**
-    * Constructs a BlockProperties instance out of the given data.  Generally, the only place this constructor needs
-    * to be called is inside BlockPrototype::setupBlockProperties().  To get properties like name, transparency, and
-    * orientations for an existing block type, go through BlockPrototype instead.
-    *
-    * For parameter documentation, see the getter methods elsewhere in this class.
-    */
-  BlockProperties(QString name,
-                  BlockGeometry geometry,
-                  QVector<BlockOrientation*> valid_orientations,
-                  QVector<QPoint> tile_offsets,
-                  QPoint sprite_offset,
-                  bool is_transparent,
-                  bool is_biome_grass,
-                  bool is_biome_tree);
-
   BlockProperties(const BlockProperties& other)
       : name_(other.name()),
+        categories_(other.categories()),
         geometry_(other.geometry()),
         valid_orientations_(other.validOrientations()),
         tile_offsets_(other.tileOffsets()),
@@ -79,6 +65,7 @@ class BlockProperties {
 
   BlockProperties& operator=(const BlockProperties& other) {
     name_ = other.name();
+    categories_ = other.categories();
     geometry_ = other.geometry();
     valid_orientations_ = other.validOrientations();
     tile_offsets_ = other.tileOffsets();
@@ -96,6 +83,12 @@ class BlockProperties {
     * Returns the name of this block type.
     */
   QString name() const;
+
+  /**
+    * Returns the names of categories to which this block belongs.  The categories are used for block sorting and
+    * filtering.
+    */
+  QStringList categories() const;
 
   /**
     * Returns what kind of geometry this block type uses.
@@ -151,6 +144,7 @@ class BlockProperties {
 
 private:
   QString name_;
+  QStringList categories_;
   BlockGeometry geometry_;
   QVector<BlockOrientation*> valid_orientations_;
   QVector<QPoint> tile_offsets_;
