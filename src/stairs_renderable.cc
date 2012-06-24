@@ -18,20 +18,10 @@
 #include "block_orientation.h"
 #include "render_delegate.h"
 
-#ifndef GL_CLAMP_TO_EDGE
-#define GL_CLAMP_TO_EDGE 0x812F
-#endif
-
 StairsRenderable::StairsRenderable(const QVector3D& size)
-    : size_(size) {
+    : BasicRenderable(size) {
 }
 
-void StairsRenderable::initialize() {
-  Geometry geometry = createGeometry(size_);
-  TextureCoords texture_coords = createTextureCoords(geometry);
-  geometry = moveToOrigin(size_, geometry);
-  addGeometry(geometry, texture_coords);
-}
 
 void StairsRenderable::addGeometry(const StairsRenderable::Geometry& geometry,
                                    const StairsRenderable::TextureCoords& texture_coords) {
@@ -45,61 +35,62 @@ void StairsRenderable::addGeometry(const StairsRenderable::Geometry& geometry,
             geometry[back][kTopLeftCorner], geometry[back][kTopRightCorner], texture_coords.at(coords + 1));
 
     // add the sides
-    addQuad(geometry[back][kBottomLeftCorner], geometry[back][kBottomRightCorner],
-            geometry[front][kBottomRightCorner], geometry[front][kBottomLeftCorner], texture_coords.at(coords + 2));  // Bottom
-    addQuad(geometry[back][kBottomRightCorner], geometry[back][kTopRightCorner],
-            geometry[front][kTopRightCorner], geometry[front][kBottomRightCorner], texture_coords.at(coords + 3));    // Right
-    addQuad(geometry[back][kTopRightCorner], geometry[back][kTopLeftCorner],
-            geometry[front][kTopLeftCorner], geometry[front][kTopRightCorner], texture_coords.at(coords + 4));        // Top
-    addQuad(geometry[back][kTopLeftCorner], geometry[back][kBottomLeftCorner],
-            geometry[front][kBottomLeftCorner], geometry[front][kTopLeftCorner], texture_coords.at(coords + 5));      // Left
+    addQuad(geometry[back][kBottomLeftCorner], geometry[back][kBottomRightCorner],                             // Bottom
+            geometry[front][kBottomRightCorner], geometry[front][kBottomLeftCorner], texture_coords.at(coords + 2));
+    addQuad(geometry[back][kBottomRightCorner], geometry[back][kTopRightCorner],                               // Right
+            geometry[front][kTopRightCorner], geometry[front][kBottomRightCorner], texture_coords.at(coords + 3));
+    addQuad(geometry[back][kTopRightCorner], geometry[back][kTopLeftCorner],                                   // Top
+            geometry[front][kTopLeftCorner], geometry[front][kTopRightCorner], texture_coords.at(coords + 4));
+    addQuad(geometry[back][kTopLeftCorner], geometry[back][kBottomLeftCorner],                                 // Left
+            geometry[front][kBottomLeftCorner], geometry[front][kTopLeftCorner], texture_coords.at(coords + 5));
   }
 }
 
-StairsRenderable::Geometry StairsRenderable::moveToOrigin(
-    const QVector3D& size, const StairsRenderable::Geometry& geometry) {
-  // Now move verts half cube width across so cube is centered on origin.
+StairsRenderable::Geometry StairsRenderable::moveToOrigin(const StairsRenderable::Geometry& geometry) {
+  // Move move verts half cube width across so cube is centered on origin.
   // (But keep it flat on the ground below it.)
+  QVector3D sz = size();
   Geometry out_geometry = geometry;
   for (int quad = 0; quad < 4; ++quad) {
     for (int i = 0; i < 4; ++i) {
-      out_geometry[quad][i] -= QVector3D(size.x() / 2.0f, 0.5f, -size.z() / 2.0f);
+      out_geometry[quad][i] -= QVector3D(sz.x() / 2.0f, 0.5f, -sz.z() / 2.0f);
     }
   }
   return out_geometry;
 }
 
 
-StairsRenderable::Geometry StairsRenderable::createGeometry(const QVector3D& size) {
+StairsRenderable::Geometry StairsRenderable::createGeometry() {
+  QVector3D sz = size();
   QVector<QVector3D> verts1;
   verts1.resize(4);
-  verts1[kBottomRightCorner].setX(size.x());
-  verts1[kTopRightCorner].setX(size.x());
-  verts1[kTopRightCorner].setY(size.y() / 2);
-  verts1[kTopLeftCorner].setY(size.y() / 2);
+  verts1[kBottomRightCorner].setX(sz.x());
+  verts1[kTopRightCorner].setX(sz.x());
+  verts1[kTopRightCorner].setY(sz.y() / 2);
+  verts1[kTopLeftCorner].setY(sz.y() / 2);
 
   // back face - "extrude" verts down
   QVector<QVector3D> back1(verts1);
   for (int i = 0; i < 4; ++i) {
-    back1[i].setZ(-size.z() / 2);
+    back1[i].setZ(-sz.z() / 2);
   }
 
   // Repeat for other block
   QVector<QVector3D> verts2;
   verts2.resize(4);
-  verts2[kBottomLeftCorner].setZ(-size.z() / 2);
-  verts2[kBottomRightCorner].setZ(-size.z() / 2);
-  verts2[kTopRightCorner].setZ(-size.z() / 2);
-  verts2[kTopLeftCorner].setZ(-size.z() / 2);
-  verts2[kBottomRightCorner].setX(size.x());
-  verts2[kTopRightCorner].setX(size.x());
-  verts2[kTopRightCorner].setY(size.y());
-  verts2[kTopLeftCorner].setY(size.y());
+  verts2[kBottomLeftCorner].setZ(-sz.z() / 2);
+  verts2[kBottomRightCorner].setZ(-sz.z() / 2);
+  verts2[kTopRightCorner].setZ(-sz.z() / 2);
+  verts2[kTopLeftCorner].setZ(-sz.z() / 2);
+  verts2[kBottomRightCorner].setX(sz.x());
+  verts2[kTopRightCorner].setX(sz.x());
+  verts2[kTopRightCorner].setY(sz.y());
+  verts2[kTopLeftCorner].setY(sz.y());
 
   // back face - "extrude" verts down
   QVector<QVector3D> back2(verts2);
   for (int i = 0; i < 4; ++i) {
-    back2[i].setZ(-size.z());
+    back2[i].setZ(-sz.z());
   }
 
   return Geometry() << verts1 << back1 << verts2 << back2;
@@ -171,28 +162,7 @@ StairsRenderable::TextureCoords StairsRenderable::createTextureCoordsForBlock(QV
   return TextureCoords() << front_tex << back_tex << bottom_tex << right_tex << top_tex << left_tex;
 }
 
-void StairsRenderable::appendVertex(const QVector3D& vertex,
-                                    const QVector3D& normal,
-                                    const QVector2D& tex_coord) {
-  vertices_.append(vertex);
-  normals_.append(normal);
-  tex_coords_.append(tex_coord);
-}
-
-void StairsRenderable::addQuad(const QVector3D &a, const QVector3D &b,
-                               const QVector3D &c, const QVector3D &d,
-                               const QVector<QVector2D> &tex) {
-  QVector3D norm = QVector3D::normal(a, b, c);
-  appendVertex(a, norm, tex[kBottomLeftCorner]);
-  appendVertex(b, norm, tex[kBottomRightCorner]);
-  appendVertex(c, norm, tex[kTopRightCorner]);
-  appendVertex(d, norm, tex[kTopLeftCorner]);
-}
-
-void StairsRenderable::renderAt(const QVector3D& location, const BlockOrientation* orientation) const {
-  glPushMatrix();
-  glTranslatef(location.x(), location.y(), location.z());
-
+void StairsRenderable::applyOrientationTransform(const BlockOrientation* orientation) const {
   if (orientation == BlockOrientation::get("Facing north")) {
     glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
   } else if (orientation == BlockOrientation::get("Facing east")) {
@@ -200,71 +170,8 @@ void StairsRenderable::renderAt(const QVector3D& location, const BlockOrientatio
   } else if (orientation == BlockOrientation::get("Facing west")) {
     glRotatef(-90.0f, 0.0f, 1.0f, 0.0f);
   }
-
-  glEnableClientState(GL_VERTEX_ARRAY);
-  glEnableClientState(GL_NORMAL_ARRAY);
-  glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-  glVertexPointer(3, GL_FLOAT, 0, vertices_.constData());
-  glNormalPointer(GL_FLOAT, 0, normals_.constData());
-  glTexCoordPointer(2, GL_FLOAT, 0, tex_coords_.constData());
-  for (int start = 0; start < vertices_.size(); start += 4) {
-    // Front, back, bottom, right, top, left.
-    Face face = mapToDefaultOrientation(static_cast<Face>(start / 4 % 6), orientation);
-    if (renderDelegate() && !renderDelegate()->shouldRenderFace(this, face, location)) {
-      continue;
-    }
-    glBindTexture(GL_TEXTURE_2D, texture(start / 4 % 6).textureId());
-    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    GLushort indices[4] = { start, start + 1, start + 2, start + 3 };
-    glDrawElements(GL_QUADS, 4, GL_UNSIGNED_SHORT, indices);
-  }
-  glPopMatrix();
 }
 
-Face StairsRenderable::mapToDefaultOrientation(Face local_face, const BlockOrientation* orientation) const {
-  if (orientation == BlockOrientation::get("Facing north")) {
-    switch (local_face) {
-    case kFrontFace:
-      return kBackFace;
-    case kBackFace:
-      return kFrontFace;
-    case kRightFace:
-      return kLeftFace;
-    case kLeftFace:
-      return kRightFace;
-    default:
-      break;
-    }
-  } else if (orientation == BlockOrientation::get("Facing west")) {
-    switch (local_face) {
-    case kFrontFace:
-      return kLeftFace;
-    case kBackFace:
-      return kRightFace;
-    case kRightFace:
-      return kFrontFace;
-    case kLeftFace:
-      return kBackFace;
-    default:
-      break;
-    }
-  } else if (orientation == BlockOrientation::get("Facing east")) {
-    switch (local_face) {
-    case kFrontFace:
-      return kRightFace;
-    case kBackFace:
-      return kLeftFace;
-    case kRightFace:
-      return kBackFace;
-    case kLeftFace:
-      return kFrontFace;
-    default:
-      break;
-    }
-  }
-  return local_face;
+Texture StairsRenderable::textureForQuad(int index) const {
+  return texture(index % 6);
 }

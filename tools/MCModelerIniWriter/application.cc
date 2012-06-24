@@ -25,6 +25,7 @@ const char kGeometrySlab[] = "slab";
 const char kGeometryCactus[] = "cactus";
 const char kGeometryChest[] = "chest";
 const char kGeometryDoor[] = "door";
+const char kGeometryStairs[] = "stairs";
 const char kGeometryPressurePlate[] = "pressure_plate";
 
 const char kOrientationNone[] = "";
@@ -587,6 +588,12 @@ Application::Application(int argc, char *argv[]) :
                   QPoint(1, 5),
                   QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
                   textures(QPoint(1, 5)),
+                  true);
+  blocks << block("Cobblestone Stairs",
+                  kGeometryStairs,
+                  QPoint(0, 1),
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  textures(QPoint(0, 1)),
                   true);
 
 
