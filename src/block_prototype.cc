@@ -25,6 +25,7 @@
 #include "bed_renderable.h"
 #include "block_oracle.h"
 #include "block_position.h"
+#include "door_renderable.h"
 #include "overlapping_faces_renderable.h"
 #include "rectangular_prism_renderable.h"
 #include "renderable.h"
@@ -125,6 +126,9 @@ BlockPrototype::BlockPrototype(blocktype_t type, BlockOracle* oracle, QGLWidget*
       break;
     case kBlockGeometryBed:
       renderable_.reset(new BedRenderable());
+      break;
+    case kBlockGeometryDoor:
+      renderable_.reset(new DoorRenderable());
       break;
     default:
       qWarning() << "No renderable could be found for block" << properties_.name();

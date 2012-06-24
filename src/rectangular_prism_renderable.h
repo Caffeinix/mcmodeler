@@ -44,7 +44,7 @@ class RectangularPrismRenderable : public Renderable {
 
   virtual Geometry createGeometry(const QVector3D& size);
   virtual TextureCoords createTextureCoords(const Geometry& geometry, TextureSizing sizing);
-  virtual Geometry moveToOrigin(const Geometry& geometry);
+  virtual Geometry moveToOrigin(const QVector3D& size, const Geometry& geometry);
   virtual void addGeometry(const Geometry& geometry, const TextureCoords& texture_coords);
 
   void appendVertex(const QVector3D &vertex,

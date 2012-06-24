@@ -30,7 +30,7 @@ RectangularPrismRenderable::RectangularPrismRenderable(const QVector3D& size, Te
 void RectangularPrismRenderable::initialize() {
   Geometry geometry = createGeometry(size_);
   TextureCoords texture_coords = createTextureCoords(geometry, sizing_);
-  geometry = moveToOrigin(geometry);
+  geometry = moveToOrigin(size_, geometry);
   addGeometry(geometry, texture_coords);
 }
 
@@ -56,13 +56,13 @@ void RectangularPrismRenderable::addGeometry(const RectangularPrismRenderable::G
 }
 
 RectangularPrismRenderable::Geometry RectangularPrismRenderable::moveToOrigin(
-    const RectangularPrismRenderable::Geometry& geometry) {
+    const QVector3D& size, const RectangularPrismRenderable::Geometry& geometry) {
   // Now move verts half cube width across so cube is centered on origin.
   // (But keep it flat on the ground below it.)
   Geometry out_geometry = geometry;
   for (int i = 0; i < 4; ++i) {
-    out_geometry.first[i] -= QVector3D(size_.x() / 2.0f, 0.5f, -size_.z() / 2.0f);
-    out_geometry.second[i] -= QVector3D(size_.x() / 2.0f, 0.5f, -size_.z() / 2.0f);
+    out_geometry.first[i] -= QVector3D(size.x() / 2.0f, 0.5f, -size.z() / 2.0f);
+    out_geometry.second[i] -= QVector3D(size.x() / 2.0f, 0.5f, -size.z() / 2.0f);
   }
   return out_geometry;
 }
@@ -119,20 +119,27 @@ RectangularPrismRenderable::TextureCoords RectangularPrismRenderable::createText
     back_tex[2] = verts[2].toVector2D();
     back_tex[3] = verts[3].toVector2D();
 
-    right_tex[0] = verts[1].toVector2D();
-    right_tex[1] = verts[2].toVector2D();
-    right_tex[2] = verts[3].toVector2D();
-    right_tex[3] = verts[0].toVector2D();
+    right_tex[0] = QVector2D(-back[1].z(), verts[1].y());
+    right_tex[1] = QVector2D(-back[2].z(), verts[2].y());
+    right_tex[2] = QVector2D(-verts[3].z(), verts[3].y());
+    right_tex[3] = QVector2D(-verts[0].z(), verts[0].y());
 
     bottom_tex[0] = QVector2D(verts[2].x(), -verts[2].z());
     bottom_tex[1] = QVector2D(verts[3].x(), -verts[3].z());
     bottom_tex[2] = QVector2D(verts[0].x(), -back[0].z());
     bottom_tex[3] = QVector2D(verts[1].x(), -back[1].z());
 
-    left_tex[0] = verts[3].toVector2D();
-    left_tex[1] = verts[0].toVector2D();
-    left_tex[2] = verts[1].toVector2D();
-    left_tex[3] = verts[2].toVector2D();
+    left_tex[0] = QVector2D(-verts[3].z(), verts[3].y());
+    left_tex[1] = QVector2D(-verts[0].z(), verts[0].y());
+    left_tex[2] = QVector2D(-back[1].z(), verts[1].y());
+    left_tex[3] = QVector2D(-back[2].z(), verts[2].y());
+
+    if (verts[2].y() - 0.5 < 0.01) {
+      qDebug() << verts;
+      qDebug() << back;
+      qDebug() << left_tex;
+    }
+
   } else {
     // Align the textures directly to the faces.
     top_tex[0] = QVector2D(0, 0);

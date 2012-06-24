@@ -56,6 +56,8 @@ BlockProperties::BlockProperties(const QVariantMap& block_data) {
         geometry_ = kBlockGeometryChest;
       } else if (value.toString() == "pressure_plate") {
         geometry_ = kBlockGeometryPressurePlate;
+      } else if (value.toString() == "door") {
+        geometry_ = kBlockGeometryDoor;
       } else {
         geometry_ = kBlockGeometryCube;
       }

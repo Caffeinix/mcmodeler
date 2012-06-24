@@ -31,7 +31,8 @@ HEADERS = \
     macros.h \
     tool.h \
     line_tool.h \
-    bed_renderable.h
+    bed_renderable.h \
+    door_renderable.h
 
 SOURCES = \
     about_box.cc \
@@ -60,7 +61,8 @@ SOURCES = \
     block_transaction.cc \
     block_instance.cc \
     line_tool.cc \
-    bed_renderable.cc
+    bed_renderable.cc \
+    door_renderable.cc
 
 QT += opengl
 
@@ -99,5 +101,7 @@ win32 {
 }
 
 TARGET = "MCModeler"
+
+
 
 
