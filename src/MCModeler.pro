@@ -11,7 +11,6 @@ HEADERS = \
     block_prototype.h \
     block_type.h \
     camera.h \
-    cube.h \
     diagram.h \
     enums.h \
     flow_layout.h \
@@ -34,7 +33,8 @@ HEADERS = \
     bed_renderable.h \
     door_renderable.h \
     stairs_renderable.h \
-    basic_renderable.h
+    basic_renderable.h \
+    skybox_renderable.h
 
 SOURCES = \
     about_box.cc \
@@ -45,7 +45,6 @@ SOURCES = \
     block_position.cc \
     block_properties.cc \
     block_prototype.cc \
-    cube.cc \
     diagram.cc \
     flow_layout.cc \
     frame_timer.cc \
@@ -66,7 +65,8 @@ SOURCES = \
     bed_renderable.cc \
     door_renderable.cc \
     stairs_renderable.cc \
-    basic_renderable.cc
+    basic_renderable.cc \
+    skybox_renderable.cc
 
 QT += opengl
 
@@ -105,6 +105,10 @@ win32 {
 }
 
 TARGET = "MCModeler"
+
+
+
+
 
 
 

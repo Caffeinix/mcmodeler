@@ -32,6 +32,8 @@ class RenderDelegate;
   */
 class Renderable {
  public:
+  Renderable();
+
   virtual ~Renderable() {}
 
   /**

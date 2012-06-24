@@ -5,7 +5,7 @@
 
 class BedRenderable : public RectangularPrismRenderable {
  public:
-  explicit BedRenderable();
+  BedRenderable();
 
  protected:
   virtual TextureCoords createTextureCoords(const Geometry& geometry);

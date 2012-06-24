@@ -21,9 +21,9 @@
 #include "gl_widget.h"
 
 #include "block_manager.h"
-#include "cube.h"
 #include "diagram.h"
 #include "matrix.h"
+#include "skybox_renderable.h"
 #include "texture.h"
 
 #ifndef GL_MULTISAMPLE_ARB
@@ -43,6 +43,18 @@ GLWidget::GLWidget(QWidget* parent)
       frame_rate_enabled_(false),
       frame_rate_(-1.0f),
       scene_dirty_(true) {
+  skybox_.reset(new SkyboxRenderable(QVector3D(10.0f, 10.0f, 10.0f)));
+  skybox_->initialize();
+  Texture skybox_up = Texture(this, ":/skybox_up.png");
+  Texture skybox_out = Texture(this, ":/skybox_east.png");
+  Texture skybox_down = Texture(this, ":/skybox_down.png");
+  skybox_->setTexture(kFrontFace, skybox_out);
+  skybox_->setTexture(kLeftFace, skybox_out);
+  skybox_->setTexture(kRightFace, skybox_out);
+  skybox_->setTexture(kBackFace, skybox_out);
+  skybox_->setTexture(kTopFace, skybox_up);
+  skybox_->setTexture(kBottomFace, skybox_down);
+
   setFocusPolicy(Qt::WheelFocus);
   QGLFormat f = format();
   f.setSwapInterval(1);
@@ -132,110 +144,9 @@ void GLWidget::initializeGL() {
   glEndList();
 
   camera_.translate(QVector3D(0.5, 1, 5));
-
-//  grass_.reset(new Block(Block::kGrass, diagram_.data(), this));
-//  sand_.reset(new Block(Block::kSand, diagram_.data(), this));
-//  dirt_.reset(new Block(Block::kDirt, diagram_.data(), this));
-//  stone_.reset(new Block(Block::kStone, diagram_.data(), this));
-//  chest_.reset(new Block(Block::kChest, diagram_.data(), this));
-//  furnace_.reset(new Block(Block::kFurnace, diagram_.data(), this));
-//  workbench_.reset(new Block(Block::kWorkbench, diagram_.data(), this));
-
-//  static const int kTestExtent = 15;
-//  for (int i = -kTestExtent; i < kTestExtent; ++i) {
-//    for (int j = -kTestExtent; j < kTestExtent; ++j) {
-//      for (int k = -kTestExtent; k < kTestExtent; ++k) {
-//        if (random() % 4 == 0) {
-//          diagram_->addBlock(grass_.data(), QVector3D(i + 0.5, j + 0.5, k + 0.5));
-//        }
-//      }
-//    }
-//  }
-
-//  for (int i = 0; i < 500; ++i) {
-//    diagram_->addBlock(sand_.data(), QVector3D(-25 + (i % 50 + 0.5), i / 250 + 0.5, -(i / 50) - 0.5));
-//  }
-//  for (int i = 500; i < 2000; ++i) {
-//    diagram_->addBlock(grass_.data(), QVector3D(-25 + (i % 50 + 0.5), i / 250 + 0.5, -(i / 50) - 0.5));
-//  }
-//  static const int size = 15;
-//  for (int i = -size/2; i < size/2; ++i) {
-//    for (int j = 0; j < size; ++j) {
-//      for (int k = -size; k < 0; ++k) {
-//        diagram_->addBlock(grass_.data(), QVector3D(i + 0.5, j + 0.5, k + 0.5));
-//      }
-//    }
-//  }
-//  for (int x = -8; x < 8; ++x) {
-//    for (int z = 0; z < 16; ++z) {
-//      diagram_->addBlock(stone_.data(), QVector3D(x + 0.5, 0.5, -z + 0.5));
-//    }
-//  }
-
-//  diagram_->addBlock(chest_.data(), QVector3D(-6.5, 1.5, -13.5));
-//  diagram_->addBlock(furnace_.data(), QVector3D(-5.5, 1.5, -13.5));
-//  diagram_->addBlock(furnace_.data(), QVector3D(-4.5, 1.5, -13.5));
-//  diagram_->addBlock(workbench_.data(), QVector3D(-3.5, 1.5, -13.5));
-
-//  for (int y = 1; y < 8; ++y) {
-//    diagram_->addBlock(stone_.data(), QVector3D(-7.5, y + 0.5, 0.5));
-//    diagram_->addBlock(stone_.data(), QVector3D(7.5, y + 0.5, 0.5));
-//    for (int z = 1; z < 15; ++z) {
-//      diagram_->addBlock(dirt_.data(), QVector3D(7.5, y + 0.5, -z + 0.5));
-//    }
-//    diagram_->addBlock(stone_.data(), QVector3D(-7.5, y + 0.5, -14.5));
-//    for (int x = -7; x < 7; ++x) {
-//      diagram_->addBlock(dirt_.data(), QVector3D(x + 0.5, y + 0.5, -14.5));
-//    }
-//    diagram_->addBlock(stone_.data(), QVector3D(7.5, y + 0.5, -14.5));
-//    for (int z = 1; z < 15; ++z) {
-//      diagram_->addBlock(dirt_.data(), QVector3D(-7.5, y + 0.5, -z + 0.5));
-//    }
-
-//    for (int x = -9; x < 9; ++x) {
-//      for (int z = -1; z < 17; ++z) {
-//        for (int y = 8; y < 17; ++y) {
-//          int level = y - 8;
-//          if (x > 8 - level || x < -9 + level) {
-//            continue;
-//          }
-//          if (z > 16 - level || z < level) {
-//            continue;
-//          }
-//          if (level == 0) {
-//            diagram_->addBlock(stone_.data(), QVector3D(x + 0.5, y + 0.5, -z + 0.5));
-//          } else {
-//            diagram_->addBlock(grass_.data(), QVector3D(x + 0.5, y + 0.5, -z + 0.5));
-//          }
-//        }
-//      }
-//    }
-//  }
-
-//  QFile file("/Users/phoenix/Desktop/test.mcdiagram");
-//  file.open(QIODevice::WriteOnly);
-//  QDataStream ostream(&file);
-//  diagram_->save(&ostream);
-//  file.close();
-
-//  QFile file("/Users/phoenix/Desktop/test.mcdiagram");
-//  file.open(QIODevice::ReadOnly);
-//  QDataStream istream(&file);
-//  diagram_.reset(new Diagram(&istream, this));
-//  file.close();
 }
 
 void GLWidget::drawSkybox() {
-  Cube skybox(10.0f);
-  Texture skybox_up = Texture(this, ":/skybox_up.png");
-  Texture skybox_out = Texture(this, ":/skybox_east.png");
-  Texture skybox_down = Texture(this, ":/skybox_down.png");
-  skybox.setTexture(kFrontFace, skybox_out);
-  skybox.setTexture(kLeftFace, skybox_out);
-  skybox.setTexture(kRightFace, skybox_out);
-  skybox.setTexture(kBackFace, skybox_out);
-  skybox.setTexture(kTopFace, skybox_up);
-  skybox.setTexture(kBottomFace, skybox_down);
   glPushMatrix();
   glLoadIdentity();
   camera_.applyRotation();
@@ -244,7 +155,7 @@ void GLWidget::drawSkybox() {
   glDisable(GL_FOG);
   glDisable(GL_DEPTH_TEST);
   glDisable(GL_CULL_FACE);
-  skybox.renderAt(QVector3D(0, 0, 0));
+  skybox_->renderAt(QVector3D(0, 0, 0), BlockOrientation::noOrientation());
   glPopAttrib();
   glPopMatrix();
 }

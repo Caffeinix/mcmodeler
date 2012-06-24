@@ -46,6 +46,15 @@ class BasicRenderable : public Renderable {
     */
   virtual void initialize();
 
+  /**
+    * @copydoc Renderable::renderAt(const QVector3D&, const BlockOrientation*) const
+    * BasicRenderable implements renderAt in a generic manner and calls various other methods while rendering to
+    * obtain information it needs.  Generally, you should not need to override this, but if you do, you can call
+    * vertices(), normals(), and textureCoords() to get the raw rendering data.
+    */
+  virtual void renderAt(const QVector3D& location, const BlockOrientation* orientation) const;
+
+
  protected:
   /**
     * Represents the abstract geometry of this renderable.  The geometry will be interpreted in addGeometry.
@@ -109,14 +118,6 @@ class BasicRenderable : public Renderable {
     * without having to specify it multiple times.
     */
   virtual Texture textureForQuad(int index) const;
-
-  /**
-    * @copydoc Renderable::renderAt(const QVector3D&, const BlockOrientation*) const
-    * BasicRenderable implements renderAt in a generic manner and calls various other methods while rendering to
-    * obtain information it needs.  Generally, you should not need to override this, but if you do, you can call
-    * vertices(), normals(), and textureCoords() to get the raw rendering data.
-    */
-  virtual void renderAt(const QVector3D& location, const BlockOrientation* orientation) const;
 
   /**
     * Returns the size that was passed into BasicRenderable's constructor.

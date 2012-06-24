@@ -5,7 +5,7 @@
 
 class DoorRenderable : public RectangularPrismRenderable {
  public:
-  explicit DoorRenderable();
+  DoorRenderable();
 
  protected:
   virtual TextureCoords createTextureCoords(const Geometry& geometry);

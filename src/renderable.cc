@@ -15,6 +15,8 @@
 
 #include "renderable.h"
 
+Renderable::Renderable() : delegate_(NULL) {}
+
 void Renderable::initialize() {
   // Base class has no special initialization.
 }

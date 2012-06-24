@@ -27,6 +27,7 @@
 class Diagram;
 class BlockPrototype;
 class BlockManager;
+class Renderable;
 
 class GLWidget : public QGLWidget {
   Q_OBJECT
@@ -70,6 +71,8 @@ class GLWidget : public QGLWidget {
  private:
   Diagram* diagram_;
   BlockManager* block_mgr_;
+
+  QScopedPointer<Renderable> skybox_;
 
   QPoint lastPos;
   GLuint ground_plane_display_list_;
