@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-#ifndef RECTANGULAR_PRISM_RENDERABLE_H
-#define RECTANGULAR_PRISM_RENDERABLE_H
+#ifndef STAIRS_RENDERABLE_H
+#define STAIRS_RENDERABLE_H
 
 #include "enums.h"
 #include "renderable.h"
@@ -24,26 +24,22 @@
 #include <QVector2D>
 #include <QVector3D>
 
-class RectangularPrismRenderable : public Renderable {
+class StairsRenderable : public Renderable {
  public:
-  enum TextureSizing {
-    kTextureClip,
-    kTextureScale
-  };
-
-  explicit RectangularPrismRenderable(const QVector3D& size, TextureSizing sizing = kTextureClip);
-  virtual ~RectangularPrismRenderable() {}
+  explicit StairsRenderable(const QVector3D& size);
+  virtual ~StairsRenderable () {}
 
   virtual void initialize();
 
   virtual void renderAt(const QVector3D& location, const BlockOrientation* orientation) const;
 
  protected:
-  typedef QPair< QVector<QVector3D>, QVector<QVector3D> > Geometry;
+  typedef QVector< QVector<QVector3D> > Geometry;
   typedef QVector< QVector<QVector2D> > TextureCoords;
 
   virtual Geometry createGeometry(const QVector3D& size);
-  virtual TextureCoords createTextureCoords(const Geometry& geometry, TextureSizing sizing);
+  virtual TextureCoords createTextureCoords(const Geometry& geometry);
+  virtual TextureCoords createTextureCoordsForBlock(QVector<QVector3D> front, QVector<QVector3D> back);
   virtual Geometry moveToOrigin(const QVector3D& size, const Geometry& geometry);
   virtual void addGeometry(const Geometry& geometry, const TextureCoords& texture_coords);
 
@@ -70,7 +66,6 @@ class RectangularPrismRenderable : public Renderable {
 
  private:
   QVector3D size_;
-  TextureSizing sizing_;
   QVector<QVector3D> vertices_;
   QVector<QVector3D> normals_;
   QVector<QVector2D> tex_coords_;

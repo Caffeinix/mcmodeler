@@ -29,6 +29,7 @@
 #include "overlapping_faces_renderable.h"
 #include "rectangular_prism_renderable.h"
 #include "renderable.h"
+#include "stairs_renderable.h"
 #include "texture.h"
 
 QMap<blocktype_t, BlockProperties>* BlockPrototype::s_type_mapping = NULL;
@@ -109,7 +110,7 @@ BlockPrototype::BlockPrototype(blocktype_t type, BlockOracle* oracle, QGLWidget*
   properties_ = s_type_mapping->value(type_);
   switch (properties_.geometry()) {
     case kBlockGeometryCube:
-    renderable_.reset(new RectangularPrismRenderable(QVector3D(1.0f, 1.0f, 1.0f)));
+      renderable_.reset(new RectangularPrismRenderable(QVector3D(1.0f, 1.0f, 1.0f)));
       break;
     case kBlockGeometrySlab:
       renderable_.reset(new RectangularPrismRenderable(QVector3D(1.0f, 0.5f, 1.0f)));
@@ -120,6 +121,9 @@ BlockPrototype::BlockPrototype(blocktype_t type, BlockOracle* oracle, QGLWidget*
       break;
     case kBlockGeometryPressurePlate:
       renderable_.reset(new RectangularPrismRenderable(QVector3D(0.8f, 0.05f, 0.8f)));
+      break;
+    case kBlockGeometryStairs:
+      renderable_.reset(new StairsRenderable(QVector3D(1.0f, 1.0f, 1.0f)));
       break;
     case kBlockGeometryCactus:
       renderable_.reset(new OverlappingFacesRenderable(1.0f, QVector3D(1.f/16.f, 0.f, 1.f/16.f)));
