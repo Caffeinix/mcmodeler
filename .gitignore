@@ -13,3 +13,4 @@
 
 # Build directories
 *-build-*
+*.pro.user*
