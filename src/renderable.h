@@ -35,6 +35,12 @@ class Renderable {
   virtual ~Renderable() {}
 
   /**
+    * Initializes this Renderable.
+    * This must be called before the renderable can be used to draw geometry.
+    */
+  virtual void initialize();
+
+  /**
     * Associates \p texture with \p local_id.
     * @param local_id An ID number which will have meaning to the particular Renderable subclass that is doing the
     *     rendering.  For efficiency, keep these numbers small and contiguous, preferably starting at zero.
@@ -55,6 +61,7 @@ class Renderable {
   /**
     * Renders the textures and geometry this Renderable knows how to draw at the given location and orientation.
     * This method is implemented differently by each Renderable subclass.
+    * @warning You must call initialize() before calling this method.
     */
   virtual void renderAt(const QVector3D& location, const BlockOrientation* orientation) const = 0;
 

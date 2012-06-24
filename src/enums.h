@@ -33,6 +33,7 @@ enum Corner {
 };
 
 enum BlockGeometry {
+  kBlockGeometryBed,
   kBlockGeometryCactus,
   kBlockGeometryCake1,
   kBlockGeometryCake2,

@@ -46,10 +46,16 @@ BlockProperties::BlockProperties(const QVariantMap& block_data) {
     } else if (key == "geometry") {
       // Convert from string to BlockGeometry enum.
       // TODO(phoenix): Implement this for real.
-      if (value.toString() == "slab") {
+      if (value.toString() == "bed") {
+        geometry_ = kBlockGeometryBed;
+      } else if (value.toString() == "slab") {
         geometry_ = kBlockGeometrySlab;
       } else if (value.toString() == "cactus") {
         geometry_ = kBlockGeometryCactus;
+      } else if (value.toString() == "chest") {
+        geometry_ = kBlockGeometryChest;
+      } else if (value.toString() == "pressure_plate") {
+        geometry_ = kBlockGeometryPressurePlate;
       } else {
         geometry_ = kBlockGeometryCube;
       }

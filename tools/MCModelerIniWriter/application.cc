@@ -19,9 +19,12 @@ const char kTransparentKey[] = "isTransparent";
 const char kBiomeGrassKey[] = "isBiomeGrass";
 const char kBiomeTreeKey[] = "isBiomeTree";
 
+const char kGeometryBed[] = "bed";
 const char kGeometryCube[] = "cube";
 const char kGeometrySlab[] = "slab";
 const char kGeometryCactus[] = "cactus";
+const char kGeometryChest[] = "chest";
+const char kGeometryPressurePlate[] = "pressure_plate";
 
 const char kOrientationNone[] = "";
 const char kOrientationFacingSouth[] = "Facing south";
@@ -78,14 +81,6 @@ Application::Application(int argc, char *argv[]) :
     QCoreApplication(argc, argv) {
   QVariantList blocks;
 
-#if WRITE_EMPTY_SPACE
-  blocks << block("Empty Space",
-                  kGeometryCube,
-                  QPoint(-1, -1),
-                  QVariantList() << kOrientationNone,
-                  QVariantList(),
-                  true);
-#endif
   blocks << block("Wooden Plank",
                   kGeometryCube,
                   QPoint(4, 0),
@@ -178,7 +173,7 @@ Application::Application(int argc, char *argv[]) :
                   textures(QList<QPoint>() << QPoint(12, 2) << QPoint(13, 2) << QPoint(6, 0) << QPoint(13, 2) << QPoint(14, 3) << QPoint(13, 2)),
                   false);
   blocks << block("Chest",
-                  kGeometryCube,
+                  kGeometryChest,
                   QPoint(11, 1),
                   QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
                   textures(QList<QPoint>() << QPoint(11, 1) << QPoint(10, 1) << QPoint(9, 1) << QPoint(10, 1) << QPoint(9, 1) << QPoint(10, 1)),
@@ -562,16 +557,23 @@ Application::Application(int argc, char *argv[]) :
                   textures(QPoint(10, 4)),
                   false);
   blocks << block("Bed (Bottom Half)",
-                  kGeometrySlab,
+                  kGeometryBed,
                   QPoint(6, 9),
-                  QVariantList() << kOrientationNone,
-                  textures(QList<QPoint>() << QPoint(5, 9) << QPoint(5, 11) << QPoint(4, 0) << QPoint(6, 9) << QPoint(6, 8) << QPoint(6, 9)),
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  // FRONT BACK BOTTOM RIGHT TOP LEFT
+                  textures(QList<QPoint>() << QPoint(6, 9) << QPoint(6, 9) << QPoint(4, 0) << QPoint(5, 9) << QPoint(6, 8) << QPoint(5, 11)),
                   true);
   blocks << block("Bed (Top Half)",
-                  kGeometrySlab,
+                  kGeometryBed,
                   QPoint(7, 9),
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  textures(QList<QPoint>() << QPoint(7, 9) << QPoint(7, 9) << QPoint(4, 0) << QPoint(5, 11) << QPoint(7, 8) << QPoint(8, 9)),
+                  true);
+  blocks << block("Wooden Pressure Plate",
+                  kGeometryPressurePlate,
+                  QPoint(4, 0),
                   QVariantList() << kOrientationNone,
-                  textures(QList<QPoint>() << QPoint(5, 11) << QPoint(8, 9) << QPoint(4, 0) << QPoint(7, 9) << QPoint(7, 8) << QPoint(7, 9)),
+                  textures(QPoint(4, 0)),
                   true);
 
 

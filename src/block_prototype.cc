@@ -22,6 +22,7 @@
 
 #include <QJson/Parser>
 
+#include "bed_renderable.h"
 #include "block_oracle.h"
 #include "block_position.h"
 #include "overlapping_faces_renderable.h"
@@ -122,11 +123,15 @@ BlockPrototype::BlockPrototype(blocktype_t type, BlockOracle* oracle, QGLWidget*
     case kBlockGeometryCactus:
       renderable_.reset(new OverlappingFacesRenderable(1.0f, QVector3D(1.f/16.f, 0.f, 1.f/16.f)));
       break;
+    case kBlockGeometryBed:
+      renderable_.reset(new BedRenderable());
+      break;
     default:
       qWarning() << "No renderable could be found for block" << properties_.name();
       renderable_.reset(new RectangularPrismRenderable(QVector3D(1.0f, 1.0f, 1.0f)));
       break;
   }
+  renderable_->initialize();
   renderable_->setRenderDelegate(this);
 
   QVector<QPoint> tiles = properties_ .tileOffsets();

@@ -16,12 +16,56 @@
 #include "rectangular_prism_renderable.h"
 
 #include "block_orientation.h"
-#include "enums.h"
 #include "render_delegate.h"
 
 #ifndef GL_CLAMP_TO_EDGE
 #define GL_CLAMP_TO_EDGE 0x812F
 #endif
+
+RectangularPrismRenderable::RectangularPrismRenderable(const QVector3D& size, TextureSizing sizing)
+    : size_(size),
+      sizing_(sizing) {
+}
+
+void RectangularPrismRenderable::initialize() {
+  Geometry geometry = createGeometry(size_);
+  TextureCoords texture_coords = createTextureCoords(geometry, sizing_);
+  geometry = moveToOrigin(geometry);
+  addGeometry(geometry, texture_coords);
+}
+
+void RectangularPrismRenderable::addGeometry(const RectangularPrismRenderable::Geometry& geometry,
+                                             const RectangularPrismRenderable::TextureCoords& texture_coords) {
+  // add the front face
+  addQuad(geometry.first[kBottomLeftCorner], geometry.first[kBottomRightCorner],
+          geometry.first[kTopRightCorner], geometry.first[kTopLeftCorner], texture_coords.at(0));
+
+  // add the back face
+  addQuad(geometry.second[kBottomRightCorner], geometry.second[kBottomLeftCorner],
+          geometry.second[kTopLeftCorner], geometry.second[kTopRightCorner], texture_coords.at(1));
+
+  // add the sides
+  addQuad(geometry.second[kBottomLeftCorner], geometry.second[kBottomRightCorner],
+          geometry.first[kBottomRightCorner], geometry.first[kBottomLeftCorner], texture_coords.at(2));  // Bottom
+  addQuad(geometry.second[kBottomRightCorner], geometry.second[kTopRightCorner],
+          geometry.first[kTopRightCorner], geometry.first[kBottomRightCorner], texture_coords.at(3));    // Right
+  addQuad(geometry.second[kTopRightCorner], geometry.second[kTopLeftCorner],
+          geometry.first[kTopLeftCorner], geometry.first[kTopRightCorner], texture_coords.at(4));        // Top
+  addQuad(geometry.second[kTopLeftCorner], geometry.second[kBottomLeftCorner],
+          geometry.first[kBottomLeftCorner], geometry.first[kTopLeftCorner], texture_coords.at(5));      // Left
+}
+
+RectangularPrismRenderable::Geometry RectangularPrismRenderable::moveToOrigin(
+    const RectangularPrismRenderable::Geometry& geometry) {
+  // Now move verts half cube width across so cube is centered on origin.
+  // (But keep it flat on the ground below it.)
+  Geometry out_geometry = geometry;
+  for (int i = 0; i < 4; ++i) {
+    out_geometry.first[i] -= QVector3D(size_.x() / 2.0f, 0.5f, -size_.z() / 2.0f);
+    out_geometry.second[i] -= QVector3D(size_.x() / 2.0f, 0.5f, -size_.z() / 2.0f);
+  }
+  return out_geometry;
+}
 
 
 RectangularPrismRenderable::Geometry RectangularPrismRenderable::createGeometry(const QVector3D& size) {
@@ -122,43 +166,7 @@ RectangularPrismRenderable::TextureCoords RectangularPrismRenderable::createText
     left_tex[3] = QVector2D(1, 1);
   }
 
-//  To mirror horizontally:
-//  left_tex[0] = verts[2].toVector2D();
-//  left_tex[1] = verts[1].toVector2D();
-//  left_tex[2] = verts[0].toVector2D();
-//  left_tex[3] = verts[3].toVector2D();
-
   return TextureCoords() << front_tex << back_tex << bottom_tex << right_tex << top_tex << left_tex;
-}
-
-RectangularPrismRenderable::RectangularPrismRenderable(const QVector3D& size, TextureSizing sizing) {
-  Geometry geometry = createGeometry(size);
-  TextureCoords texture_coords = createTextureCoords(geometry, sizing);
-
-  // Now move verts half cube width across so cube is centered on origin.
-  // (But keep it flat on the ground below it.)
-  for (int i = 0; i < 4; ++i) {
-    geometry.first[i] -= QVector3D(size.x() / 2.0f, 0.5f, -size.z() / 2.0f);
-    geometry.second[i] -= QVector3D(size.x() / 2.0f, 0.5f, -size.z() / 2.0f);
-  }
-
-  // add the front face
-  addQuad(geometry.first[kBottomLeftCorner], geometry.first[kBottomRightCorner],
-          geometry.first[kTopRightCorner], geometry.first[kTopLeftCorner], texture_coords.at(0));
-
-  // add the back face
-  addQuad(geometry.second[kBottomRightCorner], geometry.second[kBottomLeftCorner],
-          geometry.second[kTopLeftCorner], geometry.second[kTopRightCorner], texture_coords.at(1));
-
-  // add the sides
-  addQuad(geometry.second[kBottomLeftCorner], geometry.second[kBottomRightCorner],
-          geometry.first[kBottomRightCorner], geometry.first[kBottomLeftCorner], texture_coords.at(2));  // Bottom
-  addQuad(geometry.second[kBottomRightCorner], geometry.second[kTopRightCorner],
-          geometry.first[kTopRightCorner], geometry.first[kBottomRightCorner], texture_coords.at(3));    // Right
-  addQuad(geometry.second[kTopRightCorner], geometry.second[kTopLeftCorner],
-          geometry.first[kTopLeftCorner], geometry.first[kTopRightCorner], texture_coords.at(4));        // Top
-  addQuad(geometry.second[kTopLeftCorner], geometry.second[kBottomLeftCorner],
-          geometry.first[kBottomLeftCorner], geometry.first[kTopLeftCorner], texture_coords.at(5));      // Left
 }
 
 void RectangularPrismRenderable::appendVertex(const QVector3D& vertex,
@@ -182,6 +190,15 @@ void RectangularPrismRenderable::addQuad(const QVector3D &a, const QVector3D &b,
 void RectangularPrismRenderable::renderAt(const QVector3D& location, const BlockOrientation* orientation) const {
   glPushMatrix();
   glTranslatef(location.x(), location.y(), location.z());
+
+  if (orientation == BlockOrientation::get("Facing north")) {
+    glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
+  } else if (orientation == BlockOrientation::get("Facing east")) {
+    glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
+  } else if (orientation == BlockOrientation::get("Facing west")) {
+    glRotatef(-90.0f, 0.0f, 1.0f, 0.0f);
+  }
+
   glEnableClientState(GL_VERTEX_ARRAY);
   glEnableClientState(GL_NORMAL_ARRAY);
   glEnableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -190,10 +207,11 @@ void RectangularPrismRenderable::renderAt(const QVector3D& location, const Block
   glTexCoordPointer(2, GL_FLOAT, 0, tex_coords_.constData());
   for (int start = 0; start < vertices_.size(); start += 4) {
     // Front, back, bottom, right, top, left.
-    if (renderDelegate() && !renderDelegate()->shouldRenderFace(this, static_cast<Face>(start / 4), location)) {
+    Face face = mapToDefaultOrientation(static_cast<Face>(start / 4), orientation);
+    if (renderDelegate() && !renderDelegate()->shouldRenderFace(this, face, location)) {
       continue;
     }
-    glBindTexture(GL_TEXTURE_2D, texture(rotatedTextureIndex(start / 4, orientation)).textureId());
+    glBindTexture(GL_TEXTURE_2D, texture(start / 4).textureId());
     glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -205,9 +223,9 @@ void RectangularPrismRenderable::renderAt(const QVector3D& location, const Block
   glPopMatrix();
 }
 
-int RectangularPrismRenderable::rotatedTextureIndex(int local_index, const BlockOrientation* orientation) const {
-  if (orientation == BlockOrientation::get("Facing North")) {
-    switch (local_index) {
+Face RectangularPrismRenderable::mapToDefaultOrientation(Face local_face, const BlockOrientation* orientation) const {
+  if (orientation == BlockOrientation::get("Facing north")) {
+    switch (local_face) {
     case kFrontFace:
       return kBackFace;
     case kBackFace:
@@ -219,8 +237,8 @@ int RectangularPrismRenderable::rotatedTextureIndex(int local_index, const Block
     default:
       break;
     }
-  } else if (orientation == BlockOrientation::get("Facing East")) {
-    switch (local_index) {
+  } else if (orientation == BlockOrientation::get("Facing west")) {
+    switch (local_face) {
     case kFrontFace:
       return kLeftFace;
     case kBackFace:
@@ -232,8 +250,8 @@ int RectangularPrismRenderable::rotatedTextureIndex(int local_index, const Block
     default:
       break;
     }
-  } else if (orientation == BlockOrientation::get("Facing West")) {
-    switch (local_index) {
+  } else if (orientation == BlockOrientation::get("Facing east")) {
+    switch (local_face) {
     case kFrontFace:
       return kRightFace;
     case kBackFace:
@@ -246,5 +264,5 @@ int RectangularPrismRenderable::rotatedTextureIndex(int local_index, const Block
       break;
     }
   }
-  return local_index;
+  return local_face;
 }

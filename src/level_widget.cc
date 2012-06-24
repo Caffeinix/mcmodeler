@@ -167,6 +167,7 @@ void LevelWidget::toggleBlock(QMouseEvent* event) {
       } else {
         ++orientation_index;
       }
+      qDebug() << "Using orientation" << orientations.at(orientation_index)->name();
       BlockInstance new_block(prototype, position, orientations.at(orientation_index));
       diagram_->setBlock(position, new_block);
     } else {

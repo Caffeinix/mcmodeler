@@ -12,7 +12,6 @@ HEADERS = \
     block_type.h \
     camera.h \
     cube.h \
-    cubic_renderable.h \
     diagram.h \
     enums.h \
     flow_layout.h \
@@ -31,7 +30,8 @@ HEADERS = \
     block_transaction.h \
     macros.h \
     tool.h \
-    line_tool.h
+    line_tool.h \
+    bed_renderable.h
 
 SOURCES = \
     about_box.cc \
@@ -43,7 +43,6 @@ SOURCES = \
     block_properties.cc \
     block_prototype.cc \
     cube.cc \
-    cubic_renderable.cc \
     diagram.cc \
     flow_layout.cc \
     frame_timer.cc \
@@ -60,7 +59,8 @@ SOURCES = \
     texture.cc \
     block_transaction.cc \
     block_instance.cc \
-    line_tool.cc
+    line_tool.cc \
+    bed_renderable.cc
 
 QT += opengl
 
@@ -83,7 +83,7 @@ macx {
                                              ../third_party/qjson/lib/qjson.framework/Versions/0/qjson; \
                        install_name_tool -change qjson.framework/Versions/0/qjson \
                                                  @loader_path/../Frameworks/qjson.framework/Versions/0/qjson \
-                                                 $$OUT_PWD/MCModeler.app/Contents/MacOS/MCModeler;
+                                                 $$OUT_PWD/MCModeler.app/Contents/MacOS/$$TARGET;
 
     QJsonFramework.files = ../third_party/qjson/lib/qjson.framework
     QJsonFramework.path = Contents/Frameworks
@@ -99,3 +99,5 @@ win32 {
 }
 
 TARGET = "MCModeler"
+
+

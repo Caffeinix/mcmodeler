@@ -15,6 +15,10 @@
 
 #include "renderable.h"
 
+void Renderable::initialize() {
+  // Base class has no special initialization.
+}
+
 Texture Renderable::texture(int local_id) const {
   return textures_[local_id];
 }

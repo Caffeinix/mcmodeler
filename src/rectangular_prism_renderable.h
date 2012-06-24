@@ -16,6 +16,7 @@
 #ifndef RECTANGULAR_PRISM_RENDERABLE_H
 #define RECTANGULAR_PRISM_RENDERABLE_H
 
+#include "enums.h"
 #include "renderable.h"
 
 #include <QPair>
@@ -33,6 +34,8 @@ class RectangularPrismRenderable : public Renderable {
   explicit RectangularPrismRenderable (const QVector3D& size, TextureSizing sizing = kTextureClip);
   virtual ~RectangularPrismRenderable () {}
 
+  virtual void initialize();
+
   virtual void renderAt(const QVector3D& location, const BlockOrientation* orientation) const;
 
  protected:
@@ -41,6 +44,8 @@ class RectangularPrismRenderable : public Renderable {
 
   virtual Geometry createGeometry(const QVector3D& size);
   virtual TextureCoords createTextureCoords(const Geometry& geometry, TextureSizing sizing);
+  virtual Geometry moveToOrigin(const Geometry& geometry);
+  virtual void addGeometry(const Geometry& geometry, const TextureCoords& texture_coords);
 
   void appendVertex(const QVector3D &vertex,
                     const QVector3D &normal,
@@ -50,9 +55,22 @@ class RectangularPrismRenderable : public Renderable {
                const QVector3D &c, const QVector3D &d,
                const QVector<QVector2D> &tex);
 
-  int rotatedTextureIndex(int local_index, const BlockOrientation* orientation) const;
+  /**
+    * Translates faces from \p from_orientation into the default orientation.
+    * For example, if \p local_face is kFrontFace, and \p from_orientation is "Facing east" (which is a 90 degree
+    * counter-clockwise rotation from the default orientation), then the return value will be kRightFace, because when
+    * the right face is rotated 90 degrees counterclockwise, it occupies the same position that the front face would
+    * occupy in the default orientation.
+    * @param local_face The face to translate into the default orientation.
+    * @param from_orientation The orientation to translate from.
+    * @note This method is used when determining block adjacency information.  The render delegate does not account for
+    * orientation when determining adjacency, so we have to map back to the default orientation before we consult it.
+    */
+  virtual Face mapToDefaultOrientation(Face local_face, const BlockOrientation* from_orientation) const;
 
  private:
+  QVector3D size_;
+  TextureSizing sizing_;
   QVector<QVector3D> vertices_;
   QVector<QVector3D> normals_;
   QVector<QVector2D> tex_coords_;

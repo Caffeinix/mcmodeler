@@ -22,4 +22,20 @@ HEADERS += \
     application.h
 
 INCLUDEPATH += ../../third_party/qjson/include
-LIBS += ../../third_party/qjson/lib/qjson0.dll
+
+macx {
+    QMAKE_LFLAGS += -F ../../third_party/qjson/lib
+    LIBS += -framework qjson
+    QMAKE_POST_LINK += echo "Running install_name_tool..."; \
+                       install_name_tool -id @loader_path/../../third_party/qjson/lib/qjson.framework/Versions/0/qjson \
+                                             ../../third_party/qjson/lib/qjson.framework/Versions/0/qjson; \
+                       install_name_tool -change qjson.framework/Versions/0/qjson \
+                                                 @loader_path/../../third_party/qjson/lib/qjson.framework/Versions/0/qjson \
+                                                 $$OUT_PWD/$$TARGET;
+
+    QJsonFramework.files = ../../third_party/qjson/lib/qjson.framework
+    QJsonFramework.path = Contents/Frameworks
+    QMAKE_BUNDLE_DATA += QJsonFramework
+}
+
+win32:LIBS += ../../third_party/qjson/lib/qjson0.dll
