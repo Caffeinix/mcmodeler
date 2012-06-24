@@ -16,31 +16,25 @@
 #ifndef OVERLAPPING_FACES_RENDERABLE_H
 #define OVERLAPPING_FACES_RENDERABLE_H
 
-#include "renderable.h"
+#include "rectangular_prism_renderable.h"
 
 #include <QVector3D>
 #include <QVector2D>
 
-class OverlappingFacesRenderable : public Renderable {
+class OverlappingFacesRenderable : public RectangularPrismRenderable {
  public:
-  explicit OverlappingFacesRenderable(float size, QVector3D overlap);
-  virtual ~OverlappingFacesRenderable() {}
+  explicit OverlappingFacesRenderable(const QVector3D& size, const QVector3D& overlap);
+  virtual ~OverlappingFacesRenderable();
 
-  void renderAt(const QVector3D& location, const BlockOrientation* orientation) const;
+  virtual void addGeometry(const Geometry& geometry, const TextureCoords& texture_coords);
 
  protected:
-  void appendVertex(const QVector3D &vertex,
-                    const QVector3D &normal,
-                    const QVector2D &tex_coord);
-
-  void addQuad(const QVector3D &a, const QVector3D &b,
-               const QVector3D &c, const QVector3D &d,
-               const QVector<QVector2D> &tex);
+  QVector3D overlap() const {
+    return overlap_;
+  }
 
  private:
-  QVector<QVector3D> vertices_;
-  QVector<QVector3D> normals_;
-  QVector<QVector2D> tex_coords_;
+  QVector3D overlap_;
 };
 
 #endif // OVERLAPPING_FACES_RENDERABLE_H

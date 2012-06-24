@@ -15,9 +15,10 @@
 
 #include "renderable.h"
 
-Renderable::Renderable() : delegate_(NULL) {}
+Renderable::Renderable() : is_initialized_(false), delegate_(NULL) {}
 
 void Renderable::initialize() {
+  is_initialized_ = true;
   // Base class has no special initialization.
 }
 

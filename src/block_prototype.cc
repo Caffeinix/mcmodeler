@@ -126,7 +126,8 @@ BlockPrototype::BlockPrototype(blocktype_t type, BlockOracle* oracle, QGLWidget*
       renderable_.reset(new StairsRenderable(QVector3D(1.0f, 1.0f, 1.0f)));
       break;
     case kBlockGeometryCactus:
-      renderable_.reset(new OverlappingFacesRenderable(1.0f, QVector3D(1.f/16.f, 0.f, 1.f/16.f)));
+      renderable_.reset(new OverlappingFacesRenderable(QVector3D(1.0f, 1.0f, 1.0f),
+                                                       QVector3D(0.0625f, 0.0f, 0.0625f)));
       break;
     case kBlockGeometryBed:
       renderable_.reset(new BedRenderable());

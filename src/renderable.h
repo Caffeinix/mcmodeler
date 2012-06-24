@@ -39,6 +39,8 @@ class Renderable {
   /**
     * Initializes this Renderable.
     * This must be called before the renderable can be used to draw geometry.
+    * @remarks The need for an explicit initialize method is regrettable, but it is a consequence of the poor design
+    * of the C++ language: it is impossible to safely call virtual methods from a true constructor.
     */
   virtual void initialize();
 
@@ -67,6 +69,13 @@ class Renderable {
     */
   virtual void renderAt(const QVector3D& location, const BlockOrientation* orientation) const = 0;
 
+  /**
+    * Returns true if initialize() has been called on this Renderable.
+    */
+  bool isInitialized() const {
+    return is_initialized_;
+  }
+
  protected:
   /**
     * Returns the texture with the given local ID.
@@ -82,6 +91,7 @@ class Renderable {
   }
 
  private:
+  bool is_initialized_;
   QVector<Texture> textures_;
   RenderDelegate* delegate_;
 };

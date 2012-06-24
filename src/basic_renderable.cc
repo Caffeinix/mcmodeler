@@ -9,6 +9,7 @@ BasicRenderable::BasicRenderable(const QVector3D& size)
 BasicRenderable::~BasicRenderable() {}
 
 void BasicRenderable::initialize() {
+  Renderable::initialize();
   Geometry geometry = createGeometry();
   TextureCoords texture_coords = createTextureCoords(geometry);
   geometry = moveToOrigin(geometry);
@@ -46,6 +47,10 @@ Texture BasicRenderable::textureForQuad(int index) const {
 }
 
 void BasicRenderable::renderAt(const QVector3D& location, const BlockOrientation* orientation) const {
+  if (!isInitialized()) {
+    qWarning() << "Tried to render a BasicRenderable without first calling initialize().";
+    return;
+  }
   glPushMatrix();
   glTranslatef(location.x(), location.y(), location.z());
 

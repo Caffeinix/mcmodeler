@@ -162,11 +162,6 @@ RectangularPrismRenderable::TextureCoords RectangularPrismRenderable::createText
     left_tex[kTopLeftCorner] = QVector2D(1, 1);
   }
 
-  qDebug() << "[RECT] Texture coords: Front:" << front_tex;
-  qDebug() << "[RECT] Texture coords: Left:" << left_tex;
-  qDebug() << "[RECT] Texture coords: Right:" << right_tex;
-  qDebug() << "[RECT] Texture coords: Bottom:" << bottom_tex;
-
   return TextureCoords() << front_tex << back_tex << bottom_tex << right_tex << top_tex << left_tex;
 }
 
