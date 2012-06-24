@@ -100,10 +100,12 @@ RectangularPrismRenderable::TextureCoords RectangularPrismRenderable::createText
 
   if (szng == kTextureClip) {
     // Align the textures as they would appear on a 1x1x1 cube.
-    top_tex[kBottomLeftCorner] = QVector2D(verts[kTopLeftCorner].x(), -back[kTopLeftCorner].z());
-    top_tex[kBottomRightCorner] = QVector2D(verts[kTopRightCorner].x(), -back[kTopRightCorner].z());
-    top_tex[kTopRightCorner] = QVector2D(verts[kBottomRightCorner].x(), -verts[kBottomRightCorner].z());
-    top_tex[kTopLeftCorner] = QVector2D(verts[kBottomLeftCorner].x(), -verts[kBottomLeftCorner].z());
+    top_tex[kBottomLeftCorner] = QVector2D(verts[kTopRightCorner].x(), -back[kTopRightCorner].z());
+    top_tex[kBottomRightCorner] = QVector2D(verts[kTopLeftCorner].x(), -back[kTopLeftCorner].z());
+    top_tex[kTopRightCorner] = QVector2D(verts[kBottomLeftCorner].x(), -verts[kBottomLeftCorner].z());
+    top_tex[kTopLeftCorner] = QVector2D(verts[kBottomRightCorner].x(), -verts[kBottomRightCorner].z());
+
+    qDebug() << "Top tex coords:" << top_tex;
 
     front_tex[kBottomLeftCorner] = verts[kBottomLeftCorner].toVector2D();
     front_tex[kBottomRightCorner] = verts[kBottomRightCorner].toVector2D();
@@ -131,10 +133,10 @@ RectangularPrismRenderable::TextureCoords RectangularPrismRenderable::createText
     left_tex[kTopLeftCorner] = QVector2D(-back[kTopRightCorner].z(), verts[kTopRightCorner].y());
   } else {
     // Align the textures directly to the faces.
-    top_tex[kBottomLeftCorner] = QVector2D(0, 1);
-    top_tex[kBottomRightCorner] = QVector2D(1, 1);
-    top_tex[kTopRightCorner] = QVector2D(1, 0);
-    top_tex[kTopLeftCorner] = QVector2D(0, 0);
+    top_tex[kBottomLeftCorner] = QVector2D(1, 1);
+    top_tex[kBottomRightCorner] = QVector2D(0, 1);
+    top_tex[kTopRightCorner] = QVector2D(0, 0);
+    top_tex[kTopLeftCorner] = QVector2D(1, 0);
 
     front_tex[kBottomLeftCorner] = QVector2D(0, 0);
     front_tex[kBottomRightCorner] = QVector2D(1, 0);
