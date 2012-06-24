@@ -10,12 +10,11 @@ BedRenderable::BedRenderable() : RectangularPrismRenderable(QVector3D(1.0f, 0.5f
 
 BedRenderable::TextureCoords BedRenderable::createTextureCoords(
     const Geometry& geometry, TextureSizing sizing) {
-  qDebug() << "In BedRenderable::createTextureCoords()";
   BedRenderable::TextureCoords coords = RectangularPrismRenderable::createTextureCoords(geometry, sizing);
   // Flip the front face horizontally.
-  QVector<QVector2D> front_texture = coords[0];
-  qSwap(front_texture[0], front_texture[1]);
-  qSwap(front_texture[2], front_texture[3]);
+  QVector<QVector2D> front_texture = coords[kFrontFace];
+  qSwap(front_texture[kBottomLeftCorner], front_texture[kBottomRightCorner]);
+  qSwap(front_texture[kTopLeftCorner], front_texture[kTopRightCorner]);
   coords[0] = front_texture;
   return coords;
 }

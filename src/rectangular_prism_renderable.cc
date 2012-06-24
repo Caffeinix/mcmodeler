@@ -104,73 +104,66 @@ RectangularPrismRenderable::TextureCoords RectangularPrismRenderable::createText
 
   if (sizing == kTextureClip) {
     // Align the textures as they would appear on a 1x1x1 cube.
-    top_tex[0] = QVector2D(verts[0].x(), -verts[0].z());
-    top_tex[1] = QVector2D(verts[1].x(), -verts[1].z());
-    top_tex[2] = QVector2D(verts[2].x(), -back[2].z());
-    top_tex[3] = QVector2D(verts[3].x(), -back[3].z());
+    top_tex[kBottomLeftCorner] = QVector2D(verts[kTopLeftCorner].x(), -back[kTopLeftCorner].z());
+    top_tex[kBottomRightCorner] = QVector2D(verts[kTopRightCorner].x(), -back[kTopRightCorner].z());
+    top_tex[kTopRightCorner] = QVector2D(verts[kBottomRightCorner].x(), -verts[kBottomRightCorner].z());
+    top_tex[kTopLeftCorner] = QVector2D(verts[kBottomLeftCorner].x(), -verts[kBottomLeftCorner].z());
 
-    front_tex[0] = verts[0].toVector2D();
-    front_tex[1] = verts[1].toVector2D();
-    front_tex[2] = verts[2].toVector2D();
-    front_tex[3] = verts[3].toVector2D();
+    front_tex[kBottomLeftCorner] = verts[kBottomLeftCorner].toVector2D();
+    front_tex[kBottomRightCorner] = verts[kBottomRightCorner].toVector2D();
+    front_tex[kTopRightCorner] = verts[kTopRightCorner].toVector2D();
+    front_tex[kTopLeftCorner] = verts[kTopLeftCorner].toVector2D();
 
-    back_tex[0] = verts[0].toVector2D();
-    back_tex[1] = verts[1].toVector2D();
-    back_tex[2] = verts[2].toVector2D();
-    back_tex[3] = verts[3].toVector2D();
+    back_tex[kBottomLeftCorner] = verts[kBottomLeftCorner].toVector2D();
+    back_tex[kBottomRightCorner] = verts[kBottomRightCorner].toVector2D();
+    back_tex[kTopRightCorner] = verts[kTopRightCorner].toVector2D();
+    back_tex[kTopLeftCorner] = verts[kTopLeftCorner].toVector2D();
 
-    right_tex[0] = QVector2D(-back[1].z(), verts[1].y());
-    right_tex[1] = QVector2D(-back[2].z(), verts[2].y());
-    right_tex[2] = QVector2D(-verts[3].z(), verts[3].y());
-    right_tex[3] = QVector2D(-verts[0].z(), verts[0].y());
+    right_tex[kBottomLeftCorner] = QVector2D(-back[kBottomRightCorner].z(), verts[kBottomRightCorner].y());
+    right_tex[kBottomRightCorner] = QVector2D(-back[kTopRightCorner].z(), verts[kTopRightCorner].y());
+    right_tex[kTopRightCorner] = QVector2D(-verts[kTopLeftCorner].z(), verts[kTopLeftCorner].y());
+    right_tex[kTopLeftCorner] = QVector2D(-verts[kBottomLeftCorner].z(), verts[kBottomLeftCorner].y());
 
-    bottom_tex[0] = QVector2D(verts[2].x(), -verts[2].z());
-    bottom_tex[1] = QVector2D(verts[3].x(), -verts[3].z());
-    bottom_tex[2] = QVector2D(verts[0].x(), -back[0].z());
-    bottom_tex[3] = QVector2D(verts[1].x(), -back[1].z());
+    bottom_tex[kBottomLeftCorner] = QVector2D(verts[kTopRightCorner].x(), -verts[kTopRightCorner].z());
+    bottom_tex[kBottomRightCorner] = QVector2D(verts[kTopLeftCorner].x(), -verts[kTopLeftCorner].z());
+    bottom_tex[kTopRightCorner] = QVector2D(verts[kBottomLeftCorner].x(), -back[kBottomLeftCorner].z());
+    bottom_tex[kTopLeftCorner] = QVector2D(verts[kBottomRightCorner].x(), -back[kBottomRightCorner].z());
 
-    left_tex[0] = QVector2D(-verts[3].z(), verts[3].y());
-    left_tex[1] = QVector2D(-verts[0].z(), verts[0].y());
-    left_tex[2] = QVector2D(-back[1].z(), verts[1].y());
-    left_tex[3] = QVector2D(-back[2].z(), verts[2].y());
-
-    if (verts[2].y() - 0.5 < 0.01) {
-      qDebug() << verts;
-      qDebug() << back;
-      qDebug() << left_tex;
-    }
-
+    left_tex[kBottomLeftCorner] = QVector2D(-verts[kTopLeftCorner].z(), verts[kTopLeftCorner].y());
+    left_tex[kBottomRightCorner] = QVector2D(-verts[kBottomLeftCorner].z(), verts[kBottomLeftCorner].y());
+    left_tex[kTopRightCorner] = QVector2D(-back[kBottomRightCorner].z(), verts[kBottomRightCorner].y());
+    left_tex[kTopLeftCorner] = QVector2D(-back[kTopRightCorner].z(), verts[kTopRightCorner].y());
   } else {
     // Align the textures directly to the faces.
-    top_tex[0] = QVector2D(0, 0);
-    top_tex[1] = QVector2D(1, 0);
-    top_tex[2] = QVector2D(1, 1);
-    top_tex[3] = QVector2D(0, 1);
+    top_tex[kBottomLeftCorner] = QVector2D(0, 1);
+    top_tex[kBottomRightCorner] = QVector2D(1, 1);
+    top_tex[kTopRightCorner] = QVector2D(1, 0);
+    top_tex[kTopLeftCorner] = QVector2D(0, 0);
 
-    front_tex[0] = QVector2D(0, 0);
-    front_tex[1] = QVector2D(1, 0);
-    front_tex[2] = QVector2D(1, 1);
-    front_tex[3] = QVector2D(0, 1);
+    front_tex[kBottomLeftCorner] = QVector2D(0, 0);
+    front_tex[kBottomRightCorner] = QVector2D(1, 0);
+    front_tex[kTopRightCorner] = QVector2D(1, 1);
+    front_tex[kTopLeftCorner] = QVector2D(0, 1);
 
-    back_tex[0] = QVector2D(0, 0);
-    back_tex[1] = QVector2D(1, 0);
-    back_tex[2] = QVector2D(1, 1);
-    back_tex[3] = QVector2D(0, 1);
+    back_tex[kBottomLeftCorner] = QVector2D(0, 0);
+    back_tex[kBottomRightCorner] = QVector2D(1, 0);
+    back_tex[kTopRightCorner] = QVector2D(1, 1);
+    back_tex[kTopLeftCorner] = QVector2D(0, 1);
 
-    right_tex[0] = QVector2D(1, 0);
-    right_tex[1] = QVector2D(1, 1);
-    right_tex[2] = QVector2D(0, 1);
-    right_tex[3] = QVector2D(0, 0);
+    right_tex[kBottomLeftCorner] = QVector2D(1, 0);
+    right_tex[kBottomRightCorner] = QVector2D(1, 1);
+    right_tex[kTopRightCorner] = QVector2D(0, 1);
+    right_tex[kTopLeftCorner] = QVector2D(0, 0);
 
-    bottom_tex[0] = QVector2D(1, 1);
-    bottom_tex[1] = QVector2D(0, 1);
-    bottom_tex[2] = QVector2D(0, 0);
-    bottom_tex[3] = QVector2D(1, 0);
+    bottom_tex[kBottomLeftCorner] = QVector2D(1, 1);
+    bottom_tex[kBottomRightCorner] = QVector2D(0, 1);
+    bottom_tex[kTopRightCorner] = QVector2D(0, 0);
+    bottom_tex[kTopLeftCorner] = QVector2D(1, 0);
 
-    left_tex[0] = QVector2D(0, 1);
-    left_tex[1] = QVector2D(0, 0);
-    left_tex[2] = QVector2D(1, 0);
-    left_tex[3] = QVector2D(1, 1);
+    left_tex[kBottomLeftCorner] = QVector2D(0, 1);
+    left_tex[kBottomRightCorner] = QVector2D(0, 0);
+    left_tex[kTopRightCorner] = QVector2D(1, 0);
+    left_tex[kTopLeftCorner] = QVector2D(1, 1);
   }
 
   return TextureCoords() << front_tex << back_tex << bottom_tex << right_tex << top_tex << left_tex;
@@ -188,10 +181,10 @@ void RectangularPrismRenderable::addQuad(const QVector3D &a, const QVector3D &b,
                                          const QVector3D &c, const QVector3D &d,
                                          const QVector<QVector2D> &tex) {
   QVector3D norm = QVector3D::normal(a, b, c);
-  appendVertex(a, norm, tex[0]);
-  appendVertex(b, norm, tex[1]);
-  appendVertex(c, norm, tex[2]);
-  appendVertex(d, norm, tex[3]);
+  appendVertex(a, norm, tex[kBottomLeftCorner]);
+  appendVertex(b, norm, tex[kBottomRightCorner]);
+  appendVertex(c, norm, tex[kTopRightCorner]);
+  appendVertex(d, norm, tex[kTopLeftCorner]);
 }
 
 void RectangularPrismRenderable::renderAt(const QVector3D& location, const BlockOrientation* orientation) const {
