@@ -165,10 +165,7 @@ RectangularPrismRenderable::TextureCoords RectangularPrismRenderable::createText
   return TextureCoords() << front_tex << back_tex << bottom_tex << right_tex << top_tex << left_tex;
 }
 
-void RectangularPrismRenderable::renderAt(const QVector3D& location, const BlockOrientation* orientation) const {
-  glPushMatrix();
-  glTranslatef(location.x(), location.y(), location.z());
-
+void RectangularPrismRenderable::applyOrientationTransform(const BlockOrientation* orientation) const {
   if (orientation == BlockOrientation::get("Facing north")) {
     glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
   } else if (orientation == BlockOrientation::get("Facing east")) {
@@ -176,29 +173,14 @@ void RectangularPrismRenderable::renderAt(const QVector3D& location, const Block
   } else if (orientation == BlockOrientation::get("Facing west")) {
     glRotatef(-90.0f, 0.0f, 1.0f, 0.0f);
   }
+}
 
-  glEnableClientState(GL_VERTEX_ARRAY);
-  glEnableClientState(GL_NORMAL_ARRAY);
-  glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-  glVertexPointer(3, GL_FLOAT, 0, vertices().constData());
-  glNormalPointer(GL_FLOAT, 0, normals().constData());
-  glTexCoordPointer(2, GL_FLOAT, 0, textureCoords().constData());
-  for (int start = 0; start < vertices().size(); start += 4) {
-    // Front, back, bottom, right, top, left.
-    Face face = mapToDefaultOrientation(static_cast<Face>(start / 4), orientation);
-    if (renderDelegate() && !renderDelegate()->shouldRenderFace(this, face, location)) {
-      continue;
-    }
-    glBindTexture(GL_TEXTURE_2D, texture(start / 4).textureId());
-    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    GLushort indices[4] = { start, start + 1, start + 2, start + 3 };
-    glDrawElements(GL_QUADS, 4, GL_UNSIGNED_SHORT, indices);
-  }
-  glPopMatrix();
+bool RectangularPrismRenderable::shouldRenderQuad(int index,
+                                                  const QVector3D& location,
+                                                  const BlockOrientation* orientation) const {
+  // Rectangular prisms have one quad per face, so we can just check the delegate.
+  Face face = mapToDefaultOrientation(static_cast<Face>(index), orientation);
+  return !(renderDelegate() && !renderDelegate()->shouldRenderFace(this, face, location));
 }
 
 Face RectangularPrismRenderable::mapToDefaultOrientation(Face local_face, const BlockOrientation* orientation) const {

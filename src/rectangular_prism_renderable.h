@@ -33,7 +33,8 @@ class RectangularPrismRenderable : public BasicRenderable {
   explicit RectangularPrismRenderable(const QVector3D& size, TextureSizing sizing = kTextureClip);
   virtual ~RectangularPrismRenderable() {}
 
-  virtual void renderAt(const QVector3D& location, const BlockOrientation* orientation) const;
+  virtual void applyOrientationTransform(const BlockOrientation* orientation) const;
+  virtual bool shouldRenderQuad(int index, const QVector3D& location, const BlockOrientation* orientation) const;
 
  protected:
   TextureSizing sizing() const {

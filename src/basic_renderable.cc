@@ -35,7 +35,9 @@ void BasicRenderable::addQuad(const QVector3D &a, const QVector3D &b,
 
 void BasicRenderable::applyOrientationTransform(const BlockOrientation* orientation) const {}
 
-bool BasicRenderable::shouldRenderQuad(int index) const {
+bool BasicRenderable::shouldRenderQuad(int index,
+                                       const QVector3D& location,
+                                       const BlockOrientation* orientation) const {
   return true;
 }
 
@@ -56,7 +58,7 @@ void BasicRenderable::renderAt(const QVector3D& location, const BlockOrientation
   glNormalPointer(GL_FLOAT, 0, normals().constData());
   glTexCoordPointer(2, GL_FLOAT, 0, textureCoords().constData());
   for (int start = 0; start < vertices().size(); start += 4) {
-    if (!shouldRenderQuad(start / 4)) {
+    if (!shouldRenderQuad(start / 4, location, orientation)) {
       continue;
     }
     glBindTexture(GL_TEXTURE_2D, textureForQuad(start / 4).textureId());

@@ -97,10 +97,11 @@ class BasicRenderable : public Renderable {
   virtual void applyOrientationTransform(const BlockOrientation* orientation) const;
 
   /**
-    * Returns true if the quad at \p index should be rendered.  Subclasses can check with the render delegate to
-    * obtain adjacency information and return true or false as necessary.  The default implementation returns true.
+    * Returns true if the quad at \p index should be rendered at \p location with \p orientation.  Subclasses can check
+    * with the render delegate to obtain adjacency information and return true or false as necessary.  The default
+    * implementation always returns true.
     */
-  virtual bool shouldRenderQuad(int index) const;
+  virtual bool shouldRenderQuad(int index, const QVector3D& location, const BlockOrientation* orientation) const;
 
   /**
     * Returns the texture that should be used to draw the quad at \p index.  By default, this just calls
