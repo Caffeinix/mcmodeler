@@ -119,10 +119,10 @@ class BlockPrototype : public RenderDelegate {
 
  private:
   /**
-    * The mapping from blocktype_t enum constants to BlockProperties objects.  This is a static non-POD type, so it must
-    * NOT be initialized at static initialization time.  It is populated in setupBlockProperties().
+    * The mapping from blocktype_t enum constants to BlockProperties objects.  This must be a pointer to avoid creating
+    * a static of non-POD type.  It is allocated and populated in setupBlockProperties().
     */
-  static QMap<blocktype_t, BlockProperties> s_type_mapping;
+  static QMap<blocktype_t, BlockProperties>* s_type_mapping;
 
   /**
     * Returns the prototype of the block that would be adjacent to the \p face Face of a block of this type that is

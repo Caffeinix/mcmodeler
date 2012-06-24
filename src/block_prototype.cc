@@ -29,7 +29,7 @@
 #include "renderable.h"
 #include "texture.h"
 
-QMap<blocktype_t, BlockProperties> BlockPrototype::s_type_mapping;
+QMap<blocktype_t, BlockProperties>* BlockPrototype::s_type_mapping = NULL;
 
 // Static.
 void BlockPrototype::setupBlockProperties() {
@@ -67,11 +67,12 @@ void BlockPrototype::setupBlockProperties() {
     qApp->exit(1);
   }
 
+  s_type_mapping = new QMap<blocktype_t, BlockProperties>();
   QVariantList blocks = root.toList();
   int i = 0;
   foreach (QVariant block_variant, blocks) {
     QVariantMap block = block_variant.toMap();
-    s_type_mapping.insert(i, BlockProperties(block));
+    s_type_mapping->insert(i, BlockProperties(block));
     ++i;
   }
   qApp->exit(0);
@@ -79,8 +80,8 @@ void BlockPrototype::setupBlockProperties() {
 
 // static
 QString BlockPrototype::nameOfType(blocktype_t type) {
-  if (s_type_mapping.contains(type)) {
-    return s_type_mapping.value(type).name();
+  if (s_type_mapping && s_type_mapping->contains(type)) {
+    return s_type_mapping->value(type).name();
   } else {
     return QString();
   }
@@ -88,7 +89,10 @@ QString BlockPrototype::nameOfType(blocktype_t type) {
 
 // static
 int BlockPrototype::blockCount() {
-  return s_type_mapping.size();
+  if (!s_type_mapping) {
+    return 0;
+  }
+  return s_type_mapping->size();
 }
 
 const BlockProperties& BlockPrototype::properties() const {
@@ -96,10 +100,11 @@ const BlockProperties& BlockPrototype::properties() const {
 }
 
 BlockPrototype::BlockPrototype(blocktype_t type, BlockOracle* oracle, QGLWidget* widget) : type_(type), oracle_(oracle) {
-  if (s_type_mapping.isEmpty()) {
+  if (!s_type_mapping) {
     qWarning() << "You forgot to call setupBlockProperties!";
+    s_type_mapping = new QMap<blocktype_t, BlockProperties>();
   }
-  properties_ = s_type_mapping.value(type_);
+  properties_ = s_type_mapping->value(type_);
   switch (properties_.geometry()) {
     case kBlockGeometryCube:
     renderable_.reset(new RectangularPrismRenderable(QVector3D(1.0f, 1.0f, 1.0f)));
@@ -110,14 +115,16 @@ BlockPrototype::BlockPrototype(blocktype_t type, BlockOracle* oracle, QGLWidget*
     case kBlockGeometryChest:
       renderable_.reset(new RectangularPrismRenderable(QVector3D(0.9f, 0.9f, 0.9f),
                                                        RectangularPrismRenderable::kTextureScale));
+      break;
     case kBlockGeometryPressurePlate:
-      renderable_.reset(new RectangularPrismRenderable(QVector3D(0.8f, 0.2f, 0.8f)));
+      renderable_.reset(new RectangularPrismRenderable(QVector3D(0.8f, 0.05f, 0.8f)));
+      break;
     case kBlockGeometryCactus:
       renderable_.reset(new OverlappingFacesRenderable(1.0f, QVector3D(1.f/16.f, 0.f, 1.f/16.f)));
       break;
     default:
       qWarning() << "No renderable could be found for block" << properties_.name();
-      renderable_.reset(new CubicRenderable(1.0f));
+      renderable_.reset(new RectangularPrismRenderable(QVector3D(1.0f, 1.0f, 1.0f)));
       break;
   }
   renderable_->setRenderDelegate(this);
