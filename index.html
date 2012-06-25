@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>MCModeler by Caffeinix</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>MCModeler</h1>
+        <h2>The MCModeler Minecraft modeling tool</h2>
+        <a href="https://github.com/Caffeinix/mcmodeler" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>MCModeler</h1>
+
+<p>MCModeler is a Minecraft modeling tool that combines the ease of level-based, top-down 2D editing with the ability to preview your creations in true 3D.</p>
+
+<h2>Download</h2>
+
+<p><strong>MCModeler is not yet ready for prime time.</strong>  It supports only a subset of the possible Minecraft blocks (mainly cubes and slabs), is missing many of the newer blocks like end stone, does not yet have support for lines, circles, squares, etc., and does not let you undo edits.  The file format is also subject to change, and any diagrams you create using a current version of MCModeler may not load or may load incorrectly in future versions.  In addition, I have not yet uploaded any binaries, so you will have to download and build it from source yourself.  You can find <a href="https://github.com/Caffeinix/mcmodeler/wiki/Building-MCModeler">build instructions on the wiki</a>.</p>
+
+<p>If the above has somehow not yet scared you off, feel free to download the source using the buttons on the right, or just clone the repository and go to town.</p>
+
+<h2>Usage</h2>
+
+<p>Wow, you got it working!  Congrats!  Here are some tips on how to use it until I implement a fleshed out tool UI.</p>
+
+<ul>
+<li>
+<strong>Horizontal movement</strong> uses the standard WASD control scheme, which should be familiar to you if you play Minecraft.</li>
+<li>
+<strong>Vertical movement</strong> uses E to go up and C to go down.  Yes, I know this is different from Minecraft, but when I wrote that code Creative mode didn't exist yet.  I'll probably change it later.</li>
+<li>
+<strong>Looking around</strong> is done with the mouse, also like Minecraft, but you must click and drag in the 3D preview window for the mouselook to become active.  This is so that MCModeler doesn't lock your mouse focus when you're trying to do other things (like edit the world).</li>
+<li>
+<strong>Drawing blocks</strong> is done by left-clicking in the editor window with a block selected in the block picker at the bottom of the window.</li>
+<li>
+<strong>Erasing blocks</strong> is done by right-clicking.</li>
+<li>
+<strong>Changing the orientation of blocks</strong> is done by left-clicking on a block in the editor with that same block selected in the block picker.  For example, if you want to turn your furnace 90 degrees, select the furnace in the block picker and click on your already placed furnace.</li>
+<li>
+<strong>Drawing lines</strong> is done by left clicking in the editor, then holding shift and left-clicking somewhere else.  Note that there are some bugs in the line drawing algorithm right now, so it's best to start your line on the left and end on the right.</li>
+<li>
+<strong>Flood fill</strong> can be done by holding down Control (or Command if you're on the Mac) and left-clicking in the middle of an <em>enclosed</em> space.  (Clicking in a space that is not fully enclosed will flood fill a vast number of blocks on the infinite canvas before it finally gives up.  I don't recommend it.)</li>
+</ul><h2>Contributing</h2>
+
+<p>I am actively looking for developers to help me work on MCModeler.  If you're interested, please take a look at <a href="https://github.com/Caffeinix/mcmodeler/wiki/Development">the Development page on the wiki</a> and grab the source code for yourself.  At the time of this writing, MCModeler is very well documented, so finding your way around should be pretty easy.  <strong>If you are fluent in OpenGL, I especially need your help</strong> -- my attempts at 3D graphics programming are pretty n00b-ish.</p>
+
+<h2>License</h2>
+
+<p>MCModeler is licensed under the Apache License version 2.0, the full text of which can be found at <a href="http://www.apache.org/licenses/LICENSE-2.0.html">the Apache license page</a>.</p>
+
+<p>MCModeler uses the qjson library, which is licensed under the LGPL version 2.1, the full text of which can be found at <a href="http://www.gnu.org/licenses/lgpl-2.1.html">the LGPL license page</a>.  In compliance with that license, the source code for qjson can be found in the third_party directory within this repository, along with a copy of the LGPL (as LICENSE.LIB).</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/Caffeinix/mcmodeler/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/Caffeinix/mcmodeler/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/Caffeinix/mcmodeler"></a> is maintained by <a href="https://github.com/Caffeinix">Caffeinix</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
