@@ -25,6 +25,11 @@ BlockOrientation* BlockOrientation::noOrientation() {
 }
 
 // Static.
+BlockOrientation* BlockOrientation::paletteOrientation() {
+  return BlockOrientation::get("In palette");
+}
+
+// Static.
 BlockOrientation* BlockOrientation::get(const char* name) {
   QString q_name(name);
   BlockOrientation* instance = s_known_orientations_.value(q_name);

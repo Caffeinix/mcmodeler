@@ -43,6 +43,15 @@ class BlockOrientation {
   static BlockOrientation* noOrientation();
 
   /**
+    * Returns a BlockOrientation object representing the orientation a block should be in when it is viewed in the
+    * block picker palette.  This is considered a unique orientation, even if it is visually identical to some other
+    * orientation.
+    *
+    * @note This function does \e not transfer ownership of the pointer to the caller, so you should \e not delete it!
+    */
+  static BlockOrientation* paletteOrientation();
+
+  /**
     * Returns a BlockOrientation object for the given string.  This is guaranteed to return the same pointer every time
     * it is called with an equal string (that is, if you call get() with two strings for which strcmp() would return 0,
     * you will get back the same pointer for both strings).
