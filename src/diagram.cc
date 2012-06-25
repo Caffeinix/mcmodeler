@@ -36,11 +36,15 @@ class ScopedTransactionCommitter {
   const BlockTransaction& transaction_;
 };
 
-Diagram::Diagram(QObject* parent) : QObject(parent) {
+Diagram::Diagram(QObject* parent) : QObject(parent), block_mgr_(NULL) {
+}
+
+BlockManager* Diagram::blockManager() const {
+  Q_ASSERT_X(block_mgr_, __PRETTY_FUNCTION__, "No BlockManager has been set. Call setBlockManager() first.");
+  return block_mgr_;
 }
 
 void Diagram::load(QDataStream* stream) {
-  Q_ASSERT(block_mgr_);
   stream->setVersion(QDataStream::Qt_4_7);
   stream->setFloatingPointPrecision(QDataStream::SinglePrecision);
   // TODO: error checking...
@@ -72,7 +76,7 @@ void Diagram::load(QDataStream* stream) {
     qint32 type_byte;
     *stream >> type_byte;
     blocktype_t type = static_cast<blocktype_t>(type_byte);
-    BlockPrototype* prototype = block_mgr_->getPrototype(type);
+    BlockPrototype* prototype = blockManager()->getPrototype(type);
     // TODO(phoenix): Read/write orientation data!
     BlockInstance new_block(prototype, position, prototype->defaultOrientation());
     transaction.setBlock(new_block);
@@ -143,10 +147,11 @@ void Diagram::commit(const BlockTransaction& transaction) {
   emit diagramChanged(transaction);
 }
 
-void Diagram::drawLine(const BlockPosition& start_pos, const BlockPosition& end_pos, const blocktype_t& type, BlockOrientation* orientation) {
+void Diagram::drawLine(const BlockPosition& start_pos, const BlockPosition& end_pos,
+                       const blocktype_t& type, BlockOrientation* orientation) {
   BlockTransaction transaction;
   ScopedTransactionCommitter committer(this, transaction);
-  BlockPrototype* prototype = block_mgr_->getPrototype(type);
+  BlockPrototype* prototype = blockManager()->getPrototype(type);
   LineTool tool(this);
   tool.setPositionAtIndex(0, start_pos);
   tool.setPositionAtIndex(1, end_pos);
@@ -191,7 +196,7 @@ void Diagram::fillBlocksRecurse(const BlockPosition& pos,
   if (dest_type == kBlockTypeAir) {
     transaction->clearBlock(old_block);
   } else {
-    BlockPrototype* prototype = block_mgr_->getPrototype(dest_type);
+    BlockPrototype* prototype = blockManager()->getPrototype(dest_type);
     BlockInstance new_block(prototype, pos, dest_orientation);
     transaction->replaceBlock(old_block, new_block);
   }
@@ -239,7 +244,7 @@ void Diagram::copyLevel(int source_level, int dest_level) {
 }
 
 BlockInstance Diagram::blockAt(const BlockPosition& position) {
-  BlockInstance default_value(block_mgr_->getPrototype(kBlockTypeAir), position, BlockOrientation::noOrientation());
+  BlockInstance default_value(blockManager()->getPrototype(kBlockTypeAir), position, BlockOrientation::noOrientation());
   return block_map_.value(position, default_value);
 }
 

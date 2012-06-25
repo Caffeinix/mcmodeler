@@ -43,7 +43,13 @@ void LineTool::draw(BlockPrototype* prototype, BlockOrientation* orientation, Bl
   int err = dx - dz;
   BlockPosition pos(start_);
 
+  int sanity_check = 0;
   forever {
+    if (sanity_check > 1e5) {
+      qWarning() << "Encountered an infinite loop in the line drawing algorithm.  Bailing out to avoid a hang.";
+      break;
+    }
+
     BlockInstance new_block(prototype, pos, orientation);
     transaction->replaceBlock(oracle_->blockAt(pos), new_block);
 
@@ -61,5 +67,7 @@ void LineTool::draw(BlockPrototype* prototype, BlockOrientation* orientation, Bl
       err += dx;
       pos = BlockPosition(pos.x(), pos.y(), pos.z() + sz);
     }
+
+    ++sanity_check;
   }
 }
