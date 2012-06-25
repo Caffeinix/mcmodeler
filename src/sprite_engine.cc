@@ -9,6 +9,12 @@ SpriteEngine::SpriteEngine() {
 QPixmap SpriteEngine::createSprite(const Texture& texture,
                                    const BlockProperties& properties,
                                    const BlockOrientation* orientation) {
+  CacheKey key = qMakePair(&properties, orientation);
+  QPixmap cached_pixmap = pixmap_cache_.value(key);
+  if (!cached_pixmap.isNull()) {
+    return cached_pixmap;
+  }
+
   QPixmap pixmap = texture.texturePixmap();
   QPainter painter(&pixmap);
   painter.save();
@@ -39,5 +45,6 @@ QPixmap SpriteEngine::createSprite(const Texture& texture,
     }
   }
 
+  pixmap_cache_.insert(key, pixmap);
   return pixmap;
 }
