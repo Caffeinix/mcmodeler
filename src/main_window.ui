@@ -365,6 +365,118 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>level_slider_</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>level_widget_</receiver>
+   <slot>setLevel(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>844</x>
+     <y>253</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>752</x>
+     <y>251</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>level_widget_</sender>
+   <signal>levelChanged(int)</signal>
+   <receiver>level_label_</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>692</x>
+     <y>126</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>851</x>
+     <y>41</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_extrude_upwards_</sender>
+   <signal>triggered()</signal>
+   <receiver>level_widget_</receiver>
+   <slot>extrudeUpwards()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>420</x>
+     <y>327</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_extrude_downwards_</sender>
+   <signal>triggered()</signal>
+   <receiver>level_widget_</receiver>
+   <slot>extrudeDownwards()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>420</x>
+     <y>327</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_copy_level_</sender>
+   <signal>triggered()</signal>
+   <receiver>level_widget_</receiver>
+   <slot>copyLevel()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>420</x>
+     <y>327</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_paste_level_</sender>
+   <signal>triggered()</signal>
+   <receiver>level_widget_</receiver>
+   <slot>pasteLevel()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>420</x>
+     <y>327</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>level_widget_</sender>
+   <signal>levelChanged(int)</signal>
+   <receiver>level_slider_</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>555</x>
+     <y>186</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>854</x>
+     <y>183</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>quit()</slot>

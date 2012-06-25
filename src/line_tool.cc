@@ -45,7 +45,7 @@ void LineTool::draw(BlockPrototype* prototype, BlockOrientation* orientation, Bl
 
   int sanity_check = 0;
   forever {
-    if (sanity_check > 1e5) {
+    if (sanity_check > 1000) {
       qWarning() << "Encountered an infinite loop in the line drawing algorithm.  Bailing out to avoid a hang.";
       break;
     }
