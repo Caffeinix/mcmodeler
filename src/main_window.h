@@ -33,8 +33,6 @@ class MainWindow : public QMainWindow {
   void setBlockManager(BlockManager* block_mgr);
 
  private slots:
-  void toolButtonClicked();
-
   void about();
 
   void open();

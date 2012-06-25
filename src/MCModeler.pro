@@ -34,7 +34,9 @@ HEADERS = \
     door_renderable.h \
     stairs_renderable.h \
     basic_renderable.h \
-    skybox_renderable.h
+    skybox_renderable.h \
+    block_picker.h \
+    block_picker_item_delegate.h
 
 SOURCES = \
     about_box.cc \
@@ -66,7 +68,9 @@ SOURCES = \
     door_renderable.cc \
     stairs_renderable.cc \
     basic_renderable.cc \
-    skybox_renderable.cc
+    skybox_renderable.cc \
+    block_picker.cc \
+    block_picker_item_delegate.cc
 
 QT += opengl
 
@@ -77,7 +81,8 @@ FORMS += \
     about_box.ui \
     bill_of_materials_window.ui \
     gl_preview_window.ui \
-    main_window.ui
+    main_window.ui \
+    block_picker.ui
 
 INCLUDEPATH += ../third_party/qjson/include
 
@@ -105,6 +110,11 @@ win32 {
 }
 
 TARGET = "MCModeler"
+
+
+
+
+
 
 
 

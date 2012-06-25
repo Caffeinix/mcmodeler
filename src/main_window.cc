@@ -19,6 +19,7 @@
 
 #include "about_box.h"
 #include "block_manager.h"
+#include "block_picker.h"
 #include "block_type.h"
 #include "diagram.h"
 #include "flow_layout.h"
@@ -53,38 +54,13 @@ void MainWindow::setBlockManager(BlockManager* block_mgr) {
   setupToolbox();
 }
 
-void MainWindow::toolButtonClicked() {
-  QToolButton* button = qobject_cast<QToolButton*>(sender());
-  blocktype_t type = button->property("blockType").toInt();
-  ui.level_widget_->setBlockType(type);
-}
-
 void MainWindow::setupToolbox() {
-  if (ui.toolbox_frame_->layout()) {
-    ui.toolbox_frame_->layout()->deleteLater();
-  }
-  QButtonGroup* group = new QButtonGroup(this);
-  FlowLayout* layout = new FlowLayout(4, 1, 1);
   for (blocktype_t i = 0; i < BlockPrototype::blockCount(); ++i) {
-    QToolButton* button = new QToolButton(ui.toolbox_frame_);
     BlockPrototype* block = block_mgr_->getPrototype(i);
-    button->setIcon(block->sprite().texturePixmap());
-    button->setProperty("blockType", QVariant(i));
-    QString block_name = block->name();
-    if (block_name.isEmpty()) {
-      button->hide();
-    }
-    button->setText(block_name);
-    button->setToolTip(block_name);
-    button->setCheckable(true);
-    connect(button, SIGNAL(clicked()), SLOT(toolButtonClicked()));
-    group->addButton(button);
-    layout->addWidget(button);
+    ui.block_picker_->addBlock(block);
   }
-  ui.toolbox_frame_->setLayout(layout);
-  ui.toolbox_scroll_area_->setMinimumWidth(90);
-  QToolButton* first_button = ui.toolbox_frame_->findChild<QToolButton*>();
-  first_button->setChecked(true);
+  connect(ui.block_picker_, SIGNAL(blockSelected(blocktype_t)),
+          ui.level_widget_, SLOT(setBlockType(blocktype_t)));
 }
 
 void MainWindow::setTemplateImage() {

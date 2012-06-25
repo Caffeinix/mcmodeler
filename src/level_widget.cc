@@ -159,17 +159,20 @@ void LevelWidget::toggleBlock(QMouseEvent* event) {
     BlockPrototype* prototype = block_mgr_->getPrototype(block_type_);
     const BlockInstance& old_block = diagram_->blockAt(position);
     if (block_type_ == old_block.prototype()->type()) {
-      BlockOrientation* old_orientation = old_block.orientation();
-      const QVector<BlockOrientation*>& orientations = old_block.prototype()->orientations();
-      int orientation_index = orientations.indexOf(old_orientation);
-      if (orientation_index == orientations.size() - 1) {
-        orientation_index = 0;
-      } else {
-        ++orientation_index;
+      // Only change orientation on mouse down; otherwise we get a bunch of orientation changes during mouse move.
+      if (event->type() == QEvent::MouseButtonPress || event->type() == QEvent::MouseButtonDblClick) {
+        BlockOrientation* old_orientation = old_block.orientation();
+        const QVector<BlockOrientation*>& orientations = old_block.prototype()->orientations();
+        int orientation_index = orientations.indexOf(old_orientation);
+        if (orientation_index == orientations.size() - 1) {
+          orientation_index = 0;
+        } else {
+          ++orientation_index;
+        }
+        qDebug() << "Using orientation" << orientations.at(orientation_index)->name();
+        BlockInstance new_block(prototype, position, orientations.at(orientation_index));
+        diagram_->setBlock(position, new_block);
       }
-      qDebug() << "Using orientation" << orientations.at(orientation_index)->name();
-      BlockInstance new_block(prototype, position, orientations.at(orientation_index));
-      diagram_->setBlock(position, new_block);
     } else {
       BlockInstance new_block(prototype, position, prototype->defaultOrientation());
       diagram_->setBlock(position, new_block);
