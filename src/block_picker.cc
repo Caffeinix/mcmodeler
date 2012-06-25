@@ -8,6 +8,7 @@ BlockPicker::BlockPicker(QWidget* parent)
   ui.setupUi(this);
   ui.tab_widget_->setAttribute(Qt::WA_MacSmallSize, true);
   item_delegate_ = new BlockPickerItemDelegate(this);
+  connect(ui.tab_widget_, SIGNAL(currentChanged(int)), SLOT(updateSelectedBlock()));
 }
 
 BlockPicker::~BlockPicker() {
@@ -41,6 +42,22 @@ QListWidget* BlockPicker::createTab() {
   connect(list, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),
           SLOT(selectBlockForItem(QListWidgetItem*)));
   return list;
+}
+
+void BlockPicker::updateSelectedBlock() {
+  QListWidget* list = qobject_cast<QListWidget*>(ui.tab_widget_->currentWidget());
+  if (!list) {
+    qWarning() << "Couldn't update selected block.  This tab wasn't a QListWidget, it was a"
+               << ui.tab_widget_->currentWidget()->metaObject()->className();
+    return;
+  }
+
+  // If the newly selected tab doesn't have a selected item, just leave the previous tab's selected block as the
+  // active block.  It's a bit strange, but it'll be more intuitive for the user than selecting a null block.
+  QListWidgetItem* item = list->currentItem();
+  if (item) {
+    selectBlockForItem(item);
+  }
 }
 
 void BlockPicker::selectBlockForItem(QListWidgetItem* item) {

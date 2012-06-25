@@ -24,6 +24,7 @@ class BlockPicker : public QWidget {
   void blockSelected(blocktype_t type);
 
  private slots:
+  void updateSelectedBlock();
   void selectBlockForItem(QListWidgetItem* item);
 
  private:
