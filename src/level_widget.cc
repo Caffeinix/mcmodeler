@@ -250,7 +250,7 @@ QGraphicsItem* LevelWidget::addBlock(const BlockInstance& block) {
   }
 
   BlockPrototype* prototype = block.prototype();
-  QGraphicsPixmapItem* item = scene()->addPixmap(prototype->sprite().texturePixmap());
+  QGraphicsPixmapItem* item = scene()->addPixmap(prototype->sprite());
   item->setOffset(-0.5 * kSpriteWidth, -0.5 * kSpriteHeight);
   item->setPos(position.x() * kSpriteWidth, position.z() * kSpriteHeight);
   item->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);

@@ -81,7 +81,7 @@ void BlockPicker::addBlock(BlockPrototype* block) {
                  << "-- this tab wasn't a QListWidget, it was a" << tab->metaObject()->className();
       continue;
     }
-    QListWidgetItem* item = new QListWidgetItem(iconForSprite(block->sprite().texturePixmap()), QString());
+    QListWidgetItem* item = new QListWidgetItem(iconForSprite(block->sprite()), QString());
     item->setSizeHint(QSize(24, 24));
     item->setData(Qt::UserRole, block->type());
     item->setToolTip(block->name());

@@ -36,6 +36,7 @@ const char kGeometrySlab[] = "slab";
 const char kGeometryCactus[] = "cactus";
 const char kGeometryChest[] = "chest";
 const char kGeometryDoor[] = "door";
+const char kGeometryLadder[] = "ladder";
 const char kGeometryStairs[] = "stairs";
 const char kGeometryPressurePlate[] = "pressure_plate";
 
@@ -131,21 +132,21 @@ Application::Application(int argc, char *argv[]) :
                   QPoint(4, 3),
                   QVariantList() << kOrientationNone,
                   textures(QPoint(4, 3)),
-                  false, false, true);
+                  true, false, true);
   blocks << block("Leaves (Birch)",
                   QStringList() << kCategoryBasic << kCategoryVegetation,
                   kGeometryCube,
                   QPoint(5, 3),
                   QVariantList() << kOrientationNone,
                   textures(QPoint(5, 3)),
-                  false, false, true);
+                  true, false, true);
   blocks << block("Leaves (Pine)",
                   QStringList() << kCategoryBasic << kCategoryVegetation,
                   kGeometryCube,
                   QPoint(5, 8),
                   QVariantList() << kOrientationNone,
                   textures(QPoint(5, 8)),
-                  false, false, true);
+                  true, false, true);
   blocks << block("Grass",
                   QStringList() << kCategoryBasic << kCategoryVegetation,
                   kGeometryCube,
@@ -693,6 +694,27 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
                   textures(QPoint(0, 1)),
                   true);
+  blocks << block("Wooden Stairs",
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryStairs,
+                  QPoint(4, 0),
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  textures(QPoint(4, 0)),
+                  true);
+  blocks << block("Ladder",
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryLadder,
+                  QPoint(3, 5),
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  textures(QList<QPoint>() << QPoint(3, 5)),
+                  true);
+  blocks << block("Vines",
+                  QStringList() << kCategoryBasic << kCategoryVegetation,
+                  kGeometryLadder,
+                  QPoint(15, 8),
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  textures(QList<QPoint>() << QPoint(15, 8)),
+                  true, false, true);
 
 
   QJson::Serializer serializer;

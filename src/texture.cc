@@ -91,6 +91,11 @@ void Texture::initWithTile(QGLWidget* widget, const QString& path, int x_index, 
     if (color.alpha() > 0 && mode != QPainter::CompositionMode_Destination) {
       painter.setCompositionMode(mode);
       painter.fillRect(0, 0, x_size, y_size, color);
+
+      // Multiply will mess up the alpha channel, so re-apply it from the original master bitmap.
+      painter.setCompositionMode(QPainter::CompositionMode_DestinationAtop);
+      painter.drawPixmap(QRect(0, 0, x_size, y_size), master_pixmap,
+                         QRect(x_index * x_size, y_index * y_size, x_size, y_size));
     }
     texture_id_ = maybeBindTexture(widget, texture_pixmap_);
     tile_cache->insert(identifier, qMakePair<QPixmap, GLuint>(texture_pixmap_, texture_id_));

@@ -67,9 +67,9 @@ class BlockPrototype : public RenderDelegate {
   virtual bool shouldRenderFace(const Renderable* renderable, Face face, const QVector3D& location) const;
 
   /**
-    * Returns the sprite texture that should be used to represent this kind of block in a 2D context.
+    * Returns the sprite pixmap that should be used to represent this kind of block in a 2D context.
     */
-  Texture sprite() const;
+  QPixmap sprite() const;
 
   /**
     * Returns the name of this block.  For example, "Netherrack" or "Diamond ore".

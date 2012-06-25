@@ -14,6 +14,7 @@
  */
 
 #include "renderable.h"
+#include "texture.h"
 
 Renderable::Renderable() : is_initialized_(false), delegate_(NULL) {}
 
@@ -23,7 +24,11 @@ void Renderable::initialize() {
 }
 
 Texture Renderable::texture(int local_id) const {
-  return textures_[local_id];
+  if (local_id < textures_.size()) {
+    return textures_[local_id];
+  } else {
+    return Texture();
+  }
 }
 
 void Renderable::setTexture(int local_id, const Texture& texture) {

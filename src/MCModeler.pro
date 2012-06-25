@@ -13,7 +13,6 @@ HEADERS = \
     camera.h \
     diagram.h \
     enums.h \
-    flow_layout.h \
     frame_timer.h \
     gl_preview_window.h \
     gl_widget.h \
@@ -36,7 +35,9 @@ HEADERS = \
     basic_renderable.h \
     skybox_renderable.h \
     block_picker.h \
-    block_picker_item_delegate.h
+    block_picker_item_delegate.h \
+    ladder_renderable.h \
+    sprite_engine.h
 
 SOURCES = \
     about_box.cc \
@@ -48,7 +49,6 @@ SOURCES = \
     block_properties.cc \
     block_prototype.cc \
     diagram.cc \
-    flow_layout.cc \
     frame_timer.cc \
     gl_preview_window.cc \
     gl_widget.cc \
@@ -70,7 +70,9 @@ SOURCES = \
     basic_renderable.cc \
     skybox_renderable.cc \
     block_picker.cc \
-    block_picker_item_delegate.cc
+    block_picker_item_delegate.cc \
+    ladder_renderable.cc \
+    sprite_engine.cc
 
 QT += opengl
 
@@ -110,6 +112,12 @@ win32 {
 }
 
 TARGET = "MCModeler"
+
+
+
+
+
+
 
 
 

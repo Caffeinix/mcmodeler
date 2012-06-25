@@ -22,7 +22,6 @@
 #include "block_picker.h"
 #include "block_type.h"
 #include "diagram.h"
-#include "flow_layout.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),

@@ -26,6 +26,7 @@
 #include "block_oracle.h"
 #include "block_position.h"
 #include "door_renderable.h"
+#include "ladder_renderable.h"
 #include "overlapping_faces_renderable.h"
 #include "rectangular_prism_renderable.h"
 #include "renderable.h"
@@ -135,6 +136,9 @@ BlockPrototype::BlockPrototype(blocktype_t type, BlockOracle* oracle, QGLWidget*
     case kBlockGeometryDoor:
       renderable_.reset(new DoorRenderable());
       break;
+    case kBlockGeometryLadder:
+      renderable_.reset(new LadderRenderable());
+      break;
     default:
       qWarning() << "No renderable could be found for block" << properties_.name();
       renderable_.reset(new RectangularPrismRenderable(QVector3D(1.0f, 1.0f, 1.0f)));
@@ -172,8 +176,8 @@ BlockPrototype::BlockPrototype(blocktype_t type, BlockOracle* oracle, QGLWidget*
   }
 }
 
-Texture BlockPrototype::sprite() const {
-  return sprite_texture_;
+QPixmap BlockPrototype::sprite() const {
+  return sprite_texture_.texturePixmap();
 }
 
 BlockOrientation* BlockPrototype::defaultOrientation() const {
