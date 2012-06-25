@@ -18,6 +18,9 @@
 
 #include "ui_about_box.h"
 
+/**
+  * The application's about box.
+  */
 class AboutBox : public QDialog {
   Q_OBJECT
 

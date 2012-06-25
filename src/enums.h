@@ -16,6 +16,9 @@
 #ifndef ENUMS_H
 #define ENUMS_H
 
+/**
+  * Represents the faces of a rectangular prism, in the order OpenGL expects them to be supplied.
+  */
 enum Face {
   kFrontFace = 0,
   kBackFace = 1,
@@ -25,6 +28,9 @@ enum Face {
   kLeftFace = 5
 };
 
+/**
+  * Represents the four corners of a quad in counter-clockwise order.
+  */
 enum Corner {
   kBottomLeftCorner = 0,
   kBottomRightCorner = 1,
@@ -32,6 +38,9 @@ enum Corner {
   kTopLeftCorner = 3
 };
 
+/**
+  * Represents all the known geometries that a block can have.
+  */
 enum BlockGeometry {
   kBlockGeometryBed,
   kBlockGeometryCactus,

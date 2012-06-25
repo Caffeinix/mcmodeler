@@ -68,6 +68,8 @@ class Texture {
     * @param color The color we should tint the texture before we render it.
     * @param mode The composition mode we should use to fill the texture.  QPainter::CompositionMode_Multiply is often
     *    a good choice here.
+    * @note Special care is taken to maintain the alpha channel of the original pixmap when tinting, so you can safely
+    *       use composition modes that would normally nuke the alpha channel (such as multiply).
     */
   Texture(QGLWidget* widget, const QString& path, int x_index, int y_index, int x_size, int y_size, QColor color,
           QPainter::CompositionMode mode);

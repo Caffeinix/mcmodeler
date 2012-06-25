@@ -20,6 +20,9 @@
 
 class Diagram;
 
+/**
+  * Window that counts all the blocks that are being used in the diagram.
+  */
 class BillOfMaterialsWindow : public QWidget {
   Q_OBJECT
 

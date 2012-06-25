@@ -40,12 +40,12 @@ class BlockTransaction;
   *
   * All operations on the Diagram take place within the scope of a BlockTransaction.  You can either call one of the
   * convenience methods, which create and commit a BlockTransaction for you, or you can create a BlockTransaction
-  * that describes the change you'd like to make and then call commit on the Diagram yourself.  Whenever a change is
-  * made to the diagram, the diagramChanged signal is emitted with the transaction that was performed.
+  * that describes the change you'd like to make and then call commit() on the Diagram yourself.  Whenever a change is
+  * made to the diagram, the diagramChanged() signal is emitted with the transaction that was performed.
   *
   * Diagram treats the world as horizontal slices, each corresponding to a level in the LevelWidget.  You can get a
-  * map of a given level by calling the level method.  You can also look up the block at a particular 3D location by
-  * calling the blockAt method.
+  * map of a given level by calling the level() method.  You can also look up the block at a particular 3D location by
+  * calling the blockAt() method.
   */
 class Diagram : public QObject, public BlockOracle {
   Q_OBJECT
@@ -116,7 +116,7 @@ class Diagram : public QObject, public BlockOracle {
 
   /**
     * Creates and commits a BlockTransaction which copies all blocks on \p source_level to \p dest_level.
-    * @note A "level" is currently defined to be the set of blocks sharing a particular y coordinate.
+    * @note A "level" is currently defined to be the set of blocks sharing a particular _y_ coordinate.
     */
   void copyLevel(int source_level, int dest_level);
 
@@ -138,7 +138,7 @@ class Diagram : public QObject, public BlockOracle {
 
   /**
     * Returns all the blocks on the level \p level_index.  Each BlockInstance in the returned dictionary will have a
-    * y coordinate of \p level_index, and will be keyed on its own position for easy lookup.
+    * _y_ coordinate of \p level_index, and will be keyed on its own position for easy lookup.
     */
   QHash<BlockPosition, BlockInstance> level(int level_index);
 

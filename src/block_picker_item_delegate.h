@@ -18,13 +18,21 @@
 
 #include <QItemDelegate>
 
+/**
+  * QItemDelegate subclass used to customize the display of items in the BlockPicker.
+  */
 class BlockPickerItemDelegate : public QItemDelegate {
   Q_OBJECT
  public:
   explicit BlockPickerItemDelegate(QObject* parent = NULL);
 
  protected:
-  void drawDecoration(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect, const QPixmap &pixmap) const;
+  /**
+    * @copydoc
+    * This is overridden here to center the icon in the cell as well as to draw a custom selection highlight.
+    */
+  void drawDecoration(QPainter *painter, const QStyleOptionViewItem &option,
+                      const QRect &rect, const QPixmap &pixmap) const;
 };
 
 #endif // BLOCK_PICKER_ITEM_DELEGATE_H

@@ -21,6 +21,11 @@
 #include "camera.h"
 #include "matrix.h"
 
+/**
+  * Concrete camera implementation implementing mouselook.  This means the camera will rotate and translate, but will
+  * avoid introducing roll even if the camera is made to look straight up or down.  And it does it without quaternions,
+  * because I have no idea how quaternions work.
+  */
 class MouselookCam : public CameraInterface {
  public:
   MouselookCam();

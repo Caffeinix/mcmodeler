@@ -24,8 +24,17 @@
 #include <QVector2D>
 #include <QVector3D>
 
+/**
+  * A BasicRenderable for stairs.  This renderable renders the stairs in two pieces, a front step and a back step.
+  * It does not attempt to do any special face culling, though that would not be a hard change to make.
+  */
 class StairsRenderable : public BasicRenderable {
  public:
+
+  /**
+    * Creates a StairsRenderable with the given \p size.  The stairs block will have two steps, with the front step
+    * half the height of the block.
+    */
   explicit StairsRenderable(const QVector3D& size);
   virtual ~StairsRenderable () {}
 

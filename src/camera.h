@@ -20,13 +20,25 @@
 
 #include <QVector3D>
 
+/**
+  * Abstract interface representing a camera that can be moved and rotated to change the view.  See the MouselookCam
+  * implementation to get an idea of what these methods do.
+  */
 class CameraInterface {
  public:
   virtual void rotateX(GLfloat delta) = 0;
   virtual void rotateY(GLfloat delta) = 0;
   virtual void translate(const QVector3D vector) = 0;
   virtual void translateWorld(const QVector3D vector) = 0;
+
+  /**
+    * Applies the rotation component of the camera only.  This is used to draw the skybox.
+    */
   virtual void applyRotation() = 0;
+
+  /**
+    * Applies the current camera transformation.
+    */
   virtual void apply() = 0;
 };
 

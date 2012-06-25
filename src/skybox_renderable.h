@@ -18,6 +18,10 @@
 
 #include "rectangular_prism_renderable.h"
 
+/**
+  * A RectangularPrismRenderable used for rendering the skybox.  Differs from a generic RectangularPrismRenderable only
+  * in that it does not try to sit flat on block boundaries along the _y_ axis.
+  */
 class SkyboxRenderable : public RectangularPrismRenderable {
  public:
   explicit SkyboxRenderable(const QVector3D& size);

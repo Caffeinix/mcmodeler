@@ -16,6 +16,11 @@
 #ifndef MACROS_H
 #define MACROS_H
 
+/**
+  * Attempts to return the size of an array.  This only works if the argument \p lhs is actually an array, _not_ merely
+  * a pointer.  (Arrays cannot be passed through method arguments, for example; if you try, it will demote to a pointer
+  * instead.)
+  */
 template <typename T, size_t N>
 inline int arraysize(const T (&lhs)[N]) {
   Q_UNUSED(lhs);

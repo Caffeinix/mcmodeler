@@ -22,8 +22,16 @@
 
 class Renderable;
 
+/**
+  * A delegate interface exposed to Renderables to give them information about the world.
+  */
 class RenderDelegate {
  public:
+  /**
+    * Returns whether \p renderable should render a \p face at \p location.  The return value of this method may be
+    * affected by, among other things, what blocks are adjacent to the one at \p location and whether that block and/or
+    * adjacent blocks are transparent.
+    */
   virtual bool shouldRenderFace(const Renderable* renderable, Face face, const QVector3D& location) const = 0;
 };
 

@@ -23,13 +23,35 @@
 #include <QVector2D>
 #include <QVector3D>
 
+/**
+  * Renderable for rectangular prisms.  This being Minecraft, most blocks in the game are rectangular prisms, so this is
+  * a pretty generic way of rendering things.  It can handle blocks with varying heights (slabs) and blocks that do not
+  * occupy the entire cube (chests), and can be easily subclassed to deal with other geometries.
+  */
 class RectangularPrismRenderable : public BasicRenderable {
  public:
+
+  /**
+    * Defines how textures should be fitted to the geometry.
+    */
   enum TextureSizing {
+    /**
+      * Indicates that textures should be rendered at full size (16 pixels to the meter) and clipped if the geometry
+      * does not span the entire meter along one or more faces.
+      */
     kTextureClip,
+
+    /**
+      * Indicates that textures should be scaled down so that the entire texture is drawn on each face of the prism if
+      * the geometry does not span the entire meter along one or more faces.
+      */
     kTextureScale
   };
 
+  /**
+    * Creates a RectangularPrismRenderable with the given \p size.  By default, textures will be clipped, but you can
+    * pass a TextureSizing explicitly in \p sizing.
+    */
   explicit RectangularPrismRenderable(const QVector3D& size, TextureSizing sizing = kTextureClip);
   virtual ~RectangularPrismRenderable() {}
 

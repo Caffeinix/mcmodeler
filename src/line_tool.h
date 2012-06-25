@@ -21,6 +21,9 @@
 
 class BlockOracle;
 
+/**
+  * A Tool that draws straight lines between points.
+  */
 class LineTool : public Tool {
  public:
   explicit LineTool(BlockOracle* oracle);

@@ -20,6 +20,9 @@
 
 class Diagram;
 
+/**
+  * Displays the 3D preview.
+  */
 class GLPreviewWindow : public QMainWindow {
   Q_OBJECT
 

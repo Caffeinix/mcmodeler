@@ -20,19 +20,55 @@
 #include <QVector3D>
 #include <QVector4D>
 
+/**
+  * A generic 4x4 matrix class for doing 3D things.  Shockingly, Qt does not have one.
+  */
 class Matrix {
 public:
+  /**
+    * Returns an identity matrix.
+    */
   static Matrix identityMatrix();
+
+  /**
+    * Returns a matrix that will perform a rotation of \p angle radians around the unit vector \p axis.
+    */
   static Matrix rotationMatrix(QVector3D axis, float angle);
+
+  /**
+    * Returns a matrix that will perform a translation along \p vector.
+    */
   static Matrix translationMatrix(QVector3D vector);
 
+  /**
+    * Creates a matrix.  Its initial state is an identity matrix, making this identical to identityMatrix().
+    */
   Matrix();
 
+  /**
+    * Returns a Matrix that performs the same translation as this Matrix, but without the rotation component.
+    */
   Matrix translationComponent() const;
+
+  /**
+    * Returns a Matrix that performs the same rotation as this Matrix, but without the translation component.
+    */
   Matrix rotationComponent() const;
+
+  /**
+    * Post-multiplies this matrix by \p m2.
+    */
   Matrix postMultipliedBy(const Matrix& m2) const;
+
+  /**
+    * Attempts to return this matrix's inverted counterpart.
+    * @param[out] invertable If not NULL, will be set to \c true if the matrix could be inverted, \c false otherwise.
+    */
   Matrix inverted(bool* invertable = NULL) const;
 
+  /**
+    * Returns a copy of \p vec with its coordinates transformed by this Matrix.
+    */
   QVector3D transformed(QVector3D vec) {
     QVector3D ret;
     ret.setX(vec.x() * value(0, 0) + vec.y() * value(1, 0) + vec.z() * value(2, 0) + value(3, 0));
@@ -41,6 +77,9 @@ public:
     return ret;
   }
 
+  /**
+    * Returns an array of GLfloats representing this Matrix.
+    */
   const GLfloat* data() const {
     return data_;
   }

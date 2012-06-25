@@ -18,6 +18,10 @@
 
 #include "rectangular_prism_renderable.h"
 
+/**
+  * Subclass of RectangularPrismRenderable used for drawing beds.  Beds are similar to slabs except that the bottom
+  * face is moved up above the "feet" and two of the textures need to be mirrored horizontally for some reason.
+  */
 class BedRenderable : public RectangularPrismRenderable {
  public:
   BedRenderable();

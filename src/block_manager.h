@@ -25,11 +25,27 @@ class BlockOracle;
 class BlockPrototype;
 class QGLWidget;
 
+/**
+  * Manages BlockPrototype objects.  To the the prototype for a particular block type, call getPrototype().
+  * @warning There should only be one BlockManager in the application.  If you create more than one, you will end up
+  * with duplicate prototypes for different block types and lots of things will break.  The BlockManager is owned by
+  * the Application.
+  */
 class BlockManager {
  public:
+  /**
+    * Constructs a new BlockManager.  Do not create multiple BlockManagers; the canonical instance is owned by
+    * Application.
+    */
   BlockManager(BlockOracle* oracle, QGLWidget* widget);
+
   ~BlockManager();
 
+  /**
+    * Gets the BlockPrototype for \p type.  The same pointer will be returned each time, and will be created on demand
+    * if it does not exist.
+    * @note This method does _not_ pass ownership of the prototype to the caller, so don't delete it!
+    */
   BlockPrototype* getPrototype(blocktype_t type) const;
 
  private:

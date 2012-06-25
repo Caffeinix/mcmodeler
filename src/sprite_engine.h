@@ -26,10 +26,23 @@
 class BlockProperties;
 class Texture;
 
+/**
+  * Constructs and returns sprite images for blocks to represent the block in a 2D context.  The sprite images returned
+  * by the engine can take into account the block's geometry, orientation, and whether it is being drawn in the
+  * BlockPicker or in the LevelWidget.
+  */
 class SpriteEngine {
  public:
   SpriteEngine();
 
+  /**
+    * Creates and returns a sprite pixmap that can be drawn to represent a block in 2D.  \p texture will be used as
+    * the basis for the sprite, with modifications made based on \p properties and \p orientation, if given.  To obtain
+    * a sprite suitable for the BlockPicker widget, pass BlockOrientation::paletteOrientation() as \p orientation.
+    * @note SpriteEngine caches pixmaps when possible, so this method is fairly inexpensive after the first time a
+    * particular block is seen in a particular orientation.
+    * @note The caching assumes that a particular \p properties parameter implies the same \p texture each time.
+    */
   QPixmap createSprite(const Texture& texture, const BlockProperties& properties,
                        const BlockOrientation* orientation = BlockOrientation::noOrientation());
 

@@ -29,6 +29,9 @@ class BlockPrototype;
 class BlockManager;
 class Renderable;
 
+/**
+  * QGLWidget subclass which renders the 3D preview.  Here be (small, only slightly cranky) dragons.
+  */
 class GLWidget : public QGLWidget {
   Q_OBJECT
 

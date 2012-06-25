@@ -21,9 +21,17 @@
 #include <QVector3D>
 #include <QVector2D>
 
+/**
+  * A RectangularPrismRenderable subclass that renders blocks with slightly overlapping faces.  An example of such a
+  * block is a cactus, where the outermost 1/16th of each face is a needle which protrudes through the adjoining face.
+  */
 class OverlappingFacesRenderable : public RectangularPrismRenderable {
  public:
-  explicit OverlappingFacesRenderable(const QVector3D& size, const QVector3D& overlap);
+
+  /**
+    * Creates an OverlappingFacesRenderable with a size of \p size where the faces overlap at the edges by \p overlap.
+    */
+  OverlappingFacesRenderable(const QVector3D& size, const QVector3D& overlap);
   virtual ~OverlappingFacesRenderable();
 
   virtual void addGeometry(const Geometry& geometry, const TextureCoords& texture_coords);

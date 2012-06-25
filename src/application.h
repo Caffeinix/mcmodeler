@@ -21,6 +21,11 @@
 #include "block_manager.h"
 #include "diagram.h"
 
+/**
+  * Represents the application.  Since Qt guarantees that there will only ever be one of these, it is a convenient owner
+  * for other effectively global objects such as the BlockManager and Diagram.  If you ever think you need a global
+  * object or a singleton, what you really want to do is add another member to Application.
+  */
 class Application : public QApplication {
   Q_OBJECT
  public:

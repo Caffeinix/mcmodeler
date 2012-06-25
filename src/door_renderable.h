@@ -18,6 +18,11 @@
 
 #include "rectangular_prism_renderable.h"
 
+/**
+  * Subclass of RectangularPrismRenderable for rendering doors.  Doors differ from regular prisms because their position
+  * is clamped to the block edge (as opposed to being centered in the block) and some of their textures need to be
+  * clamped to the end rather than to the beginning.
+  */
 class DoorRenderable : public RectangularPrismRenderable {
  public:
   DoorRenderable();

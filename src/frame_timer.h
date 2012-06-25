@@ -20,6 +20,11 @@
 #include <QSet>
 #include <QTimer>
 
+/**
+  * Ensures that the view continues rendering constantly as long as there is at least one renderer attempting to update
+  * the scene.  This is useful for example for the frame rate counter, which needs to keep the renderer updating at all
+  * times to display an accurate frame count.
+  */
 class FrameTimer : public QObject {
   Q_OBJECT
  public:

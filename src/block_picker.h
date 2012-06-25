@@ -26,6 +26,10 @@ class BlockPrototype;
 class QListWidget;
 class QListWidgetItem;
 
+/**
+  * Widget that displays blocks as sprites.  The BlockPicker has multiple tabs, one for each category defined in the
+  * JSON file.
+  */
 class BlockPicker : public QWidget {
   Q_OBJECT
 
@@ -33,9 +37,17 @@ class BlockPicker : public QWidget {
   explicit BlockPicker(QWidget* parent = NULL);
   ~BlockPicker();
 
+  /**
+    * Adds \p block to the BlockPicker.  The block may be added to multiple tabs if it is in multiple categories.
+    */
   void addBlock(BlockPrototype* block);
 
  signals:
+  /**
+    * Emitted whenever the selected block changes.  This can happen either because the user selected another sprite
+    * in the current tab, or because the user switched to another tab that already had a selected sprite.
+    * @param type The block type that is now selected.
+    */
   void blockSelected(blocktype_t type);
 
  private slots:

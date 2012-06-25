@@ -23,8 +23,18 @@
 #include "block_transaction.h"
 #include "line_tool.h"
 
+/**
+  * An RAII class that automatically calls Diagram::commit() on a diagram with its transaction when it is destroyed.
+  */
 class ScopedTransactionCommitter {
  public:
+  /**
+    * Creates a ScopedTransactionCommitter.
+    * @param diagram The diagram to which \p transaction will be committed when this object is destroyed.
+    * @param transaction The transaction that will be committed once this object is destroyed.
+    * @note There is no easy way to cancel committing a transaction once a ScopedTransactionCommitter is in play.
+    *       Use caution.
+    */
   ScopedTransactionCommitter(Diagram* diagram, const BlockTransaction& transaction)
       : diagram_(diagram),
         transaction_(transaction) {}

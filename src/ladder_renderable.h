@@ -18,6 +18,10 @@
 
 #include "rectangular_prism_renderable.h"
 
+/**
+  * RectangularPrismRenderable subclass used to draw ladders.  Ladders differ from other prisms because they are clamped
+  * to the block edge instead of being centered, and only their front face is actually rendered.
+  */
 class LadderRenderable : public RectangularPrismRenderable {
  public:
   LadderRenderable();

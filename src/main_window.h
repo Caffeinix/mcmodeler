@@ -23,6 +23,9 @@ class BlockManager;
 
 #include "bill_of_materials_window.h"
 
+/**
+  * The main window of the application.  This is where the BlockPicker and LevelWidget live.
+  */
 class MainWindow : public QMainWindow {
   Q_OBJECT
 
