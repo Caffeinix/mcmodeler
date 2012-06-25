@@ -172,6 +172,10 @@ void LevelWidget::toggleBlock(QMouseEvent* event) {
         qDebug() << "Using orientation" << orientations.at(orientation_index)->name();
         BlockInstance new_block(prototype, position, orientations.at(orientation_index));
         diagram_->setBlock(position, new_block);
+        QGraphicsPixmapItem* item = static_cast<QGraphicsPixmapItem*>(itemAtPosition(position));
+        if (item) {
+          item->setPixmap(prototype->sprite(orientations.at(orientation_index)));
+        }
       }
     } else {
       BlockInstance new_block(prototype, position, prototype->defaultOrientation());
@@ -250,7 +254,7 @@ QGraphicsItem* LevelWidget::addBlock(const BlockInstance& block) {
   }
 
   BlockPrototype* prototype = block.prototype();
-  QGraphicsPixmapItem* item = scene()->addPixmap(prototype->sprite());
+  QGraphicsPixmapItem* item = scene()->addPixmap(prototype->sprite(block.orientation()));
   item->setOffset(-0.5 * kSpriteWidth, -0.5 * kSpriteHeight);
   item->setPos(position.x() * kSpriteWidth, position.z() * kSpriteHeight);
   item->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);

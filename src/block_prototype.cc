@@ -174,10 +174,11 @@ BlockPrototype::BlockPrototype(blocktype_t type, BlockOracle* oracle, QGLWidget*
   } else {
     sprite_texture_ = Texture(widget, ":/terrain.png", sprite_offset.x(), sprite_offset.y(), 16, 16);
   }
+  sprite_engine_.reset(new SpriteEngine());
 }
 
-QPixmap BlockPrototype::sprite() const {
-  return sprite_texture_.texturePixmap();
+QPixmap BlockPrototype::sprite(BlockOrientation* orientation) const {
+  return sprite_engine_->createSprite(sprite_texture_, properties_, orientation);
 }
 
 BlockOrientation* BlockPrototype::defaultOrientation() const {

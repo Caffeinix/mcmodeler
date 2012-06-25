@@ -20,6 +20,7 @@
 #include "block_type.h"
 #include "renderable.h"
 #include "render_delegate.h"
+#include "sprite_engine.h"
 #include "texture.h"
 
 class BlockInstance;
@@ -69,7 +70,7 @@ class BlockPrototype : public RenderDelegate {
   /**
     * Returns the sprite pixmap that should be used to represent this kind of block in a 2D context.
     */
-  QPixmap sprite() const;
+  QPixmap sprite(BlockOrientation* orientation = BlockOrientation::noOrientation()) const;
 
   /**
     * Returns the name of this block.  For example, "Netherrack" or "Diamond ore".
@@ -149,6 +150,7 @@ class BlockPrototype : public RenderDelegate {
   blocktype_t type_;
   BlockOracle* oracle_;
   QScopedPointer<Renderable> renderable_;
+  QScopedPointer<SpriteEngine> sprite_engine_;
 };
 
 #endif // BLOCK_PROTOTYPE_H
