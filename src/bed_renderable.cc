@@ -14,7 +14,14 @@ BedRenderable::TextureCoords BedRenderable::createTextureCoords(const Geometry& 
   QVector<QVector2D> front_texture = coords[kFrontFace];
   qSwap(front_texture[kBottomLeftCorner], front_texture[kBottomRightCorner]);
   qSwap(front_texture[kTopLeftCorner], front_texture[kTopRightCorner]);
-  coords[0] = front_texture;
+  coords[kFrontFace] = front_texture;
+
+  // Flip the top face horizontally as well.
+  QVector<QVector2D> top_texture = coords[kTopFace];
+  qSwap(top_texture[kBottomLeftCorner], top_texture[kBottomRightCorner]);
+  qSwap(top_texture[kTopLeftCorner], top_texture[kTopRightCorner]);
+  coords[kTopFace] = top_texture;
+
   return coords;
 }
 
