@@ -16,3 +16,4 @@
 *.pro.user*
 third_party/qjson/lib
 docs
+third_party/quazip/lib

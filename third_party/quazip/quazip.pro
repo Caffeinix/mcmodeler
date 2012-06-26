@@ -3,6 +3,7 @@ CONFIG += qt warn_on
 QT -= gui
 DEPENDPATH += .
 INCLUDEPATH += . ../zlib-1.2.5
+DESTDIR  = ../quazip/lib
 
 DEFINES += QUAZIP_BUILD
 CONFIG(staticlib): DEFINES += QUAZIP_STATIC
