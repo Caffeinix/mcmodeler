@@ -89,22 +89,32 @@ FORMS += \
     block_picker.ui
 
 INCLUDEPATH += ../third_party \
-               ../third_party/zlib-1.2.5 \
                ../third_party/qjson/include
 
+win32:INCLUDEPATH += ../third_party/zlib-1.2.5
+
 macx {
-    QMAKE_LFLAGS += -F ../third_party/qjson/lib
-    LIBS += -framework qjson
+    QMAKE_LFLAGS += -F ../third_party/qjson/lib -L ../third_party/quazip-build-desktop
+    LIBS += -lquazip.1 -framework qjson
     QMAKE_POST_LINK += echo "Running install_name_tool..."; \
                        install_name_tool -id @loader_path/../Frameworks/qjson.framework/Versions/0/qjson \
                                              ../third_party/qjson/lib/qjson.framework/Versions/0/qjson; \
                        install_name_tool -change qjson.framework/Versions/0/qjson \
                                                  @loader_path/../Frameworks/qjson.framework/Versions/0/qjson \
+                                                 $$OUT_PWD/MCModeler.app/Contents/MacOS/$$TARGET; \
+                       install_name_tool -id @loader_path/../Frameworks/libquazip.1.0.0.dylib \
+                                             ../third_party/quazip-build-desktop/libquazip.1.0.0.dylib; \
+                       install_name_tool -change libquazip.1.dylib \
+                                                 @loader_path/../Frameworks/libquazip.1.0.0.dylib \
                                                  $$OUT_PWD/MCModeler.app/Contents/MacOS/$$TARGET;
 
     QJsonFramework.files = ../third_party/qjson/lib/qjson.framework
     QJsonFramework.path = Contents/Frameworks
     QMAKE_BUNDLE_DATA += QJsonFramework
+
+    QuaZip.files = ../third_party/quazip-build-desktop/libquazip.1.0.0.dylib
+    QuaZip.path = Contents/Frameworks
+    QMAKE_BUNDLE_DATA += QuaZip
 
     BlocksJson.files = ../blocks.json
     BlocksJson.path = Contents/Resources
