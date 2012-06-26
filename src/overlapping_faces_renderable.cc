@@ -20,10 +20,6 @@
 #include "enums.h"
 #include "render_delegate.h"
 
-#ifndef GL_CLAMP_TO_EDGE
-#define GL_CLAMP_TO_EDGE 0x812F
-#endif
-
 OverlappingFacesRenderable::OverlappingFacesRenderable(const QVector3D& size, const QVector3D& overlap)
     : RectangularPrismRenderable(size), overlap_(overlap) {
 }

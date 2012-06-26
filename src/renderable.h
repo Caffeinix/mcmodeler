@@ -16,6 +16,10 @@
 #ifndef RENDERABLE_H
 #define RENDERABLE_H
 
+#ifndef GL_CLAMP_TO_EDGE
+#define GL_CLAMP_TO_EDGE 0x812F
+#endif
+
 #include <QVector>
 
 #include "texture.h"

@@ -43,18 +43,6 @@ GLWidget::GLWidget(QWidget* parent)
       frame_rate_enabled_(false),
       frame_rate_(-1.0f),
       scene_dirty_(true) {
-  skybox_.reset(new SkyboxRenderable(QVector3D(10.0f, 10.0f, 10.0f)));
-  skybox_->initialize();
-  Texture skybox_up = Texture(this, ":/skybox_up.png");
-  Texture skybox_out = Texture(this, ":/skybox_east.png");
-  Texture skybox_down = Texture(this, ":/skybox_down.png");
-  skybox_->setTexture(kFrontFace, skybox_out);
-  skybox_->setTexture(kLeftFace, skybox_out);
-  skybox_->setTexture(kRightFace, skybox_out);
-  skybox_->setTexture(kBackFace, skybox_out);
-  skybox_->setTexture(kTopFace, skybox_up);
-  skybox_->setTexture(kBottomFace, skybox_down);
-
   setFocusPolicy(Qt::WheelFocus);
   QGLFormat f = format();
   f.setSwapInterval(1);
@@ -142,6 +130,18 @@ void GLWidget::initializeGL() {
   }
   glPopMatrix();
   glEndList();
+
+  skybox_.reset(new SkyboxRenderable(QVector3D(10.0f, 10.0f, 10.0f)));
+  skybox_->initialize();
+  Texture skybox_up = Texture(this, ":/skybox_up.png");
+  Texture skybox_out = Texture(this, ":/skybox_east.png");
+  Texture skybox_down = Texture(this, ":/skybox_down.png");
+  skybox_->setTexture(kFrontFace, skybox_out);
+  skybox_->setTexture(kLeftFace, skybox_out);
+  skybox_->setTexture(kRightFace, skybox_out);
+  skybox_->setTexture(kBackFace, skybox_out);
+  skybox_->setTexture(kTopFace, skybox_up);
+  skybox_->setTexture(kBottomFace, skybox_down);
 
   camera_.translate(QVector3D(0.5, 1, 5));
 }

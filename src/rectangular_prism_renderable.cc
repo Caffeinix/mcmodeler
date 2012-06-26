@@ -18,10 +18,6 @@
 #include "block_orientation.h"
 #include "render_delegate.h"
 
-#ifndef GL_CLAMP_TO_EDGE
-#define GL_CLAMP_TO_EDGE 0x812F
-#endif
-
 RectangularPrismRenderable::RectangularPrismRenderable(const QVector3D& size, TextureSizing sizing)
     : BasicRenderable(size),
       sizing_(sizing) {
