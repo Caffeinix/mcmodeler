@@ -32,6 +32,7 @@
 #include "renderable.h"
 #include "stairs_renderable.h"
 #include "texture.h"
+#include "texture_pack.h"
 
 QMap<blocktype_t, BlockProperties>* BlockPrototype::s_type_mapping = NULL;
 
@@ -55,7 +56,7 @@ void BlockPrototype::setupBlockProperties() {
         QString("Without this file, %1 cannot continue. Please replace it or reinstall and try again.")
         .arg(qApp->applicationName()));
     msg.exec();
-    qApp->exit(1);
+    return;
   }
 
   QJson::Parser p;
@@ -68,7 +69,7 @@ void BlockPrototype::setupBlockProperties() {
     msg.setText("The blocks.json file contained invalid JSON text and could not be read.");
     msg.setInformativeText(QString("%1 on line %2.").arg(p.errorString()).arg(p.errorLine()));
     msg.exec();
-    qApp->exit(1);
+    return;
   }
 
   s_type_mapping = new QMap<blocktype_t, BlockProperties>();
@@ -79,7 +80,6 @@ void BlockPrototype::setupBlockProperties() {
     s_type_mapping->insert(i, BlockProperties(block));
     ++i;
   }
-  qApp->exit(0);
 }
 
 // static
@@ -103,11 +103,13 @@ const BlockProperties& BlockPrototype::properties() const {
   return properties_;
 }
 
-BlockPrototype::BlockPrototype(blocktype_t type, BlockOracle* oracle, QGLWidget* widget) : type_(type), oracle_(oracle) {
+BlockPrototype::BlockPrototype(blocktype_t type, TexturePack* texture_pack, BlockOracle* oracle, QGLWidget* widget)
+    : type_(type), oracle_(oracle) {
   if (!s_type_mapping) {
     qWarning() << "You forgot to call setupBlockProperties!";
     s_type_mapping = new QMap<blocktype_t, BlockProperties>();
   }
+
   properties_ = s_type_mapping->value(type_);
   switch (properties_.geometry()) {
     case kBlockGeometryCube:
@@ -147,18 +149,20 @@ BlockPrototype::BlockPrototype(blocktype_t type, BlockOracle* oracle, QGLWidget*
   renderable_->initialize();
   renderable_->setRenderDelegate(this);
 
+  QPixmap terrain_png = texture_pack->tileSheetNamed("terrain.png");
+
   QVector<QPoint> tiles = properties_ .tileOffsets();
   for (int i = 0; i < tiles.size(); ++i) {
     if (properties_.isBiomeGrass() && i == 4) {
-      Texture t(widget, ":/terrain.png", tiles[i].x(), tiles[i].y(), 16, 16,
+      Texture t(widget, terrain_png, tiles[i].x(), tiles[i].y(), 16, 16,
                 QColor(0x60, 0xC6, 0x49, 0xFF), QPainter::CompositionMode_Multiply);
       renderable_->setTexture(static_cast<Face>(i), t);
     } else if (properties_.isBiomeTree()) {
-      Texture t(widget, ":/terrain.png", tiles[i].x(), tiles[i].y(), 16, 16,
+      Texture t(widget, terrain_png, tiles[i].x(), tiles[i].y(), 16, 16,
                 QColor(0x58, 0x6C, 0x2F, 0xFF), QPainter::CompositionMode_Multiply);
       renderable_->setTexture(static_cast<Face>(i), t);
     } else {
-      Texture t(widget, ":/terrain.png", tiles[i].x(), tiles[i].y(), 16, 16);
+      Texture t(widget, terrain_png, tiles[i].x(), tiles[i].y(), 16, 16);
       renderable_->setTexture(static_cast<Face>(i), t);
     }
   }
@@ -166,13 +170,13 @@ BlockPrototype::BlockPrototype(blocktype_t type, BlockOracle* oracle, QGLWidget*
   if (!properties_.isValid()) {
     sprite_texture_ = Texture(widget, ":/null_sprite.png", 0, 0, 16, 16);
   } else if (properties_.isBiomeGrass()) {
-    sprite_texture_ = Texture(widget, ":/terrain.png", sprite_offset.x(), sprite_offset.y(), 16, 16,
+    sprite_texture_ = Texture(widget, terrain_png, sprite_offset.x(), sprite_offset.y(), 16, 16,
                               QColor(0x60, 0xC6, 0x49, 0xFF), QPainter::CompositionMode_Multiply);
   } else if (properties_.isBiomeTree()) {
-    sprite_texture_ = Texture(widget, ":/terrain.png", sprite_offset.x(), sprite_offset.y(), 16, 16,
+    sprite_texture_ = Texture(widget, terrain_png, sprite_offset.x(), sprite_offset.y(), 16, 16,
                               QColor(0x58, 0x6C, 0x2F, 0xFF), QPainter::CompositionMode_Multiply);
   } else {
-    sprite_texture_ = Texture(widget, ":/terrain.png", sprite_offset.x(), sprite_offset.y(), 16, 16);
+    sprite_texture_ = Texture(widget, terrain_png, sprite_offset.x(), sprite_offset.y(), 16, 16);
   }
   sprite_engine_.reset(new SpriteEngine());
 }

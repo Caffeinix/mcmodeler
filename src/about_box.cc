@@ -26,4 +26,5 @@ AboutBox::AboutBox(QWidget* parent) : QDialog(parent) {
   ui.version_label_->setAttribute(Qt::WA_MacSmallSize, true);
   ui.web_site_label_->setAttribute(Qt::WA_MacSmallSize, true);
   ui.license_label_->setAttribute(Qt::WA_MacSmallSize, true);
+  ui.third_party_licenses_label_->setAttribute(Qt::WA_MacSmallSize, true);
 }

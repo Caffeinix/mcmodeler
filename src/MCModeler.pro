@@ -37,7 +37,8 @@ HEADERS = \
     block_picker.h \
     block_picker_item_delegate.h \
     ladder_renderable.h \
-    sprite_engine.h
+    sprite_engine.h \
+    texture_pack.h
 
 SOURCES = \
     about_box.cc \
@@ -72,7 +73,8 @@ SOURCES = \
     block_picker.cc \
     block_picker_item_delegate.cc \
     ladder_renderable.cc \
-    sprite_engine.cc
+    sprite_engine.cc \
+    texture_pack.cc
 
 QT += opengl
 
@@ -86,7 +88,9 @@ FORMS += \
     main_window.ui \
     block_picker.ui
 
-INCLUDEPATH += ../third_party/qjson/include
+INCLUDEPATH += ../third_party \
+               ../third_party/zlib-1.2.5 \
+               ../third_party/qjson/include
 
 macx {
     QMAKE_LFLAGS += -F ../third_party/qjson/lib
@@ -108,34 +112,8 @@ macx {
 }
 
 win32 {
-    LIBS += ../third_party/qjson/lib/qjson0.dll
+    LIBS += ../third_party/quazip-build-desktop/release/quazip.dll \
+            ../third_party/qjson/lib/qjson0.dll
 }
 
 TARGET = "MCModeler"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

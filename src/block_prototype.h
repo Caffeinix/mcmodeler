@@ -26,6 +26,7 @@
 class BlockInstance;
 class BlockOracle;
 class BlockPosition;
+class TexturePack;
 class QGLWidget;
 
 /**
@@ -60,10 +61,11 @@ class BlockPrototype : public RenderDelegate {
     * never call this constructor directly.  Instead, call BlockManager::getPrototype.
     *
     * @param type The type of block this is a prototype for.
+    * @param texture_pack The TexturePack that will be used to create textures for the block.
     * @param oracle The BlockOracle the prototype will use to determine neighboring face information.
     * @param widget The QGLWidget into which blocks of this type will be rendered.
     */
-  explicit BlockPrototype(blocktype_t type, BlockOracle* oracle, QGLWidget* widget);
+  explicit BlockPrototype(blocktype_t type, TexturePack* texture_pack, BlockOracle* oracle, QGLWidget* widget);
 
   virtual bool shouldRenderFace(const Renderable* renderable, Face face, const QVector3D& location) const;
 

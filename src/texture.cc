@@ -50,14 +50,66 @@ GLuint Texture::maybeBindTexture(QGLWidget* widget, const QPixmap& pixmap) {
   }
 }
 
-Texture::Texture(QGLWidget* widget, const QString& path, int x_index, int y_index, int x_size, int y_size) {
-  initWithTile(widget, path, x_index, y_index, x_size, y_size,
-               QColor(Qt::transparent), QPainter::CompositionMode_Destination);
-}
-
 Texture::Texture(QGLWidget* widget, const QString& path, int x_index, int y_index, int x_size, int y_size,
                  QColor color, QPainter::CompositionMode mode) {
   initWithTile(widget, path, x_index, y_index, x_size, y_size, color, mode);
+}
+
+Texture::Texture(QGLWidget* widget, const QPixmap& tilesheet, int x_index, int y_index, int x_size, int y_size,
+                 QColor color, QPainter::CompositionMode mode) {
+  initWithTile(widget, tilesheet, x_index, y_index, x_size, y_size, color, mode);
+}
+
+QPixmap Texture::getOrCreatePixmapForPath(const QString& path) {
+  QPixmap pixmap;
+  QMap< QString, QPair<QPixmap, GLuint> >* pixmap_cache = pixmapCache();
+  QPair<QPixmap, GLuint> pair = pixmap_cache->value(path);
+  if (!pair.first.isNull()) {
+    pixmap = pair.first;
+  } else {
+    pixmap = QPixmap(path);
+    pixmap_cache->insert(path, qMakePair<QPixmap, GLuint>(pixmap, 0));
+  }
+  return pixmap;
+}
+
+QPixmap Texture::texturePixmap(const QPixmap& tilesheet, int x_index, int y_index, int x_size, int y_size,
+                               QColor color, QPainter::CompositionMode mode) {
+  QPixmap texture_pixmap(x_size, y_size);
+  texture_pixmap.fill(Qt::transparent);
+  QPainter painter(&texture_pixmap);
+  painter.drawPixmap(QRect(0, 0, x_size, y_size), tilesheet,
+                     QRect(x_index * x_size, y_index * y_size, x_size, y_size));
+  if (color.alpha() > 0 && mode != QPainter::CompositionMode_Destination) {
+    painter.setCompositionMode(mode);
+    painter.fillRect(0, 0, x_size, y_size, color);
+
+    // Multiply will mess up the alpha channel, so re-apply it from the original master bitmap.
+    painter.setCompositionMode(QPainter::CompositionMode_DestinationAtop);
+    painter.drawPixmap(QRect(0, 0, x_size, y_size), tilesheet,
+                       QRect(x_index * x_size, y_index * y_size, x_size, y_size));
+  }
+  return texture_pixmap;
+}
+
+void Texture::initWithTile(QGLWidget *widget, const QPixmap &tilesheet, int x_index, int y_index, int x_size,
+                           int y_size, QColor color, QPainter::CompositionMode mode) {
+  if (widget) {
+    widget->makeCurrent();
+  }
+  QMap< QString, QPair<QPixmap, GLuint> >* tile_cache = tileCache();
+  QString identifier = QString("%1;%2:%3,%4@%5,%6;%7/%8").arg(reinterpret_cast<qptrdiff>(widget))
+                       .arg(tilesheet.cacheKey()).arg(x_index).arg(y_index).arg(x_size).arg(y_size)
+                       .arg(color.rgba()).arg(mode);
+  QPair<QPixmap, GLuint> pair = tile_cache->value(identifier);
+  if (!pair.first.isNull()) {
+    texture_pixmap_ = pair.first;
+    texture_id_ = pair.second;
+  } else {
+    texture_pixmap_ = texturePixmap(tilesheet, x_index, y_index, x_size, y_size, color, mode);
+    texture_id_ = maybeBindTexture(widget, texture_pixmap_);
+    tile_cache->insert(identifier, qMakePair<QPixmap, GLuint>(texture_pixmap_, texture_id_));
+  }
 }
 
 void Texture::initWithTile(QGLWidget* widget, const QString& path, int x_index, int y_index,
@@ -73,30 +125,8 @@ void Texture::initWithTile(QGLWidget* widget, const QString& path, int x_index, 
     texture_pixmap_ = pair.first;
     texture_id_ = pair.second;
   } else {
-    QPixmap master_pixmap;
-    // Look in the pixmap cache to see if we have the master pixmap.
-    QMap< QString, QPair<QPixmap, GLuint> >* pixmap_cache = pixmapCache();
-    QPair<QPixmap, GLuint> pair = pixmap_cache->value(path);
-    if (!pair.first.isNull()) {
-      master_pixmap = pair.first;
-    } else {
-      master_pixmap = QPixmap(path);
-      pixmap_cache->insert(path, qMakePair<QPixmap, GLuint>(master_pixmap, 0));
-    }
-    texture_pixmap_ = QPixmap(x_size, y_size);
-    texture_pixmap_.fill(Qt::transparent);
-    QPainter painter(&texture_pixmap_);
-    painter.drawPixmap(QRect(0, 0, x_size, y_size), master_pixmap,
-                       QRect(x_index * x_size, y_index * y_size, x_size, y_size));
-    if (color.alpha() > 0 && mode != QPainter::CompositionMode_Destination) {
-      painter.setCompositionMode(mode);
-      painter.fillRect(0, 0, x_size, y_size, color);
-
-      // Multiply will mess up the alpha channel, so re-apply it from the original master bitmap.
-      painter.setCompositionMode(QPainter::CompositionMode_DestinationAtop);
-      painter.drawPixmap(QRect(0, 0, x_size, y_size), master_pixmap,
-                         QRect(x_index * x_size, y_index * y_size, x_size, y_size));
-    }
+    QPixmap tilesheet = getOrCreatePixmapForPath(path);
+    texture_pixmap_ = texturePixmap(tilesheet, x_index, y_index, x_size, y_size, color, mode);
     texture_id_ = maybeBindTexture(widget, texture_pixmap_);
     tile_cache->insert(identifier, qMakePair<QPixmap, GLuint>(texture_pixmap_, texture_id_));
   }

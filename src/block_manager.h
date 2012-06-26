@@ -20,9 +20,11 @@
 #include <QScopedPointer>
 
 #include "block_type.h"
+#include "texture_pack.h"
 
 class BlockOracle;
 class BlockPrototype;
+class TexturePack;
 class QGLWidget;
 
 /**
@@ -52,6 +54,7 @@ class BlockManager {
   mutable QHash<blocktype_t, BlockPrototype*> blocks_;
   BlockOracle* oracle_;
   QGLWidget* widget_;
+  QScopedPointer<TexturePack> default_texture_pack_;
 };
 
 #endif // BLOCK_MANAGER_H

@@ -20,6 +20,8 @@
 
 BlockManager::BlockManager(BlockOracle* oracle, QGLWidget* widget)
     : oracle_(oracle), widget_(widget) {
+  // Load textures.
+  default_texture_pack_.reset(TexturePack::createDefaultTexturePack());
 }
 
 BlockManager::~BlockManager() {
@@ -29,14 +31,14 @@ BlockManager::~BlockManager() {
 BlockPrototype* BlockManager::getPrototype(blocktype_t type) const {
   if (type >= BlockPrototype::blockCount()) {
     qWarning() << "Tried to create a block prototype for block type" << type
-               << "but we only know about" << BlockPrototype::blockCount() << "block!";
+               << "but we only know about" << BlockPrototype::blockCount() << "blocks!";
     type = 0;
   }
   BlockPrototype* block = blocks_.value(type);
   if (block) {
     return block;
   } else {
-    block = new BlockPrototype(type, oracle_, widget_);
+    block = new BlockPrototype(type, default_texture_pack_.data(), oracle_, widget_);
     blocks_.insert(type, block);
     return block;
   }
