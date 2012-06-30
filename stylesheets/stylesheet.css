@@ -165,6 +165,28 @@ aside a.button {
   font-size: 21px;
 }
 
+.screenshot {
+  margin-left: 1.3em;
+  margin-bottom: 3em;
+}
+
+.screenshot img {
+  -moz-box-shadow: 0 3px 8px 1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 3px 8px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 8px 1px rgba(0, 0, 0, 0.5);
+}
+
+.caption {
+  margin-top: 1em;
+}
+
+.screenshot .caption {
+  margin-bottom: 1em;
+}
+
+.screenshot_noshadow .caption {
+  margin-left: 1.3em;
+}
 
 code, pre {
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal;
