@@ -26,17 +26,17 @@
   * An abstract subclass of Renderable that provides some basic functionality and a template for initialization.
   * BasicRenderable divides the initialization process into four steps:
   *
-  * 1. A vector of polygons in 3D space is created in the createGeometry method.  The polygons can have an arbitrary
+  * 1. A vector of polygons in 3D space is created in the createGeometry() method.  The polygons can have an arbitrary
   *    number of vertices and can be represented in any manner desired.
-  * 2. The geometry is passed to createTextureCoords, which returns a set of texture coordinates for each polygon.
-  * 3. The geometry is translated so that it is centered on 0, 0, 0.  This allows the renderer to place it in the
-  *    correct spot when it is rendered later.
+  * 2. The geometry is passed to createTextureCoords(), which returns a set of texture coordinates for each polygon.
+  * 3. The geometry is translated so that it is centered on 0, 0, 0.  This is done by moveToOrigin(), and allows the
+  *    renderer to place it in the correct spot when it is rendered later.
   * 4. The geometry is converted into a set of quads using addQuad.
   *
-  * Once this setup has finished, the geometry can be drawn by BasicRenderable's generic renderAt implementation.
-  * To customize the rendering, you can reimplement applyOrientationTransform (to apply OpenGL matrix transformations
-  * for orientation support), shouldRenderQuad (to perform face culling, for example) and/or textureForQuad.  All three
-  * of these methods have default implementations, so you do not need to override them unless you want to.
+  * Once this setup has finished, the geometry can be drawn by BasicRenderable's generic renderAt() implementation.
+  * To customize the rendering, you can reimplement applyOrientationTransform() (to apply OpenGL matrix transformations
+  * for orientation support), shouldRenderQuad() (to perform face culling, for example) and/or textureForQuad().  All
+  * three of these methods have default implementations, so you do not need to override them unless you want to.
   *
   * You can also reimplement renderAt yourself and use the vertices(), normals(), and textureCoords() accessors to get
   * direct access to the raw geometry.
@@ -72,19 +72,19 @@ class BasicRenderable : public Renderable {
 
  protected:
   /**
-    * Represents the abstract geometry of this renderable.  The geometry will be interpreted in addGeometry.
+    * Represents the abstract geometry of this renderable.  The geometry will be interpreted in addGeometry().
     */
   typedef QVector< QVector<QVector3D> > Geometry;
 
   /**
     * Represents the texture coordinates for this renderable's geometry.  The texture coordinates will be interpreted
-    * in addGeometry.
+    * in addGeometry().
     */
   typedef QVector< QVector<QVector2D> > TextureCoords;
 
   /**
     * Creates and returns the abstract geometry for this renderable.  The geometry does not need to be directly
-    * renderable; it merely needs to contain enough information so that addGeometry can construct quads to render.
+    * renderable; it merely needs to contain enough information so that addGeometry() can construct quads to render.
     * As a simple example, a cube might consist of two quads parallel to one another in space.  The other four faces
     * of the cube can be inferred from the two existing quads.
     */
@@ -92,7 +92,7 @@ class BasicRenderable : public Renderable {
 
   /**
     * Creates and returns a set of texture coordinates for \p geometry.  The texture coordinates do not need to be
-    * directly renderable; they merely need to contain enough information so that addGeometry can construct quads to
+    * directly renderable; they merely need to contain enough information so that addGeometry() can construct quads to
     * render.  As a simple example, a cube might consist of six four-element vectors indicating the texture coordinates
     * to be used for each face of the cube.
     */
@@ -101,20 +101,20 @@ class BasicRenderable : public Renderable {
   /**
     * Returns a copy of \p geometry that has been translated such that the center of the block containing the geometry
     * is centered on the origin point (0, 0, 0).  This is often more conveniently done after computing texture
-    * coordinates, hence the separate method.  If the geometry returned by your createGeometry method is already in
+    * coordinates, hence the separate method.  If the geometry returned by your createGeometry() method is already in
     * the right place, this method can simply return it unchanged.
     */
   virtual Geometry moveToOrigin(const Geometry& geometry) = 0;
 
   /**
     * Converts \p geometry and \p texture_coords into quads to draw.  The quads can be added to what will be drawn by
-    * calling the addQuad method.  Since this class assumes static geometry, this method will only be invoked once,
+    * calling the addQuad() method.  Since this class assumes static geometry, this method will only be invoked once,
     * and can afford to be somewhat expensive.
     */
   virtual void addGeometry(const Geometry& geometry, const TextureCoords& texture_coords) = 0;
 
   /**
-    * Applies any desired OpenGL coordinate transformations (glRotate, glTranslate, etc.) to account for the given
+    * Applies any desired OpenGL coordinate transformations (glRotate(), glTranslate(), etc.) to account for the given
     * orientation.  You do not need to push a matrix before applying these transforms; they will be applied at the
     * correct time and in the correct context automatically.  The default implementation does nothing.
     */
@@ -129,7 +129,7 @@ class BasicRenderable : public Renderable {
 
   /**
     * Returns the texture that should be used to draw the quad at \p index.  By default, this just calls
-    * Renderable::texture(int), but you may wish to override it if you wish to use the same texture for multiple quads
+    * Renderable::texture(), but you may wish to override it if you wish to use the same texture for multiple quads
     * without having to specify it multiple times.
     */
   virtual Texture textureForQuad(int index) const;
