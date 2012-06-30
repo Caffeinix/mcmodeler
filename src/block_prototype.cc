@@ -15,9 +15,14 @@
 
 #include "block_prototype.h"
 
+#ifdef Q_OS_MACX
+#include <CoreFoundation/CoreFoundation.h>
+#endif
+
 #include <QFile>
 #include <QMap>
 #include <QPoint>
+#include <QString>
 #include <QVector>
 
 #include <QJson/Parser>
@@ -39,7 +44,17 @@ QMap<blocktype_t, BlockProperties>* BlockPrototype::s_type_mapping = NULL;
 // Static.
 void BlockPrototype::setupBlockProperties() {
 #ifdef Q_OS_MACX
-  QFile f("../Resources/blocks.json");
+  // Use CoreFoundation to get the bundle path so we're not working-directory dependent.
+  CFBundleRef bundle = CFBundleGetMainBundle();
+  CFURLRef blocks_url = CFBundleCopyResourceURL(bundle, CFSTR("blocks"), CFSTR("json"), NULL);
+  CFStringRef blocks_path_cf = CFURLCopyPath(blocks_url);
+  CFRelease(blocks_url);
+  QString blocks_path;
+  CFIndex len = CFStringGetLength(blocks_path_cf);
+  blocks_path.resize(len);
+  CFStringGetCharacters(blocks_path_cf, CFRangeMake(0, len), reinterpret_cast<UniChar*>(blocks_path.data()));
+  CFRelease(blocks_path_cf);
+  QFile f(blocks_path);
 #else
   QFile f("blocks.json");
 #endif

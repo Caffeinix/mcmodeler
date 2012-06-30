@@ -95,7 +95,7 @@ win32:INCLUDEPATH += ../third_party/zlib-1.2.5
 
 macx {
     QMAKE_LFLAGS += -F ../third_party/qjson/lib -L ../third_party/quazip/lib
-    LIBS += -lquazip.1 -framework qjson
+    LIBS += -lquazip.1 -framework qjson -framework CoreFoundation
     QMAKE_POST_LINK += echo "Running install_name_tool..."; \
                        install_name_tool -id @loader_path/../Frameworks/qjson.framework/Versions/0/qjson \
                                              ../third_party/qjson/lib/qjson.framework/Versions/0/qjson; \
