@@ -139,6 +139,12 @@ void Diagram::addBlockInternal(const BlockInstance& block) {
   level_map.insert(position, block);
 }
 
+void Diagram::addEphemeralBlockInternal(const BlockInstance& block) {
+  Q_ASSERT(block.prototype()->type() != kBlockTypeAir);
+  const BlockPosition& position = block.position();
+  ephemeral_blocks_.insert(position, block);
+}
+
 void Diagram::removeBlockInternal(const BlockPosition& position) {
   block_map_.remove(position);
   // TODO(phoenix): This assumes top-down.  Will need to customize.
@@ -148,6 +154,7 @@ void Diagram::removeBlockInternal(const BlockPosition& position) {
 }
 
 void Diagram::commit(const BlockTransaction& transaction) {
+  ephemeral_blocks_.clear();
   foreach (const BlockInstance& old_block, transaction.old_blocks()) {
     removeBlockInternal(old_block.position());
   }
@@ -155,6 +162,14 @@ void Diagram::commit(const BlockTransaction& transaction) {
     addBlockInternal(new_block);
   }
   emit diagramChanged(transaction);
+}
+
+void Diagram::commitEphemeral(const BlockTransaction& transaction) {
+  ephemeral_blocks_.clear();
+  foreach (const BlockInstance& new_block, transaction.new_blocks()) {
+    addEphemeralBlockInternal(new_block);
+  }
+  emit ephemeralBlocksChanged(transaction);
 }
 
 void Diagram::drawLine(const BlockPosition& start_pos, const BlockPosition& end_pos,
@@ -273,6 +288,11 @@ void Diagram::render() {
     } else {
       b.render();
     }
+  }
+
+  for (iter = ephemeral_blocks_.constBegin(); iter != ephemeral_blocks_.constEnd(); ++iter) {
+    const BlockInstance& b = iter.value();
+    b.render();
   }
 
   // Render transparent blocks last.

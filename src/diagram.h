@@ -126,6 +126,8 @@ class Diagram : public QObject, public BlockOracle {
     */
   void commit(const BlockTransaction& transaction);
 
+  void commitEphemeral(const BlockTransaction& transaction);
+
   /**
     * Returns the number of blocks in the diagram.
     */
@@ -149,6 +151,8 @@ class Diagram : public QObject, public BlockOracle {
     */
   void diagramChanged(const BlockTransaction& transaction);
 
+  void ephemeralBlocksChanged(const BlockTransaction& transaction);
+
  private:
   /**
     * Returns the block manager, or NULL if it's not set.  This method exists mainly to fire an assert if it is called
@@ -163,6 +167,8 @@ class Diagram : public QObject, public BlockOracle {
     * BlockTransaction for the change.
     */
   void addBlockInternal(const BlockInstance& block);
+
+  void addEphemeralBlockInternal(const BlockInstance& block);
 
   /**
     * Directly removes a block from the diagram.  This should only be called from commit() unless you know what you're
@@ -200,6 +206,11 @@ class Diagram : public QObject, public BlockOracle {
     * an incremental search for blocks with the right y-coordinate.
     */
   QHash< int, QHash<BlockPosition, BlockInstance> > block_list_;
+
+  /**
+    * A map of the ephemeral blocks in the diagram.
+    */
+  QHash<BlockPosition, BlockInstance> ephemeral_blocks_;
 
   /**
     * The block manager set using setBlockManager.  Can technically be NULL, but shouldn't be by the time any other
