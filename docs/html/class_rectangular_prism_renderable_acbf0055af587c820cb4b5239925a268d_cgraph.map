@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_basic_renderable.html#aa13d5be740b7f893dc55afb01a5f0348" title="Adds a quad with corners a, b, c, and d to the vertex list." alt="" coords="251,30,437,58"/>
+<area shape="rect" id="node11" href="qt.tag$qvector.html#at" title="QVector::at" alt="" coords="300,82,388,110"/>
+<area shape="rect" id="node5" href="qt.tag$qvector3d.html#normal" title="QVector3D::normal" alt="" coords="525,5,659,33"/>
+<area shape="rect" id="node7" href="$class_basic_renderable.html#a90be03881e542c1ce57165569020b92d" title="Appends vertex with normal vector normal and texture coordinates tex_coord to the vertex list..." alt="" coords="486,57,698,85"/>
+<area shape="rect" id="node9" href="qt.tag$qvector.html#append" title="QVector::append" alt="" coords="747,57,869,85"/>
+</map>

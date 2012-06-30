@@ -1,0 +1,38 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_prototype.html#a88d6aa59bdb985069dd3ca06c0bd0953" title="Returns the names of the categories to which this block belongs." alt="" coords="215,109,395,137"/>
+<area shape="rect" id="node9" href="qt.tag$qstring.html#toUpper" title="QString::toUpper" alt="" coords="245,306,366,334"/>
+<area shape="rect" id="node11" href="$class_block_picker.html#aac039f1ec47bd6c7d7f08d177bdae596" title="BlockPicker::findTab" alt="" coords="235,358,376,386"/>
+<area shape="rect" id="node13" href="$class_block_picker.html#ad3c59c03bd581ad68e3315d7aff09dca" title="BlockPicker::createTab" alt="" coords="227,410,384,438"/>
+<area shape="rect" id="node39" href="qt.tag$qobject.html#metaObject" title="QObject::metaObject" alt="" coords="232,462,378,490"/>
+<area shape="rect" id="node41" href="qt.tag$qmetaobject.html#className" title="QMetaObject::className" alt="" coords="219,514,392,542"/>
+<area shape="rect" id="node43" href="$class_block_picker.html#a764da053759cfe23d66970303dc8c973" title="BlockPicker::iconForSprite" alt="" coords="216,566,394,594"/>
+<area shape="rect" id="node49" href="$class_block_prototype.html#a53c3a7e342a24a1c319a57addde2d952" title="Returns the sprite pixmap that should be used to represent this kind of block in a 2D context..." alt="" coords="230,618,381,646"/>
+<area shape="rect" id="node51" href="$class_block_orientation.html#a2f475fd9d16d7b53afe169f954dbaf12" title="Returns a BlockOrientation object representing the orientation a block should be in when it is viewed..." alt="" coords="222,670,389,714"/>
+<area shape="rect" id="node61" href="qt.tag$qlistwidgetitem.html#setSizeHint" title="QListWidgetItem::setSizeHint" alt="" coords="208,738,403,766"/>
+<area shape="rect" id="node63" href="qt.tag$qlistwidgetitem.html#setData" title="QListWidgetItem::setData" alt="" coords="219,790,392,818"/>
+<area shape="rect" id="node65" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="234,842,377,870"/>
+<area shape="rect" id="node67" href="qt.tag$qlistwidgetitem.html#setToolTip" title="QListWidgetItem::setToolTip" alt="" coords="212,894,399,922"/>
+<area shape="rect" id="node69" href="$class_block_prototype.html#a864d4a294c4a20edecb2cb1f34d49a8c" title="Returns the name of this block." alt="" coords="229,57,381,85"/>
+<area shape="rect" id="node74" href="qt.tag$qlistwidget.html#addItem" title="QListWidget::addItem" alt="" coords="231,946,380,974"/>
+<area shape="rect" id="node5" href="$class_block_prototype.html#a084f9a8ac50c8de0e8827f17ce9ab72d" title="Returns the BlockProperties object for this prototype." alt="" coords="454,57,632,85"/>
+<area shape="rect" id="node7" href="$class_block_properties.html#a18e91cb4f11dadab1b73c90ec88e3ff7" title="Returns the names of categories to which this block belongs." alt="" coords="451,109,634,137"/>
+<area shape="rect" id="node15" href="qt.tag$qwidget.html#setAttribute" title="QWidget::setAttribute" alt="" coords="469,161,617,189"/>
+<area shape="rect" id="node17" href="qt.tag$qlistview.html#viewMode-prop" title="QListView::setViewMode" alt="" coords="459,213,627,241"/>
+<area shape="rect" id="node19" href="qt.tag$qlistview.html#movement-prop" title="QListView::setMovement" alt="" coords="458,265,627,293"/>
+<area shape="rect" id="node21" href="qt.tag$qlistview.html#resizeMode-prop" title="QListView::setResizeMode" alt="" coords="452,317,633,345"/>
+<area shape="rect" id="node23" href="qt.tag$qabstractitemview.html#selectionMode-prop" title="QAbstractItemView:\l:setSelectionMode" alt="" coords="473,369,612,413"/>
+<area shape="rect" id="node25" href="qt.tag$qlistview.html#uniformItemSizes-prop" title="QListView::setUniformItem\lSizes" alt="" coords="453,437,632,481"/>
+<area shape="rect" id="node27" href="qt.tag$qabstractitemview.html#setItemDelegate" title="QAbstractItemView:\l:setItemDelegate" alt="" coords="473,505,612,549"/>
+<area shape="rect" id="node29" href="qt.tag$qobject.html#connect" title="QObject::connect" alt="" coords="480,573,605,601"/>
+<area shape="rect" id="node31" href="$class_block_picker.html#a810818f5247e71248bbd78ed536a20db" title="BlockPicker::selectBlock\lForItem" alt="" coords="460,625,626,669"/>
+<area shape="rect" id="node33" href="$class_block_picker.html#aa379cd7bc7491212120bc4dae5ae99c2" title="Emitted whenever the selected block changes." alt="" coords="704,581,885,609"/>
+<area shape="rect" id="node35" href="qt.tag$qlistwidgetitem.html#data" title="QListWidgetItem::data" alt="" coords="718,633,871,661"/>
+<area shape="rect" id="node37" href="qt.tag$qvariant.html#toInt" title="QVariant::toInt" alt="" coords="742,685,848,713"/>
+<area shape="rect" id="node45" href="qt.tag$qwidget-qt3.html#icon" title="QWidget::icon" alt="" coords="490,693,595,721"/>
+<area shape="rect" id="node47" href="qt.tag$qicon.html#addPixmap" title="QIcon::addPixmap" alt="" coords="477,745,608,773"/>
+<area shape="rect" id="node53" href="$class_block_orientation.html#a4a4a7f55abc88451b782a2fdc125e9a8" title="Returns a BlockOrientation object for the given string." alt="" coords="470,797,615,825"/>
+<area shape="rect" id="node55" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="744,745,846,773"/>
+<area shape="rect" id="node57" href="$class_block_orientation.html#a8387a13347c1f2516498b183327beb4f" title="BlockOrientation::BlockOrientation" alt="" coords="682,797,907,825"/>
+<area shape="rect" id="node59" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="743,849,846,877"/>
+<area shape="rect" id="node72" href="$class_block_properties.html#a379e3ba9770f3488b65b434cbe18d78e" title="Returns the name of this block type." alt="" coords="465,5,620,33"/>
+</map>

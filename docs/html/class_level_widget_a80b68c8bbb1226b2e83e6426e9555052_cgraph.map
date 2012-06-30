@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_level_widget.html#a6bc0abb1a3f06b5337837002befef2da" title="LevelWidget::mousePressEvent" alt="" coords="238,981,448,1009"/>
+<area shape="rect" id="node139" href="$class_level_widget.html#a30e4259e34c2b703fad13b41c45108d3" title="LevelWidget::mouseRelease\lEvent" alt="" coords="247,751,438,795"/>
+<area shape="rect" id="node5" href="qt.tag$qwidget.html#cursor-prop" title="QWidget::setCursor" alt="" coords="519,569,657,597"/>
+<area shape="rect" id="node7" href="qt.tag$qinputevent.html#modifiers" title="QInputEvent::modifiers" alt="" coords="510,981,666,1009"/>
+<area shape="rect" id="node9" href="$class_level_widget.html#ae153ffa86fdade4c077d03f3f1cb39c2" title="Tells the Diagram to perform a flood fill operation starting at the position of event, using the currently selected block type." alt="" coords="511,877,665,905"/>
+<area shape="rect" id="node13" href="$class_level_widget.html#abb79cb516ce5adaf13b54945eb20edcd" title="Returns the 3D position for point given the current level." alt="" coords="1027,1289,1195,1333"/>
+<area shape="rect" id="node19" href="qt.tag$qgraphicsview.html#mapToScene" title="QGraphicsView::mapToScene" alt="" coords="1011,1185,1210,1213"/>
+<area shape="rect" id="node21" href="qt.tag$qmouseevent.html#pos" title="QMouseEvent::pos" alt="" coords="1043,1237,1178,1265"/>
+<area shape="rect" id="node79" href="$class_block_position.html#a7d7b00640499e999497ac709e7ffb4e0" title="Returns the vector pointing to this BlockPosition&#39;s front lower left corner." alt="" coords="496,1280,680,1308"/>
+<area shape="rect" id="node83" href="qt.tag$qvector3d.html#isNull" title="QVector3D::isNull" alt="" coords="525,929,651,957"/>
+<area shape="rect" id="node85" href="$class_level_widget.html#ad7116bba74183c75a1d3ea73dd8d2cc8" title="Tells the Diagram to draw a line from the position of the previous mouse event to the position of eve..." alt="" coords="510,1033,666,1061"/>
+<area shape="rect" id="node104" href="$class_level_widget.html#ac1139d4e6a572da30e2256e47df0d93b" title="Tells the Diagram to set the block at the position of event, using the currently set block type..." alt="" coords="502,621,674,649"/>
+<area shape="rect" id="node11" href="$class_level_widget.html#a6c9c7d3f88a62cf7b3a6b917c39e795b" title="Returns the 3D position for the point at which event occurred." alt="" coords="756,1135,924,1179"/>
+<area shape="rect" id="node23" href="qt.tag$qmouseevent.html#buttons" title="QMouseEvent::buttons" alt="" coords="762,879,918,907"/>
+<area shape="rect" id="node25" href="$class_diagram.html#a89e78f3894a06ec273cc428a2174324a" title="Creates and commits a BlockTransaction which performs a two&#45;dimensional flood fill of blocks starting..." alt="" coords="775,464,905,492"/>
+<area shape="rect" id="node31" href="$class_block_orientation.html#aed75805ca5528582a450d870686e75b9" title="Returns a BlockOrientation object representing no orientation." alt="" coords="1507,773,1714,801"/>
+<area shape="rect" id="node59" href="$class_block_manager.html#a8204e8ef599e44f0be6a4a70f20024bd" title="Gets the BlockPrototype for type." alt="" coords="1269,980,1459,1008"/>
+<area shape="rect" id="node70" href="$class_block_prototype.html#aecee73acb976383a0a1c7717fbe8da80" title="Returns the default orientation for blocks of this type." alt="" coords="728,699,952,727"/>
+<area shape="rect" id="node15" href="qt.tag$qpointf.html#x" title="QPointF::x" alt="" coords="1322,1301,1406,1329"/>
+<area shape="rect" id="node17" href="qt.tag$qpointf.html#y" title="QPointF::y" alt="" coords="1322,1249,1406,1277"/>
+<area shape="rect" id="node27" href="$class_diagram.html#aab4b0c3d0c8c6b21d1f11a1578946721" title="Returns the BlockInstance for the block at position." alt="" coords="1303,152,1425,180"/>
+<area shape="rect" id="node40" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="1763,153,1930,181"/>
+<area shape="rect" id="node42" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="1775,501,1918,529"/>
+<area shape="rect" id="node44" href="$class_diagram.html#a55845114299f9395ae3ae8e966a00809" title="Recursion helper function for fillBlocks." alt="" coords="1020,308,1201,336"/>
+<area shape="rect" id="node29" href="$class_diagram.html#a47701f961fc4ee5a41d364589d3250cc" title="Returns the block manager, or NULL if it&#39;s not set." alt="" coords="1529,424,1692,452"/>
+<area shape="rect" id="node35" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="1980,825,2082,853"/>
+<area shape="rect" id="node33" href="$class_block_orientation.html#a4a4a7f55abc88451b782a2fdc125e9a8" title="Returns a BlockOrientation object for the given string." alt="" coords="1774,877,1919,905"/>
+<area shape="rect" id="node37" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="1979,904,2082,932"/>
+<area shape="rect" id="node46" href="qt.tag$qset.html#contains" title="QSet::contains" alt="" coords="1792,283,1901,311"/>
+<area shape="rect" id="node48" href="$class_block_position.html#a750817819cf1b79f23c58dfc451b34f6" title="Returns the x component of this BlockPosition." alt="" coords="1306,676,1422,704"/>
+<area shape="rect" id="node53" href="$class_block_transaction.html#a8eb1692c4ad10ac1efbb6aba998e1e63" title="Records the removal of new_block." alt="" coords="1515,311,1707,339"/>
+<area shape="rect" id="node65" href="$class_block_transaction.html#a6b0c5e8671704c302b8737ab0e904c06" title="Records the replacement of old_block with new_block." alt="" coords="1277,307,1451,351"/>
+<area shape="rect" id="node61" href="$class_block_prototype.html#af28f5bf5fd9575db981281463cbdb50e" title="Returns the number of unique block types known to MCModeler." alt="" coords="1518,981,1703,1009"/>
+<area shape="rect" id="node72" href="$class_block_prototype.html#a084f9a8ac50c8de0e8827f17ce9ab72d" title="Returns the BlockProperties object for this prototype." alt="" coords="1022,620,1200,648"/>
+<area shape="rect" id="node75" href="$class_block_properties.html#aba0532ae9c89c0b59607f221cffc6cb6" title="Returns a list of valid orientations for this block type." alt="" coords="1000,568,1221,596"/>
+<area shape="rect" id="node77" href="qt.tag$qvector.html#at" title="QVector::at" alt="" coords="1067,672,1155,700"/>
+<area shape="rect" id="node81" href="$class_block_position.html#a579910647673bf493e948e44166f7807" title="Computes the corner and center vectors for this BlockPosition." alt="" coords="738,1305,942,1333"/>
+<area shape="rect" id="node90" href="$class_diagram.html#afe65b541a074495a34e8f86ac739e29d" title="Creates and commits a BlockTransaction which draws a line of blocks with type type and orientation or..." alt="" coords="773,1031,907,1059"/>
+<area shape="rect" id="node94" href="$class_line_tool.html#ac2bdfee666d1ee42cdbc65c54db81440" title="Sets the position at a particular index, the meaning of which depends on the tool." alt="" coords="1016,1081,1205,1109"/>
+<area shape="rect" id="node96" href="$class_line_tool.html#a38c68c2e4508dc195c1a1719efdd6b36" title="Modifies the BlockTransaction passed as transaction so that it reflects the results of applying the t..." alt="" coords="1057,724,1164,752"/>
+<area shape="rect" id="node108" href="$class_diagram.html#a931f1c354acab395688aa68423c1e6fa" title="Creates and commits a BlockTransaction which clears the block at pos." alt="" coords="1040,101,1181,129"/>
+<area shape="rect" id="node116" href="qt.tag$qevent.html#type" title="QEvent::type" alt="" coords="791,308,889,336"/>
+<area shape="rect" id="node118" href="$class_block_instance.html#aa9adadd8f649489dfb05da17b5b5ba7c" title="BlockInstance::orientation" alt="" coords="753,360,927,388"/>
+<area shape="rect" id="node120" href="$class_block_prototype.html#ad776bd21a3802a83f109e2dbc68ed4b5" title="Returns a vector of valid orientations for this block." alt="" coords="746,529,934,557"/>
+<area shape="rect" id="node129" href="qt.tag$qvector.html#indexOf" title="QVector::indexOf" alt="" coords="779,412,901,440"/>
+<area shape="rect" id="node131" href="qt.tag$qvector.html#size" title="QVector::size" alt="" coords="790,595,890,623"/>
+<area shape="rect" id="node134" href="$class_diagram.html#a55e6a03973d1bccc7ec1687f44585719" title="Creates and commits a BlockTransaction which replaces the block at pos with ." alt="" coords="1046,256,1175,284"/>
+<area shape="rect" id="node124" href="qt.tag$qvector.html#empty" title="QVector::empty" alt="" coords="1054,464,1167,492"/>
+<area shape="rect" id="node126" href="qt.tag$qvector.html#append" title="QVector::append" alt="" coords="1050,412,1171,440"/>
+</map>

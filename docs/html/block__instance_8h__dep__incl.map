@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$diagram_8h.html" title="src/diagram.h" alt="" coords="449,161,551,189"/>
+<area shape="rect" id="node21" href="$block__oracle_8h.html" title="src/block_oracle.h" alt="" coords="588,83,716,111"/>
+<area shape="rect" id="node26" href="$line__tool_8cc.html" title="src/line_tool.cc" alt="" coords="753,161,863,189"/>
+<area shape="rect" id="node28" href="$block__instance_8cc.html" title="src/block_instance.cc" alt="" coords="791,83,939,111"/>
+<area shape="rect" id="node30" href="$block__transaction_8cc.html" title="src/block_transaction.cc" alt="" coords="964,83,1127,111"/>
+<area shape="rect" id="node5" href="$application_8h.html" title="src/application.h" alt="" coords="73,246,191,274"/>
+<area shape="rect" id="node11" href="$bill__of__materials__window_8cc.html" title="src/bill_of_materials\l_window.cc" alt="" coords="214,238,353,282"/>
+<area shape="rect" id="node13" href="$diagram_8cc.html" title="src/diagram.cc" alt="" coords="378,246,485,274"/>
+<area shape="rect" id="node15" href="$gl__widget_8cc.html" title="src/gl_widget.cc" alt="" coords="510,246,625,274"/>
+<area shape="rect" id="node17" href="$level__widget_8cc.html" title="src/level_widget.cc" alt="" coords="651,246,783,274"/>
+<area shape="rect" id="node19" href="$main__window_8cc.html" title="src/main_window.cc" alt="" coords="807,246,947,274"/>
+<area shape="rect" id="node7" href="$application_8cc.html" title="src/application.cc" alt="" coords="5,331,128,359"/>
+<area shape="rect" id="node9" href="$main_8cc.html" title="src/main.cc" alt="" coords="153,331,241,359"/>
+<area shape="rect" id="node24" href="$block__prototype_8cc.html" title="src/block_prototype.cc" alt="" coords="575,161,728,189"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_level_widget.html#abb79cb516ce5adaf13b54945eb20edcd" title="Returns the 3D position for point given the current level." alt="" coords="237,22,405,66"/>
+<area shape="rect" id="node9" href="qt.tag$qgraphicsview.html#mapToScene" title="QGraphicsView::mapToScene" alt="" coords="222,90,421,118"/>
+<area shape="rect" id="node11" href="qt.tag$qmouseevent.html#pos" title="QMouseEvent::pos" alt="" coords="254,142,389,170"/>
+<area shape="rect" id="node5" href="qt.tag$qpointf.html#x" title="QPointF::x" alt="" coords="470,5,554,33"/>
+<area shape="rect" id="node7" href="qt.tag$qpointf.html#y" title="QPointF::y" alt="" coords="470,57,554,85"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_properties.html#afa26a9a88b5852dbb0940454921aa448" title="BlockProperties::operator=" alt="" coords="258,5,438,33"/>
+<area shape="rect" id="node5" href="$class_block_prototype.html#a7f4f0fd570677fca31baac6cd1e35e83" title="Constructs a BlockPrototype." alt="" coords="244,57,452,85"/>
+<area shape="rect" id="node7" href="$class_block_prototype.html#af1e93b9ac587835570630127c5065134" title="Returns whether renderable should render a face at location." alt="" coords="232,109,464,137"/>
+<area shape="rect" id="node9" href="$class_sprite_engine.html#a02d6a3d94cab26f5f6383d870e769d16" title="Creates and returns a sprite pixmap that can be drawn to represent a block in 2D." alt="" coords="260,161,436,189"/>
+</map>

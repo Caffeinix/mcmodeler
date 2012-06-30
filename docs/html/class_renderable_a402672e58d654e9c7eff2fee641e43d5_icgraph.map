@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_basic_renderable.html#aff3cfbf634c8447228f7d006719649f9" title="Returns the texture that should be used to draw the quad at index." alt="" coords="197,5,368,49"/>
+<area shape="rect" id="node7" href="$class_ladder_renderable.html#a88a1570a010b000b88ded8cd84a4ccd5" title="Returns the texture that should be used to draw the quad at index." alt="" coords="193,73,373,117"/>
+<area shape="rect" id="node9" href="$class_renderable.html#a337a4ba2385c98c44955f33b31cfe261" title="Associates texture with local_id." alt="" coords="203,141,362,169"/>
+<area shape="rect" id="node11" href="$class_stairs_renderable.html#a89596dd6f27f16972bd59670bfef1d2a" title="Returns the texture that should be used to draw the quad at index." alt="" coords="196,193,369,237"/>
+<area shape="rect" id="node5" href="$class_basic_renderable.html#ad3caf369ffce32e29c4048c646e8acf3" title="const" alt="" coords="421,13,603,41"/>
+</map>

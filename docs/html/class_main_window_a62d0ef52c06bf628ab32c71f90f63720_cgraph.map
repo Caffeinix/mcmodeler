@@ -1,0 +1,37 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qobject.html#sender" title="QObject::sender" alt="" coords="250,125,369,153"/>
+<area shape="rect" id="node5" href="qt.tag$qobject.html#deleteLater" title="QObject::deleteLater" alt="" coords="237,177,382,205"/>
+<area shape="rect" id="node7" href="qt.tag$qfile.html#open" title="QFile::open" alt="" coords="264,229,354,257"/>
+<area shape="rect" id="node9" href="$class_diagram.html#a1b26cb1c20a176c603bbd2c38f09c951" title="Populates the diagram with blocks deserialized from stream." alt="" coords="257,281,362,309"/>
+<area shape="rect" id="node73" href="qt.tag$qfile.html#close" title="QFile::close" alt="" coords="263,333,355,361"/>
+<area shape="rect" id="node75" href="qt.tag$qwidget.html#windowFilePath-prop" title="QWidget::setWindowFilePath" alt="" coords="212,385,407,413"/>
+<area shape="rect" id="node77" href="qt.tag$qwidget.html#windowTitle-prop" title="QWidget::setWindowTitle" alt="" coords="224,437,395,465"/>
+<area shape="rect" id="node79" href="qt.tag$qwidget.html#windowModified-prop" title="QWidget::setWindowModified" alt="" coords="211,489,407,517"/>
+<area shape="rect" id="node11" href="qt.tag$qdatastream.html#setVersion" title="QDataStream::setVersion" alt="" coords="482,5,654,33"/>
+<area shape="rect" id="node13" href="qt.tag$qdatastream.html#setFloatingPointPrecision" title="QDataStream::setFloating\lPointPrecision" alt="" coords="480,57,656,101"/>
+<area shape="rect" id="node15" href="qt.tag$qstring.html#toAscii" title="QString::toAscii" alt="" coords="511,125,625,153"/>
+<area shape="rect" id="node17" href="qt.tag$qstring.html#size" title="QString::size" alt="" coords="519,177,617,205"/>
+<area shape="rect" id="node19" href="qt.tag$qhash.html#values" title="QHash::values" alt="" coords="514,229,622,257"/>
+<area shape="rect" id="node21" href="$class_block_transaction.html#a8eb1692c4ad10ac1efbb6aba998e1e63" title="Records the removal of new_block." alt="" coords="472,333,664,361"/>
+<area shape="rect" id="node35" href="qt.tag$qdatastream.html#atEnd" title="QDataStream::atEnd" alt="" coords="495,385,641,413"/>
+<area shape="rect" id="node37" href="$class_diagram.html#a47701f961fc4ee5a41d364589d3250cc" title="Returns the block manager, or NULL if it&#39;s not set." alt="" coords="487,437,649,465"/>
+<area shape="rect" id="node39" href="$class_block_manager.html#a8204e8ef599e44f0be6a4a70f20024bd" title="Gets the BlockPrototype for type." alt="" coords="997,495,1187,523"/>
+<area shape="rect" id="node49" href="$class_block_prototype.html#aecee73acb976383a0a1c7717fbe8da80" title="Returns the default orientation for blocks of this type." alt="" coords="456,593,680,621"/>
+<area shape="rect" id="node65" href="$class_block_transaction.html#a8b22719e10cbadbeae1b2b5ea33a6a8b" title="Records the addition of new_block." alt="" coords="478,281,658,309"/>
+<area shape="rect" id="node23" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="755,333,922,361"/>
+<area shape="rect" id="node25" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="767,385,910,413"/>
+<area shape="rect" id="node27" href="qt.tag$qset.html#contains" title="QSet::contains" alt="" coords="784,437,893,465"/>
+<area shape="rect" id="node29" href="$class_block_instance.html#a9e411eac6223b5b7a256ff410940880e" title="BlockInstance::position" alt="" coords="760,177,918,205"/>
+<area shape="rect" id="node31" href="qt.tag$qlist.html#append" title="QList::append" alt="" coords="786,229,891,257"/>
+<area shape="rect" id="node33" href="qt.tag$qset.html#insert" title="QSet::insert" alt="" coords="793,281,885,309"/>
+<area shape="rect" id="node41" href="$class_block_prototype.html#af28f5bf5fd9575db981281463cbdb50e" title="Returns the number of unique block types known to MCModeler." alt="" coords="1254,457,1439,485"/>
+<area shape="rect" id="node45" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="1296,509,1398,537"/>
+<area shape="rect" id="node47" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="1295,561,1398,589"/>
+<area shape="rect" id="node43" href="qt.tag$qmap.html#size" title="QMap::size" alt="" coords="1508,457,1596,485"/>
+<area shape="rect" id="node51" href="$class_block_prototype.html#a084f9a8ac50c8de0e8827f17ce9ab72d" title="Returns the BlockProperties object for this prototype." alt="" coords="750,645,928,673"/>
+<area shape="rect" id="node53" href="$class_block_orientation.html#aed75805ca5528582a450d870686e75b9" title="Returns a BlockOrientation object representing no orientation." alt="" coords="735,593,942,621"/>
+<area shape="rect" id="node61" href="$class_block_properties.html#aba0532ae9c89c0b59607f221cffc6cb6" title="Returns a list of valid orientations for this block type." alt="" coords="728,697,949,725"/>
+<area shape="rect" id="node63" href="qt.tag$qvector.html#at" title="QVector::at" alt="" coords="795,541,883,569"/>
+<area shape="rect" id="node55" href="$class_block_orientation.html#a4a4a7f55abc88451b782a2fdc125e9a8" title="Returns a BlockOrientation object for the given string." alt="" coords="1019,567,1165,595"/>
+<area shape="rect" id="node58" href="$class_block_orientation.html#a8387a13347c1f2516498b183327beb4f" title="BlockOrientation::BlockOrientation" alt="" coords="1234,613,1459,641"/>
+</map>

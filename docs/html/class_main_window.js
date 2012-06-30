@@ -1,0 +1,28 @@
+var class_main_window =
+[
+    [ "MainWindow", "class_main_window.html#a08a133d21fea8948f84acc105ab5fc33", null ],
+    [ "setDiagram", "class_main_window.html#ab8af50150e5573ae2307f9e365486161", null ],
+    [ "setBlockManager", "class_main_window.html#a264f0f1f24f349ccefa9e050b8d7fd70", null ],
+    [ "about", "class_main_window.html#a7be6a5d98970ac1a6296c6f9aee1e9bb", null ],
+    [ "open", "class_main_window.html#aa7473e4bbbcc281706ac2edef864fb45", null ],
+    [ "save", "class_main_window.html#a3ba1a371fb10e731ae0926ae85efeb4f", null ],
+    [ "saveAs", "class_main_window.html#a7fbef0054cdec7bbbf3c06fb12af473c", null ],
+    [ "quit", "class_main_window.html#a542a7527ced73b2c9bc14f8dc9661a66", null ],
+    [ "setDocumentModified", "class_main_window.html#af6fa1588e170bf0e4121af42185f14ef", null ],
+    [ "setTemplateImage", "class_main_window.html#a8f8c43ab0be87f81b70251802d50344d", null ],
+    [ "saveToFile", "class_main_window.html#a769a4a713add6996d8295d0b55b3d937", null ],
+    [ "openFile", "class_main_window.html#a62d0ef52c06bf628ab32c71f90f63720", null ],
+    [ "onSavePromptClosed", "class_main_window.html#af5bf25f6a27e26dfa1d9451ab4b44916", null ],
+    [ "showBillOfMaterials", "class_main_window.html#a54ac709d4497d1a798e329e9ba11fbf4", null ],
+    [ "closeEvent", "class_main_window.html#a4e20a4a065fbb0e4d3532a45a0a91425", null ],
+    [ "doOpen", "class_main_window.html#a8b4a54deb6ca03793dbcd83313c202d4", null ],
+    [ "maybeSave", "class_main_window.html#a993502c9800526a971bc17fc03e7e6d2", null ],
+    [ "performPendingAction", "class_main_window.html#a37c4e63e1c5673d9e26be8fdeb109f48", null ],
+    [ "setupToolbox", "class_main_window.html#aa32e1852b201855f8d142c63ef57f649", null ],
+    [ "ui", "class_main_window.html#afd8f577d944364a633983e5bc525b4b7", null ],
+    [ "diagram_", "class_main_window.html#a7a163f368485c7c0bb872f0185f0239a", null ],
+    [ "block_mgr_", "class_main_window.html#a0d6c38d93aa53cb2a8ff8bf94dbc382f", null ],
+    [ "toolbox_initialized_", "class_main_window.html#a5a21ddf20af22b449376a8ebb7b7e9ec", null ],
+    [ "pending_action_", "class_main_window.html#abde6b3c2745f292fa0f85ed4439bd6e7", null ],
+    [ "bill_of_materials_window_", "class_main_window.html#a794fe4a28de5441d75cac4a459c7b45e", null ]
+];

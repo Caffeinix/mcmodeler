@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_renderable.html#aebfb4f7d5a33543a1f600dd8d5b5dfea" title="Returns true if initialize() has been called on this Renderable." alt="" coords="276,5,439,33"/>
+<area shape="rect" id="node5" href="qt.tag$qvector3d.html#x" title="QVector3D::x" alt="" coords="307,57,408,85"/>
+<area shape="rect" id="node7" href="qt.tag$qvector3d.html#y" title="QVector3D::y" alt="" coords="307,109,408,137"/>
+<area shape="rect" id="node9" href="qt.tag$qvector3d.html#z" title="QVector3D::z" alt="" coords="307,161,408,189"/>
+<area shape="rect" id="node11" href="$class_basic_renderable.html#aa1d6981e109bcd1cf17c28611b2a9079" title="Applies any desired OpenGL coordinate transformations (glRotate, glTranslate, etc.) to account for the given orientation." alt="" coords="244,213,471,257"/>
+<area shape="rect" id="node13" href="$class_basic_renderable.html#a262c5d55d50f5c05822a851dcb044ca2" title="Returns the vertices that have been added to the vertex list." alt="" coords="269,281,445,309"/>
+<area shape="rect" id="node15" href="$class_basic_renderable.html#a11eb4e405d0a9942a398f16cb02bb1b4" title="Returns the normal vectors that have been added to the vertex list." alt="" coords="268,333,446,361"/>
+<area shape="rect" id="node17" href="$class_basic_renderable.html#a31a28c9ed828121ca8e7c6b34db5f190" title="Returns the texture coordinates that have been added to the vertex list." alt="" coords="272,385,443,429"/>
+<area shape="rect" id="node19" href="qt.tag$qvector.html#size" title="QVector::size" alt="" coords="715,494,816,522"/>
+<area shape="rect" id="node21" href="$class_basic_renderable.html#a420897bf8050de48c1205332b06e17e7" title="Returns true if the quad at index should be rendered at location with orientation." alt="" coords="234,505,480,533"/>
+<area shape="rect" id="node23" href="$class_basic_renderable.html#aff3cfbf634c8447228f7d006719649f9" title="Returns the texture that should be used to draw the quad at index." alt="" coords="272,557,443,601"/>
+<area shape="rect" id="node25" href="$class_renderable.html#a402672e58d654e9c7eff2fee641e43d5" title="Returns the texture with the given local ID." alt="" coords="528,534,667,562"/>
+</map>

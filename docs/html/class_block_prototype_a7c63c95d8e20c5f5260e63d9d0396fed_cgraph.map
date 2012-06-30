@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qfile.html#exists-2" title="QFile::exists" alt="" coords="302,5,397,33"/>
+<area shape="rect" id="node5" href="qt.tag$qmessagebox.html#icon-prop" title="QMessageBox::setIcon" alt="" coords="270,57,429,85"/>
+<area shape="rect" id="node7" href="qt.tag$qmessagebox.html#setWindowTitle" title="QMessageBox::setWindowTitle" alt="" coords="246,109,452,137"/>
+<area shape="rect" id="node9" href="qt.tag$qmessagebox.html#text-prop" title="QMessageBox::setText" alt="" coords="270,161,429,189"/>
+<area shape="rect" id="node11" href="qt.tag$qmessagebox.html#informativeText-prop" title="QMessageBox::setInformativeText" alt="" coords="237,213,462,241"/>
+<area shape="rect" id="node13" href="qt.tag$qmessagebox.html#exec" title="QMessageBox::exec" alt="" coords="277,265,422,293"/>
+<area shape="rect" id="node15" href="qt.tag$qvariant.html#toList" title="QVariant::toList" alt="" coords="293,317,405,345"/>
+<area shape="rect" id="node17" href="qt.tag$qvariant.html#toMap" title="QVariant::toMap" alt="" coords="291,369,408,397"/>
+<area shape="rect" id="node19" href="qt.tag$qmap.html#insert" title="QMap::insert" alt="" coords="301,421,398,449"/>
+</map>

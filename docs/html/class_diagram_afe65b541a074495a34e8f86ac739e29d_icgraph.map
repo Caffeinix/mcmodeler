@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_level_widget.html#ad7116bba74183c75a1d3ea73dd8d2cc8" title="Tells the Diagram to draw a line from the position of the previous mouse event to the position of eve..." alt="" coords="187,13,343,41"/>
+<area shape="rect" id="node5" href="$class_level_widget.html#a6bc0abb1a3f06b5337837002befef2da" title="LevelWidget::mousePressEvent" alt="" coords="392,13,602,41"/>
+<area shape="rect" id="node7" href="$class_level_widget.html#a80b68c8bbb1226b2e83e6426e9555052" title="LevelWidget::mouseDouble\lClickEvent" alt="" coords="650,5,835,49"/>
+</map>

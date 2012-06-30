@@ -1,0 +1,31 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qcoreapplication.html#applicationName-prop" title="QCoreApplication::setApplicationName" alt="" coords="214,99,466,127"/>
+<area shape="rect" id="node5" href="qt.tag$qcoreapplication.html#applicationVersion-prop" title="QCoreApplication::setApplication\lVersion" alt="" coords="232,151,448,195"/>
+<area shape="rect" id="node7" href="$class_block_prototype.html#a7c63c95d8e20c5f5260e63d9d0396fed" title="Loads information about all known Minecraft block types." alt="" coords="248,219,432,263"/>
+<area shape="rect" id="node27" href="qt.tag$qscopedpointer.html#reset" title="QScopedPointer::reset" alt="" coords="554,473,710,501"/>
+<area shape="rect" id="node29" href="qt.tag$qscopedpointer.html#data" title="QScopedPointer::data" alt="" coords="264,339,416,367"/>
+<area shape="rect" id="node31" href="$class_g_l_preview_window.html#a29f46ecf58c93d9febdb420521e6cce3" title="GLPreviewWindow::glWidget" alt="" coords="243,391,437,419"/>
+<area shape="rect" id="node33" href="$class_g_l_preview_window.html#a7feb905e9be9d7c1cabbdb4406404c39" title="GLPreviewWindow::setDiagram" alt="" coords="235,443,445,471"/>
+<area shape="rect" id="node35" href="$class_g_l_preview_window.html#ab2ed1fb42ba60c618f844726cffa33f6" title="GLPreviewWindow::setBlock\lManager" alt="" coords="244,495,436,539"/>
+<area shape="rect" id="node37" href="$class_main_window.html#ab8af50150e5573ae2307f9e365486161" title="MainWindow::setDiagram" alt="" coords="253,563,427,591"/>
+<area shape="rect" id="node46" href="$class_main_window.html#a264f0f1f24f349ccefa9e050b8d7fd70" title="MainWindow::setBlockManager" alt="" coords="236,615,444,643"/>
+<area shape="rect" id="node62" href="qt.tag$qwidget.html#show" title="QWidget::show" alt="" coords="284,667,396,695"/>
+<area shape="rect" id="node9" href="qt.tag$qfile.html#exists-2" title="QFile::exists" alt="" coords="585,213,679,241"/>
+<area shape="rect" id="node11" href="qt.tag$qmessagebox.html#icon-prop" title="QMessageBox::setIcon" alt="" coords="552,265,712,293"/>
+<area shape="rect" id="node13" href="qt.tag$qmessagebox.html#setWindowTitle" title="QMessageBox::setWindowTitle" alt="" coords="529,317,735,345"/>
+<area shape="rect" id="node15" href="qt.tag$qmessagebox.html#text-prop" title="QMessageBox::setText" alt="" coords="553,369,711,397"/>
+<area shape="rect" id="node17" href="qt.tag$qmessagebox.html#informativeText-prop" title="QMessageBox::setInformativeText" alt="" coords="520,421,744,449"/>
+<area shape="rect" id="node19" href="qt.tag$qmessagebox.html#exec" title="QMessageBox::exec" alt="" coords="560,5,704,33"/>
+<area shape="rect" id="node21" href="qt.tag$qvariant.html#toList" title="QVariant::toList" alt="" coords="576,57,688,85"/>
+<area shape="rect" id="node23" href="qt.tag$qvariant.html#toMap" title="QVariant::toMap" alt="" coords="573,109,691,137"/>
+<area shape="rect" id="node25" href="qt.tag$qmap.html#insert" title="QMap::insert" alt="" coords="583,161,681,189"/>
+<area shape="rect" id="node40" href="qt.tag$qobject.html#connect" title="QObject::connect" alt="" coords="834,577,958,605"/>
+<area shape="rect" id="node42" href="$class_main_window.html#af6fa1588e170bf0e4121af42185f14ef" title="MainWindow::setDocumentModified" alt="" coords="515,525,749,553"/>
+<area shape="rect" id="node44" href="qt.tag$qwidget.html#windowModified-prop" title="QWidget::setWindowModified" alt="" coords="798,525,994,553"/>
+<area shape="rect" id="node48" href="$class_main_window.html#aa32e1852b201855f8d142c63ef57f649" title="MainWindow::setupToolbox" alt="" coords="540,629,724,657"/>
+<area shape="rect" id="node50" href="$class_block_prototype.html#af28f5bf5fd9575db981281463cbdb50e" title="Returns the number of unique block types known to MCModeler." alt="" coords="1043,629,1229,657"/>
+<area shape="rect" id="node54" href="$class_block_manager.html#a8204e8ef599e44f0be6a4a70f20024bd" title="Gets the BlockPrototype for type." alt="" coords="801,681,991,709"/>
+<area shape="rect" id="node52" href="qt.tag$qmap.html#size" title="QMap::size" alt="" coords="1278,629,1367,657"/>
+<area shape="rect" id="node57" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="1085,733,1187,761"/>
+<area shape="rect" id="node59" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="1085,681,1187,709"/>
+</map>

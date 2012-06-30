@@ -1,0 +1,40 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qobject.html#connect" title="QObject::connect" alt="" coords="250,151,374,179"/>
+<area shape="rect" id="node5" href="$class_level_widget.html#a4ccd600d52e6f9b259ee3a1f31d8851d" title="Applies transaction to the current level." alt="" coords="225,203,399,231"/>
+<area shape="rect" id="node66" href="$class_level_widget.html#a5cb4b3925f933f41aedd34962b19cba3" title="Sets the level currently being rendered to level." alt="" coords="236,622,388,650"/>
+<area shape="rect" id="node7" href="qt.tag$qelapsedtimer.html#start" title="QElapsedTimer::start" alt="" coords="467,5,613,33"/>
+<area shape="rect" id="node9" href="$class_block_transaction.html#a91de4bbf9897e3aa052a66de8fac20c6" title="Returns a list of blocks that are removed from the world by this transaction." alt="" coords="466,57,614,101"/>
+<area shape="rect" id="node11" href="$class_level_widget.html#a2f7f084bb6d1f4bd43e1bfc6df9ae3f3" title="Removes the QGraphicsItem representing the block a position from the view." alt="" coords="450,203,630,231"/>
+<area shape="rect" id="node21" href="$class_block_instance.html#a9e411eac6223b5b7a256ff410940880e" title="BlockInstance::position" alt="" coords="996,62,1154,90"/>
+<area shape="rect" id="node23" href="$class_block_transaction.html#af17795b86e97d151d13740a58d57dd2e" title="Returns a list of blocks that are added to the world by this transaction." alt="" coords="463,307,617,351"/>
+<area shape="rect" id="node25" href="$class_level_widget.html#a6ac80495510f6b0757685688eebccfbb" title="Creates and returns a QGraphicsItem representing block in the view." alt="" coords="726,570,882,598"/>
+<area shape="rect" id="node13" href="$class_level_widget.html#a36d9e8d9bc163b59f04fa8af18ee01d1" title="Returns the QGraphicsItem at the 2D point corresponding to position in 3D space." alt="" coords="710,281,898,309"/>
+<area shape="rect" id="node17" href="qt.tag$qhash.html#remove" title="QHash::remove" alt="" coords="747,229,861,257"/>
+<area shape="rect" id="node19" href="qt.tag$qgraphicsscene.html#removeItem" title="QGraphicsScene::removeItem" alt="" coords="704,177,904,205"/>
+<area shape="rect" id="node15" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="1024,10,1126,38"/>
+<area shape="rect" id="node28" href="$macros_8h.html#a92defaadfadc318761b2763b44b0ed89" title="Attempts to return the size of an array." alt="" coords="1037,1114,1112,1142"/>
+<area shape="rect" id="node30" href="$class_block_position.html#a63bdb47a8db63cc79135029a9c9b7d58" title="Returns the y component of this BlockPosition." alt="" coords="1017,682,1132,710"/>
+<area shape="rect" id="node32" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="991,734,1158,762"/>
+<area shape="rect" id="node34" href="qt.tag$qgraphicsview.html#scene" title="QGraphicsView::scene" alt="" coords="996,1062,1153,1090"/>
+<area shape="rect" id="node36" href="qt.tag$qgraphicsscene.html#addPixmap" title="QGraphicsScene::addPixmap" alt="" coords="976,786,1173,814"/>
+<area shape="rect" id="node38" href="$class_block_prototype.html#a53c3a7e342a24a1c319a57addde2d952" title="Returns the sprite pixmap that should be used to represent this kind of block in a 2D context..." alt="" coords="999,838,1150,866"/>
+<area shape="rect" id="node40" href="$class_block_instance.html#aa9adadd8f649489dfb05da17b5b5ba7c" title="BlockInstance::orientation" alt="" coords="988,890,1162,918"/>
+<area shape="rect" id="node42" href="qt.tag$qgraphicspixmapitem.html#setOffset" title="QGraphicsPixmapItem\l::setOffset" alt="" coords="997,942,1152,986"/>
+<area shape="rect" id="node44" href="qt.tag$qgraphicsitem.html#setPos" title="QGraphicsItem::setPos" alt="" coords="995,1010,1154,1038"/>
+<area shape="rect" id="node46" href="$class_block_position.html#a750817819cf1b79f23c58dfc451b34f6" title="Returns the x component of this BlockPosition." alt="" coords="1017,114,1132,142"/>
+<area shape="rect" id="node48" href="$class_block_position.html#ae1cb3792aada50f12030004543df5608" title="Returns the y component of this BlockPosition." alt="" coords="1017,166,1132,194"/>
+<area shape="rect" id="node50" href="qt.tag$qgraphicspixmapitem.html#setShapeMode" title="QGraphicsPixmapItem\l::setShapeMode" alt="" coords="997,218,1152,262"/>
+<area shape="rect" id="node52" href="qt.tag$qgraphicsitem.html#setData" title="QGraphicsItem::setData" alt="" coords="992,286,1157,314"/>
+<area shape="rect" id="node54" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="1003,338,1146,366"/>
+<area shape="rect" id="node56" href="qt.tag$qgraphicsitem.html#setZValue" title="QGraphicsItem::setZValue" alt="" coords="986,390,1163,418"/>
+<area shape="rect" id="node58" href="qt.tag$qgraphicsitem.html#setOpacity" title="QGraphicsItem::setOpacity" alt="" coords="984,442,1165,470"/>
+<area shape="rect" id="node60" href="qt.tag$qgraphicscolorizeeffect.html#strength-prop" title="QGraphicsColorizeEffect\l::setStrength" alt="" coords="991,494,1159,538"/>
+<area shape="rect" id="node62" href="qt.tag$qgraphicsitem.html#setGraphicsEffect" title="QGraphicsItem::setGraphics\lEffect" alt="" coords="980,562,1169,606"/>
+<area shape="rect" id="node64" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="1023,630,1126,658"/>
+<area shape="rect" id="node68" href="$class_level_widget.html#a5047c6f1436c01b42843ddc46a657d33" title="Synchronizes the view with the diagram by clearing all blocks and drawing them again." alt="" coords="460,622,620,650"/>
+<area shape="rect" id="node83" href="$class_level_widget.html#aef171bcf269a301caad916044aa14f78" title="Emitted whenever the currently displayed level changes." alt="" coords="448,674,632,702"/>
+<area shape="rect" id="node71" href="qt.tag$qgraphicsscene.html#clear" title="QGraphicsScene::clear" alt="" coords="724,674,884,702"/>
+<area shape="rect" id="node73" href="qt.tag$qhash.html#clear" title="QHash::clear" alt="" coords="754,726,854,754"/>
+<area shape="rect" id="node75" href="qt.tag$qgraphicsview.html#viewportUpdateMode-prop" title="QGraphicsView::viewportUpdateMode" alt="" coords="680,622,928,650"/>
+<area shape="rect" id="node79" href="$class_diagram.html#ae7256fcf824a827cd4906d643c62b622" title="Returns all the blocks on the level level_index." alt="" coords="751,394,857,422"/>
+</map>

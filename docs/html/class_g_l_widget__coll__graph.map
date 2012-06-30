@@ -1,0 +1,35 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="qt.tag$qglwidget.html" title="QGLWidget" alt="" coords="492,133,582,161"/>
+<area shape="rect" id="node23" href="$class_block_manager.html" title="Manages BlockPrototype objects." alt="" coords="856,163,963,191"/>
+<area shape="rect" id="node4" href="qt.tag$qwidget.html" title="QWidget" alt="" coords="199,225,273,253"/>
+<area shape="rect" id="node6" href="qt.tag$qobject.html" title="QObject" alt="" coords="22,191,92,219"/>
+<area shape="rect" id="node14" href="$class_diagram.html" title="Represents a diagram containing block data for the world." alt="" coords="1192,313,1264,341"/>
+<area shape="rect" id="node69" href="$class_frame_timer.html" title="Ensures that the view continues rendering constantly as long as there is at least one renderer attemp..." alt="" coords="491,71,584,99"/>
+<area shape="rect" id="node74" href="qt.tag$qtimer.html" title="QTimer" alt="" coords="203,173,269,201"/>
+<area shape="rect" id="node8" href="qt.tag$qpaintdevice.html" title="QPaintDevice" alt="" coords="6,497,109,525"/>
+<area shape="rect" id="node59" href="qt.tag$qpixmap.html" title="QPixmap" alt="" coords="337,825,413,853"/>
+<area shape="rect" id="node10" href="qt.tag$qqueue.html" title="QQueue\&lt; float \&gt;" alt="" coords="1168,847,1288,875"/>
+<area shape="rect" id="node12" href="qt.tag$qscopedpointer.html" title="QScopedPointer\&lt; Renderable \&gt;" alt="" coords="804,454,1015,482"/>
+<area shape="rect" id="node37" href="$class_block_prototype.html" title="Provides access to data and behavior common to a particular kind of block." alt="" coords="1172,623,1284,651"/>
+<area shape="rect" id="node17" href="$class_block_oracle.html" title="An interface describing a class that can return a BlockInstance for any BlockPosition in the world..." alt="" coords="491,335,584,363"/>
+<area shape="rect" id="node19" href="qt.tag$qhash.html" title="QHash\&lt; BlockPosition,\l BlockInstance \&gt;" alt="" coords="830,386,988,430"/>
+<area shape="rect" id="node21" href="qt.tag$qhash.html" title="QHash\&lt; int, QHash\&lt;\l BlockPosition, BlockInstance \&gt; \&gt;" alt="" coords="800,215,1019,259"/>
+<area shape="rect" id="node27" href="qt.tag$qhash.html" title="QHash\&lt; blocktype_t,\l BlockPrototype * \&gt;" alt="" coords="465,185,610,229"/>
+<area shape="rect" id="node29" href="$class_mouselook_cam.html" title="Concrete camera implementation implementing mouselook." alt="" coords="1171,899,1285,927"/>
+<area shape="rect" id="node31" href="$class_camera_interface.html" title="Abstract interface representing a camera that can be moved and rotated to change the view..." alt="" coords="849,963,970,991"/>
+<area shape="rect" id="node33" href="qt.tag$qvector3d.html" title="QVector3D" alt="" coords="866,911,953,939"/>
+<area shape="rect" id="node35" href="qt.tag$qtime.html" title="QTime" alt="" coords="1198,951,1258,979"/>
+<area shape="rect" id="node39" href="$class_render_delegate.html" title="A delegate interface exposed to Renderables to give them information about the world." alt="" coords="850,506,969,534"/>
+<area shape="rect" id="node42" href="$class_block_properties.html" title="Provides access to the properties of a particular block type." alt="" coords="852,743,967,771"/>
+<area shape="rect" id="node44" href="qt.tag$qvector.html" title="QVector\&lt; QPoint \&gt;" alt="" coords="471,741,604,769"/>
+<area shape="rect" id="node46" href="qt.tag$qstring.html" title="QString" alt="" coords="504,585,571,613"/>
+<area shape="rect" id="node48" href="qt.tag$qpoint.html" title="QPoint" alt="" coords="506,794,568,822"/>
+<area shape="rect" id="node50" href="qt.tag$qvector.html" title="QVector\&lt; BlockOrientation * \&gt;" alt="" coords="438,637,637,665"/>
+<area shape="rect" id="node52" href="qt.tag$qstringlist.html" title="QStringList" alt="" coords="494,689,581,717"/>
+<area shape="rect" id="node54" href="qt.tag$qlist.html" title="QList" alt="" coords="210,689,262,717"/>
+<area shape="rect" id="node57" href="$class_texture.html" title="Represents a 2D texture that can be drawn onto 3D geometry." alt="" coords="686,855,751,883"/>
+<area shape="rect" id="node62" href="qt.tag$qscopedpointer.html" title="QScopedPointer\&lt; SpriteEngine \&gt;" alt="" coords="800,623,1019,651"/>
+<area shape="rect" id="node64" href="qt.tag$qmap.html" title="QMap\&lt; blocktype_t,\l BlockProperties \&gt;" alt="" coords="839,675,979,719"/>
+<area shape="rect" id="node67" href="qt.tag$qset.html" title="QSet\&lt; int \&gt;" alt="" coords="1184,1003,1272,1031"/>
+<area shape="rect" id="node72" href="qt.tag$qhash.html" title="QHash\&lt; QString, int \&gt;" alt="" coords="160,69,312,97"/>
+</map>

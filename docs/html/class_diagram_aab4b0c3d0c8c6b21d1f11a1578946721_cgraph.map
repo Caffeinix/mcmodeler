@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_diagram.html#a47701f961fc4ee5a41d364589d3250cc" title="Returns the block manager, or NULL if it&#39;s not set." alt="" coords="199,5,361,33"/>
+<area shape="rect" id="node5" href="$class_block_orientation.html#aed75805ca5528582a450d870686e75b9" title="Returns a BlockOrientation object representing no orientation." alt="" coords="177,109,383,137"/>
+<area shape="rect" id="node9" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="688,57,790,85"/>
+<area shape="rect" id="node7" href="$class_block_orientation.html#a4a4a7f55abc88451b782a2fdc125e9a8" title="Returns a BlockOrientation object for the given string." alt="" coords="433,109,578,137"/>
+<area shape="rect" id="node11" href="$class_block_orientation.html#a8387a13347c1f2516498b183327beb4f" title="BlockOrientation::BlockOrientation" alt="" coords="626,109,851,137"/>
+<area shape="rect" id="node13" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="687,161,790,189"/>
+</map>

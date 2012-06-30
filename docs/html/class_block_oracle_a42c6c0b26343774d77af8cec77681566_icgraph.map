@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_prototype.html#aae180f85af086e8c5bdfcd470af1d03d" title="Returns the prototype of the block that would be adjacent to the face Face of a block of this type th..." alt="" coords="198,5,386,49"/>
+<area shape="rect" id="node7" href="$class_line_tool.html#a38c68c2e4508dc195c1a1719efdd6b36" title="Modifies the BlockTransaction passed as transaction so that it reflects the results of applying the t..." alt="" coords="238,73,346,101"/>
+<area shape="rect" id="node5" href="$class_block_prototype.html#af1e93b9ac587835570630127c5065134" title="Returns whether renderable should render a face at location." alt="" coords="435,13,666,41"/>
+<area shape="rect" id="node9" href="$class_diagram.html#afe65b541a074495a34e8f86ac739e29d" title="Creates and commits a BlockTransaction which draws a line of blocks with type type and orientation or..." alt="" coords="484,73,617,101"/>
+<area shape="rect" id="node11" href="$class_level_widget.html#ad7116bba74183c75a1d3ea73dd8d2cc8" title="Tells the Diagram to draw a line from the position of the previous mouse event to the position of eve..." alt="" coords="715,73,871,101"/>
+<area shape="rect" id="node13" href="$class_level_widget.html#a6bc0abb1a3f06b5337837002befef2da" title="LevelWidget::mousePressEvent" alt="" coords="920,73,1130,101"/>
+<area shape="rect" id="node15" href="$class_level_widget.html#a80b68c8bbb1226b2e83e6426e9555052" title="LevelWidget::mouseDouble\lClickEvent" alt="" coords="1178,65,1363,109"/>
+</map>

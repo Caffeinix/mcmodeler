@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_picker.html#ad06c93e8257a38ab08049a0f66df8cc3" title="Adds block to the BlockPicker." alt="" coords="207,5,361,33"/>
+<area shape="rect" id="node5" href="$class_level_widget.html#a6ac80495510f6b0757685688eebccfbb" title="Creates and returns a QGraphicsItem representing block in the view." alt="" coords="206,57,362,85"/>
+<area shape="rect" id="node7" href="$class_level_widget.html#a4ccd600d52e6f9b259ee3a1f31d8851d" title="Applies transaction to the current level." alt="" coords="619,30,794,58"/>
+<area shape="rect" id="node11" href="$class_level_widget.html#a5047c6f1436c01b42843ddc46a657d33" title="Synchronizes the view with the diagram by clearing all blocks and drawing them again." alt="" coords="411,82,570,110"/>
+<area shape="rect" id="node9" href="$class_level_widget.html#aea664e3527295dc0173a3e24de1360fd" title="LevelWidget::setDiagram" alt="" coords="866,30,1036,58"/>
+<area shape="rect" id="node13" href="$class_level_widget.html#a5cb4b3925f933f41aedd34962b19cba3" title="Sets the level currently being rendered to level." alt="" coords="631,82,783,110"/>
+<area shape="rect" id="node16" href="$class_level_widget.html#a9bc67408dd2c7a60b63f8812804621c2" title="Copies the current level to the next level above, overwriting whatever is there, and switches to that..." alt="" coords="851,82,1050,110"/>
+<area shape="rect" id="node18" href="$class_level_widget.html#a49c646d378c62569397cd60ce35a50af" title="Copies the current level to the next level below, overwriting whatever is there, and switches to that..." alt="" coords="843,134,1059,162"/>
+</map>

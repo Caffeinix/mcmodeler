@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_main_window.html#a769a4a713add6996d8295d0b55b3d937" title="MainWindow::saveToFile" alt="" coords="161,31,330,59"/>
+<area shape="rect" id="node5" href="$class_main_window.html#a3ba1a371fb10e731ae0926ae85efeb4f" title="MainWindow::save" alt="" coords="576,31,709,59"/>
+<area shape="rect" id="node17" href="$class_main_window.html#a7fbef0054cdec7bbbf3c06fb12af473c" title="MainWindow::saveAs" alt="" coords="379,57,528,85"/>
+<area shape="rect" id="node7" href="$class_main_window.html#af5bf25f6a27e26dfa1d9451ab4b44916" title="MainWindow::onSavePrompt\lClosed" alt="" coords="758,23,951,67"/>
+<area shape="rect" id="node9" href="$class_main_window.html#a993502c9800526a971bc17fc03e7e6d2" title="MainWindow::maybeSave" alt="" coords="1000,31,1176,59"/>
+<area shape="rect" id="node11" href="$class_main_window.html#aa7473e4bbbcc281706ac2edef864fb45" title="MainWindow::open" alt="" coords="1225,5,1359,33"/>
+<area shape="rect" id="node13" href="$class_main_window.html#a542a7527ced73b2c9bc14f8dc9661a66" title="MainWindow::quit" alt="" coords="1229,57,1355,85"/>
+<area shape="rect" id="node15" href="$class_main_window.html#a4e20a4a065fbb0e4d3532a45a0a91425" title="MainWindow::closeEvent" alt="" coords="1408,57,1578,85"/>
+</map>

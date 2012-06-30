@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qhash.html#keys" title="QHash::keys" alt="" coords="239,5,337,33"/>
+<area shape="rect" id="node5" href="$class_block_transaction.html#a8eb1692c4ad10ac1efbb6aba998e1e63" title="Records the removal of new_block." alt="" coords="192,109,384,137"/>
+<area shape="rect" id="node7" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="432,5,600,33"/>
+<area shape="rect" id="node19" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="237,213,339,241"/>
+<area shape="rect" id="node22" href="$class_block_instance.html#aa9adadd8f649489dfb05da17b5b5ba7c" title="BlockInstance::orientation" alt="" coords="201,265,375,293"/>
+<area shape="rect" id="node24" href="$class_block_transaction.html#a8b22719e10cbadbeae1b2b5ea33a6a8b" title="Records the addition of new_block." alt="" coords="198,161,378,189"/>
+<area shape="rect" id="node9" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="444,265,588,293"/>
+<area shape="rect" id="node11" href="qt.tag$qset.html#contains" title="QSet::contains" alt="" coords="462,57,570,85"/>
+<area shape="rect" id="node13" href="$class_block_instance.html#a9e411eac6223b5b7a256ff410940880e" title="BlockInstance::position" alt="" coords="437,109,595,137"/>
+<area shape="rect" id="node15" href="qt.tag$qlist.html#append" title="QList::append" alt="" coords="464,161,568,189"/>
+<area shape="rect" id="node17" href="qt.tag$qset.html#insert" title="QSet::insert" alt="" coords="470,213,562,241"/>
+</map>

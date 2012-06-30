@@ -1,0 +1,37 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$block__prototype_8h.html" title="src/block_prototype.h" alt="" coords="424,83,571,111"/>
+<area shape="rect" id="node28" href="$block__prototype_8cc.html" title="src/block_prototype.cc" alt="" coords="1349,355,1502,383"/>
+<area shape="rect" id="node46" href="$basic__renderable_8h.html" title="src/basic_renderable.h" alt="" coords="1364,83,1519,111"/>
+<area shape="rect" id="node86" href="$renderable_8cc.html" title="src/renderable.cc" alt="" coords="1544,83,1667,111"/>
+<area shape="rect" id="node5" href="$block__instance_8h.html" title="src/block_instance.h" alt="" coords="427,169,569,197"/>
+<area shape="rect" id="node7" href="$diagram_8h.html" title="src/diagram.h" alt="" coords="431,355,533,383"/>
+<area shape="rect" id="node11" href="$application_8cc.html" title="src/application.cc" alt="" coords="195,534,318,562"/>
+<area shape="rect" id="node15" href="$bill__of__materials__window_8cc.html" title="src/bill_of_materials\l_window.cc" alt="" coords="756,441,895,485"/>
+<area shape="rect" id="node30" href="$line__tool_8cc.html" title="src/line_tool.cc" alt="" coords="662,355,771,383"/>
+<area shape="rect" id="node40" href="$block__manager_8cc.html" title="src/block_manager.cc" alt="" coords="45,169,195,197"/>
+<area shape="rect" id="node42" href="$block__picker_8cc.html" title="src/block_picker.cc" alt="" coords="219,169,351,197"/>
+<area shape="rect" id="node25" href="$block__oracle_8h.html" title="src/block_oracle.h" alt="" coords="652,262,781,290"/>
+<area shape="rect" id="node32" href="$block__instance_8cc.html" title="src/block_instance.cc" alt="" coords="480,262,627,290"/>
+<area shape="rect" id="node34" href="$block__transaction_8cc.html" title="src/block_transaction.cc" alt="" coords="241,262,405,290"/>
+<area shape="rect" id="node9" href="$application_8h.html" title="src/application.h" alt="" coords="576,449,694,477"/>
+<area shape="rect" id="node17" href="$diagram_8cc.html" title="src/diagram.cc" alt="" coords="124,449,231,477"/>
+<area shape="rect" id="node19" href="$gl__widget_8cc.html" title="src/gl_widget.cc" alt="" coords="988,449,1103,477"/>
+<area shape="rect" id="node21" href="$level__widget_8cc.html" title="src/level_widget.cc" alt="" coords="255,449,387,477"/>
+<area shape="rect" id="node23" href="$main__window_8cc.html" title="src/main_window.cc" alt="" coords="412,449,551,477"/>
+<area shape="rect" id="node13" href="$main_8cc.html" title="src/main.cc" alt="" coords="591,534,679,562"/>
+<area shape="rect" id="node48" href="$basic__renderable_8cc.html" title="src/basic_renderable.cc" alt="" coords="1541,169,1702,197"/>
+<area shape="rect" id="node50" href="$rectangular__prism__renderable_8h.html" title="src/rectangular_prism\l_renderable.h" alt="" coords="1367,161,1517,205"/>
+<area shape="rect" id="node80" href="$stairs__renderable_8h.html" title="src/stairs_renderable.h" alt="" coords="2065,169,2221,197"/>
+<area shape="rect" id="node52" href="$bed__renderable_8h.html" title="src/bed_renderable.h" alt="" coords="1596,262,1743,290"/>
+<area shape="rect" id="node57" href="$door__renderable_8h.html" title="src/door_renderable.h" alt="" coords="1767,262,1918,290"/>
+<area shape="rect" id="node62" href="$ladder__renderable_8h.html" title="src/ladder_renderable.h" alt="" coords="1944,262,2105,290"/>
+<area shape="rect" id="node67" href="$overlapping__faces__renderable_8h.html" title="src/overlapping_faces\l_renderable.h" alt="" coords="1197,254,1347,298"/>
+<area shape="rect" id="node73" href="$skybox__renderable_8h.html" title="src/skybox_renderable.h" alt="" coords="905,262,1071,290"/>
+<area shape="rect" id="node78" href="$rectangular__prism__renderable_8cc.html" title="src/rectangular_prism\l_renderable.cc" alt="" coords="1423,254,1573,298"/>
+<area shape="rect" id="node54" href="$bed__renderable_8cc.html" title="src/bed_renderable.cc" alt="" coords="1587,355,1739,383"/>
+<area shape="rect" id="node60" href="$door__renderable_8cc.html" title="src/door_renderable.cc" alt="" coords="1764,355,1922,383"/>
+<area shape="rect" id="node65" href="$ladder__renderable_8cc.html" title="src/ladder_renderable.cc" alt="" coords="1946,355,2114,383"/>
+<area shape="rect" id="node70" href="$overlapping__faces__renderable_8cc.html" title="src/overlapping_faces\l_renderable.cc" alt="" coords="1174,347,1325,391"/>
+<area shape="rect" id="node76" href="$skybox__renderable_8cc.html" title="src/skybox_renderable.cc" alt="" coords="904,355,1075,383"/>
+<area shape="rect" id="node83" href="$stairs__renderable_8cc.html" title="src/stairs_renderable.cc" alt="" coords="2181,262,2343,290"/>
+</map>

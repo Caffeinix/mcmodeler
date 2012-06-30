@@ -1,0 +1,29 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$class_block_oracle.html" title="An interface describing a class that can return a BlockInstance for any BlockPosition in the world..." alt="" coords="11,5,104,33"/>
+<area shape="rect" id="node3" href="$class_diagram.html" title="Represents a diagram containing block data for the world." alt="" coords="201,5,273,33"/>
+<area shape="rect" id="node4" href="qt.tag$qobject.html" title="QObject" alt="" coords="22,135,92,163"/>
+<area shape="rect" id="node7" href="$class_frame_timer.html" title="Ensures that the view continues rendering constantly as long as there is at least one renderer attemp..." alt="" coords="191,161,284,189"/>
+<area shape="rect" id="node9" href="qt.tag$qabstractitemdelegate.html" title="QAbstractItemDelegate" alt="" coords="157,213,317,241"/>
+<area shape="rect" id="node15" href="qt.tag$qcoreapplication.html" title="QCoreApplication" alt="" coords="174,57,300,85"/>
+<area shape="rect" id="node21" href="qt.tag$qwidget.html" title="QWidget" alt="" coords="201,342,274,370"/>
+<area shape="rect" id="node49" href="$class_tool.html" title="An abstract class representing a particular method of drawing blocks given one or more positions..." alt="" coords="214,109,260,137"/>
+<area shape="rect" id="node11" href="qt.tag$qitemdelegate.html" title="QItemDelegate" alt="" coords="387,186,498,214"/>
+<area shape="rect" id="node13" href="$class_block_picker_item_delegate.html" title="QItemDelegate subclass used to customize the display of items in the BlockPicker." alt="" coords="568,186,738,214"/>
+<area shape="rect" id="node17" href="qt.tag$qapplication.html" title="QApplication" alt="" coords="394,57,491,85"/>
+<area shape="rect" id="node19" href="$class_application.html" title="Represents the application." alt="" coords="610,57,697,85"/>
+<area shape="rect" id="node23" href="$class_bill_of_materials_window.html" title="Window that counts all the blocks that are being used in the diagram." alt="" coords="365,342,520,370"/>
+<area shape="rect" id="node25" href="$class_block_picker.html" title="Widget that displays blocks as sprites." alt="" coords="397,394,488,422"/>
+<area shape="rect" id="node27" href="qt.tag$qdialog.html" title="QDialog" alt="" coords="408,446,477,474"/>
+<area shape="rect" id="node31" href="qt.tag$qframe.html" title="QFrame" alt="" coords="408,498,478,526"/>
+<area shape="rect" id="node39" href="qt.tag$qglwidget.html" title="QGLWidget" alt="" coords="398,238,488,266"/>
+<area shape="rect" id="node43" href="qt.tag$qmainwindow.html" title="QMainWindow" alt="" coords="389,290,497,318"/>
+<area shape="rect" id="node29" href="$class_about_box.html" title="The application&#39;s about box." alt="" coords="614,446,693,474"/>
+<area shape="rect" id="node33" href="qt.tag$qabstractscrollarea.html" title="QAbstractScrollArea" alt="" coords="582,498,724,526"/>
+<area shape="rect" id="node35" href="qt.tag$qgraphicsview.html" title="QGraphicsView" alt="" coords="787,498,901,526"/>
+<area shape="rect" id="node37" href="$class_level_widget.html" title="The canvas widget with which the user can interact to add and remove blocks." alt="" coords="950,498,1045,526"/>
+<area shape="rect" id="node41" href="$class_g_l_widget.html" title="QGLWidget subclass which renders the 3D preview." alt="" coords="614,238,693,266"/>
+<area shape="rect" id="node45" href="$class_g_l_preview_window.html" title="Displays the 3D preview." alt="" coords="586,342,720,370"/>
+<area shape="rect" id="node47" href="$class_main_window.html" title="The main window of the application." alt="" coords="605,290,702,318"/>
+<area shape="rect" id="node51" href="$class_line_tool.html" title="A Tool that draws straight lines between points." alt="" coords="407,109,478,137"/>
+<area shape="rect" id="node52" href="qt.tag$qpaintdevice.html" title="QPaintDevice" alt="" coords="6,342,109,370"/>
+</map>

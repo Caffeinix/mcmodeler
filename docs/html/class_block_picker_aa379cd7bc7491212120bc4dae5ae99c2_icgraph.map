@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_picker.html#a810818f5247e71248bbd78ed536a20db" title="BlockPicker::selectBlock\lForItem" alt="" coords="234,27,400,71"/>
+<area shape="rect" id="node5" href="$class_block_picker.html#ad3c59c03bd581ad68e3315d7aff09dca" title="BlockPicker::createTab" alt="" coords="466,5,622,33"/>
+<area shape="rect" id="node9" href="$class_block_picker.html#a9ccda354667770d38842e5689a0e4343" title="BlockPicker::updateSelected\lBlock" alt="" coords="448,57,640,101"/>
+<area shape="rect" id="node7" href="$class_block_picker.html#ad06c93e8257a38ab08049a0f66df8cc3" title="Adds block to the BlockPicker." alt="" coords="695,5,849,33"/>
+<area shape="rect" id="node11" href="$class_block_picker.html#a209a88e56c5b77cea1e0d78e66c82876" title="BlockPicker::BlockPicker" alt="" coords="688,65,856,93"/>
+</map>

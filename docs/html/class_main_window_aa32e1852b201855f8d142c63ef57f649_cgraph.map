@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_prototype.html#af28f5bf5fd9575db981281463cbdb50e" title="Returns the number of unique block types known to MCModeler." alt="" coords="475,5,661,33"/>
+<area shape="rect" id="node7" href="$class_block_manager.html#a8204e8ef599e44f0be6a4a70f20024bd" title="Gets the BlockPrototype for type." alt="" coords="237,57,427,85"/>
+<area shape="rect" id="node14" href="qt.tag$qobject.html#connect" title="QObject::connect" alt="" coords="270,109,394,137"/>
+<area shape="rect" id="node5" href="qt.tag$qmap.html#size" title="QMap::size" alt="" coords="710,5,799,33"/>
+<area shape="rect" id="node10" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="517,57,619,85"/>
+<area shape="rect" id="node12" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="517,109,619,137"/>
+</map>

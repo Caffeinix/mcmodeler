@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="235,5,402,33"/>
+<area shape="rect" id="node5" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="247,57,390,85"/>
+<area shape="rect" id="node7" href="qt.tag$qset.html#contains" title="QSet::contains" alt="" coords="264,109,373,137"/>
+<area shape="rect" id="node9" href="$class_block_instance.html#a9e411eac6223b5b7a256ff410940880e" title="BlockInstance::position" alt="" coords="240,161,398,189"/>
+<area shape="rect" id="node11" href="qt.tag$qlist.html#append" title="QList::append" alt="" coords="266,213,371,241"/>
+<area shape="rect" id="node13" href="qt.tag$qset.html#insert" title="QSet::insert" alt="" coords="273,265,365,293"/>
+</map>

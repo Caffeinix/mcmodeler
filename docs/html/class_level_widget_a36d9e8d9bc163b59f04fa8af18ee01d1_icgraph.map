@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_level_widget.html#a2f7f084bb6d1f4bd43e1bfc6df9ae3f3" title="Removes the QGraphicsItem representing the block a position from the view." alt="" coords="242,5,422,33"/>
+<area shape="rect" id="node5" href="$class_level_widget.html#a4ccd600d52e6f9b259ee3a1f31d8851d" title="Applies transaction to the current level." alt="" coords="470,5,645,33"/>
+<area shape="rect" id="node7" href="$class_level_widget.html#aea664e3527295dc0173a3e24de1360fd" title="LevelWidget::setDiagram" alt="" coords="694,5,864,33"/>
+</map>

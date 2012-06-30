@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_frame_timer.html#a89ff04a1502c91edf916189dbcee6f93" title="FrameTimer::pushRenderer" alt="" coords="249,109,434,137"/>
+<area shape="rect" id="node13" href="$class_frame_timer.html#a45922e79eaeacda97ff9217cfbf04533" title="FrameTimer::popRenderer" alt="" coords="252,161,431,189"/>
+<area shape="rect" id="node5" href="qt.tag$qhash.html#contains" title="QHash::contains" alt="" coords="483,57,603,85"/>
+<area shape="rect" id="node7" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="491,109,594,137"/>
+<area shape="rect" id="node9" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="492,161,594,189"/>
+<area shape="rect" id="node11" href="qt.tag$qtimer.html#start" title="QTimer::start" alt="" coords="493,5,592,33"/>
+<area shape="rect" id="node18" href="qt.tag$qhash.html#remove" title="QHash::remove" alt="" coords="485,213,600,241"/>
+<area shape="rect" id="node20" href="qt.tag$qhash.html#count" title="QHash::count" alt="" coords="491,265,594,293"/>
+<area shape="rect" id="node22" href="qt.tag$qtimer.html#stop" title="QTimer::stop" alt="" coords="494,317,592,345"/>
+</map>

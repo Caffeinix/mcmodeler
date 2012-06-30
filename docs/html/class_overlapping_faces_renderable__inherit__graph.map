@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_rectangular_prism_renderable.html" title="Renderable for rectangular prisms." alt="" coords="6,161,201,189"/>
+<area shape="rect" id="node4" href="$class_basic_renderable.html" title="An abstract subclass of Renderable that provides some basic functionality and a template for initiali..." alt="" coords="43,83,165,111"/>
+<area shape="rect" id="node6" href="$class_renderable.html" title="Abstract class representing objects that can be rendered in 3D." alt="" coords="59,6,148,34"/>
+</map>

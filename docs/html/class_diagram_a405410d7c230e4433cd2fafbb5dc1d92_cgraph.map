@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qhash.html#remove" title="QHash::remove" alt="" coords="255,5,369,33"/>
+<area shape="rect" id="node5" href="$class_diagram.html#ae7256fcf824a827cd4906d643c62b622" title="Returns all the blocks on the level level_index." alt="" coords="259,57,365,85"/>
+<area shape="rect" id="node9" href="$class_block_position.html#a63bdb47a8db63cc79135029a9c9b7d58" title="Returns the y component of this BlockPosition." alt="" coords="254,109,370,137"/>
+<area shape="rect" id="node7" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="420,57,522,85"/>
+</map>

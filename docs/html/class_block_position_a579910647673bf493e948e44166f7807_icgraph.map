@@ -1,0 +1,20 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_position.html#a77368204c35d3e091407a70a5521cfb8" title="Returns the vector pointing to this BlockPosition&#39;s center." alt="" coords="259,5,442,33"/>
+<area shape="rect" id="node15" href="$class_block_position.html#a7d7b00640499e999497ac709e7ffb4e0" title="Returns the vector pointing to this BlockPosition&#39;s front lower left corner." alt="" coords="258,57,443,85"/>
+<area shape="rect" id="node5" href="$class_block_prototype.html#a79e4ed3a493313242a3ebcde2b8b4de4" title="Renders an instance of this block into the render destination with which the prototype was constructe..." alt="" coords="492,5,700,33"/>
+<area shape="rect" id="node7" href="$class_block_instance.html#abbb18f180c6c896f2ce80dbf222fccbb" title="Renders this BlockInstance in a 3D context." alt="" coords="766,5,916,33"/>
+<area shape="rect" id="node9" href="$class_diagram.html#ac3df5073d9661b1263d1c38744eaf8d4" title="Tells all blocks in the diagram to render themselves." alt="" coords="997,5,1115,33"/>
+<area shape="rect" id="node11" href="$class_g_l_widget.html#aba92e38906ddab1ee0e1b8e239bc51c9" title="GLWidget::updateScene" alt="" coords="1179,5,1344,33"/>
+<area shape="rect" id="node13" href="$class_g_l_widget.html#a640b5570cb2b37724fd5b58a77339c5e" title="GLWidget::paintGL" alt="" coords="1422,5,1556,33"/>
+<area shape="rect" id="node17" href="$class_diagram.html#a6a683afdcddbc643b0a56189d9c66167" title="Saves all blocks in the diagram out to stream." alt="" coords="542,57,650,85"/>
+<area shape="rect" id="node36" href="$class_level_widget.html#a6bc0abb1a3f06b5337837002befef2da" title="LevelWidget::mousePressEvent" alt="" coords="491,113,701,141"/>
+<area shape="rect" id="node19" href="$class_main_window.html#a769a4a713add6996d8295d0b55b3d937" title="MainWindow::saveToFile" alt="" coords="757,57,926,85"/>
+<area shape="rect" id="node21" href="$class_main_window.html#a3ba1a371fb10e731ae0926ae85efeb4f" title="MainWindow::save" alt="" coords="1195,86,1328,114"/>
+<area shape="rect" id="node33" href="$class_main_window.html#a7fbef0054cdec7bbbf3c06fb12af473c" title="MainWindow::saveAs" alt="" coords="982,109,1130,137"/>
+<area shape="rect" id="node23" href="$class_main_window.html#af5bf25f6a27e26dfa1d9451ab4b44916" title="MainWindow::onSavePrompt\lClosed" alt="" coords="1393,78,1586,122"/>
+<area shape="rect" id="node25" href="$class_main_window.html#a993502c9800526a971bc17fc03e7e6d2" title="MainWindow::maybeSave" alt="" coords="1635,86,1810,114"/>
+<area shape="rect" id="node27" href="$class_main_window.html#aa7473e4bbbcc281706ac2edef864fb45" title="MainWindow::open" alt="" coords="1859,59,1994,87"/>
+<area shape="rect" id="node29" href="$class_main_window.html#a542a7527ced73b2c9bc14f8dc9661a66" title="MainWindow::quit" alt="" coords="1863,111,1990,139"/>
+<area shape="rect" id="node31" href="$class_main_window.html#a4e20a4a065fbb0e4d3532a45a0a91425" title="MainWindow::closeEvent" alt="" coords="2043,111,2213,139"/>
+<area shape="rect" id="node38" href="$class_level_widget.html#a80b68c8bbb1226b2e83e6426e9555052" title="LevelWidget::mouseDouble\lClickEvent" alt="" coords="749,109,934,153"/>
+</map>

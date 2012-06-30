@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qobject.html#connect" title="QObject::connect" alt="" coords="232,75,357,103"/>
+<area shape="rect" id="node5" href="$class_bill_of_materials_window.html#a31576f1a36eb0eb5a2d087dd846e52f4" title="BillOfMaterialsWindow\l::updateBillOfMaterials" alt="" coords="217,127,372,171"/>
+<area shape="rect" id="node7" href="qt.tag$qwidget.html#visible-prop" title="QWidget::isVisible" alt="" coords="454,5,583,33"/>
+<area shape="rect" id="node9" href="$class_diagram.html#a6acdb208eb3c2492a0c7ecf9be6feb1c" title="Returns a dictionary of counts for every block type that appears at least once in the diagram..." alt="" coords="442,161,595,189"/>
+<area shape="rect" id="node19" href="qt.tag$qmap.html#value" title="QMap::value" alt="" coords="700,57,796,85"/>
+<area shape="rect" id="node23" href="qt.tag$qmap.html#keys" title="QMap::keys" alt="" coords="472,213,565,241"/>
+<area shape="rect" id="node25" href="qt.tag$qstring.html#arg-14" title="QString::arg" alt="" coords="472,265,565,293"/>
+<area shape="rect" id="node27" href="$class_block_prototype.html#ac4954c8f90a9a14f79b7eaaddebedb2c" title="Returns the name for a block of the given type." alt="" coords="421,109,616,137"/>
+<area shape="rect" id="node11" href="qt.tag$qhash.html#values" title="QHash::values" alt="" coords="694,265,802,293"/>
+<area shape="rect" id="node13" href="qt.tag$qmap.html#contains" title="QMap::contains" alt="" coords="691,109,805,137"/>
+<area shape="rect" id="node15" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="664,317,832,345"/>
+<area shape="rect" id="node17" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="676,161,820,189"/>
+<area shape="rect" id="node21" href="qt.tag$qmap.html#insert" title="QMap::insert" alt="" coords="699,213,797,241"/>
+</map>

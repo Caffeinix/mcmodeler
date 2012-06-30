@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_mouselook_cam.html#af8950cd279ad1e30f9b0202d93b604d5" title="MouselookCam::translate" alt="" coords="190,31,362,59"/>
+<area shape="rect" id="node5" href="$class_g_l_widget.html#a7fab13e8cc9fc0730ca54c08b2c923a7" title="GLWidget::initializeGL" alt="" coords="433,5,585,33"/>
+<area shape="rect" id="node7" href="$class_g_l_widget.html#a9ccc770e7a3af57f91ad645754c1c1f2" title="GLWidget::applyPressedKeys" alt="" coords="411,57,608,85"/>
+<area shape="rect" id="node9" href="$class_g_l_widget.html#a640b5570cb2b37724fd5b58a77339c5e" title="GLWidget::paintGL" alt="" coords="656,57,790,85"/>
+</map>

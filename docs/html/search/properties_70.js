@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['pagesize',['pageSize',['http://doc.qt.nokia.com/latest/qtextdocument.html#pageSize-prop',1,'QTextDocument']]],
+  ['pagestep',['pageStep',['http://doc.qt.nokia.com/latest/phonon-seekslider.html#pageStep-prop',1,'Phonon::SeekSlider::pageStep()'],['http://doc.qt.nokia.com/latest/phonon-volumeslider.html#pageStep-prop',1,'Phonon::VolumeSlider::pageStep()'],['http://doc.qt.nokia.com/latest/qabstractslider.html#pageStep-prop',1,'QAbstractSlider::pageStep()']]],
+  ['palette',['palette',['http://doc.qt.nokia.com/latest/qgraphicswidget.html#palette-prop',1,'QGraphicsWidget::palette()'],['http://doc.qt.nokia.com/latest/qgraphicsscene.html#palette-prop',1,'QGraphicsScene::palette()'],['http://doc.qt.nokia.com/latest/qwidget.html#palette-prop',1,'QWidget::palette()'],['http://doc.qt.nokia.com/latest/qwebpage.html#palette-prop',1,'QWebPage::palette()']]],
+  ['paper',['paper',['http://doc.qt.nokia.com/latest/q3textedit.html#paper-prop',1,'Q3TextEdit']]],
+  ['parent',['parent',['http://doc.qt.nokia.com/latest/qdeclarativeitem.html#parent-prop',1,'QDeclarativeItem::parent()'],['http://doc.qt.nokia.com/latest/qgraphicsobject.html#parent-prop',1,'QGraphicsObject::parent()']]],
+  ['percentagevisible',['percentageVisible',['http://doc.qt.nokia.com/latest/q3progressbar.html#percentageVisible-prop',1,'Q3ProgressBar']]],
+  ['pixelsize',['pixelSize',['http://doc.qt.nokia.com/latest/qfontengineinfo.html#pixelSize-prop',1,'QFontEngineInfo']]],
+  ['pixmap',['pixmap',['http://doc.qt.nokia.com/latest/qlabel.html#pixmap-prop',1,'QLabel']]],
+  ['place',['place',['http://doc.qt.nokia.com/latest/q3dockwindow.html#place-prop',1,'Q3DockWindow']]],
+  ['placeholdertext',['placeholderText',['http://doc.qt.nokia.com/latest/qlineedit.html#placeholderText-prop',1,'QLineEdit']]],
+  ['plaintext',['plainText',['http://doc.qt.nokia.com/latest/qtextedit.html#plainText-prop',1,'QTextEdit::plainText()'],['http://doc.qt.nokia.com/latest/qplaintextedit.html#plainText-prop',1,'QPlainTextEdit::plainText()']]],
+  ['popupmode',['popupMode',['http://doc.qt.nokia.com/latest/qtoolbutton.html#popupMode-prop',1,'QToolButton']]],
+  ['pos',['pos',['http://doc.qt.nokia.com/latest/qgraphicsobject.html#pos-prop',1,'QGraphicsObject::pos()'],['http://doc.qt.nokia.com/latest/qwidget.html#pos-prop',1,'QWidget::pos()']]],
+  ['position',['position',['http://doc.qt.nokia.com/latest/qtapgesture.html#position-prop',1,'QTapGesture::position()'],['http://doc.qt.nokia.com/latest/qtapandholdgesture.html#position-prop',1,'QTapAndHoldGesture::position()']]],
+  ['preferredcontentssize',['preferredContentsSize',['http://doc.qt.nokia.com/latest/qwebpage.html#preferredContentsSize-prop',1,'QWebPage']]],
+  ['preferredsize',['preferredSize',['http://doc.qt.nokia.com/latest/qgraphicswidget.html#preferredSize-prop',1,'QGraphicsWidget']]],
+  ['prefinishmark',['prefinishMark',['http://doc.qt.nokia.com/latest/phonon-mediaobject.html#prefinishMark-prop',1,'Phonon::MediaObject']]],
+  ['prefix',['prefix',['http://doc.qt.nokia.com/latest/qspinbox.html#prefix-prop',1,'QSpinBox::prefix()'],['http://doc.qt.nokia.com/latest/qdoublespinbox.html#prefix-prop',1,'QDoubleSpinBox::prefix()']]],
+  ['previewmode',['previewMode',['http://doc.qt.nokia.com/latest/q3filedialog.html#previewMode-prop',1,'Q3FileDialog']]],
+  ['primaryscreen',['primaryScreen',['http://doc.qt.nokia.com/latest/qdesktopwidget.html#primaryScreen-prop',1,'QDesktopWidget']]],
+  ['priority',['priority',['http://doc.qt.nokia.com/latest/qaction.html#priority-prop',1,'QAction']]],
+  ['progress',['progress',['http://doc.qt.nokia.com/latest/q3progressdialog.html#progress-prop',1,'Q3ProgressDialog::progress()'],['http://doc.qt.nokia.com/latest/q3progressbar.html#progress-prop',1,'Q3ProgressBar::progress()'],['http://doc.qt.nokia.com/latest/qdeclarativecomponent.html#progress-prop',1,'QDeclarativeComponent::progress()']]],
+  ['progressstring',['progressString',['http://doc.qt.nokia.com/latest/q3progressbar.html#progressString-prop',1,'Q3ProgressBar']]],
+  ['propertyname',['propertyName',['http://doc.qt.nokia.com/latest/qpropertyanimation.html#propertyName-prop',1,'QPropertyAnimation']]]
+];

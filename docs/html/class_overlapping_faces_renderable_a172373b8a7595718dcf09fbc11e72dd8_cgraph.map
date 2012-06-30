@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_overlapping_faces_renderable.html#ac3738eaf9a4ce54e88ac03ef36862130" title="OverlappingFacesRenderable\l::overlap" alt="" coords="254,5,453,49"/>
+<area shape="rect" id="node5" href="$class_basic_renderable.html#aa13d5be740b7f893dc55afb01a5f0348" title="Adds a quad with corners a, b, c, and d to the vertex list." alt="" coords="261,73,446,101"/>
+<area shape="rect" id="node13" href="qt.tag$qvector3d.html#z" title="QVector3D::z" alt="" coords="303,125,404,153"/>
+<area shape="rect" id="node15" href="qt.tag$qvector.html#at" title="QVector::at" alt="" coords="309,177,397,205"/>
+<area shape="rect" id="node17" href="qt.tag$qvector3d.html#y" title="QVector3D::y" alt="" coords="303,229,404,257"/>
+<area shape="rect" id="node19" href="qt.tag$qvector3d.html#x" title="QVector3D::x" alt="" coords="303,281,404,309"/>
+<area shape="rect" id="node7" href="qt.tag$qvector3d.html#normal" title="QVector3D::normal" alt="" coords="541,47,675,75"/>
+<area shape="rect" id="node9" href="$class_basic_renderable.html#a90be03881e542c1ce57165569020b92d" title="Appends vertex with normal vector normal and texture coordinates tex_coord to the vertex list..." alt="" coords="502,99,714,127"/>
+<area shape="rect" id="node11" href="qt.tag$qvector.html#append" title="QVector::append" alt="" coords="763,99,885,127"/>
+</map>

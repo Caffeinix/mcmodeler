@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_prototype.html#a084f9a8ac50c8de0e8827f17ce9ab72d" title="Returns the BlockProperties object for this prototype." alt="" coords="298,5,476,33"/>
+<area shape="rect" id="node5" href="$class_block_properties.html#a941bafbb9968228f1f69b867a4c1f1d4" title="Returns what kind of geometry this block type uses." alt="" coords="298,57,476,85"/>
+<area shape="rect" id="node7" href="$class_block_prototype.html#aae180f85af086e8c5bdfcd470af1d03d" title="Returns the prototype of the block that would be adjacent to the face Face of a block of this type th..." alt="" coords="293,109,481,153"/>
+<area shape="rect" id="node13" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="315,177,458,205"/>
+<area shape="rect" id="node15" href="$class_block_properties.html#ad35712b849b0a7ebca8b42f5de2a7502" title="Returns whether this block is &quot;transparent&quot; in the Minecraft sense." alt="" coords="285,229,488,257"/>
+<area shape="rect" id="node9" href="$class_block_oracle.html#a42c6c0b26343774d77af8cec77681566" title="Returns the BlockInstance at position." alt="" coords="548,91,692,119"/>
+<area shape="rect" id="node11" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="536,143,704,171"/>
+</map>

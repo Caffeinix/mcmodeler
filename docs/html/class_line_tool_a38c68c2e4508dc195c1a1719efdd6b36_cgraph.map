@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_position.html#a63bdb47a8db63cc79135029a9c9b7d58" title="Returns the y component of this BlockPosition." alt="" coords="190,5,306,33"/>
+<area shape="rect" id="node5" href="$class_block_position.html#a750817819cf1b79f23c58dfc451b34f6" title="Returns the x component of this BlockPosition." alt="" coords="190,57,306,85"/>
+<area shape="rect" id="node7" href="$class_block_position.html#ae1cb3792aada50f12030004543df5608" title="Returns the y component of this BlockPosition." alt="" coords="190,109,306,137"/>
+<area shape="rect" id="node9" href="$class_block_transaction.html#a6b0c5e8671704c302b8737ab0e904c06" title="Records the replacement of old_block with new_block." alt="" coords="161,161,335,205"/>
+<area shape="rect" id="node34" href="$class_block_oracle.html#a42c6c0b26343774d77af8cec77681566" title="Returns the BlockInstance at position." alt="" coords="176,229,320,257"/>
+<area shape="rect" id="node11" href="$class_block_instance.html#a9e411eac6223b5b7a256ff410940880e" title="BlockInstance::position" alt="" coords="629,65,787,93"/>
+<area shape="rect" id="node13" href="$class_block_transaction.html#a8eb1692c4ad10ac1efbb6aba998e1e63" title="Records the removal of new_block." alt="" coords="384,221,576,249"/>
+<area shape="rect" id="node26" href="$class_block_transaction.html#a8b22719e10cbadbeae1b2b5ea33a6a8b" title="Records the addition of new_block." alt="" coords="390,169,570,197"/>
+<area shape="rect" id="node15" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="624,325,792,353"/>
+<area shape="rect" id="node17" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="636,117,780,145"/>
+<area shape="rect" id="node19" href="qt.tag$qset.html#contains" title="QSet::contains" alt="" coords="654,169,762,197"/>
+<area shape="rect" id="node22" href="qt.tag$qlist.html#append" title="QList::append" alt="" coords="656,221,760,249"/>
+<area shape="rect" id="node24" href="qt.tag$qset.html#insert" title="QSet::insert" alt="" coords="662,273,754,301"/>
+</map>

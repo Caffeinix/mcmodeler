@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$class_camera_interface.html" title="Abstract interface representing a camera that can be moved and rotated to change the view..." alt="" coords="5,5,126,33"/>
+<area shape="rect" id="node3" href="$class_mouselook_cam.html" title="Concrete camera implementation implementing mouselook." alt="" coords="174,5,288,33"/>
+</map>

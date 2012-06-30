@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qkeyevent.html#isAutoRepeat" title="QKeyEvent::isAutoRepeat" alt="" coords="235,5,411,33"/>
+<area shape="rect" id="node5" href="qt.tag$qset.html#insert" title="QSet::insert" alt="" coords="277,57,369,85"/>
+<area shape="rect" id="node7" href="qt.tag$qkeyevent.html#key" title="QKeyEvent::key" alt="" coords="264,109,381,137"/>
+<area shape="rect" id="node9" href="qt.tag$qtime.html#start" title="QTime::start" alt="" coords="276,161,370,189"/>
+<area shape="rect" id="node11" href="$class_frame_timer.html#a89ff04a1502c91edf916189dbcee6f93" title="FrameTimer::pushRenderer" alt="" coords="230,213,415,241"/>
+<area shape="rect" id="node13" href="qt.tag$qhash.html#contains" title="QHash::contains" alt="" coords="464,134,584,162"/>
+<area shape="rect" id="node15" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="473,186,575,214"/>
+<area shape="rect" id="node17" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="473,238,575,266"/>
+<area shape="rect" id="node19" href="qt.tag$qtimer.html#start" title="QTimer::start" alt="" coords="475,290,573,318"/>
+</map>

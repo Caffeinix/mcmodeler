@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_instance.html#abbb18f180c6c896f2ce80dbf222fccbb" title="Renders this BlockInstance in a 3D context." alt="" coords="262,5,412,33"/>
+<area shape="rect" id="node5" href="$class_diagram.html#ac3df5073d9661b1263d1c38744eaf8d4" title="Tells all blocks in the diagram to render themselves." alt="" coords="461,5,579,33"/>
+<area shape="rect" id="node7" href="$class_g_l_widget.html#aba92e38906ddab1ee0e1b8e239bc51c9" title="GLWidget::updateScene" alt="" coords="627,5,792,33"/>
+<area shape="rect" id="node9" href="$class_g_l_widget.html#a640b5570cb2b37724fd5b58a77339c5e" title="GLWidget::paintGL" alt="" coords="840,5,974,33"/>
+</map>

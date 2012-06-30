@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qvariant.html#value" title="QVariant::value" alt="" coords="292,5,404,33"/>
+<area shape="rect" id="node5" href="qt.tag$qvariant.html#toString" title="QVariant::toString" alt="" coords="285,57,411,85"/>
+<area shape="rect" id="node7" href="qt.tag$qvariant.html#toStringList" title="QVariant::toStringList" alt="" coords="274,109,422,137"/>
+<area shape="rect" id="node9" href="qt.tag$qvariant.html#toBool" title="QVariant::toBool" alt="" coords="289,161,407,189"/>
+<area shape="rect" id="node11" href="qt.tag$qvariant.html#toList" title="QVariant::toList" alt="" coords="292,213,404,241"/>
+<area shape="rect" id="node13" href="$class_block_orientation.html#a4a4a7f55abc88451b782a2fdc125e9a8" title="Returns a BlockOrientation object for the given string." alt="" coords="275,265,421,293"/>
+<area shape="rect" id="node21" href="qt.tag$qstring.html#toUtf8" title="QString::toUtf8" alt="" coords="293,317,403,345"/>
+<area shape="rect" id="node23" href="qt.tag$qbytearray.html#constData" title="QByteArray::constData" alt="" coords="269,369,427,397"/>
+<area shape="rect" id="node15" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="536,213,638,241"/>
+<area shape="rect" id="node17" href="$class_block_orientation.html#a8387a13347c1f2516498b183327beb4f" title="BlockOrientation::BlockOrientation" alt="" coords="474,265,699,293"/>
+<area shape="rect" id="node19" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="535,317,638,345"/>
+</map>

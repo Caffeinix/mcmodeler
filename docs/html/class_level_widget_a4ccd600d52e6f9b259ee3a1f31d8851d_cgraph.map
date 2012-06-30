@@ -1,0 +1,31 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qelapsedtimer.html#start" title="QElapsedTimer::start" alt="" coords="245,5,392,33"/>
+<area shape="rect" id="node5" href="$class_block_transaction.html#a91de4bbf9897e3aa052a66de8fac20c6" title="Returns a list of blocks that are removed from the world by this transaction." alt="" coords="245,57,393,101"/>
+<area shape="rect" id="node7" href="$class_level_widget.html#a2f7f084bb6d1f4bd43e1bfc6df9ae3f3" title="Removes the QGraphicsItem representing the block a position from the view." alt="" coords="229,125,408,153"/>
+<area shape="rect" id="node17" href="$class_block_instance.html#a9e411eac6223b5b7a256ff410940880e" title="BlockInstance::position" alt="" coords="477,177,635,205"/>
+<area shape="rect" id="node19" href="$class_block_transaction.html#af17795b86e97d151d13740a58d57dd2e" title="Returns a list of blocks that are added to the world by this transaction." alt="" coords="241,229,396,273"/>
+<area shape="rect" id="node21" href="$class_level_widget.html#a6ac80495510f6b0757685688eebccfbb" title="Creates and returns a QGraphicsItem representing block in the view." alt="" coords="240,661,397,689"/>
+<area shape="rect" id="node9" href="$class_level_widget.html#a36d9e8d9bc163b59f04fa8af18ee01d1" title="Returns the QGraphicsItem at the 2D point corresponding to position in 3D space." alt="" coords="462,21,650,49"/>
+<area shape="rect" id="node13" href="qt.tag$qhash.html#remove" title="QHash::remove" alt="" coords="499,73,613,101"/>
+<area shape="rect" id="node15" href="qt.tag$qgraphicsscene.html#removeItem" title="QGraphicsScene::removeItem" alt="" coords="456,125,656,153"/>
+<area shape="rect" id="node11" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="705,21,807,49"/>
+<area shape="rect" id="node24" href="$macros_8h.html#a92defaadfadc318761b2763b44b0ed89" title="Attempts to return the size of an array." alt="" coords="518,229,594,257"/>
+<area shape="rect" id="node26" href="$class_block_position.html#a63bdb47a8db63cc79135029a9c9b7d58" title="Returns the y component of this BlockPosition." alt="" coords="498,281,614,309"/>
+<area shape="rect" id="node28" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="472,333,640,361"/>
+<area shape="rect" id="node30" href="qt.tag$qgraphicsview.html#scene" title="QGraphicsView::scene" alt="" coords="478,385,634,413"/>
+<area shape="rect" id="node32" href="qt.tag$qgraphicsscene.html#addPixmap" title="QGraphicsScene::addPixmap" alt="" coords="458,437,654,465"/>
+<area shape="rect" id="node34" href="$class_block_prototype.html#a53c3a7e342a24a1c319a57addde2d952" title="Returns the sprite pixmap that should be used to represent this kind of block in a 2D context..." alt="" coords="480,489,632,517"/>
+<area shape="rect" id="node36" href="$class_block_instance.html#aa9adadd8f649489dfb05da17b5b5ba7c" title="BlockInstance::orientation" alt="" coords="469,541,643,569"/>
+<area shape="rect" id="node38" href="qt.tag$qgraphicspixmapitem.html#setOffset" title="QGraphicsPixmapItem\l::setOffset" alt="" coords="478,593,634,637"/>
+<area shape="rect" id="node40" href="qt.tag$qgraphicsitem.html#setPos" title="QGraphicsItem::setPos" alt="" coords="476,661,636,689"/>
+<area shape="rect" id="node42" href="$class_block_position.html#a750817819cf1b79f23c58dfc451b34f6" title="Returns the x component of this BlockPosition." alt="" coords="498,713,614,741"/>
+<area shape="rect" id="node44" href="$class_block_position.html#ae1cb3792aada50f12030004543df5608" title="Returns the y component of this BlockPosition." alt="" coords="498,765,614,793"/>
+<area shape="rect" id="node46" href="qt.tag$qgraphicspixmapitem.html#setShapeMode" title="QGraphicsPixmapItem\l::setShapeMode" alt="" coords="478,817,634,861"/>
+<area shape="rect" id="node48" href="qt.tag$qgraphicsitem.html#setData" title="QGraphicsItem::setData" alt="" coords="474,885,638,913"/>
+<area shape="rect" id="node50" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="484,937,628,965"/>
+<area shape="rect" id="node52" href="qt.tag$qgraphicsitem.html#setZValue" title="QGraphicsItem::setZValue" alt="" coords="467,989,645,1017"/>
+<area shape="rect" id="node54" href="qt.tag$qgraphicsitem.html#setOpacity" title="QGraphicsItem::setOpacity" alt="" coords="465,1041,647,1069"/>
+<area shape="rect" id="node56" href="qt.tag$qgraphicscolorizeeffect.html#strength-prop" title="QGraphicsColorizeEffect\l::setStrength" alt="" coords="472,1093,640,1137"/>
+<area shape="rect" id="node58" href="qt.tag$qgraphicsitem.html#setGraphicsEffect" title="QGraphicsItem::setGraphics\lEffect" alt="" coords="461,1161,651,1205"/>
+<area shape="rect" id="node60" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="505,1229,607,1257"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$class_render_delegate.html" title="A delegate interface exposed to Renderables to give them information about the world." alt="" coords="6,5,125,33"/>
+<area shape="rect" id="node3" href="$class_block_prototype.html" title="Provides access to data and behavior common to a particular kind of block." alt="" coords="174,5,285,33"/>
+</map>

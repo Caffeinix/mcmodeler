@@ -1,0 +1,25 @@
+var class_block_prototype =
+[
+    [ "BlockPrototype", "class_block_prototype.html#a7f4f0fd570677fca31baac6cd1e35e83", null ],
+    [ "setupBlockProperties", "class_block_prototype.html#a7c63c95d8e20c5f5260e63d9d0396fed", null ],
+    [ "nameOfType", "class_block_prototype.html#ac4954c8f90a9a14f79b7eaaddebedb2c", null ],
+    [ "blockCount", "class_block_prototype.html#af28f5bf5fd9575db981281463cbdb50e", null ],
+    [ "shouldRenderFace", "class_block_prototype.html#af1e93b9ac587835570630127c5065134", null ],
+    [ "sprite", "class_block_prototype.html#a53c3a7e342a24a1c319a57addde2d952", null ],
+    [ "name", "class_block_prototype.html#a864d4a294c4a20edecb2cb1f34d49a8c", null ],
+    [ "categories", "class_block_prototype.html#a88d6aa59bdb985069dd3ca06c0bd0953", null ],
+    [ "type", "class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d", null ],
+    [ "defaultOrientation", "class_block_prototype.html#aecee73acb976383a0a1c7717fbe8da80", null ],
+    [ "orientations", "class_block_prototype.html#ad776bd21a3802a83f109e2dbc68ed4b5", null ],
+    [ "isTransparent", "class_block_prototype.html#ab83c44bbf329946926f527bf990b1da0", null ],
+    [ "renderInstance", "class_block_prototype.html#a79e4ed3a493313242a3ebcde2b8b4de4", null ],
+    [ "neighboringBlockForFace", "class_block_prototype.html#aae180f85af086e8c5bdfcd470af1d03d", null ],
+    [ "properties", "class_block_prototype.html#a084f9a8ac50c8de0e8827f17ce9ab72d", null ],
+    [ "s_type_mapping", "class_block_prototype.html#accd214f1f446f5fcc66a3c21cd6b1ab6", null ],
+    [ "sprite_texture_", "class_block_prototype.html#a0896cfd147512896e1698c8eda217cae", null ],
+    [ "properties_", "class_block_prototype.html#a4776c1da443fd42f1a02a8b58894b4c7", null ],
+    [ "type_", "class_block_prototype.html#a4f3674e838c1fd1e7c45b708eab28de2", null ],
+    [ "oracle_", "class_block_prototype.html#aa29ebb07b61c331e7f4ea583e792ec0d", null ],
+    [ "renderable_", "class_block_prototype.html#a3d043808532bed8e6e14ded05586af1b", null ],
+    [ "sprite_engine_", "class_block_prototype.html#a4e283b7789a78b7d2dc81db8a53b2bdb", null ]
+];

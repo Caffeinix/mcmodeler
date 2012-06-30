@@ -1,0 +1,23 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$block__prototype_8h.html" title="src/block_prototype.h" alt="" coords="766,91,913,119"/>
+<area shape="rect" id="node46" href="$overlapping__faces__renderable_8cc.html" title="src/overlapping_faces\l_renderable.cc" alt="" coords="938,83,1088,127"/>
+<area shape="rect" id="node48" href="$rectangular__prism__renderable_8cc.html" title="src/rectangular_prism\l_renderable.cc" alt="" coords="1113,83,1263,127"/>
+<area shape="rect" id="node50" href="$stairs__renderable_8cc.html" title="src/stairs_renderable.cc" alt="" coords="1287,91,1449,119"/>
+<area shape="rect" id="node5" href="$block__instance_8h.html" title="src/block_instance.h" alt="" coords="506,177,648,205"/>
+<area shape="rect" id="node7" href="$diagram_8h.html" title="src/diagram.h" alt="" coords="293,331,395,359"/>
+<area shape="rect" id="node11" href="$application_8cc.html" title="src/application.cc" alt="" coords="790,502,913,530"/>
+<area shape="rect" id="node15" href="$bill__of__materials__window_8cc.html" title="src/bill_of_materials\l_window.cc" alt="" coords="740,409,879,453"/>
+<area shape="rect" id="node28" href="$block__prototype_8cc.html" title="src/block_prototype.cc" alt="" coords="475,331,628,359"/>
+<area shape="rect" id="node30" href="$line__tool_8cc.html" title="src/line_tool.cc" alt="" coords="709,331,819,359"/>
+<area shape="rect" id="node40" href="$block__manager_8cc.html" title="src/block_manager.cc" alt="" coords="953,177,1103,205"/>
+<area shape="rect" id="node42" href="$block__picker_8cc.html" title="src/block_picker.cc" alt="" coords="1127,177,1259,205"/>
+<area shape="rect" id="node25" href="$block__oracle_8h.html" title="src/block_oracle.h" alt="" coords="598,254,727,282"/>
+<area shape="rect" id="node32" href="$block__instance_8cc.html" title="src/block_instance.cc" alt="" coords="238,254,385,282"/>
+<area shape="rect" id="node34" href="$block__transaction_8cc.html" title="src/block_transaction.cc" alt="" coords="410,254,573,282"/>
+<area shape="rect" id="node9" href="$application_8h.html" title="src/application.h" alt="" coords="598,417,716,445"/>
+<area shape="rect" id="node17" href="$diagram_8cc.html" title="src/diagram.cc" alt="" coords="5,417,112,445"/>
+<area shape="rect" id="node19" href="$gl__widget_8cc.html" title="src/gl_widget.cc" alt="" coords="137,417,252,445"/>
+<area shape="rect" id="node21" href="$level__widget_8cc.html" title="src/level_widget.cc" alt="" coords="277,417,409,445"/>
+<area shape="rect" id="node23" href="$main__window_8cc.html" title="src/main_window.cc" alt="" coords="434,417,573,445"/>
+<area shape="rect" id="node13" href="$main_8cc.html" title="src/main.cc" alt="" coords="613,502,701,530"/>
+</map>

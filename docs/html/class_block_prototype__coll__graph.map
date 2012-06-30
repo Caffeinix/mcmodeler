@@ -1,0 +1,17 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_render_delegate.html" title="A delegate interface exposed to Renderables to give them information about the world." alt="" coords="573,29,691,57"/>
+<area shape="rect" id="node4" href="qt.tag$qscopedpointer.html" title="QScopedPointer\&lt; Renderable \&gt;" alt="" coords="526,81,738,109"/>
+<area shape="rect" id="node6" href="$class_block_properties.html" title="Provides access to the properties of a particular block type." alt="" coords="575,133,689,161"/>
+<area shape="rect" id="node8" href="qt.tag$qvector.html" title="QVector\&lt; QPoint \&gt;" alt="" coords="193,5,327,33"/>
+<area shape="rect" id="node10" href="qt.tag$qstring.html" title="QString" alt="" coords="227,57,293,85"/>
+<area shape="rect" id="node12" href="qt.tag$qpoint.html" title="QPoint" alt="" coords="229,109,291,137"/>
+<area shape="rect" id="node14" href="qt.tag$qvector.html" title="QVector\&lt; BlockOrientation * \&gt;" alt="" coords="160,161,360,189"/>
+<area shape="rect" id="node16" href="qt.tag$qstringlist.html" title="QStringList" alt="" coords="216,213,304,241"/>
+<area shape="rect" id="node18" href="qt.tag$qlist.html" title="QList" alt="" coords="31,213,84,241"/>
+<area shape="rect" id="node20" href="$class_block_oracle.html" title="An interface describing a class that can return a BlockInstance for any BlockPosition in the world..." alt="" coords="585,185,679,213"/>
+<area shape="rect" id="node22" href="$class_texture.html" title="Represents a 2D texture that can be drawn onto 3D geometry." alt="" coords="599,237,665,265"/>
+<area shape="rect" id="node24" href="qt.tag$qpixmap.html" title="QPixmap" alt="" coords="222,265,298,293"/>
+<area shape="rect" id="node26" href="qt.tag$qpaintdevice.html" title="QPaintDevice" alt="" coords="6,265,109,293"/>
+<area shape="rect" id="node28" href="qt.tag$qscopedpointer.html" title="QScopedPointer\&lt; SpriteEngine \&gt;" alt="" coords="523,289,741,317"/>
+<area shape="rect" id="node30" href="qt.tag$qmap.html" title="QMap\&lt; blocktype_t,\l BlockProperties \&gt;" alt="" coords="562,341,702,385"/>
+</map>

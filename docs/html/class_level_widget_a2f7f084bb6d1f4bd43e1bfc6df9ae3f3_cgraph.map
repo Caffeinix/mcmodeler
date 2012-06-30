@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_level_widget.html#a36d9e8d9bc163b59f04fa8af18ee01d1" title="Returns the QGraphicsItem at the 2D point corresponding to position in 3D space." alt="" coords="238,5,426,33"/>
+<area shape="rect" id="node7" href="qt.tag$qhash.html#remove" title="QHash::remove" alt="" coords="275,57,389,85"/>
+<area shape="rect" id="node9" href="qt.tag$qgraphicsscene.html#removeItem" title="QGraphicsScene::removeItem" alt="" coords="232,109,432,137"/>
+<area shape="rect" id="node5" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="481,5,583,33"/>
+</map>

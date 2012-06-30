@@ -1,0 +1,20 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$application_8h.html" title="application.h" alt="" coords="543,83,639,111"/>
+<area shape="rect" id="node36" href="$block__prototype_8h.html" title="block_prototype.h" alt="" coords="582,409,708,437"/>
+<area shape="rect" id="node86" href="$gl__preview__window_8h.html" title="gl_preview_window.h" alt="" coords="1281,83,1428,111"/>
+<area shape="rect" id="node90" href="$main__window_8h.html" title="main_window.h" alt="" coords="1474,83,1587,111"/>
+<area shape="rect" id="node7" href="$block__manager_8h.html" title="block_manager.h" alt="" coords="139,161,261,189"/>
+<area shape="rect" id="node15" href="$diagram_8h.html" title="diagram.h" alt="" coords="606,161,687,189"/>
+<area shape="rect" id="node13" href="$block__type_8h.html" title="block_type.h" alt="" coords="247,563,343,591"/>
+<area shape="rect" id="node25" href="$block__instance_8h.html" title="block_instance.h" alt="" coords="593,331,713,359"/>
+<area shape="rect" id="node31" href="$block__position_8h.html" title="block_position.h" alt="" coords="964,409,1080,437"/>
+<area shape="rect" id="node80" href="$block__oracle_8h.html" title="block_oracle.h" alt="" coords="593,246,700,274"/>
+<area shape="rect" id="node27" href="$block__orientation_8h.html" title="block_orientation.h" alt="" coords="615,563,747,591"/>
+<area shape="rect" id="node38" href="$block__properties_8h.html" title="block_properties.h" alt="" coords="839,486,968,514"/>
+<area shape="rect" id="node53" href="$renderable_8h.html" title="renderable.h" alt="" coords="612,486,708,514"/>
+<area shape="rect" id="node56" href="$texture_8h.html" title="texture.h" alt="" coords="518,563,591,591"/>
+<area shape="rect" id="node68" href="$render__delegate_8h.html" title="render_delegate.h" alt="" coords="993,486,1121,514"/>
+<area shape="rect" id="node72" href="$sprite__engine_8h.html" title="sprite_engine.h" alt="" coords="425,486,537,514"/>
+<area shape="rect" id="node50" href="$enums_8h.html" title="enums.h" alt="" coords="1236,563,1308,591"/>
+<area shape="rect" id="node94" href="$bill__of__materials__window_8h.html" title="bill_of_materials_window.h" alt="" coords="1619,161,1799,189"/>
+</map>

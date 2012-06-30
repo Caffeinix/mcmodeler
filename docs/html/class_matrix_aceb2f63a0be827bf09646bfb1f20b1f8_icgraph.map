@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_matrix.html#ab676528f344d6dcede8725294e9c20b1" title="Matrix::setData" alt="" coords="186,5,297,33"/>
+<area shape="rect" id="node5" href="$class_matrix.html#a9a3c4b1801084af46ac56f4d8bc2b8f3" title="Matrix::setValue" alt="" coords="183,57,299,85"/>
+<area shape="rect" id="node9" href="$class_mouselook_cam.html#af264a5d7c4c7af78046b6b346250eb16" title="MouselookCam::debugMatrix" alt="" coords="144,109,339,137"/>
+<area shape="rect" id="node7" href="$class_matrix.html#a2fad6e874e5f11f9fc2f0d53acc45b33" title="Attempts to return this matrix&#39;s inverted counterpart." alt="" coords="386,57,499,85"/>
+</map>

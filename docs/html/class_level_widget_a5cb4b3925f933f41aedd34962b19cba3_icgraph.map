@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_level_widget.html#aea664e3527295dc0173a3e24de1360fd" title="LevelWidget::setDiagram" alt="" coords="228,5,398,33"/>
+<area shape="rect" id="node5" href="$class_level_widget.html#a9bc67408dd2c7a60b63f8812804621c2" title="Copies the current level to the next level above, overwriting whatever is there, and switches to that..." alt="" coords="214,57,413,85"/>
+<area shape="rect" id="node7" href="$class_level_widget.html#a49c646d378c62569397cd60ce35a50af" title="Copies the current level to the next level below, overwriting whatever is there, and switches to that..." alt="" coords="205,109,421,137"/>
+</map>

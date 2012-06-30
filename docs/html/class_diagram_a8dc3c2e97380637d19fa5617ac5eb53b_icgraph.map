@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_diagram.html#a71b5fde777635ae0785cc65931e0cbcf" title="Applies transaction to the diagram." alt="" coords="235,13,357,41"/>
+<area shape="rect" id="node5" href="$class_scoped_transaction_committer.html#aa1db57c3ede836d623c91c3498cb8211" title="ScopedTransactionCommitter\l::~ScopedTransactionCommitter" alt="" coords="406,5,618,49"/>
+</map>

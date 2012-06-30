@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_properties.html#afa26a9a88b5852dbb0940454921aa448" title="BlockProperties::operator=" alt="" coords="225,5,404,33"/>
+<area shape="rect" id="node5" href="$class_block_prototype.html#a7f4f0fd570677fca31baac6cd1e35e83" title="Constructs a BlockPrototype." alt="" coords="211,57,419,85"/>
+<area shape="rect" id="node7" href="$class_block_prototype.html#a864d4a294c4a20edecb2cb1f34d49a8c" title="Returns the name of this block." alt="" coords="239,109,391,137"/>
+<area shape="rect" id="node9" href="$class_block_picker.html#ad06c93e8257a38ab08049a0f66df8cc3" title="Adds block to the BlockPicker." alt="" coords="467,109,621,137"/>
+</map>

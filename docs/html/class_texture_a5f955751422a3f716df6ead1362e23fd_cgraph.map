@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qglwidget.html#makeCurrent" title="QGLWidget::makeCurrent" alt="" coords="209,5,383,33"/>
+<area shape="rect" id="node5" href="$class_texture.html#a83ba1f88971002b1f3cdaea5e982e46a" title="Texture::tileCache" alt="" coords="232,57,360,85"/>
+<area shape="rect" id="node7" href="qt.tag$qstring.html#arg-14" title="QString::arg" alt="" coords="249,109,343,137"/>
+<area shape="rect" id="node9" href="qt.tag$qcolor.html#rgba" title="QColor::rgba" alt="" coords="247,161,345,189"/>
+<area shape="rect" id="node11" href="qt.tag$qmap.html#value" title="QMap::value" alt="" coords="248,213,344,241"/>
+<area shape="rect" id="node13" href="$class_texture.html#a585022196e19570c6b8c0bd82b592da4" title="Texture::pixmapCache" alt="" coords="219,265,373,293"/>
+<area shape="rect" id="node15" href="qt.tag$qmap.html#insert" title="QMap::insert" alt="" coords="247,317,345,345"/>
+<area shape="rect" id="node17" href="qt.tag$qpixmap.html#fill" title="QPixmap::fill" alt="" coords="248,369,344,397"/>
+<area shape="rect" id="node19" href="qt.tag$qpainter.html#drawPixmap" title="QPainter::drawPixmap" alt="" coords="219,421,373,449"/>
+<area shape="rect" id="node21" href="qt.tag$qcolor.html#alpha" title="QColor::alpha" alt="" coords="244,473,348,501"/>
+<area shape="rect" id="node23" href="qt.tag$qpainter.html#setCompositionMode" title="QPainter::setCompositionMode" alt="" coords="193,525,399,553"/>
+<area shape="rect" id="node25" href="qt.tag$qpainter.html#fillRect" title="QPainter::fillRect" alt="" coords="235,577,357,605"/>
+<area shape="rect" id="node27" href="$class_texture.html#acde4d2a9f95d4d827cb8acccc05c8107" title="Texture::maybeBindTexture" alt="" coords="205,629,387,657"/>
+<area shape="rect" id="node29" href="qt.tag$qglwidget.html#bindTexture-3" title="QGLWidget::bindTexture" alt="" coords="449,629,615,657"/>
+</map>

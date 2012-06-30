@@ -1,0 +1,48 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_picker.html#ad06c93e8257a38ab08049a0f66df8cc3" title="Adds block to the BlockPicker." alt="" coords="237,5,390,33"/>
+<area shape="rect" id="node5" href="$class_block_prototype.html#af1e93b9ac587835570630127c5065134" title="Returns whether renderable should render a face at location." alt="" coords="198,57,429,85"/>
+<area shape="rect" id="node7" href="$class_block_transaction.html#a8b22719e10cbadbeae1b2b5ea33a6a8b" title="Records the addition of new_block." alt="" coords="223,429,404,457"/>
+<area shape="rect" id="node13" href="$class_level_widget.html#ac1139d4e6a572da30e2256e47df0d93b" title="Tells the Diagram to set the block at the position of event, using the currently set block type..." alt="" coords="985,263,1156,291"/>
+<area shape="rect" id="node21" href="$class_diagram.html#a55845114299f9395ae3ae8e966a00809" title="Recursion helper function for fillBlocks." alt="" coords="718,211,898,239"/>
+<area shape="rect" id="node23" href="$class_diagram.html#a89e78f3894a06ec273cc428a2174324a" title="Creates and commits a BlockTransaction which performs a two&#45;dimensional flood fill of blocks starting..." alt="" coords="1005,211,1136,239"/>
+<area shape="rect" id="node71" href="$class_block_transaction.html#a8eb1692c4ad10ac1efbb6aba998e1e63" title="Records the removal of new_block." alt="" coords="217,373,409,401"/>
+<area shape="rect" id="node80" href="$class_diagram.html#a6a683afdcddbc643b0a56189d9c66167" title="Saves all blocks in the diagram out to stream." alt="" coords="1278,609,1386,637"/>
+<area shape="rect" id="node83" href="$class_diagram.html#a0d33a550eb942fe51d6aa5ec44a70572" title="Directly adds a block to the diagram, replacing whatever block was there." alt="" coords="224,785,403,813"/>
+<area shape="rect" id="node91" href="$class_diagram.html#a6acdb208eb3c2492a0c7ecf9be6feb1c" title="Returns a dictionary of counts for every block type that appears at least once in the diagram..." alt="" coords="237,849,390,877"/>
+<area shape="rect" id="node100" href="$class_level_widget.html#a6ac80495510f6b0757685688eebccfbb" title="Creates and returns a QGraphicsItem representing block in the view." alt="" coords="235,625,392,653"/>
+<area shape="rect" id="node9" href="$class_block_transaction.html#a6b0c5e8671704c302b8737ab0e904c06" title="Records the replacement of old_block with new_block." alt="" coords="478,365,652,409"/>
+<area shape="rect" id="node35" href="$class_diagram.html#a1b26cb1c20a176c603bbd2c38f09c951" title="Populates the diagram with blocks deserialized from stream." alt="" coords="513,433,618,461"/>
+<area shape="rect" id="node63" href="$class_diagram.html#ac3140942edfe6e682f1f8cfa5b1ff643" title="Creates and commits a BlockTransaction which copies all blocks on source_level to dest_level..." alt="" coords="496,485,635,513"/>
+<area shape="rect" id="node11" href="$class_diagram.html#a55e6a03973d1bccc7ec1687f44585719" title="Creates and commits a BlockTransaction which replaces the block at pos with ." alt="" coords="743,315,873,343"/>
+<area shape="rect" id="node28" href="$class_line_tool.html#a38c68c2e4508dc195c1a1719efdd6b36" title="Modifies the BlockTransaction passed as transaction so that it reflects the results of applying the t..." alt="" coords="754,367,862,395"/>
+<area shape="rect" id="node15" href="$class_level_widget.html#a6bc0abb1a3f06b5337837002befef2da" title="LevelWidget::mousePressEvent" alt="" coords="1486,315,1696,343"/>
+<area shape="rect" id="node19" href="$class_level_widget.html#a17c6a37cf418c69e31c72530c82fc4e3" title="LevelWidget::mouseMoveEvent" alt="" coords="1228,263,1436,291"/>
+<area shape="rect" id="node17" href="$class_level_widget.html#a80b68c8bbb1226b2e83e6426e9555052" title="LevelWidget::mouseDouble\lClickEvent" alt="" coords="1744,307,1928,351"/>
+<area shape="rect" id="node25" href="$class_level_widget.html#ae153ffa86fdade4c077d03f3f1cb39c2" title="Tells the Diagram to perform a flood fill operation starting at the position of event, using the currently selected block type." alt="" coords="1255,211,1409,239"/>
+<area shape="rect" id="node30" href="$class_diagram.html#afe65b541a074495a34e8f86ac739e29d" title="Creates and commits a BlockTransaction which draws a line of blocks with type type and orientation or..." alt="" coords="1004,367,1137,395"/>
+<area shape="rect" id="node32" href="$class_level_widget.html#ad7116bba74183c75a1d3ea73dd8d2cc8" title="Tells the Diagram to draw a line from the position of the previous mouse event to the position of eve..." alt="" coords="1254,367,1410,395"/>
+<area shape="rect" id="node37" href="$class_main_window.html#a62d0ef52c06bf628ab32c71f90f63720" title="MainWindow::openFile" alt="" coords="730,419,886,447"/>
+<area shape="rect" id="node39" href="$class_main_window.html#a8b4a54deb6ca03793dbcd83313c202d4" title="MainWindow::doOpen" alt="" coords="994,454,1147,482"/>
+<area shape="rect" id="node41" href="$class_main_window.html#a37c4e63e1c5673d9e26be8fdeb109f48" title="MainWindow::performPending\lAction" alt="" coords="1232,481,1432,525"/>
+<area shape="rect" id="node43" href="$class_main_window.html#af5bf25f6a27e26dfa1d9451ab4b44916" title="MainWindow::onSavePrompt\lClosed" alt="" coords="2158,511,2351,555"/>
+<area shape="rect" id="node47" href="$class_main_window.html#aa7473e4bbbcc281706ac2edef864fb45" title="MainWindow::open" alt="" coords="2625,587,2759,615"/>
+<area shape="rect" id="node49" href="$class_main_window.html#a542a7527ced73b2c9bc14f8dc9661a66" title="MainWindow::quit" alt="" coords="2629,479,2755,507"/>
+<area shape="rect" id="node54" href="$class_main_window.html#a769a4a713add6996d8295d0b55b3d937" title="MainWindow::saveToFile" alt="" coords="1506,566,1675,594"/>
+<area shape="rect" id="node45" href="$class_main_window.html#a993502c9800526a971bc17fc03e7e6d2" title="MainWindow::maybeSave" alt="" coords="2400,519,2576,547"/>
+<area shape="rect" id="node51" href="$class_main_window.html#a4e20a4a065fbb0e4d3532a45a0a91425" title="MainWindow::closeEvent" alt="" coords="2808,479,2978,507"/>
+<area shape="rect" id="node56" href="$class_main_window.html#a3ba1a371fb10e731ae0926ae85efeb4f" title="MainWindow::save" alt="" coords="1976,541,2109,569"/>
+<area shape="rect" id="node59" href="$class_main_window.html#a7fbef0054cdec7bbbf3c06fb12af473c" title="MainWindow::saveAs" alt="" coords="1762,591,1910,619"/>
+<area shape="rect" id="node65" href="$class_level_widget.html#ab6b5d70c230099df6896ec7b6386bed4" title="Pastes the previously copied level, replacing everything on the current level." alt="" coords="725,471,891,499"/>
+<area shape="rect" id="node67" href="$class_level_widget.html#a9bc67408dd2c7a60b63f8812804621c2" title="Copies the current level to the next level above, overwriting whatever is there, and switches to that..." alt="" coords="971,606,1170,634"/>
+<area shape="rect" id="node69" href="$class_level_widget.html#a49c646d378c62569397cd60ce35a50af" title="Copies the current level to the next level below, overwriting whatever is there, and switches to that..." alt="" coords="963,547,1179,575"/>
+<area shape="rect" id="node75" href="$class_diagram.html#a931f1c354acab395688aa68423c1e6fa" title="Creates and commits a BlockTransaction which clears the block at pos." alt="" coords="495,313,636,341"/>
+<area shape="rect" id="node85" href="$class_diagram.html#a71b5fde777635ae0785cc65931e0cbcf" title="Applies transaction to the diagram." alt="" coords="504,786,626,814"/>
+<area shape="rect" id="node87" href="$class_scoped_transaction_committer.html#aa1db57c3ede836d623c91c3498cb8211" title="ScopedTransactionCommitter\l::~ScopedTransactionCommitter" alt="" coords="702,781,914,825"/>
+<area shape="rect" id="node93" href="$class_bill_of_materials_window.html#a31576f1a36eb0eb5a2d087dd846e52f4" title="BillOfMaterialsWindow\l::updateBillOfMaterials" alt="" coords="488,849,643,893"/>
+<area shape="rect" id="node95" href="$class_bill_of_materials_window.html#abdae5534f67d3d5568e5ef208aa01993" title="BillOfMaterialsWindow\l::BillOfMaterialsWindow" alt="" coords="727,849,889,893"/>
+<area shape="rect" id="node97" href="$class_bill_of_materials_window.html#a7eea9344a33e4f2546eab8c3669a298d" title="BillOfMaterialsWindow\l::showEvent" alt="" coords="731,917,885,961"/>
+<area shape="rect" id="node102" href="$class_level_widget.html#a4ccd600d52e6f9b259ee3a1f31d8851d" title="Applies transaction to the current level." alt="" coords="478,677,653,705"/>
+<area shape="rect" id="node106" href="$class_level_widget.html#a5047c6f1436c01b42843ddc46a657d33" title="Synchronizes the view with the diagram by clearing all blocks and drawing them again." alt="" coords="486,625,645,653"/>
+<area shape="rect" id="node104" href="$class_level_widget.html#aea664e3527295dc0173a3e24de1360fd" title="LevelWidget::setDiagram" alt="" coords="986,670,1156,698"/>
+<area shape="rect" id="node108" href="$class_level_widget.html#a5cb4b3925f933f41aedd34962b19cba3" title="Sets the level currently being rendered to level." alt="" coords="732,626,884,654"/>
+</map>

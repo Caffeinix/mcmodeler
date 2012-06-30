@@ -1,0 +1,19 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_diagram.html#ac3df5073d9661b1263d1c38744eaf8d4" title="Tells all blocks in the diagram to render themselves." alt="" coords="218,213,336,241"/>
+<area shape="rect" id="node5" href="qt.tag$qhash.html#constBegin" title="QHash::constBegin" alt="" coords="416,5,552,33"/>
+<area shape="rect" id="node7" href="qt.tag$qhash.html#constEnd" title="QHash::constEnd" alt="" coords="421,57,547,85"/>
+<area shape="rect" id="node9" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="433,109,535,137"/>
+<area shape="rect" id="node11" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="652,253,820,281"/>
+<area shape="rect" id="node13" href="$class_block_prototype.html#ab83c44bbf329946926f527bf990b1da0" title="Returns whether this block is &quot;transparent&quot; in the Minecraft sense." alt="" coords="384,161,584,189"/>
+<area shape="rect" id="node19" href="qt.tag$qvector.html#append" title="QVector::append" alt="" coords="423,265,545,293"/>
+<area shape="rect" id="node21" href="$class_block_instance.html#abbb18f180c6c896f2ce80dbf222fccbb" title="Renders this BlockInstance in a 3D context." alt="" coords="409,317,559,345"/>
+<area shape="rect" id="node34" href="qt.tag$qvector.html#constBegin" title="QVector::constBegin" alt="" coords="413,369,555,397"/>
+<area shape="rect" id="node36" href="qt.tag$qvector.html#constEnd" title="QVector::constEnd" alt="" coords="418,421,550,449"/>
+<area shape="rect" id="node15" href="$class_block_prototype.html#a084f9a8ac50c8de0e8827f17ce9ab72d" title="Returns the BlockProperties object for this prototype." alt="" coords="647,135,825,163"/>
+<area shape="rect" id="node17" href="$class_block_properties.html#ad35712b849b0a7ebca8b42f5de2a7502" title="Returns whether this block is &quot;transparent&quot; in the Minecraft sense." alt="" coords="634,187,838,215"/>
+<area shape="rect" id="node24" href="$class_block_prototype.html#a79e4ed3a493313242a3ebcde2b8b4de4" title="Renders an instance of this block into the render destination with which the prototype was constructe..." alt="" coords="632,317,840,345"/>
+<area shape="rect" id="node26" href="$class_block_instance.html#a9e411eac6223b5b7a256ff410940880e" title="BlockInstance::position" alt="" coords="901,265,1059,293"/>
+<area shape="rect" id="node28" href="$class_block_position.html#a77368204c35d3e091407a70a5521cfb8" title="Returns the vector pointing to this BlockPosition&#39;s center." alt="" coords="888,317,1072,345"/>
+<area shape="rect" id="node32" href="$class_block_instance.html#aa9adadd8f649489dfb05da17b5b5ba7c" title="BlockInstance::orientation" alt="" coords="893,369,1067,397"/>
+<area shape="rect" id="node30" href="$class_block_position.html#a579910647673bf493e948e44166f7807" title="Computes the corner and center vectors for this BlockPosition." alt="" coords="1120,317,1325,345"/>
+</map>

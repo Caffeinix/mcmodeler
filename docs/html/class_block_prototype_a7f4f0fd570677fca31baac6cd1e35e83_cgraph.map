@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qmap.html#value" title="QMap::value" alt="" coords="312,5,408,33"/>
+<area shape="rect" id="node5" href="$class_block_properties.html#a941bafbb9968228f1f69b867a4c1f1d4" title="Returns what kind of geometry this block type uses." alt="" coords="271,57,449,85"/>
+<area shape="rect" id="node7" href="qt.tag$qscopedpointer.html#reset" title="QScopedPointer::reset" alt="" coords="282,109,438,137"/>
+<area shape="rect" id="node9" href="$class_block_properties.html#a379e3ba9770f3488b65b434cbe18d78e" title="Returns the name of this block type." alt="" coords="282,161,438,189"/>
+<area shape="rect" id="node11" href="$class_block_properties.html#a9f2587395f623cd7cc8cb462233938a8" title="Returns a list of tile offsets within the terrain.png file." alt="" coords="269,213,451,241"/>
+<area shape="rect" id="node13" href="qt.tag$qvector.html#size" title="QVector::size" alt="" coords="310,265,410,293"/>
+<area shape="rect" id="node15" href="$class_block_properties.html#afc303821bbd1f4753b747e11489f5272" title="Returns whether this block should be shaded as a biome&#45;compliant grass texture." alt="" coords="275,317,445,361"/>
+<area shape="rect" id="node17" href="$class_block_properties.html#a8a593208d41e92b704e2368b0886a4dd" title="Returns whether this block should be shaded as a biome&#45;compliant tree leaf texture." alt="" coords="262,385,458,413"/>
+<area shape="rect" id="node19" href="$class_block_properties.html#addbf81f50b0a7d7c01f0e799913587a0" title="Returns the offset within the terrain.png file of the tile we should use as the sprite for this block..." alt="" coords="265,437,455,465"/>
+<area shape="rect" id="node21" href="$class_block_properties.html#a73c9bb74b12e093338058972eb6d15e6" title="Returns whether this BlockProperties object is valid." alt="" coords="280,489,440,517"/>
+<area shape="rect" id="node23" href="qt.tag$qpoint.html#x" title="QPoint::x" alt="" coords="322,541,398,569"/>
+<area shape="rect" id="node25" href="qt.tag$qpoint.html#y" title="QPoint::y" alt="" coords="322,593,398,621"/>
+</map>

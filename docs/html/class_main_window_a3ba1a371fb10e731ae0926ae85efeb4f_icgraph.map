@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_main_window.html#af5bf25f6a27e26dfa1d9451ab4b44916" title="MainWindow::onSavePrompt\lClosed" alt="" coords="187,23,381,67"/>
+<area shape="rect" id="node5" href="$class_main_window.html#a993502c9800526a971bc17fc03e7e6d2" title="MainWindow::maybeSave" alt="" coords="430,31,605,59"/>
+<area shape="rect" id="node7" href="$class_main_window.html#aa7473e4bbbcc281706ac2edef864fb45" title="MainWindow::open" alt="" coords="654,5,789,33"/>
+<area shape="rect" id="node9" href="$class_main_window.html#a542a7527ced73b2c9bc14f8dc9661a66" title="MainWindow::quit" alt="" coords="658,57,785,85"/>
+<area shape="rect" id="node11" href="$class_main_window.html#a4e20a4a065fbb0e4d3532a45a0a91425" title="MainWindow::closeEvent" alt="" coords="838,57,1008,85"/>
+</map>

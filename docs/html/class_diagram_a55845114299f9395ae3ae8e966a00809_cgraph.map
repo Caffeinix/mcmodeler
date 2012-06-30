@@ -1,0 +1,23 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qset.html#contains" title="QSet::contains" alt="" coords="755,38,864,66"/>
+<area shape="rect" id="node5" href="$class_block_position.html#a750817819cf1b79f23c58dfc451b34f6" title="Returns the x component of this BlockPosition." alt="" coords="265,350,380,378"/>
+<area shape="rect" id="node7" href="$class_block_position.html#ae1cb3792aada50f12030004543df5608" title="Returns the y component of this BlockPosition." alt="" coords="265,402,380,430"/>
+<area shape="rect" id="node9" href="$class_diagram.html#aab4b0c3d0c8c6b21d1f11a1578946721" title="Returns the BlockInstance for the block at position." alt="" coords="261,506,384,534"/>
+<area shape="rect" id="node11" href="$class_diagram.html#a47701f961fc4ee5a41d364589d3250cc" title="Returns the block manager, or NULL if it&#39;s not set." alt="" coords="481,454,644,482"/>
+<area shape="rect" id="node24" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="726,90,893,118"/>
+<area shape="rect" id="node26" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="738,246,881,274"/>
+<area shape="rect" id="node28" href="$class_block_transaction.html#a8eb1692c4ad10ac1efbb6aba998e1e63" title="Records the removal of new_block." alt="" coords="467,196,659,224"/>
+<area shape="rect" id="node37" href="qt.tag$qset.html#insert" title="QSet::insert" alt="" coords="763,298,855,326"/>
+<area shape="rect" id="node40" href="$class_block_manager.html#a8204e8ef599e44f0be6a4a70f20024bd" title="Gets the BlockPrototype for type." alt="" coords="715,610,904,638"/>
+<area shape="rect" id="node48" href="$class_block_transaction.html#a6b0c5e8671704c302b8737ab0e904c06" title="Records the replacement of old_block with new_block." alt="" coords="236,129,410,173"/>
+<area shape="rect" id="node13" href="$class_block_orientation.html#aed75805ca5528582a450d870686e75b9" title="Returns a BlockOrientation object representing no orientation." alt="" coords="459,506,666,534"/>
+<area shape="rect" id="node17" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="1013,558,1115,586"/>
+<area shape="rect" id="node15" href="$class_block_orientation.html#a4a4a7f55abc88451b782a2fdc125e9a8" title="Returns a BlockOrientation object for the given string." alt="" coords="737,506,882,534"/>
+<area shape="rect" id="node19" href="$class_block_orientation.html#a8387a13347c1f2516498b183327beb4f" title="BlockOrientation::BlockOrientation" alt="" coords="952,506,1176,534"/>
+<area shape="rect" id="node21" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="1013,610,1115,638"/>
+<area shape="rect" id="node33" href="$class_block_instance.html#a9e411eac6223b5b7a256ff410940880e" title="BlockInstance::position" alt="" coords="730,142,888,170"/>
+<area shape="rect" id="node35" href="qt.tag$qlist.html#append" title="QList::append" alt="" coords="757,194,862,222"/>
+<area shape="rect" id="node42" href="$class_block_prototype.html#af28f5bf5fd9575db981281463cbdb50e" title="Returns the number of unique block types known to MCModeler." alt="" coords="971,662,1157,690"/>
+<area shape="rect" id="node44" href="qt.tag$qmap.html#size" title="QMap::size" alt="" coords="1225,662,1314,690"/>
+<area shape="rect" id="node52" href="$class_block_transaction.html#a8b22719e10cbadbeae1b2b5ea33a6a8b" title="Records the addition of new_block." alt="" coords="472,144,653,172"/>
+</map>

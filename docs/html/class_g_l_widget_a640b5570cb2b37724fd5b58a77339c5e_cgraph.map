@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_g_l_widget.html#a9ccc770e7a3af57f91ad645754c1c1f2" title="GLWidget::applyPressedKeys" alt="" coords="191,238,388,266"/>
+<area shape="rect" id="node5" href="qt.tag$qtime.html#elapsed" title="QTime::elapsed" alt="" coords="487,161,601,189"/>
+<area shape="rect" id="node50" href="qt.tag$qqueue.html#enqueue" title="QQueue::enqueue" alt="" coords="224,473,355,501"/>
+<area shape="rect" id="node52" href="qt.tag$qqueue.html#dequeue" title="QQueue::dequeue" alt="" coords="224,525,355,553"/>
+<area shape="rect" id="node54" href="$class_g_l_widget.html#a320305c18e3de5fa46b34c2d1a32c912" title="GLWidget::frameRateChanged" alt="" coords="188,577,391,605"/>
+<area shape="rect" id="node56" href="qt.tag$qstring.html#number-4" title="QString::number" alt="" coords="230,629,349,657"/>
+<area shape="rect" id="node58" href="qt.tag$qtime.html#start" title="QTime::start" alt="" coords="242,681,336,709"/>
+<area shape="rect" id="node60" href="$class_mouselook_cam.html#ab8d2b6118ae6a6d647378069e1cb5d45" title="Applies the current camera transformation." alt="" coords="467,317,621,345"/>
+<area shape="rect" id="node63" href="$class_g_l_widget.html#aa67b2124780d7cac0791b3a8c71b38b6" title="GLWidget::drawSkybox" alt="" coords="210,369,369,397"/>
+<area shape="rect" id="node78" href="$class_g_l_widget.html#aba92e38906ddab1ee0e1b8e239bc51c9" title="GLWidget::updateScene" alt="" coords="207,421,372,449"/>
+<area shape="rect" id="node106" href="$class_g_l_widget.html#a1018ac7c1a855046322dc8f99750931d" title="GLWidget::frameStatsChanged" alt="" coords="187,733,392,761"/>
+<area shape="rect" id="node108" href="$class_diagram.html#a57bcb33fe81f9e7deb7dd9f624b07eba" title="Returns the number of blocks in the diagram." alt="" coords="216,785,362,813"/>
+<area shape="rect" id="node7" href="$class_mouselook_cam.html#af8950cd279ad1e30f9b0202d93b604d5" title="MouselookCam::translate" alt="" coords="458,213,630,241"/>
+<area shape="rect" id="node47" href="$class_mouselook_cam.html#a9bbecebcc5003883b360186a1ff7d081" title="MouselookCam::translateWorld" alt="" coords="440,265,648,293"/>
+<area shape="rect" id="node9" href="$class_mouselook_cam.html#ad5d7a74764874d61bbe69486857e158e" title="MouselookCam::cameraMatrix" alt="" coords="696,317,898,345"/>
+<area shape="rect" id="node34" href="$class_matrix.html#a4dce8ce8a52a478165efd4c5d80da46c" title="Returns a copy of vec with its coordinates transformed by this Matrix." alt="" coords="991,161,1127,189"/>
+<area shape="rect" id="node11" href="$class_matrix.html#aac8b06a78112514a52f34e38a74748a3" title="Returns an identity matrix." alt="" coords="987,369,1130,397"/>
+<area shape="rect" id="node15" href="$class_matrix.html#a32d710250bb580b69d2130eec1eaa877" title="Post&#45;multiplies this matrix by m2." alt="" coords="978,213,1140,241"/>
+<area shape="rect" id="node21" href="$class_matrix.html#a321ff27944afbfdb60b0f61a43e7b8ef" title="Returns a matrix that will perform a translation along vector." alt="" coords="977,265,1140,293"/>
+<area shape="rect" id="node29" href="$class_matrix.html#a9a6c5405c9890c169a9a0704861e48dc" title="Returns a matrix that will perform a rotation of angle radians around the unit vector axis..." alt="" coords="986,317,1132,345"/>
+<area shape="rect" id="node13" href="$class_matrix.html#a2dba13c45127354c9f75ef576f49269b" title="Creates a matrix." alt="" coords="1228,421,1329,449"/>
+<area shape="rect" id="node17" href="$class_matrix.html#a7effe530e3ecc71a848bf36df9bdee97" title="Matrix::row" alt="" coords="1235,213,1322,241"/>
+<area shape="rect" id="node19" href="qt.tag$qvector4d.html#setX" title="QVector4D::setX" alt="" coords="1386,213,1507,241"/>
+<area shape="rect" id="node23" href="qt.tag$qvector3d.html#x" title="QVector3D::x" alt="" coords="1228,369,1329,397"/>
+<area shape="rect" id="node25" href="qt.tag$qvector3d.html#y" title="QVector3D::y" alt="" coords="1228,265,1329,293"/>
+<area shape="rect" id="node27" href="qt.tag$qvector3d.html#z" title="QVector3D::z" alt="" coords="1228,317,1329,345"/>
+<area shape="rect" id="node36" href="qt.tag$qvector3d.html#setX" title="QVector3D::setX" alt="" coords="1218,161,1339,189"/>
+<area shape="rect" id="node39" href="$class_matrix.html#a0579be8c5ab390a9d39a56adcc9f9911" title="Matrix::value" alt="" coords="1230,5,1327,33"/>
+<area shape="rect" id="node43" href="qt.tag$qvector3d.html#setY" title="QVector3D::setY" alt="" coords="1218,57,1339,85"/>
+<area shape="rect" id="node45" href="qt.tag$qvector3d.html#setZ" title="QVector3D::setZ" alt="" coords="1219,109,1339,137"/>
+<area shape="rect" id="node65" href="$class_mouselook_cam.html#a278cfa99a6efe7eb280fc8d8021df4ab" title="Applies the rotation component of the camera only." alt="" coords="443,369,645,397"/>
+<area shape="rect" id="node68" href="$class_block_orientation.html#aed75805ca5528582a450d870686e75b9" title="Returns a BlockOrientation object representing no orientation." alt="" coords="441,421,647,449"/>
+<area shape="rect" id="node70" href="$class_block_orientation.html#a4a4a7f55abc88451b782a2fdc125e9a8" title="Returns a BlockOrientation object for the given string." alt="" coords="725,421,870,449"/>
+<area shape="rect" id="node72" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="1008,575,1110,603"/>
+<area shape="rect" id="node74" href="$class_block_orientation.html#a8387a13347c1f2516498b183327beb4f" title="BlockOrientation::BlockOrientation" alt="" coords="946,421,1171,449"/>
+<area shape="rect" id="node76" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="1007,473,1110,501"/>
+<area shape="rect" id="node80" href="$class_diagram.html#ac3df5073d9661b1263d1c38744eaf8d4" title="Tells all blocks in the diagram to render themselves." alt="" coords="485,654,603,682"/>
+<area shape="rect" id="node82" href="qt.tag$qhash.html#constBegin" title="QHash::constBegin" alt="" coords="729,525,865,553"/>
+<area shape="rect" id="node84" href="qt.tag$qhash.html#constEnd" title="QHash::constEnd" alt="" coords="734,577,860,605"/>
+<area shape="rect" id="node87" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="975,679,1142,707"/>
+<area shape="rect" id="node89" href="$class_block_prototype.html#ab83c44bbf329946926f527bf990b1da0" title="Returns whether this block is &quot;transparent&quot; in the Minecraft sense." alt="" coords="698,887,897,915"/>
+<area shape="rect" id="node95" href="qt.tag$qvector.html#append" title="QVector::append" alt="" coords="737,783,858,811"/>
+<area shape="rect" id="node97" href="$class_block_instance.html#abbb18f180c6c896f2ce80dbf222fccbb" title="Renders this BlockInstance in a 3D context." alt="" coords="722,731,872,759"/>
+<area shape="rect" id="node102" href="qt.tag$qvector.html#constBegin" title="QVector::constBegin" alt="" coords="726,835,869,863"/>
+<area shape="rect" id="node104" href="qt.tag$qvector.html#constEnd" title="QVector::constEnd" alt="" coords="731,473,864,501"/>
+<area shape="rect" id="node91" href="$class_block_prototype.html#a084f9a8ac50c8de0e8827f17ce9ab72d" title="Returns the BlockProperties object for this prototype." alt="" coords="970,913,1148,941"/>
+<area shape="rect" id="node93" href="$class_block_properties.html#ad35712b849b0a7ebca8b42f5de2a7502" title="Returns whether this block is &quot;transparent&quot; in the Minecraft sense." alt="" coords="957,861,1160,889"/>
+<area shape="rect" id="node100" href="$class_block_prototype.html#a79e4ed3a493313242a3ebcde2b8b4de4" title="Renders an instance of this block into the render destination with which the prototype was constructe..." alt="" coords="955,731,1162,759"/>
+<area shape="rect" id="node110" href="qt.tag$qhash.html#size" title="QHash::size" alt="" coords="497,785,591,813"/>
+</map>

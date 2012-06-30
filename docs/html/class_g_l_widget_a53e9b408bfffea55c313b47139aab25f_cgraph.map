@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qkeyevent.html#isAutoRepeat" title="QKeyEvent::isAutoRepeat" alt="" coords="247,5,423,33"/>
+<area shape="rect" id="node5" href="qt.tag$qset.html#remove" title="QSet::remove" alt="" coords="283,57,386,85"/>
+<area shape="rect" id="node7" href="qt.tag$qkeyevent.html#key" title="QKeyEvent::key" alt="" coords="276,109,393,137"/>
+<area shape="rect" id="node9" href="$class_frame_timer.html#a45922e79eaeacda97ff9217cfbf04533" title="FrameTimer::popRenderer" alt="" coords="245,161,424,189"/>
+<area shape="rect" id="node11" href="qt.tag$qhash.html#contains" title="QHash::contains" alt="" coords="472,30,592,58"/>
+<area shape="rect" id="node13" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="481,82,583,110"/>
+<area shape="rect" id="node15" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="481,134,583,162"/>
+<area shape="rect" id="node17" href="qt.tag$qhash.html#remove" title="QHash::remove" alt="" coords="475,186,589,214"/>
+<area shape="rect" id="node19" href="qt.tag$qhash.html#count" title="QHash::count" alt="" coords="481,238,583,266"/>
+<area shape="rect" id="node21" href="qt.tag$qtimer.html#stop" title="QTimer::stop" alt="" coords="483,290,581,318"/>
+</map>

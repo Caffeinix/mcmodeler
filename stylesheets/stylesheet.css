@@ -97,7 +97,7 @@ header h2 {
 
 #content-wrapper {
   border-top: solid 1px #fff;
-  padding-top: 30px;
+  padding-top: 1em;
 }
 
 #main-content {
@@ -156,6 +156,15 @@ aside a.button {
   margin-bottom: 20px;
   font-size: 21px;
 }
+#main-content a.button {
+  width: 172px;
+  padding-left: 78px;
+  display: block;
+  background: transparent url(../images/download-app-button.png) 0 0 no-repeat;
+  margin-bottom: 20px;
+  font-size: 21px;
+}
+
 
 code, pre {
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal;
@@ -188,6 +197,32 @@ ul, ol, dl {
   margin-bottom: 20px;
 }
 
+.controls dt {
+  display: inline-block;
+  width: 35%;
+  float: left;
+}
+
+.faq {
+  font-size: 1em;
+}
+.faq dt {
+  font-weight: 100;
+  margin-bottom: 0.5em;
+}
+.faq dd {
+  font-weight: normal;
+  font-style: normal;
+  margin-bottom: 1em;
+}
+.faq dt:before {
+  content: 'Q. ';
+  margin-left: -1.35em;
+}
+.faq dd:before {
+  content: 'A. ';
+  margin-left: -1.35em;
+}
 
 /* COMMON STYLES */
 
@@ -238,14 +273,17 @@ form {
   margin-left: -0.9em;
 }
 
-#main-content h2 {
+#main-content h2, aside h2 {
   font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 8px;
   color: #474747;
-} 
-#main-content h2:before {
+}
+aside h2 {
+  padding-left: 1.5em;
+}
+#main-content h2:before, aside h2:before {
   content: "//";
   color: #9ddcff;
   padding-right: 0.3em;
@@ -338,6 +376,37 @@ ol li {
 dl dd {
   font-style: italic;
   font-weight: 100;
+}
+
+nav {
+  position: relative;
+  background: transparent -webkit-linear-gradient(top, rgba(0,0,0,0.3) 0, rgba(0, 0, 0, 0) 6px);
+  padding-top: 4px;
+}
+
+nav #nav-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.5;
+  z-index: -1;
+  background: transparent url('../images/header-bg.jpg') 0 0 repeat-x;
+}
+
+nav ul {
+  width: 940px;
+  margin: 0 auto;
+}
+
+nav ul li {
+  padding-left: 0;
+  margin-right: 2em;
+  list-style: none;
+  display: inline-block;
+  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
+  font-size: 1.6em;
 }
 
 footer {

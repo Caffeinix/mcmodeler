@@ -1,0 +1,22 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qmap.html#value" title="QMap::value" alt="" coords="294,5,391,33"/>
+<area shape="rect" id="node5" href="qt.tag$qpixmap.html#isNull" title="QPixmap::isNull" alt="" coords="285,57,401,85"/>
+<area shape="rect" id="node7" href="$class_texture.html#a14662097cc12c58319ee97c3eb9764a2" title="Returns the pixmap for this texture." alt="" coords="264,109,422,137"/>
+<area shape="rect" id="node9" href="qt.tag$qpainter.html#save" title="QPainter::save" alt="" coords="288,161,397,189"/>
+<area shape="rect" id="node11" href="$class_block_properties.html#a941bafbb9968228f1f69b867a4c1f1d4" title="Returns what kind of geometry this block type uses." alt="" coords="254,213,432,241"/>
+<area shape="rect" id="node13" href="$class_block_orientation.html#a4a4a7f55abc88451b782a2fdc125e9a8" title="Returns a BlockOrientation object for the given string." alt="" coords="502,399,647,427"/>
+<area shape="rect" id="node21" href="qt.tag$qpainter.html#fillRect" title="QPainter::fillRect" alt="" coords="282,317,403,345"/>
+<area shape="rect" id="node23" href="qt.tag$qpixmap.html#height" title="QPixmap::height" alt="" coords="283,369,403,397"/>
+<area shape="rect" id="node25" href="qt.tag$qpixmap.html#width" title="QPixmap::width" alt="" coords="285,421,400,449"/>
+<area shape="rect" id="node27" href="qt.tag$qpainter.html#setCompositionMode" title="QPainter::setCompositionMode" alt="" coords="239,473,446,501"/>
+<area shape="rect" id="node29" href="$class_block_orientation.html#a2f475fd9d16d7b53afe169f954dbaf12" title="Returns a BlockOrientation object representing the orientation a block should be in when it is viewed..." alt="" coords="259,525,426,569"/>
+<area shape="rect" id="node32" href="$class_block_properties.html#aba0532ae9c89c0b59607f221cffc6cb6" title="Returns a list of valid orientations for this block type." alt="" coords="232,593,453,621"/>
+<area shape="rect" id="node34" href="qt.tag$qvector.html#count" title="QVector::count" alt="" coords="288,645,397,673"/>
+<area shape="rect" id="node36" href="qt.tag$qpainter.html#setPen-2" title="QPainter::setPen" alt="" coords="281,697,404,725"/>
+<area shape="rect" id="node38" href="qt.tag$qpainter.html#drawLine" title="QPainter::drawLine" alt="" coords="275,749,410,777"/>
+<area shape="rect" id="node40" href="qt.tag$qpainter.html#restore" title="QPainter::restore" alt="" coords="281,801,404,829"/>
+<area shape="rect" id="node42" href="qt.tag$qmap.html#insert" title="QMap::insert" alt="" coords="294,853,391,881"/>
+<area shape="rect" id="node15" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="757,347,859,375"/>
+<area shape="rect" id="node17" href="$class_block_orientation.html#a8387a13347c1f2516498b183327beb4f" title="BlockOrientation::BlockOrientation" alt="" coords="696,399,920,427"/>
+<area shape="rect" id="node19" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="757,451,859,479"/>
+</map>

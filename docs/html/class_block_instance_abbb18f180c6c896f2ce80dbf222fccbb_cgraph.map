@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="226,5,393,33"/>
+<area shape="rect" id="node5" href="$class_block_prototype.html#a79e4ed3a493313242a3ebcde2b8b4de4" title="Renders an instance of this block into the render destination with which the prototype was constructe..." alt="" coords="206,57,413,85"/>
+<area shape="rect" id="node7" href="$class_block_instance.html#a9e411eac6223b5b7a256ff410940880e" title="BlockInstance::position" alt="" coords="474,5,632,33"/>
+<area shape="rect" id="node9" href="$class_block_position.html#a77368204c35d3e091407a70a5521cfb8" title="Returns the vector pointing to this BlockPosition&#39;s center." alt="" coords="462,57,645,85"/>
+<area shape="rect" id="node13" href="$class_block_instance.html#aa9adadd8f649489dfb05da17b5b5ba7c" title="BlockInstance::orientation" alt="" coords="466,109,640,137"/>
+<area shape="rect" id="node11" href="$class_block_position.html#a579910647673bf493e948e44166f7807" title="Computes the corner and center vectors for this BlockPosition." alt="" coords="694,57,898,85"/>
+</map>

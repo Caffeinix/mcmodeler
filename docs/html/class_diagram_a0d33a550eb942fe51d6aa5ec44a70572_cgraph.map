@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="232,5,400,33"/>
+<area shape="rect" id="node5" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="244,57,388,85"/>
+<area shape="rect" id="node7" href="$class_block_instance.html#a9e411eac6223b5b7a256ff410940880e" title="BlockInstance::position" alt="" coords="237,109,395,137"/>
+<area shape="rect" id="node9" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="265,161,367,189"/>
+<area shape="rect" id="node11" href="$class_diagram.html#ae7256fcf824a827cd4906d643c62b622" title="Returns all the blocks on the level level_index." alt="" coords="263,213,369,241"/>
+<area shape="rect" id="node13" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="449,213,551,241"/>
+</map>

@@ -1,0 +1,30 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_prototype.html#aecee73acb976383a0a1c7717fbe8da80" title="Returns the default orientation for blocks of this type." alt="" coords="236,57,460,85"/>
+<area shape="rect" id="node47" href="$class_block_prototype.html#ad776bd21a3802a83f109e2dbc68ed4b5" title="Returns a vector of valid orientations for this block." alt="" coords="254,5,442,33"/>
+<area shape="rect" id="node50" href="$class_block_prototype.html#af1e93b9ac587835570630127c5065134" title="Returns whether renderable should render a face at location." alt="" coords="232,109,464,137"/>
+<area shape="rect" id="node52" href="$class_block_prototype.html#a864d4a294c4a20edecb2cb1f34d49a8c" title="Returns the name of this block." alt="" coords="272,161,424,189"/>
+<area shape="rect" id="node56" href="$class_block_prototype.html#a88d6aa59bdb985069dd3ca06c0bd0953" title="Returns the names of the categories to which this block belongs." alt="" coords="258,213,438,241"/>
+<area shape="rect" id="node59" href="$class_block_prototype.html#ab83c44bbf329946926f527bf990b1da0" title="Returns whether this block is &quot;transparent&quot; in the Minecraft sense." alt="" coords="248,265,448,293"/>
+<area shape="rect" id="node5" href="$class_diagram.html#a1b26cb1c20a176c603bbd2c38f09c951" title="Populates the diagram with blocks deserialized from stream." alt="" coords="545,161,650,189"/>
+<area shape="rect" id="node33" href="$class_level_widget.html#ac1139d4e6a572da30e2256e47df0d93b" title="Tells the Diagram to set the block at the position of event, using the currently set block type..." alt="" coords="512,5,683,33"/>
+<area shape="rect" id="node41" href="$class_level_widget.html#ad7116bba74183c75a1d3ea73dd8d2cc8" title="Tells the Diagram to draw a line from the position of the previous mouse event to the position of eve..." alt="" coords="519,109,675,137"/>
+<area shape="rect" id="node44" href="$class_level_widget.html#ae153ffa86fdade4c077d03f3f1cb39c2" title="Tells the Diagram to perform a flood fill operation starting at the position of event, using the currently selected block type." alt="" coords="520,57,674,85"/>
+<area shape="rect" id="node7" href="$class_main_window.html#a62d0ef52c06bf628ab32c71f90f63720" title="MainWindow::openFile" alt="" coords="758,161,914,189"/>
+<area shape="rect" id="node9" href="$class_main_window.html#a8b4a54deb6ca03793dbcd83313c202d4" title="MainWindow::doOpen" alt="" coords="1005,161,1158,189"/>
+<area shape="rect" id="node11" href="$class_main_window.html#a37c4e63e1c5673d9e26be8fdeb109f48" title="MainWindow::performPending\lAction" alt="" coords="1221,153,1421,197"/>
+<area shape="rect" id="node13" href="$class_main_window.html#af5bf25f6a27e26dfa1d9451ab4b44916" title="MainWindow::onSavePrompt\lClosed" alt="" coords="2067,147,2261,191"/>
+<area shape="rect" id="node17" href="$class_main_window.html#aa7473e4bbbcc281706ac2edef864fb45" title="MainWindow::open" alt="" coords="2534,94,2669,122"/>
+<area shape="rect" id="node19" href="$class_main_window.html#a542a7527ced73b2c9bc14f8dc9661a66" title="MainWindow::quit" alt="" coords="2538,197,2665,225"/>
+<area shape="rect" id="node24" href="$class_main_window.html#a769a4a713add6996d8295d0b55b3d937" title="MainWindow::saveToFile" alt="" coords="1470,134,1639,162"/>
+<area shape="rect" id="node15" href="$class_main_window.html#a993502c9800526a971bc17fc03e7e6d2" title="MainWindow::maybeSave" alt="" coords="2310,155,2485,183"/>
+<area shape="rect" id="node21" href="$class_main_window.html#a4e20a4a065fbb0e4d3532a45a0a91425" title="MainWindow::closeEvent" alt="" coords="2718,197,2888,225"/>
+<area shape="rect" id="node26" href="$class_main_window.html#a3ba1a371fb10e731ae0926ae85efeb4f" title="MainWindow::save" alt="" coords="1885,134,2019,162"/>
+<area shape="rect" id="node29" href="$class_main_window.html#a7fbef0054cdec7bbbf3c06fb12af473c" title="MainWindow::saveAs" alt="" coords="1688,134,1837,162"/>
+<area shape="rect" id="node35" href="$class_level_widget.html#a6bc0abb1a3f06b5337837002befef2da" title="LevelWidget::mousePressEvent" alt="" coords="731,57,941,85"/>
+<area shape="rect" id="node39" href="$class_level_widget.html#a17c6a37cf418c69e31c72530c82fc4e3" title="LevelWidget::mouseMoveEvent" alt="" coords="732,5,940,33"/>
+<area shape="rect" id="node37" href="$class_level_widget.html#a80b68c8bbb1226b2e83e6426e9555052" title="LevelWidget::mouseDouble\lClickEvent" alt="" coords="989,49,1174,93"/>
+<area shape="rect" id="node54" href="$class_block_picker.html#ad06c93e8257a38ab08049a0f66df8cc3" title="Adds block to the BlockPicker." alt="" coords="521,213,674,241"/>
+<area shape="rect" id="node61" href="$class_diagram.html#ac3df5073d9661b1263d1c38744eaf8d4" title="Tells all blocks in the diagram to render themselves." alt="" coords="538,265,656,293"/>
+<area shape="rect" id="node63" href="$class_g_l_widget.html#aba92e38906ddab1ee0e1b8e239bc51c9" title="GLWidget::updateScene" alt="" coords="753,265,919,293"/>
+<area shape="rect" id="node65" href="$class_g_l_widget.html#a640b5570cb2b37724fd5b58a77339c5e" title="GLWidget::paintGL" alt="" coords="1014,265,1148,293"/>
+</map>

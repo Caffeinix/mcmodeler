@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="qt.tag$qmainwindow.html" title="QMainWindow" alt="" coords="523,437,631,465"/>
+<area shape="rect" id="node4" href="qt.tag$qwidget.html" title="QWidget" alt="" coords="161,359,234,387"/>
+<area shape="rect" id="node21" href="qt.tag$qglwidget.html" title="QGLWidget" alt="" coords="380,359,470,387"/>
+<area shape="rect" id="node6" href="qt.tag$qobject.html" title="QObject" alt="" coords="22,138,92,166"/>
+<area shape="rect" id="node10" href="$class_diagram.html" title="Represents a diagram containing block data for the world." alt="" coords="1072,206,1144,234"/>
+<area shape="rect" id="node29" href="qt.tag$qaction.html" title="QAction" alt="" coords="259,27,328,55"/>
+<area shape="rect" id="node8" href="qt.tag$qpaintdevice.html" title="QPaintDevice" alt="" coords="6,359,109,387"/>
+<area shape="rect" id="node13" href="$class_block_oracle.html" title="An interface describing a class that can return a BlockInstance for any BlockPosition in the world..." alt="" coords="379,211,472,239"/>
+<area shape="rect" id="node19" href="$class_block_manager.html" title="Manages BlockPrototype objects." alt="" coords="712,309,819,337"/>
+<area shape="rect" id="node15" href="qt.tag$qhash.html" title="QHash\&lt; BlockPosition,\l BlockInstance \&gt;" alt="" coords="686,241,844,285"/>
+<area shape="rect" id="node17" href="qt.tag$qhash.html" title="QHash\&lt; int, QHash\&lt;\l BlockPosition, BlockInstance \&gt; \&gt;" alt="" coords="656,70,875,114"/>
+<area shape="rect" id="node25" href="qt.tag$qhash.html" title="QHash\&lt; blocktype_t,\l BlockPrototype * \&gt;" alt="" coords="353,291,498,335"/>
+<area shape="rect" id="node27" href="qt.tag$qscopedpointer.html" title="QScopedPointer\&lt; BillOfMaterials\lWindow \&gt;" alt="" coords="1000,378,1216,422"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_basic_renderable.html#a2e6d66d3382110845de90b704a982d7a" title="Creates and returns the abstract geometry for this renderable." alt="" coords="232,5,458,33"/>
+<area shape="rect" id="node5" href="$class_basic_renderable.html#aebc9171043ef5edef91939ce47fa8a1a" title="Creates and returns a set of texture coordinates for geometry." alt="" coords="240,57,451,101"/>
+<area shape="rect" id="node7" href="$class_basic_renderable.html#afa62c2986eb48e2b4f7c984893ff0f7f" title="Returns a copy of geometry that has been translated such that the center of the block containing the ..." alt="" coords="239,125,452,153"/>
+<area shape="rect" id="node9" href="$class_basic_renderable.html#ad1a55307fad237e95a1538adc66a2db9" title="Converts geometry and texture_coords into quads to draw." alt="" coords="240,177,451,205"/>
+</map>

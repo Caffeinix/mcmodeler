@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_transaction.html#a8eb1692c4ad10ac1efbb6aba998e1e63" title="Records the removal of new_block." alt="" coords="195,161,387,189"/>
+<area shape="rect" id="node17" href="$class_diagram.html#aab4b0c3d0c8c6b21d1f11a1578946721" title="Returns the BlockInstance for the block at position." alt="" coords="229,343,352,371"/>
+<area shape="rect" id="node5" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="455,5,622,33"/>
+<area shape="rect" id="node7" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="467,57,610,85"/>
+<area shape="rect" id="node9" href="qt.tag$qset.html#contains" title="QSet::contains" alt="" coords="484,109,593,137"/>
+<area shape="rect" id="node11" href="$class_block_instance.html#a9e411eac6223b5b7a256ff410940880e" title="BlockInstance::position" alt="" coords="460,161,618,189"/>
+<area shape="rect" id="node13" href="qt.tag$qlist.html#append" title="QList::append" alt="" coords="486,213,591,241"/>
+<area shape="rect" id="node15" href="qt.tag$qset.html#insert" title="QSet::insert" alt="" coords="493,265,585,293"/>
+<area shape="rect" id="node19" href="$class_diagram.html#a47701f961fc4ee5a41d364589d3250cc" title="Returns the block manager, or NULL if it&#39;s not set." alt="" coords="457,317,620,345"/>
+<area shape="rect" id="node21" href="$class_block_orientation.html#aed75805ca5528582a450d870686e75b9" title="Returns a BlockOrientation object representing no orientation." alt="" coords="435,421,642,449"/>
+<area shape="rect" id="node25" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="946,369,1048,397"/>
+<area shape="rect" id="node23" href="$class_block_orientation.html#a4a4a7f55abc88451b782a2fdc125e9a8" title="Returns a BlockOrientation object for the given string." alt="" coords="691,421,837,449"/>
+<area shape="rect" id="node27" href="$class_block_orientation.html#a8387a13347c1f2516498b183327beb4f" title="BlockOrientation::BlockOrientation" alt="" coords="885,421,1110,449"/>
+<area shape="rect" id="node29" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="946,473,1049,501"/>
+</map>

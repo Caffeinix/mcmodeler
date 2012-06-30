@@ -1,0 +1,22 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_block_prototype.html" title="Provides access to data and behavior common to a particular kind of block." alt="" coords="963,223,1074,251"/>
+<area shape="rect" id="node4" href="$class_render_delegate.html" title="A delegate interface exposed to Renderables to give them information about the world." alt="" coords="645,111,763,139"/>
+<area shape="rect" id="node6" href="qt.tag$qscopedpointer.html" title="QScopedPointer\&lt; Renderable \&gt;" alt="" coords="598,163,810,191"/>
+<area shape="rect" id="node8" href="$class_block_properties.html" title="Provides access to the properties of a particular block type." alt="" coords="647,283,761,311"/>
+<area shape="rect" id="node10" href="qt.tag$qvector.html" title="QVector\&lt; QPoint \&gt;" alt="" coords="216,231,349,259"/>
+<area shape="rect" id="node12" href="qt.tag$qstring.html" title="QString" alt="" coords="249,89,316,117"/>
+<area shape="rect" id="node34" href="$class_block_orientation.html" title="Represents a possible valid orientation of a block." alt="" coords="644,7,764,35"/>
+<area shape="rect" id="node14" href="qt.tag$qpoint.html" title="QPoint" alt="" coords="252,179,314,207"/>
+<area shape="rect" id="node16" href="qt.tag$qvector.html" title="QVector\&lt; BlockOrientation * \&gt;" alt="" coords="183,283,382,311"/>
+<area shape="rect" id="node18" href="qt.tag$qstringlist.html" title="QStringList" alt="" coords="239,335,326,363"/>
+<area shape="rect" id="node20" href="qt.tag$qlist.html" title="QList" alt="" coords="31,335,84,363"/>
+<area shape="rect" id="node22" href="$class_block_oracle.html" title="An interface describing a class that can return a BlockInstance for any BlockPosition in the world..." alt="" coords="657,335,751,363"/>
+<area shape="rect" id="node24" href="$class_texture.html" title="Represents a 2D texture that can be drawn onto 3D geometry." alt="" coords="671,387,737,415"/>
+<area shape="rect" id="node26" href="qt.tag$qpixmap.html" title="QPixmap" alt="" coords="245,387,321,415"/>
+<area shape="rect" id="node28" href="qt.tag$qpaintdevice.html" title="QPaintDevice" alt="" coords="6,387,109,415"/>
+<area shape="rect" id="node30" href="qt.tag$qscopedpointer.html" title="QScopedPointer\&lt; SpriteEngine \&gt;" alt="" coords="595,59,813,87"/>
+<area shape="rect" id="node32" href="qt.tag$qmap.html" title="QMap\&lt; blocktype_t,\l BlockProperties \&gt;" alt="" coords="634,215,774,259"/>
+<area shape="rect" id="node36" href="qt.tag$qhash.html" title="QHash\&lt; QString, BlockOrientation * \&gt;" alt="" coords="160,7,405,35"/>
+<area shape="rect" id="node39" href="$class_block_position.html" title="A lightweight integer&#45;precision position class for blocks." alt="" coords="968,358,1069,386"/>
+<area shape="rect" id="node41" href="qt.tag$qvector3d.html" title="QVector3D" alt="" coords="661,442,747,470"/>
+</map>

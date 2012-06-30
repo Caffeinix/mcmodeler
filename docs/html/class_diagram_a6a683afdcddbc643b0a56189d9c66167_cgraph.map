@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qdatastream.html#setVersion" title="QDataStream::setVersion" alt="" coords="166,5,338,33"/>
+<area shape="rect" id="node5" href="qt.tag$qdatastream.html#setFloatingPointPrecision" title="QDataStream::setFloating\lPointPrecision" alt="" coords="164,57,340,101"/>
+<area shape="rect" id="node7" href="$class_diagram.html#a57bcb33fe81f9e7deb7dd9f624b07eba" title="Returns the number of blocks in the diagram." alt="" coords="179,125,325,153"/>
+<area shape="rect" id="node11" href="qt.tag$qhash.html#constBegin" title="QHash::constBegin" alt="" coords="184,177,320,205"/>
+<area shape="rect" id="node13" href="qt.tag$qhash.html#constEnd" title="QHash::constEnd" alt="" coords="189,229,315,257"/>
+<area shape="rect" id="node15" href="$class_block_position.html#a7d7b00640499e999497ac709e7ffb4e0" title="Returns the vector pointing to this BlockPosition&#39;s front lower left corner." alt="" coords="160,281,344,309"/>
+<area shape="rect" id="node19" href="qt.tag$qvector3d.html#x" title="QVector3D::x" alt="" coords="202,333,302,361"/>
+<area shape="rect" id="node21" href="qt.tag$qvector3d.html#y" title="QVector3D::y" alt="" coords="202,385,302,413"/>
+<area shape="rect" id="node23" href="qt.tag$qvector3d.html#z" title="QVector3D::z" alt="" coords="202,437,302,465"/>
+<area shape="rect" id="node25" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="168,489,336,517"/>
+<area shape="rect" id="node27" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="180,541,324,569"/>
+<area shape="rect" id="node9" href="qt.tag$qhash.html#size" title="QHash::size" alt="" coords="448,125,542,153"/>
+<area shape="rect" id="node17" href="$class_block_position.html#a579910647673bf493e948e44166f7807" title="Computes the corner and center vectors for this BlockPosition." alt="" coords="392,281,597,309"/>
+</map>

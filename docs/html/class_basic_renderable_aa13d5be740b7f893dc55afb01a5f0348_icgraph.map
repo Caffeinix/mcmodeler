@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_bed_renderable.html#aaa6317ca8423cfee9b8c8d04f77ce5da" title="Converts geometry and texture_coords into quads to draw." alt="" coords="246,5,448,33"/>
+<area shape="rect" id="node5" href="$class_overlapping_faces_renderable.html#a172373b8a7595718dcf09fbc11e72dd8" title="Converts geometry and texture_coords into quads to draw." alt="" coords="247,57,446,101"/>
+<area shape="rect" id="node7" href="$class_rectangular_prism_renderable.html#acbf0055af587c820cb4b5239925a268d" title="Converts geometry and texture_coords into quads to draw." alt="" coords="249,125,445,169"/>
+<area shape="rect" id="node9" href="$class_stairs_renderable.html#a06e50784525bbfa973dab9dd46d8ed15" title="Converts geometry and texture_coords into quads to draw." alt="" coords="240,193,453,221"/>
+</map>

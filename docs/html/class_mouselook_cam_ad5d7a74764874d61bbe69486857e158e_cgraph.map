@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_matrix.html#aac8b06a78112514a52f34e38a74748a3" title="Returns an identity matrix." alt="" coords="266,30,409,58"/>
+<area shape="rect" id="node7" href="$class_matrix.html#a32d710250bb580b69d2130eec1eaa877" title="Post&#45;multiplies this matrix by m2." alt="" coords="256,82,418,110"/>
+<area shape="rect" id="node19" href="$class_matrix.html#a321ff27944afbfdb60b0f61a43e7b8ef" title="Returns a matrix that will perform a translation along vector." alt="" coords="256,134,419,162"/>
+<area shape="rect" id="node27" href="$class_matrix.html#a9a6c5405c9890c169a9a0704861e48dc" title="Returns a matrix that will perform a rotation of angle radians around the unit vector axis..." alt="" coords="264,186,410,214"/>
+<area shape="rect" id="node5" href="$class_matrix.html#a2dba13c45127354c9f75ef576f49269b" title="Creates a matrix." alt="" coords="467,30,568,58"/>
+<area shape="rect" id="node9" href="$class_matrix.html#a7effe530e3ecc71a848bf36df9bdee97" title="Matrix::row" alt="" coords="474,82,561,110"/>
+<area shape="rect" id="node11" href="qt.tag$qvector4d.html#setX" title="QVector4D::setX" alt="" coords="618,5,739,33"/>
+<area shape="rect" id="node13" href="qt.tag$qvector4d.html#setY" title="QVector4D::setY" alt="" coords="618,57,739,85"/>
+<area shape="rect" id="node15" href="qt.tag$qvector4d.html#setZ" title="QVector4D::setZ" alt="" coords="619,109,739,137"/>
+<area shape="rect" id="node17" href="qt.tag$qvector4d.html#setW" title="QVector4D::setW" alt="" coords="616,161,741,189"/>
+<area shape="rect" id="node21" href="qt.tag$qvector3d.html#x" title="QVector3D::x" alt="" coords="467,134,568,162"/>
+<area shape="rect" id="node23" href="qt.tag$qvector3d.html#y" title="QVector3D::y" alt="" coords="467,186,568,214"/>
+<area shape="rect" id="node25" href="qt.tag$qvector3d.html#z" title="QVector3D::z" alt="" coords="467,238,568,266"/>
+</map>

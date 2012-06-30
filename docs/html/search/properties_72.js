@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['radiobuttonexclusive',['radioButtonExclusive',['http://doc.qt.nokia.com/latest/q3buttongroup.html#radioButtonExclusive-prop',1,'Q3ButtonGroup']]],
+  ['readonly',['readOnly',['http://doc.qt.nokia.com/latest/qfilesystemmodel.html#readOnly-prop',1,'QFileSystemModel::readOnly()'],['http://doc.qt.nokia.com/latest/qtextedit.html#readOnly-prop',1,'QTextEdit::readOnly()'],['http://doc.qt.nokia.com/latest/q3textedit.html#readOnly-prop',1,'Q3TextEdit::readOnly()'],['http://doc.qt.nokia.com/latest/qfiledialog-obsolete.html#readOnly-prop',1,'QFileDialog::readOnly()'],['http://doc.qt.nokia.com/latest/q3databrowser.html#readOnly-prop',1,'Q3DataBrowser::readOnly()'],['http://doc.qt.nokia.com/latest/qtextbrowser.html#readOnly-prop',1,'QTextBrowser::readOnly()'],['http://doc.qt.nokia.com/latest/qdirmodel.html#readOnly-prop',1,'QDirModel::readOnly()'],['http://doc.qt.nokia.com/latest/qlineedit.html#readOnly-prop',1,'QLineEdit::readOnly()'],['http://doc.qt.nokia.com/latest/qabstractspinbox.html#readOnly-prop',1,'QAbstractSpinBox::readOnly()'],['http://doc.qt.nokia.com/latest/q3table.html#readOnly-prop',1,'Q3Table::readOnly()'],['http://doc.qt.nokia.com/latest/qplaintextedit.html#readOnly-prop',1,'QPlainTextEdit::readOnly()']]],
+  ['rect',['rect',['http://doc.qt.nokia.com/latest/qwidget.html#rect-prop',1,'QWidget']]],
+  ['redoavailable',['redoAvailable',['http://doc.qt.nokia.com/latest/qlineedit.html#redoAvailable-prop',1,'QLineEdit']]],
+  ['regexp',['regExp',['http://doc.qt.nokia.com/latest/qregexpvalidator.html#regExp-prop',1,'QRegExpValidator']]],
+  ['registeredservicenames',['registeredServiceNames',['http://doc.qt.nokia.com/latest/qdbusconnectioninterface.html#registeredServiceNames-prop',1,'QDBusConnectionInterface']]],
+  ['renderhints',['renderHints',['http://doc.qt.nokia.com/latest/qwebview.html#renderHints-prop',1,'QWebView::renderHints()'],['http://doc.qt.nokia.com/latest/qgraphicsview.html#renderHints-prop',1,'QGraphicsView::renderHints()']]],
+  ['requestedurl',['requestedUrl',['http://doc.qt.nokia.com/latest/qwebframe.html#requestedUrl-prop',1,'QWebFrame']]],
+  ['resizeanchor',['resizeAnchor',['http://doc.qt.nokia.com/latest/qgraphicsview.html#resizeAnchor-prop',1,'QGraphicsView']]],
+  ['resizeenabled',['resizeEnabled',['http://doc.qt.nokia.com/latest/q3dockwindow.html#resizeEnabled-prop',1,'Q3DockWindow']]],
+  ['resizegripsvisible',['resizeGripsVisible',['http://doc.qt.nokia.com/latest/qcolumnview.html#resizeGripsVisible-prop',1,'QColumnView']]],
+  ['resizemode',['resizeMode',['http://doc.qt.nokia.com/latest/qlistview.html#resizeMode-prop',1,'QListView::resizeMode()'],['http://doc.qt.nokia.com/latest/q3listview.html#resizeMode-prop',1,'Q3ListView::resizeMode()'],['http://doc.qt.nokia.com/latest/qdeclarativeview.html#resizeMode-prop',1,'QDeclarativeView::resizeMode()'],['http://doc.qt.nokia.com/latest/q3iconview.html#resizeMode-prop',1,'Q3IconView::resizeMode()']]],
+  ['resizepolicy',['resizePolicy',['http://doc.qt.nokia.com/latest/q3scrollview.html#resizePolicy-prop',1,'Q3ScrollView']]],
+  ['resizestocontents',['resizesToContents',['http://doc.qt.nokia.com/latest/qgraphicswebview.html#resizesToContents-prop',1,'QGraphicsWebView']]],
+  ['resolution',['resolution',['http://doc.qt.nokia.com/latest/qsvggenerator.html#resolution-prop',1,'QSvgGenerator']]],
+  ['resolvesymlinks',['resolveSymlinks',['http://doc.qt.nokia.com/latest/qfilesystemmodel.html#resolveSymlinks-prop',1,'QFileSystemModel::resolveSymlinks()'],['http://doc.qt.nokia.com/latest/qfiledialog-obsolete.html#resolveSymlinks-prop',1,'QFileDialog::resolveSymlinks()'],['http://doc.qt.nokia.com/latest/qdirmodel.html#resolveSymlinks-prop',1,'QDirModel::resolveSymlinks()']]],
+  ['rightjustification',['rightJustification',['http://doc.qt.nokia.com/latest/q3mainwindow.html#rightJustification-prop',1,'Q3MainWindow']]],
+  ['rootisdecorated',['rootIsDecorated',['http://doc.qt.nokia.com/latest/qtreeview.html#rootIsDecorated-prop',1,'QTreeView::rootIsDecorated()'],['http://doc.qt.nokia.com/latest/q3listview.html#rootIsDecorated-prop',1,'Q3ListView::rootIsDecorated()']]],
+  ['rotation',['rotation',['http://doc.qt.nokia.com/latest/qgraphicsobject.html#rotation-prop',1,'QGraphicsObject']]],
+  ['rotationangle',['rotationAngle',['http://doc.qt.nokia.com/latest/qpinchgesture.html#rotationAngle-prop',1,'QPinchGesture']]],
+  ['rowcount',['rowCount',['http://doc.qt.nokia.com/latest/qtablewidget.html#rowCount-prop',1,'QTableWidget']]],
+  ['rowmode',['rowMode',['http://doc.qt.nokia.com/latest/q3listbox.html#rowMode-prop',1,'Q3ListBox']]],
+  ['rowmovingenabled',['rowMovingEnabled',['http://doc.qt.nokia.com/latest/q3table.html#rowMovingEnabled-prop',1,'Q3Table']]],
+  ['rowwrappolicy',['rowWrapPolicy',['http://doc.qt.nokia.com/latest/qformlayout.html#rowWrapPolicy-prop',1,'QFormLayout']]],
+  ['rubberbandselectionmode',['rubberBandSelectionMode',['http://doc.qt.nokia.com/latest/qgraphicsview.html#rubberBandSelectionMode-prop',1,'QGraphicsView']]]
+];

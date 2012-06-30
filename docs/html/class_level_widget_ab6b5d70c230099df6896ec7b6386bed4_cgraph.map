@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_diagram.html#ac3140942edfe6e682f1f8cfa5b1ff643" title="Creates and commits a BlockTransaction which copies all blocks on source_level to dest_level..." alt="" coords="221,135,360,163"/>
+<area shape="rect" id="node5" href="qt.tag$qhash.html#keys" title="QHash::keys" alt="" coords="455,5,553,33"/>
+<area shape="rect" id="node7" href="$class_block_transaction.html#a8eb1692c4ad10ac1efbb6aba998e1e63" title="Records the removal of new_block." alt="" coords="408,109,600,137"/>
+<area shape="rect" id="node9" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="648,5,816,33"/>
+<area shape="rect" id="node21" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="453,213,555,241"/>
+<area shape="rect" id="node24" href="$class_block_instance.html#aa9adadd8f649489dfb05da17b5b5ba7c" title="BlockInstance::orientation" alt="" coords="417,265,591,293"/>
+<area shape="rect" id="node26" href="$class_block_transaction.html#a8b22719e10cbadbeae1b2b5ea33a6a8b" title="Records the addition of new_block." alt="" coords="414,161,594,189"/>
+<area shape="rect" id="node11" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="660,265,804,293"/>
+<area shape="rect" id="node13" href="qt.tag$qset.html#contains" title="QSet::contains" alt="" coords="678,57,786,85"/>
+<area shape="rect" id="node15" href="$class_block_instance.html#a9e411eac6223b5b7a256ff410940880e" title="BlockInstance::position" alt="" coords="653,109,811,137"/>
+<area shape="rect" id="node17" href="qt.tag$qlist.html#append" title="QList::append" alt="" coords="680,161,784,189"/>
+<area shape="rect" id="node19" href="qt.tag$qset.html#insert" title="QSet::insert" alt="" coords="686,213,778,241"/>
+</map>

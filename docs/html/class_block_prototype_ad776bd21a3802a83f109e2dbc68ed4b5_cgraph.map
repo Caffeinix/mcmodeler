@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_prototype.html#a084f9a8ac50c8de0e8827f17ce9ab72d" title="Returns the BlockProperties object for this prototype." alt="" coords="264,5,442,33"/>
+<area shape="rect" id="node5" href="$class_block_properties.html#aba0532ae9c89c0b59607f221cffc6cb6" title="Returns a list of valid orientations for this block type." alt="" coords="243,57,464,85"/>
+<area shape="rect" id="node7" href="qt.tag$qvector.html#empty" title="QVector::empty" alt="" coords="297,109,410,137"/>
+<area shape="rect" id="node9" href="qt.tag$qvector.html#append" title="QVector::append" alt="" coords="293,161,414,189"/>
+<area shape="rect" id="node11" href="$class_block_orientation.html#aed75805ca5528582a450d870686e75b9" title="Returns a BlockOrientation object representing no orientation." alt="" coords="250,213,457,241"/>
+<area shape="rect" id="node13" href="$class_block_orientation.html#a4a4a7f55abc88451b782a2fdc125e9a8" title="Returns a BlockOrientation object for the given string." alt="" coords="513,213,658,241"/>
+<area shape="rect" id="node15" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="768,161,870,189"/>
+<area shape="rect" id="node17" href="$class_block_orientation.html#a8387a13347c1f2516498b183327beb4f" title="BlockOrientation::BlockOrientation" alt="" coords="706,213,931,241"/>
+<area shape="rect" id="node19" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="767,265,870,293"/>
+</map>

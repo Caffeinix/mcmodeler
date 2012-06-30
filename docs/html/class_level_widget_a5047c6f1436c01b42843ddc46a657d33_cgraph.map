@@ -1,0 +1,28 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qgraphicsview.html#scene" title="QGraphicsView::scene" alt="" coords="530,5,686,33"/>
+<area shape="rect" id="node5" href="qt.tag$qgraphicsscene.html#clear" title="QGraphicsScene::clear" alt="" coords="258,565,417,593"/>
+<area shape="rect" id="node7" href="qt.tag$qhash.html#clear" title="QHash::clear" alt="" coords="288,617,387,645"/>
+<area shape="rect" id="node9" href="qt.tag$qgraphicsview.html#viewportUpdateMode-prop" title="QGraphicsView::viewportUpdateMode" alt="" coords="214,669,461,697"/>
+<area shape="rect" id="node12" href="$macros_8h.html#a92defaadfadc318761b2763b44b0ed89" title="Attempts to return the size of an array." alt="" coords="570,57,646,85"/>
+<area shape="rect" id="node14" href="$class_diagram.html#ae7256fcf824a827cd4906d643c62b622" title="Returns all the blocks on the level level_index." alt="" coords="284,914,391,942"/>
+<area shape="rect" id="node18" href="$class_level_widget.html#a6ac80495510f6b0757685688eebccfbb" title="Creates and returns a QGraphicsItem representing block in the view." alt="" coords="259,513,416,541"/>
+<area shape="rect" id="node16" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="557,1109,659,1137"/>
+<area shape="rect" id="node20" href="$class_block_instance.html#a9e411eac6223b5b7a256ff410940880e" title="BlockInstance::position" alt="" coords="529,625,687,653"/>
+<area shape="rect" id="node23" href="$class_block_position.html#a63bdb47a8db63cc79135029a9c9b7d58" title="Returns the y component of this BlockPosition." alt="" coords="550,677,666,705"/>
+<area shape="rect" id="node25" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="524,729,692,757"/>
+<area shape="rect" id="node28" href="qt.tag$qgraphicsscene.html#addPixmap" title="QGraphicsScene::addPixmap" alt="" coords="510,781,706,809"/>
+<area shape="rect" id="node30" href="$class_block_prototype.html#a53c3a7e342a24a1c319a57addde2d952" title="Returns the sprite pixmap that should be used to represent this kind of block in a 2D context..." alt="" coords="532,833,684,861"/>
+<area shape="rect" id="node32" href="$class_block_instance.html#aa9adadd8f649489dfb05da17b5b5ba7c" title="BlockInstance::orientation" alt="" coords="521,885,695,913"/>
+<area shape="rect" id="node34" href="qt.tag$qgraphicspixmapitem.html#setOffset" title="QGraphicsPixmapItem\l::setOffset" alt="" coords="530,937,686,981"/>
+<area shape="rect" id="node36" href="qt.tag$qgraphicsitem.html#setPos" title="QGraphicsItem::setPos" alt="" coords="528,1005,688,1033"/>
+<area shape="rect" id="node38" href="$class_block_position.html#a750817819cf1b79f23c58dfc451b34f6" title="Returns the x component of this BlockPosition." alt="" coords="550,1057,666,1085"/>
+<area shape="rect" id="node40" href="$class_block_position.html#ae1cb3792aada50f12030004543df5608" title="Returns the y component of this BlockPosition." alt="" coords="550,109,666,137"/>
+<area shape="rect" id="node42" href="qt.tag$qgraphicspixmapitem.html#setShapeMode" title="QGraphicsPixmapItem\l::setShapeMode" alt="" coords="530,161,686,205"/>
+<area shape="rect" id="node44" href="qt.tag$qgraphicsitem.html#setData" title="QGraphicsItem::setData" alt="" coords="526,229,690,257"/>
+<area shape="rect" id="node46" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="536,281,680,309"/>
+<area shape="rect" id="node48" href="qt.tag$qgraphicsitem.html#setZValue" title="QGraphicsItem::setZValue" alt="" coords="519,333,697,361"/>
+<area shape="rect" id="node50" href="qt.tag$qgraphicsitem.html#setOpacity" title="QGraphicsItem::setOpacity" alt="" coords="517,385,699,413"/>
+<area shape="rect" id="node52" href="qt.tag$qgraphicscolorizeeffect.html#strength-prop" title="QGraphicsColorizeEffect\l::setStrength" alt="" coords="524,437,692,481"/>
+<area shape="rect" id="node54" href="qt.tag$qgraphicsitem.html#setGraphicsEffect" title="QGraphicsItem::setGraphics\lEffect" alt="" coords="513,505,703,549"/>
+<area shape="rect" id="node56" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="557,573,659,601"/>
+</map>

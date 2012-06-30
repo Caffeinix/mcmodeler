@@ -1,0 +1,38 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_level_widget.html#a6c9c7d3f88a62cf7b3a6b917c39e795b" title="Returns the 3D position for the point at which event occurred." alt="" coords="239,99,407,143"/>
+<area shape="rect" id="node15" href="qt.tag$qmouseevent.html#buttons" title="QMouseEvent::buttons" alt="" coords="244,167,401,195"/>
+<area shape="rect" id="node17" href="$class_block_manager.html#a8204e8ef599e44f0be6a4a70f20024bd" title="Gets the BlockPrototype for type." alt="" coords="499,215,688,243"/>
+<area shape="rect" id="node27" href="$class_diagram.html#afe65b541a074495a34e8f86ac739e29d" title="Creates and commits a BlockTransaction which draws a line of blocks with type type and orientation or..." alt="" coords="256,271,389,299"/>
+<area shape="rect" id="node69" href="$class_block_prototype.html#aecee73acb976383a0a1c7717fbe8da80" title="Returns the default orientation for blocks of this type." alt="" coords="211,501,435,529"/>
+<area shape="rect" id="node5" href="$class_level_widget.html#abb79cb516ce5adaf13b54945eb20edcd" title="Returns the 3D position for point given the current level." alt="" coords="509,39,677,83"/>
+<area shape="rect" id="node11" href="qt.tag$qgraphicsview.html#mapToScene" title="QGraphicsView::mapToScene" alt="" coords="494,107,693,135"/>
+<area shape="rect" id="node13" href="qt.tag$qmouseevent.html#pos" title="QMouseEvent::pos" alt="" coords="526,159,661,187"/>
+<area shape="rect" id="node7" href="qt.tag$qpointf.html#x" title="QPointF::x" alt="" coords="803,57,887,85"/>
+<area shape="rect" id="node9" href="qt.tag$qpointf.html#y" title="QPointF::y" alt="" coords="803,5,887,33"/>
+<area shape="rect" id="node19" href="$class_block_prototype.html#af28f5bf5fd9575db981281463cbdb50e" title="Returns the number of unique block types known to MCModeler." alt="" coords="753,113,938,141"/>
+<area shape="rect" id="node23" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="1048,205,1150,233"/>
+<area shape="rect" id="node25" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="1047,338,1150,366"/>
+<area shape="rect" id="node21" href="qt.tag$qmap.html#size" title="QMap::size" alt="" coords="1054,113,1143,141"/>
+<area shape="rect" id="node29" href="$class_diagram.html#a47701f961fc4ee5a41d364589d3250cc" title="Returns the block manager, or NULL if it&#39;s not set." alt="" coords="512,319,675,347"/>
+<area shape="rect" id="node32" href="$class_line_tool.html#ac2bdfee666d1ee42cdbc65c54db81440" title="Sets the position at a particular index, the meaning of which depends on the tool." alt="" coords="499,267,688,295"/>
+<area shape="rect" id="node34" href="$class_line_tool.html#a38c68c2e4508dc195c1a1719efdd6b36" title="Modifies the BlockTransaction passed as transaction so that it reflects the results of applying the t..." alt="" coords="540,371,647,399"/>
+<area shape="rect" id="node36" href="$class_block_position.html#a63bdb47a8db63cc79135029a9c9b7d58" title="Returns the y component of this BlockPosition." alt="" coords="788,423,903,451"/>
+<area shape="rect" id="node38" href="$class_block_position.html#a750817819cf1b79f23c58dfc451b34f6" title="Returns the x component of this BlockPosition." alt="" coords="788,267,903,295"/>
+<area shape="rect" id="node40" href="$class_block_position.html#ae1cb3792aada50f12030004543df5608" title="Returns the y component of this BlockPosition." alt="" coords="788,319,903,347"/>
+<area shape="rect" id="node42" href="$class_block_transaction.html#a6b0c5e8671704c302b8737ab0e904c06" title="Records the replacement of old_block with new_block." alt="" coords="758,549,932,593"/>
+<area shape="rect" id="node67" href="$class_block_oracle.html#a42c6c0b26343774d77af8cec77681566" title="Returns the BlockInstance at position." alt="" coords="773,371,918,399"/>
+<area shape="rect" id="node44" href="$class_block_instance.html#a9e411eac6223b5b7a256ff410940880e" title="BlockInstance::position" alt="" coords="1264,671,1422,699"/>
+<area shape="rect" id="node46" href="$class_block_transaction.html#a8eb1692c4ad10ac1efbb6aba998e1e63" title="Records the removal of new_block." alt="" coords="1003,515,1195,543"/>
+<area shape="rect" id="node59" href="$class_block_transaction.html#a8b22719e10cbadbeae1b2b5ea33a6a8b" title="Records the addition of new_block." alt="" coords="1008,567,1189,595"/>
+<area shape="rect" id="node48" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="1259,411,1426,439"/>
+<area shape="rect" id="node50" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="1271,463,1414,491"/>
+<area shape="rect" id="node52" href="qt.tag$qset.html#contains" title="QSet::contains" alt="" coords="1288,515,1397,543"/>
+<area shape="rect" id="node55" href="qt.tag$qlist.html#append" title="QList::append" alt="" coords="1290,567,1395,595"/>
+<area shape="rect" id="node57" href="qt.tag$qset.html#insert" title="QSet::insert" alt="" coords="1297,619,1389,647"/>
+<area shape="rect" id="node71" href="$class_block_prototype.html#a084f9a8ac50c8de0e8827f17ce9ab72d" title="Returns the BlockProperties object for this prototype." alt="" coords="504,605,682,633"/>
+<area shape="rect" id="node73" href="$class_block_orientation.html#aed75805ca5528582a450d870686e75b9" title="Returns a BlockOrientation object representing no orientation." alt="" coords="490,449,697,477"/>
+<area shape="rect" id="node81" href="$class_block_properties.html#aba0532ae9c89c0b59607f221cffc6cb6" title="Returns a list of valid orientations for this block type." alt="" coords="483,501,704,529"/>
+<area shape="rect" id="node83" href="qt.tag$qvector.html#at" title="QVector::at" alt="" coords="549,553,637,581"/>
+<area shape="rect" id="node75" href="$class_block_orientation.html#a4a4a7f55abc88451b782a2fdc125e9a8" title="Returns a BlockOrientation object for the given string." alt="" coords="773,475,918,503"/>
+<area shape="rect" id="node78" href="$class_block_orientation.html#a8387a13347c1f2516498b183327beb4f" title="BlockOrientation::BlockOrientation" alt="" coords="986,463,1211,491"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_texture.html#a5f955751422a3f716df6ead1362e23fd" title="Texture::initWithTile" alt="" coords="182,5,319,33"/>
+<area shape="rect" id="node5" href="$class_texture.html#abe5a8ddfcdfec2e3c7f219bceb52403a" title="Constructs a texture that draws a tile from a sprite sheet image at path." alt="" coords="369,5,485,33"/>
+</map>

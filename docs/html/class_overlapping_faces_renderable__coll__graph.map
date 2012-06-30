@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_rectangular_prism_renderable.html" title="Renderable for rectangular prisms." alt="" coords="101,302,296,330"/>
+<area shape="rect" id="node4" href="$class_basic_renderable.html" title="An abstract subclass of Renderable that provides some basic functionality and a template for initiali..." alt="" coords="145,209,268,237"/>
+<area shape="rect" id="node6" href="$class_renderable.html" title="Abstract class representing objects that can be rendered in 3D." alt="" coords="491,99,580,127"/>
+<area shape="rect" id="node8" href="$class_render_delegate.html" title="A delegate interface exposed to Renderables to give them information about the world." alt="" coords="402,6,520,34"/>
+<area shape="rect" id="node10" href="qt.tag$qvector.html" title="QVector\&lt; Texture \&gt;" alt="" coords="544,6,679,34"/>
+<area shape="rect" id="node12" href="qt.tag$qvector3d.html" title="QVector3D" alt="" coords="17,99,103,127"/>
+<area shape="rect" id="node14" href="qt.tag$qvector.html" title="QVector\&lt; QVector2D \&gt;" alt="" coords="128,99,285,127"/>
+<area shape="rect" id="node16" href="qt.tag$qvector.html" title="QVector\&lt; QVector3D \&gt;" alt="" coords="309,99,467,127"/>
+</map>

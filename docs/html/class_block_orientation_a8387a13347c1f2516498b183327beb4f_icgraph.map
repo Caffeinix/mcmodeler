@@ -1,0 +1,39 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_orientation.html#a4a4a7f55abc88451b782a2fdc125e9a8" title="Returns a BlockOrientation object for the given string." alt="" coords="278,555,423,583"/>
+<area shape="rect" id="node5" href="$class_block_orientation.html#aed75805ca5528582a450d870686e75b9" title="Returns a BlockOrientation object representing no orientation." alt="" coords="483,317,690,345"/>
+<area shape="rect" id="node74" href="$class_block_orientation.html#a2f475fd9d16d7b53afe169f954dbaf12" title="Returns a BlockOrientation object representing the orientation a block should be in when it is viewed..." alt="" coords="503,435,670,479"/>
+<area shape="rect" id="node78" href="$class_sprite_engine.html#a02d6a3d94cab26f5f6383d870e769d16" title="Creates and returns a sprite pixmap that can be drawn to represent a block in 2D." alt="" coords="760,502,936,530"/>
+<area shape="rect" id="node80" href="$class_block_properties.html#a6a88b82fe1ae1fe0ce21bd0a81c76951" title="Constructs a BlockProperties instance out of the given block_data map." alt="" coords="479,555,694,583"/>
+<area shape="rect" id="node82" href="$class_rectangular_prism_renderable.html#adeec094e158c2bd554fac447e93273e2" title="Applies any desired OpenGL coordinate transformations (glRotate, glTranslate, etc.) to account for the given orientation." alt="" coords="489,607,685,651"/>
+<area shape="rect" id="node84" href="$class_rectangular_prism_renderable.html#a665ed94d83a28c812d6cf4283af5f1b8" title="Translates faces from from_orientation into the default orientation." alt="" coords="489,675,685,719"/>
+<area shape="rect" id="node89" href="$class_stairs_renderable.html#a97d0900ffc9485f72481a5376458c3ce" title="Applies any desired OpenGL coordinate transformations (glRotate, glTranslate, etc.) to account for the given orientation." alt="" coords="472,743,701,787"/>
+<area shape="rect" id="node7" href="$class_block_prototype.html#aecee73acb976383a0a1c7717fbe8da80" title="Returns the default orientation for blocks of this type." alt="" coords="995,395,1219,423"/>
+<area shape="rect" id="node48" href="$class_level_widget.html#ae153ffa86fdade4c077d03f3f1cb39c2" title="Tells the Diagram to perform a flood fill operation starting at the position of event, using the currently selected block type." alt="" coords="1514,123,1668,151"/>
+<area shape="rect" id="node51" href="$class_block_prototype.html#ad776bd21a3802a83f109e2dbc68ed4b5" title="Returns a vector of valid orientations for this block." alt="" coords="1013,343,1200,371"/>
+<area shape="rect" id="node54" href="$class_diagram.html#aab4b0c3d0c8c6b21d1f11a1578946721" title="Returns the BlockInstance for the block at position." alt="" coords="787,162,909,190"/>
+<area shape="rect" id="node69" href="$class_g_l_widget.html#aa67b2124780d7cac0791b3a8c71b38b6" title="GLWidget::drawSkybox" alt="" coords="768,291,928,319"/>
+<area shape="rect" id="node9" href="$class_diagram.html#a1b26cb1c20a176c603bbd2c38f09c951" title="Populates the diagram with blocks deserialized from stream." alt="" coords="1300,395,1404,423"/>
+<area shape="rect" id="node37" href="$class_level_widget.html#ac1139d4e6a572da30e2256e47df0d93b" title="Tells the Diagram to set the block at the position of event, using the currently set block type..." alt="" coords="1266,239,1438,267"/>
+<area shape="rect" id="node45" href="$class_level_widget.html#ad7116bba74183c75a1d3ea73dd8d2cc8" title="Tells the Diagram to draw a line from the position of the previous mouse event to the position of eve..." alt="" coords="1513,343,1669,371"/>
+<area shape="rect" id="node11" href="$class_main_window.html#a62d0ef52c06bf628ab32c71f90f63720" title="MainWindow::openFile" alt="" coords="1513,395,1669,423"/>
+<area shape="rect" id="node13" href="$class_main_window.html#a8b4a54deb6ca03793dbcd83313c202d4" title="MainWindow::doOpen" alt="" coords="1773,395,1926,423"/>
+<area shape="rect" id="node15" href="$class_main_window.html#a37c4e63e1c5673d9e26be8fdeb109f48" title="MainWindow::performPending\lAction" alt="" coords="2003,387,2203,431"/>
+<area shape="rect" id="node17" href="$class_main_window.html#af5bf25f6a27e26dfa1d9451ab4b44916" title="MainWindow::onSavePrompt\lClosed" alt="" coords="2849,391,3042,435"/>
+<area shape="rect" id="node21" href="$class_main_window.html#aa7473e4bbbcc281706ac2edef864fb45" title="MainWindow::open" alt="" coords="3315,359,3450,387"/>
+<area shape="rect" id="node23" href="$class_main_window.html#a542a7527ced73b2c9bc14f8dc9661a66" title="MainWindow::quit" alt="" coords="3319,467,3446,495"/>
+<area shape="rect" id="node28" href="$class_main_window.html#a769a4a713add6996d8295d0b55b3d937" title="MainWindow::saveToFile" alt="" coords="2252,421,2420,449"/>
+<area shape="rect" id="node19" href="$class_main_window.html#a993502c9800526a971bc17fc03e7e6d2" title="MainWindow::maybeSave" alt="" coords="3091,399,3266,427"/>
+<area shape="rect" id="node25" href="$class_main_window.html#a4e20a4a065fbb0e4d3532a45a0a91425" title="MainWindow::closeEvent" alt="" coords="3499,467,3669,495"/>
+<area shape="rect" id="node30" href="$class_main_window.html#a3ba1a371fb10e731ae0926ae85efeb4f" title="MainWindow::save" alt="" coords="2667,421,2800,449"/>
+<area shape="rect" id="node33" href="$class_main_window.html#a7fbef0054cdec7bbbf3c06fb12af473c" title="MainWindow::saveAs" alt="" coords="2470,471,2618,499"/>
+<area shape="rect" id="node39" href="$class_level_widget.html#a6bc0abb1a3f06b5337837002befef2da" title="LevelWidget::mousePressEvent" alt="" coords="1744,266,1954,294"/>
+<area shape="rect" id="node43" href="$class_level_widget.html#a17c6a37cf418c69e31c72530c82fc4e3" title="LevelWidget::mouseMoveEvent" alt="" coords="1486,214,1695,242"/>
+<area shape="rect" id="node41" href="$class_level_widget.html#a80b68c8bbb1226b2e83e6426e9555052" title="LevelWidget::mouseDouble\lClickEvent" alt="" coords="2010,258,2195,302"/>
+<area shape="rect" id="node56" href="$class_diagram.html#a55e6a03973d1bccc7ec1687f44585719" title="Creates and commits a BlockTransaction which replaces the block at pos with ." alt="" coords="1042,135,1171,163"/>
+<area shape="rect" id="node59" href="$class_diagram.html#a931f1c354acab395688aa68423c1e6fa" title="Creates and commits a BlockTransaction which clears the block at pos." alt="" coords="1036,187,1177,215"/>
+<area shape="rect" id="node62" href="$class_diagram.html#a89e78f3894a06ec273cc428a2174324a" title="Creates and commits a BlockTransaction which performs a two&#45;dimensional flood fill of blocks starting..." alt="" coords="1287,83,1417,111"/>
+<area shape="rect" id="node65" href="$class_diagram.html#a55845114299f9395ae3ae8e966a00809" title="Recursion helper function for fillBlocks." alt="" coords="1016,31,1197,59"/>
+<area shape="rect" id="node71" href="$class_g_l_widget.html#a640b5570cb2b37724fd5b58a77339c5e" title="GLWidget::paintGL" alt="" coords="1040,291,1174,319"/>
+<area shape="rect" id="node76" href="$class_block_picker.html#ad06c93e8257a38ab08049a0f66df8cc3" title="Adds block to the BlockPicker." alt="" coords="771,446,925,474"/>
+<area shape="rect" id="node86" href="$class_rectangular_prism_renderable.html#a6e11f0ed9c2c0d881343c339e57d966e" title="Returns true if the quad at index should be rendered at location with orientation." alt="" coords="750,675,946,719"/>
+</map>

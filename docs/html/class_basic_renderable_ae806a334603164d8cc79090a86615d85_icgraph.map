@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_door_renderable.html#a26f33dcf403b3eb43366bbc39e3be9cd" title="Returns a copy of geometry that has been translated such that the center of the block containing the ..." alt="" coords="209,5,418,33"/>
+<area shape="rect" id="node5" href="$class_ladder_renderable.html#ab29fd754e57ffb2660484c04ece27d56" title="Returns a copy of geometry that has been translated such that the center of the block containing the ..." alt="" coords="220,57,406,101"/>
+<area shape="rect" id="node7" href="$class_rectangular_prism_renderable.html#af1e08dc3e221061f0f21a7ce4ef1ca8b" title="Returns a copy of geometry that has been translated such that the center of the block containing the ..." alt="" coords="215,125,411,169"/>
+<area shape="rect" id="node9" href="$class_rectangular_prism_renderable.html#a3167e20e7b1546440e3781e2d46a6116" title="Creates and returns the abstract geometry for this renderable." alt="" coords="215,193,411,237"/>
+<area shape="rect" id="node11" href="$class_skybox_renderable.html#ab10c91430b010c3590c9abb4644c73cb" title="Returns a copy of geometry that has been translated such that the center of the block containing the ..." alt="" coords="219,261,407,305"/>
+<area shape="rect" id="node13" href="$class_stairs_renderable.html#a019348c3c9bd9c6172a72777cccc640a" title="Returns a copy of geometry that has been translated such that the center of the block containing the ..." alt="" coords="224,329,403,373"/>
+<area shape="rect" id="node15" href="$class_stairs_renderable.html#ab7fb8875450b54c8666eccf57b018993" title="Creates and returns the abstract geometry for this renderable." alt="" coords="229,397,398,441"/>
+</map>

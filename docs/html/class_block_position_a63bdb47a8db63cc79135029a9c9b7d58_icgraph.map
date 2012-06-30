@@ -1,0 +1,19 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$block__position_8h.html#a4542db2ac7b56160a0530bc4c99c25cd" title="Allows BlockPositions to be streamed using qDebug()." alt="" coords="227,5,314,33"/>
+<area shape="rect" id="node5" href="$block__position_8h.html#a92aebd3b270d557db0c9ded1620149a5" title="Allows BlockPositions to be efficiently stored in a hash table such as QHash." alt="" coords="241,81,301,109"/>
+<area shape="rect" id="node8" href="$class_diagram.html#a405410d7c230e4433cd2fafbb5dc1d92" title="Directly removes a block from the diagram." alt="" coords="170,133,371,161"/>
+<area shape="rect" id="node14" href="$class_level_widget.html#a6ac80495510f6b0757685688eebccfbb" title="Creates and returns a QGraphicsItem representing block in the view." alt="" coords="192,185,349,213"/>
+<area shape="rect" id="node29" href="$class_line_tool.html#a38c68c2e4508dc195c1a1719efdd6b36" title="Modifies the BlockTransaction passed as transaction so that it reflects the results of applying the t..." alt="" coords="217,262,324,290"/>
+<area shape="rect" id="node10" href="$class_diagram.html#a71b5fde777635ae0785cc65931e0cbcf" title="Applies transaction to the diagram." alt="" coords="438,102,560,130"/>
+<area shape="rect" id="node12" href="$class_scoped_transaction_committer.html#aa1db57c3ede836d623c91c3498cb8211" title="ScopedTransactionCommitter\l::~ScopedTransactionCommitter" alt="" coords="627,90,840,134"/>
+<area shape="rect" id="node16" href="$class_level_widget.html#a4ccd600d52e6f9b259ee3a1f31d8851d" title="Applies transaction to the current level." alt="" coords="646,158,821,186"/>
+<area shape="rect" id="node20" href="$class_level_widget.html#a5047c6f1436c01b42843ddc46a657d33" title="Synchronizes the view with the diagram by clearing all blocks and drawing them again." alt="" coords="419,210,578,238"/>
+<area shape="rect" id="node18" href="$class_level_widget.html#aea664e3527295dc0173a3e24de1360fd" title="LevelWidget::setDiagram" alt="" coords="911,158,1081,186"/>
+<area shape="rect" id="node22" href="$class_level_widget.html#a5cb4b3925f933f41aedd34962b19cba3" title="Sets the level currently being rendered to level." alt="" coords="657,210,809,238"/>
+<area shape="rect" id="node25" href="$class_level_widget.html#a9bc67408dd2c7a60b63f8812804621c2" title="Copies the current level to the next level above, overwriting whatever is there, and switches to that..." alt="" coords="896,210,1096,238"/>
+<area shape="rect" id="node27" href="$class_level_widget.html#a49c646d378c62569397cd60ce35a50af" title="Copies the current level to the next level below, overwriting whatever is there, and switches to that..." alt="" coords="888,262,1104,290"/>
+<area shape="rect" id="node31" href="$class_diagram.html#afe65b541a074495a34e8f86ac739e29d" title="Creates and commits a BlockTransaction which draws a line of blocks with type type and orientation or..." alt="" coords="432,275,565,303"/>
+<area shape="rect" id="node33" href="$class_level_widget.html#ad7116bba74183c75a1d3ea73dd8d2cc8" title="Tells the Diagram to draw a line from the position of the previous mouse event to the position of eve..." alt="" coords="655,301,811,329"/>
+<area shape="rect" id="node35" href="$class_level_widget.html#a6bc0abb1a3f06b5337837002befef2da" title="LevelWidget::mousePressEvent" alt="" coords="891,314,1101,342"/>
+<area shape="rect" id="node37" href="$class_level_widget.html#a80b68c8bbb1226b2e83e6426e9555052" title="LevelWidget::mouseDouble\lClickEvent" alt="" coords="1152,306,1336,350"/>
+</map>

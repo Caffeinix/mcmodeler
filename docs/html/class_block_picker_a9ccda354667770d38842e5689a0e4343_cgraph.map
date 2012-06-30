@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qlistwidget.html#currentItem" title="QListWidget::currentItem" alt="" coords="246,5,415,33"/>
+<area shape="rect" id="node5" href="$class_block_picker.html#a810818f5247e71248bbd78ed536a20db" title="BlockPicker::selectBlock\lForItem" alt="" coords="248,57,414,101"/>
+<area shape="rect" id="node7" href="$class_block_picker.html#aa379cd7bc7491212120bc4dae5ae99c2" title="Emitted whenever the selected block changes." alt="" coords="464,13,645,41"/>
+<area shape="rect" id="node9" href="qt.tag$qlistwidgetitem.html#data" title="QListWidgetItem::data" alt="" coords="478,65,631,93"/>
+<area shape="rect" id="node11" href="qt.tag$qvariant.html#toInt" title="QVariant::toInt" alt="" coords="502,117,608,145"/>
+</map>

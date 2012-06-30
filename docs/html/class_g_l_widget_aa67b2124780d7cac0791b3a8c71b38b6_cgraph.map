@@ -1,0 +1,22 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_mouselook_cam.html#a278cfa99a6efe7eb280fc8d8021df4ab" title="Applies the rotation component of the camera only." alt="" coords="216,147,419,175"/>
+<area shape="rect" id="node36" href="$class_block_orientation.html#aed75805ca5528582a450d870686e75b9" title="Returns a BlockOrientation object representing no orientation." alt="" coords="214,251,421,279"/>
+<area shape="rect" id="node5" href="$class_mouselook_cam.html#ad5d7a74764874d61bbe69486857e158e" title="MouselookCam::cameraMatrix" alt="" coords="470,134,672,162"/>
+<area shape="rect" id="node7" href="$class_matrix.html#aac8b06a78112514a52f34e38a74748a3" title="Returns an identity matrix." alt="" coords="760,5,904,33"/>
+<area shape="rect" id="node11" href="$class_matrix.html#a32d710250bb580b69d2130eec1eaa877" title="Post&#45;multiplies this matrix by m2." alt="" coords="751,186,913,214"/>
+<area shape="rect" id="node23" href="$class_matrix.html#a321ff27944afbfdb60b0f61a43e7b8ef" title="Returns a matrix that will perform a translation along vector." alt="" coords="751,82,913,110"/>
+<area shape="rect" id="node31" href="$class_matrix.html#a9a6c5405c9890c169a9a0704861e48dc" title="Returns a matrix that will perform a rotation of angle radians around the unit vector axis..." alt="" coords="759,134,905,162"/>
+<area shape="rect" id="node9" href="$class_matrix.html#a2dba13c45127354c9f75ef576f49269b" title="Creates a matrix." alt="" coords="992,5,1093,33"/>
+<area shape="rect" id="node13" href="$class_matrix.html#a7effe530e3ecc71a848bf36df9bdee97" title="Matrix::row" alt="" coords="999,213,1086,241"/>
+<area shape="rect" id="node15" href="qt.tag$qvector4d.html#setX" title="QVector4D::setX" alt="" coords="1144,134,1264,162"/>
+<area shape="rect" id="node17" href="qt.tag$qvector4d.html#setY" title="QVector4D::setY" alt="" coords="1144,186,1264,214"/>
+<area shape="rect" id="node19" href="qt.tag$qvector4d.html#setZ" title="QVector4D::setZ" alt="" coords="1144,238,1264,266"/>
+<area shape="rect" id="node21" href="qt.tag$qvector4d.html#setW" title="QVector4D::setW" alt="" coords="1142,290,1266,318"/>
+<area shape="rect" id="node25" href="qt.tag$qvector3d.html#x" title="QVector3D::x" alt="" coords="992,161,1093,189"/>
+<area shape="rect" id="node27" href="qt.tag$qvector3d.html#y" title="QVector3D::y" alt="" coords="992,57,1093,85"/>
+<area shape="rect" id="node29" href="qt.tag$qvector3d.html#z" title="QVector3D::z" alt="" coords="992,109,1093,137"/>
+<area shape="rect" id="node38" href="$class_block_orientation.html#a4a4a7f55abc88451b782a2fdc125e9a8" title="Returns a BlockOrientation object for the given string." alt="" coords="498,277,643,305"/>
+<area shape="rect" id="node40" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="781,238,883,266"/>
+<area shape="rect" id="node42" href="$class_block_orientation.html#a8387a13347c1f2516498b183327beb4f" title="BlockOrientation::BlockOrientation" alt="" coords="720,290,944,318"/>
+<area shape="rect" id="node44" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="781,342,883,370"/>
+</map>

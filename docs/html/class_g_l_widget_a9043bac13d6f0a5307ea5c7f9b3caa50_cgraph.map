@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qpoint.html#x" title="QPoint::x" alt="" coords="293,5,369,33"/>
+<area shape="rect" id="node5" href="qt.tag$qwidget.html#height-prop" title="QWidget::height" alt="" coords="272,57,389,85"/>
+<area shape="rect" id="node7" href="qt.tag$qpoint.html#y" title="QPoint::y" alt="" coords="293,109,369,137"/>
+<area shape="rect" id="node9" href="qt.tag$qmouseevent.html#buttons" title="QMouseEvent::buttons" alt="" coords="252,161,409,189"/>
+<area shape="rect" id="node11" href="$class_mouselook_cam.html#a0a9faa3a5f41425b76576e62678a9496" title="MouselookCam::rotateX" alt="" coords="248,213,413,241"/>
+<area shape="rect" id="node13" href="$class_mouselook_cam.html#aed80d704247af4f09edd1c7eceb2ed2b" title="MouselookCam::rotateY" alt="" coords="248,265,413,293"/>
+<area shape="rect" id="node15" href="qt.tag$qglwidget.html#updateGL" title="QGLWidget::updateGL" alt="" coords="253,317,409,345"/>
+</map>

@@ -1,0 +1,26 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_diagram.html#a1b26cb1c20a176c603bbd2c38f09c951" title="Populates the diagram with blocks deserialized from stream." alt="" coords="282,99,387,127"/>
+<area shape="rect" id="node31" href="$class_diagram.html#afe65b541a074495a34e8f86ac739e29d" title="Creates and commits a BlockTransaction which draws a line of blocks with type type and orientation or..." alt="" coords="268,309,401,337"/>
+<area shape="rect" id="node33" href="$class_level_widget.html#ad7116bba74183c75a1d3ea73dd8d2cc8" title="Tells the Diagram to draw a line from the position of the previous mouse event to the position of eve..." alt="" coords="502,361,658,389"/>
+<area shape="rect" id="node39" href="$class_diagram.html#a55845114299f9395ae3ae8e966a00809" title="Recursion helper function for fillBlocks." alt="" coords="244,205,425,233"/>
+<area shape="rect" id="node43" href="$class_level_widget.html#ae153ffa86fdade4c077d03f3f1cb39c2" title="Tells the Diagram to perform a flood fill operation starting at the position of event, using the currently selected block type." alt="" coords="736,205,890,233"/>
+<area shape="rect" id="node46" href="$class_level_widget.html#ac1139d4e6a572da30e2256e47df0d93b" title="Tells the Diagram to set the block at the position of event, using the currently set block type..." alt="" coords="249,257,420,285"/>
+<area shape="rect" id="node53" href="$class_main_window.html#aa32e1852b201855f8d142c63ef57f649" title="MainWindow::setupToolbox" alt="" coords="243,413,426,441"/>
+<area shape="rect" id="node5" href="$class_main_window.html#a62d0ef52c06bf628ab32c71f90f63720" title="MainWindow::openFile" alt="" coords="502,97,658,125"/>
+<area shape="rect" id="node7" href="$class_main_window.html#a8b4a54deb6ca03793dbcd83313c202d4" title="MainWindow::doOpen" alt="" coords="737,95,890,123"/>
+<area shape="rect" id="node9" href="$class_main_window.html#a37c4e63e1c5673d9e26be8fdeb109f48" title="MainWindow::performPending\lAction" alt="" coords="947,87,1147,131"/>
+<area shape="rect" id="node11" href="$class_main_window.html#af5bf25f6a27e26dfa1d9451ab4b44916" title="MainWindow::onSavePrompt\lClosed" alt="" coords="1811,65,2005,109"/>
+<area shape="rect" id="node15" href="$class_main_window.html#aa7473e4bbbcc281706ac2edef864fb45" title="MainWindow::open" alt="" coords="2278,33,2413,61"/>
+<area shape="rect" id="node17" href="$class_main_window.html#a542a7527ced73b2c9bc14f8dc9661a66" title="MainWindow::quit" alt="" coords="2282,141,2409,169"/>
+<area shape="rect" id="node22" href="$class_main_window.html#a769a4a713add6996d8295d0b55b3d937" title="MainWindow::saveToFile" alt="" coords="1208,95,1376,123"/>
+<area shape="rect" id="node13" href="$class_main_window.html#a993502c9800526a971bc17fc03e7e6d2" title="MainWindow::maybeSave" alt="" coords="2054,73,2229,101"/>
+<area shape="rect" id="node19" href="$class_main_window.html#a4e20a4a065fbb0e4d3532a45a0a91425" title="MainWindow::closeEvent" alt="" coords="2462,141,2632,169"/>
+<area shape="rect" id="node24" href="$class_main_window.html#a3ba1a371fb10e731ae0926ae85efeb4f" title="MainWindow::save" alt="" coords="1629,94,1763,122"/>
+<area shape="rect" id="node27" href="$class_main_window.html#a7fbef0054cdec7bbbf3c06fb12af473c" title="MainWindow::saveAs" alt="" coords="1432,145,1581,173"/>
+<area shape="rect" id="node35" href="$class_level_widget.html#a6bc0abb1a3f06b5337837002befef2da" title="LevelWidget::mousePressEvent" alt="" coords="942,257,1152,285"/>
+<area shape="rect" id="node37" href="$class_level_widget.html#a80b68c8bbb1226b2e83e6426e9555052" title="LevelWidget::mouseDouble\lClickEvent" alt="" coords="1200,249,1384,293"/>
+<area shape="rect" id="node41" href="$class_diagram.html#a89e78f3894a06ec273cc428a2174324a" title="Creates and commits a BlockTransaction which performs a two&#45;dimensional flood fill of blocks starting..." alt="" coords="515,205,645,233"/>
+<area shape="rect" id="node49" href="$class_level_widget.html#a17c6a37cf418c69e31c72530c82fc4e3" title="LevelWidget::mouseMoveEvent" alt="" coords="476,309,684,337"/>
+<area shape="rect" id="node55" href="$class_main_window.html#a264f0f1f24f349ccefa9e050b8d7fd70" title="MainWindow::setBlockManager" alt="" coords="476,413,684,441"/>
+<area shape="rect" id="node57" href="$class_application.html#a6e443cbe3481a06d8effb4fa8878499c" title="Application::Application" alt="" coords="734,413,893,441"/>
+</map>

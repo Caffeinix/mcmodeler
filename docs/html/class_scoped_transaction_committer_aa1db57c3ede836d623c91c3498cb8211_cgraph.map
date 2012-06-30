@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_diagram.html#a71b5fde777635ae0785cc65931e0cbcf" title="Applies transaction to the diagram." alt="" coords="267,187,389,215"/>
+<area shape="rect" id="node5" href="$class_block_transaction.html#a91de4bbf9897e3aa052a66de8fac20c6" title="Returns a list of blocks that are removed from the world by this transaction." alt="" coords="463,41,611,85"/>
+<area shape="rect" id="node7" href="$class_diagram.html#a405410d7c230e4433cd2fafbb5dc1d92" title="Directly removes a block from the diagram." alt="" coords="437,109,638,137"/>
+<area shape="rect" id="node17" href="$class_block_instance.html#a9e411eac6223b5b7a256ff410940880e" title="BlockInstance::position" alt="" coords="690,161,848,189"/>
+<area shape="rect" id="node19" href="$class_block_transaction.html#af17795b86e97d151d13740a58d57dd2e" title="Returns a list of blocks that are added to the world by this transaction." alt="" coords="460,265,615,309"/>
+<area shape="rect" id="node21" href="$class_diagram.html#a0d33a550eb942fe51d6aa5ec44a70572" title="Directly adds a block to the diagram, replacing whatever block was there." alt="" coords="448,213,627,241"/>
+<area shape="rect" id="node31" href="$class_diagram.html#a8dc3c2e97380637d19fa5617ac5eb53b" title="Emitted when the diagram changes." alt="" coords="447,333,628,361"/>
+<area shape="rect" id="node9" href="qt.tag$qhash.html#remove" title="QHash::remove" alt="" coords="712,57,827,85"/>
+<area shape="rect" id="node11" href="$class_diagram.html#ae7256fcf824a827cd4906d643c62b622" title="Returns all the blocks on the level level_index." alt="" coords="716,109,823,137"/>
+<area shape="rect" id="node15" href="$class_block_position.html#a63bdb47a8db63cc79135029a9c9b7d58" title="Returns the y component of this BlockPosition." alt="" coords="712,5,827,33"/>
+<area shape="rect" id="node13" href="qt.tag$qhash.html#value" title="QHash::value" alt="" coords="902,109,1004,137"/>
+<area shape="rect" id="node23" href="$class_block_instance.html#a7e7f3460b327d574363f6bb845f1db4b" title="BlockInstance::prototype" alt="" coords="686,213,853,241"/>
+<area shape="rect" id="node25" href="$class_block_prototype.html#abbe768f68db902279f2d5788bd7ada4d" title="Returns the blocktype_t constant for blocks of this type." alt="" coords="698,265,841,293"/>
+<area shape="rect" id="node28" href="qt.tag$qhash.html#insert" title="QHash::insert" alt="" coords="718,317,821,345"/>
+</map>

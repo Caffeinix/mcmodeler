@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_block_picker.html#ad06c93e8257a38ab08049a0f66df8cc3" title="Adds block to the BlockPicker." alt="" coords="234,5,387,33"/>
+<area shape="rect" id="node5" href="$class_sprite_engine.html#a02d6a3d94cab26f5f6383d870e769d16" title="Creates and returns a sprite pixmap that can be drawn to represent a block in 2D." alt="" coords="222,57,399,85"/>
+</map>

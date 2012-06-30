@@ -1,0 +1,21 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="qt.tag$qgraphicsview.html" title="QGraphicsView" alt="" coords="1074,374,1188,402"/>
+<area shape="rect" id="node4" href="qt.tag$qabstractscrollarea.html" title="QAbstractScrollArea" alt="" coords="716,374,858,402"/>
+<area shape="rect" id="node6" href="qt.tag$qframe.html" title="QFrame" alt="" coords="444,374,514,402"/>
+<area shape="rect" id="node8" href="qt.tag$qwidget.html" title="QWidget" alt="" coords="161,351,234,379"/>
+<area shape="rect" id="node25" href="qt.tag$qglwidget.html" title="QGLWidget" alt="" coords="434,322,524,350"/>
+<area shape="rect" id="node10" href="qt.tag$qobject.html" title="QObject" alt="" coords="22,69,92,97"/>
+<area shape="rect" id="node14" href="$class_diagram.html" title="Represents a diagram containing block data for the world." alt="" coords="1095,197,1167,225"/>
+<area shape="rect" id="node41" href="qt.tag$qgraphicsscene.html" title="QGraphicsScene" alt="" coords="259,10,381,38"/>
+<area shape="rect" id="node12" href="qt.tag$qpaintdevice.html" title="QPaintDevice" alt="" coords="6,422,109,450"/>
+<area shape="rect" id="node31" href="qt.tag$qpixmap.html" title="QPixmap" alt="" coords="577,503,653,531"/>
+<area shape="rect" id="node17" href="$class_block_oracle.html" title="An interface describing a class that can return a BlockInstance for any BlockPosition in the world..." alt="" coords="432,153,525,181"/>
+<area shape="rect" id="node23" href="$class_block_manager.html" title="Manages BlockPrototype objects." alt="" coords="733,307,840,335"/>
+<area shape="rect" id="node19" href="qt.tag$qhash.html" title="QHash\&lt; BlockPosition,\l BlockInstance \&gt;" alt="" coords="708,171,866,215"/>
+<area shape="rect" id="node21" href="qt.tag$qhash.html" title="QHash\&lt; int, QHash\&lt;\l BlockPosition, BlockInstance \&gt; \&gt;" alt="" coords="677,239,896,283"/>
+<area shape="rect" id="node29" href="qt.tag$qhash.html" title="QHash\&lt; blocktype_t,\l BlockPrototype * \&gt;" alt="" coords="406,254,551,298"/>
+<area shape="rect" id="node35" href="qt.tag$qpoint.html" title="QPoint" alt="" coords="1100,426,1162,454"/>
+<area shape="rect" id="node37" href="$class_block_position.html" title="A lightweight integer&#45;precision position class for blocks." alt="" coords="1080,478,1181,506"/>
+<area shape="rect" id="node39" href="qt.tag$qvector3d.html" title="QVector3D" alt="" coords="743,478,830,506"/>
+<area shape="rect" id="node44" href="qt.tag$qhash.html" title="QHash\&lt; BlockPosition,\l QGraphicsItem * \&gt;" alt="" coords="1052,582,1210,626"/>
+</map>

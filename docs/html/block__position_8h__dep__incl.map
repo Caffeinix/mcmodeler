@@ -1,0 +1,20 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$block__instance_8h.html" title="src/block_instance.h" alt="" coords="394,83,536,111"/>
+<area shape="rect" id="node5" href="$diagram_8h.html" title="src/diagram.h" alt="" coords="470,238,572,266"/>
+<area shape="rect" id="node19" href="$level__widget_8cc.html" title="src/level_widget.cc" alt="" coords="793,323,925,351"/>
+<area shape="rect" id="node26" href="$block__prototype_8cc.html" title="src/block_prototype.cc" alt="" coords="632,238,785,266"/>
+<area shape="rect" id="node32" href="$block__transaction_8cc.html" title="src/block_transaction.cc" alt="" coords="558,161,721,189"/>
+<area shape="rect" id="node36" href="$block__position_8cc.html" title="src/block_position.cc" alt="" coords="1049,83,1193,111"/>
+<area shape="rect" id="node40" href="$line__tool_8h.html" title="src/line_tool.h" alt="" coords="4,161,107,189"/>
+<area shape="rect" id="node44" href="$level__widget_8h.html" title="src/level_widget.h" alt="" coords="898,83,1024,111"/>
+<area shape="rect" id="node23" href="$block__oracle_8h.html" title="src/block_oracle.h" alt="" coords="182,161,311,189"/>
+<area shape="rect" id="node28" href="$line__tool_8cc.html" title="src/line_tool.cc" alt="" coords="93,238,203,266"/>
+<area shape="rect" id="node30" href="$block__instance_8cc.html" title="src/block_instance.cc" alt="" coords="335,161,483,189"/>
+<area shape="rect" id="node7" href="$application_8h.html" title="src/application.h" alt="" coords="477,323,595,351"/>
+<area shape="rect" id="node13" href="$bill__of__materials__window_8cc.html" title="src/bill_of_materials\l_window.cc" alt="" coords="618,315,757,359"/>
+<area shape="rect" id="node15" href="$diagram_8cc.html" title="src/diagram.cc" alt="" coords="15,323,123,351"/>
+<area shape="rect" id="node17" href="$gl__widget_8cc.html" title="src/gl_widget.cc" alt="" coords="173,323,288,351"/>
+<area shape="rect" id="node21" href="$main__window_8cc.html" title="src/main_window.cc" alt="" coords="313,323,452,351"/>
+<area shape="rect" id="node9" href="$application_8cc.html" title="src/application.cc" alt="" coords="409,409,532,437"/>
+<area shape="rect" id="node11" href="$main_8cc.html" title="src/main.cc" alt="" coords="557,409,645,437"/>
+</map>

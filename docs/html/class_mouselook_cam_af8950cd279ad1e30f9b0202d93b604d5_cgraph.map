@@ -1,0 +1,21 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_mouselook_cam.html#ad5d7a74764874d61bbe69486857e158e" title="MouselookCam::cameraMatrix" alt="" coords="227,137,429,165"/>
+<area shape="rect" id="node34" href="$class_matrix.html#a4dce8ce8a52a478165efd4c5d80da46c" title="Returns a copy of vec with its coordinates transformed by this Matrix." alt="" coords="491,267,627,295"/>
+<area shape="rect" id="node5" href="$class_matrix.html#aac8b06a78112514a52f34e38a74748a3" title="Returns an identity matrix." alt="" coords="487,33,630,61"/>
+<area shape="rect" id="node9" href="$class_matrix.html#a32d710250bb580b69d2130eec1eaa877" title="Post&#45;multiplies this matrix by m2." alt="" coords="478,85,640,113"/>
+<area shape="rect" id="node21" href="$class_matrix.html#a321ff27944afbfdb60b0f61a43e7b8ef" title="Returns a matrix that will perform a translation along vector." alt="" coords="477,137,640,165"/>
+<area shape="rect" id="node29" href="$class_matrix.html#a9a6c5405c9890c169a9a0704861e48dc" title="Returns a matrix that will perform a rotation of angle radians around the unit vector axis..." alt="" coords="486,189,632,217"/>
+<area shape="rect" id="node7" href="$class_matrix.html#a2dba13c45127354c9f75ef576f49269b" title="Creates a matrix." alt="" coords="697,33,799,61"/>
+<area shape="rect" id="node11" href="$class_matrix.html#a7effe530e3ecc71a848bf36df9bdee97" title="Matrix::row" alt="" coords="705,85,791,113"/>
+<area shape="rect" id="node13" href="qt.tag$qvector4d.html#setX" title="QVector4D::setX" alt="" coords="858,6,979,34"/>
+<area shape="rect" id="node15" href="qt.tag$qvector4d.html#setY" title="QVector4D::setY" alt="" coords="858,58,979,86"/>
+<area shape="rect" id="node17" href="qt.tag$qvector4d.html#setZ" title="QVector4D::setZ" alt="" coords="859,110,979,138"/>
+<area shape="rect" id="node19" href="qt.tag$qvector4d.html#setW" title="QVector4D::setW" alt="" coords="856,162,981,190"/>
+<area shape="rect" id="node23" href="qt.tag$qvector3d.html#x" title="QVector3D::x" alt="" coords="698,137,798,165"/>
+<area shape="rect" id="node25" href="qt.tag$qvector3d.html#y" title="QVector3D::y" alt="" coords="698,189,798,217"/>
+<area shape="rect" id="node27" href="qt.tag$qvector3d.html#z" title="QVector3D::z" alt="" coords="698,241,798,269"/>
+<area shape="rect" id="node36" href="qt.tag$qvector3d.html#setX" title="QVector3D::setX" alt="" coords="688,449,808,477"/>
+<area shape="rect" id="node39" href="$class_matrix.html#a0579be8c5ab390a9d39a56adcc9f9911" title="Matrix::value" alt="" coords="700,293,796,321"/>
+<area shape="rect" id="node43" href="qt.tag$qvector3d.html#setY" title="QVector3D::setY" alt="" coords="688,345,808,373"/>
+<area shape="rect" id="node45" href="qt.tag$qvector3d.html#setZ" title="QVector3D::setZ" alt="" coords="688,397,808,425"/>
+</map>

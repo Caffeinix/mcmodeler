@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qwidget.html#setAttribute" title="QWidget::setAttribute" alt="" coords="227,5,375,33"/>
+<area shape="rect" id="node5" href="qt.tag$qlistview.html#viewMode-prop" title="QListView::setViewMode" alt="" coords="217,57,385,85"/>
+<area shape="rect" id="node7" href="qt.tag$qlistview.html#movement-prop" title="QListView::setMovement" alt="" coords="217,109,386,137"/>
+<area shape="rect" id="node9" href="qt.tag$qlistview.html#resizeMode-prop" title="QListView::setResizeMode" alt="" coords="211,161,392,189"/>
+<area shape="rect" id="node11" href="qt.tag$qabstractitemview.html#selectionMode-prop" title="QAbstractItemView:\l:setSelectionMode" alt="" coords="232,213,371,257"/>
+<area shape="rect" id="node13" href="qt.tag$qlistview.html#uniformItemSizes-prop" title="QListView::setUniformItem\lSizes" alt="" coords="212,281,391,325"/>
+<area shape="rect" id="node15" href="qt.tag$qabstractitemview.html#setItemDelegate" title="QAbstractItemView:\l:setItemDelegate" alt="" coords="232,349,371,393"/>
+<area shape="rect" id="node17" href="qt.tag$qobject.html#connect" title="QObject::connect" alt="" coords="239,417,364,445"/>
+<area shape="rect" id="node19" href="$class_block_picker.html#a810818f5247e71248bbd78ed536a20db" title="BlockPicker::selectBlock\lForItem" alt="" coords="218,469,384,513"/>
+<area shape="rect" id="node21" href="$class_block_picker.html#aa379cd7bc7491212120bc4dae5ae99c2" title="Emitted whenever the selected block changes." alt="" coords="440,425,621,453"/>
+<area shape="rect" id="node23" href="qt.tag$qlistwidgetitem.html#data" title="QListWidgetItem::data" alt="" coords="454,477,607,505"/>
+<area shape="rect" id="node25" href="qt.tag$qvariant.html#toInt" title="QVariant::toInt" alt="" coords="478,529,584,557"/>
+</map>

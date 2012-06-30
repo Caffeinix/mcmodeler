@@ -1,0 +1,17 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_texture.html#a5f955751422a3f716df6ead1362e23fd" title="Texture::initWithTile" alt="" coords="171,317,309,345"/>
+<area shape="rect" id="node5" href="qt.tag$qglwidget.html#makeCurrent" title="QGLWidget::makeCurrent" alt="" coords="374,5,549,33"/>
+<area shape="rect" id="node7" href="$class_texture.html#a83ba1f88971002b1f3cdaea5e982e46a" title="Texture::tileCache" alt="" coords="397,57,525,85"/>
+<area shape="rect" id="node9" href="qt.tag$qstring.html#arg-14" title="QString::arg" alt="" coords="415,109,508,137"/>
+<area shape="rect" id="node11" href="qt.tag$qcolor.html#rgba" title="QColor::rgba" alt="" coords="413,161,510,189"/>
+<area shape="rect" id="node13" href="qt.tag$qmap.html#value" title="QMap::value" alt="" coords="413,213,510,241"/>
+<area shape="rect" id="node15" href="$class_texture.html#a585022196e19570c6b8c0bd82b592da4" title="Texture::pixmapCache" alt="" coords="384,265,538,293"/>
+<area shape="rect" id="node17" href="qt.tag$qmap.html#insert" title="QMap::insert" alt="" coords="413,317,510,345"/>
+<area shape="rect" id="node19" href="qt.tag$qpixmap.html#fill" title="QPixmap::fill" alt="" coords="413,369,509,397"/>
+<area shape="rect" id="node21" href="qt.tag$qpainter.html#drawPixmap" title="QPainter::drawPixmap" alt="" coords="384,421,539,449"/>
+<area shape="rect" id="node23" href="qt.tag$qcolor.html#alpha" title="QColor::alpha" alt="" coords="410,473,513,501"/>
+<area shape="rect" id="node25" href="qt.tag$qpainter.html#setCompositionMode" title="QPainter::setCompositionMode" alt="" coords="358,525,565,553"/>
+<area shape="rect" id="node27" href="qt.tag$qpainter.html#fillRect" title="QPainter::fillRect" alt="" coords="401,577,522,605"/>
+<area shape="rect" id="node29" href="$class_texture.html#acde4d2a9f95d4d827cb8acccc05c8107" title="Texture::maybeBindTexture" alt="" coords="370,629,553,657"/>
+<area shape="rect" id="node31" href="qt.tag$qglwidget.html#bindTexture-3" title="QGLWidget::bindTexture" alt="" coords="614,629,781,657"/>
+</map>

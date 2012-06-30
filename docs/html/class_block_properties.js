@@ -1,0 +1,28 @@
+var class_block_properties =
+[
+    [ "BlockProperties", "class_block_properties.html#a7fc7ed6ed74477226455a042f1a32495", null ],
+    [ "BlockProperties", "class_block_properties.html#a6a88b82fe1ae1fe0ce21bd0a81c76951", null ],
+    [ "BlockProperties", "class_block_properties.html#a657ded9571706fd1fabb4b083a73b001", null ],
+    [ "~BlockProperties", "class_block_properties.html#a80929f6e324b226174692e1a05f09db6", null ],
+    [ "operator=", "class_block_properties.html#afa26a9a88b5852dbb0940454921aa448", null ],
+    [ "name", "class_block_properties.html#a379e3ba9770f3488b65b434cbe18d78e", null ],
+    [ "categories", "class_block_properties.html#a18e91cb4f11dadab1b73c90ec88e3ff7", null ],
+    [ "geometry", "class_block_properties.html#a941bafbb9968228f1f69b867a4c1f1d4", null ],
+    [ "validOrientations", "class_block_properties.html#aba0532ae9c89c0b59607f221cffc6cb6", null ],
+    [ "tileOffsets", "class_block_properties.html#a9f2587395f623cd7cc8cb462233938a8", null ],
+    [ "spriteOffset", "class_block_properties.html#addbf81f50b0a7d7c01f0e799913587a0", null ],
+    [ "isTransparent", "class_block_properties.html#ad35712b849b0a7ebca8b42f5de2a7502", null ],
+    [ "isBiomeGrass", "class_block_properties.html#afc303821bbd1f4753b747e11489f5272", null ],
+    [ "isBiomeTree", "class_block_properties.html#a8a593208d41e92b704e2368b0886a4dd", null ],
+    [ "isValid", "class_block_properties.html#a73c9bb74b12e093338058972eb6d15e6", null ],
+    [ "name_", "class_block_properties.html#aa66bb3f5afc000accd9c216d51214276", null ],
+    [ "categories_", "class_block_properties.html#a376dc8762cd8b975aa6cfa130234ab9a", null ],
+    [ "geometry_", "class_block_properties.html#a933a1558dd718e0ba04955cd1867b39e", null ],
+    [ "valid_orientations_", "class_block_properties.html#adde10273f5a2c9bb11bb59be37e2fd33", null ],
+    [ "tile_offsets_", "class_block_properties.html#a8cbde4e035504357a5d0606f90785fa2", null ],
+    [ "sprite_offset_", "class_block_properties.html#ae7b71a128bd6581ba955243711b1c57b", null ],
+    [ "is_transparent_", "class_block_properties.html#ac082f9ef9af90ed6daee7c5c5d44fbd2", null ],
+    [ "is_biome_grass_", "class_block_properties.html#a7cd40af590932f9ee0790ffa2cfe86fe", null ],
+    [ "is_biome_tree_", "class_block_properties.html#a260a0906169dda0e53b1b9292862a22d", null ],
+    [ "is_valid_", "class_block_properties.html#a2d3a225b14e97a570d032ece9aae4d77", null ]
+];

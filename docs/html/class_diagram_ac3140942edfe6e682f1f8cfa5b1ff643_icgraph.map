@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_level_widget.html#ab6b5d70c230099df6896ec7b6386bed4" title="Pastes the previously copied level, replacing everything on the current level." alt="" coords="217,5,383,33"/>
+<area shape="rect" id="node5" href="$class_level_widget.html#a9bc67408dd2c7a60b63f8812804621c2" title="Copies the current level to the next level above, overwriting whatever is there, and switches to that..." alt="" coords="200,57,400,85"/>
+<area shape="rect" id="node7" href="$class_level_widget.html#a49c646d378c62569397cd60ce35a50af" title="Copies the current level to the next level below, overwriting whatever is there, and switches to that..." alt="" coords="192,109,408,137"/>
+</map>

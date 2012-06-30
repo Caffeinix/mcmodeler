@@ -1,0 +1,3 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$class_scoped_transaction_committer.html" title="An RAII class that automatically calls Diagram::commit() on a diagram with its transaction when it is..." alt="" coords="5,5,203,33"/>
+</map>

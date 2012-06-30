@@ -1,0 +1,26 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$block__manager_8h.html" title="src/block_manager.h" alt="" coords="378,393,523,421"/>
+<area shape="rect" id="node11" href="$block__manager_8cc.html" title="src/block_manager.cc" alt="" coords="5,478,155,506"/>
+<area shape="rect" id="node19" href="$main__window_8cc.html" title="src/main_window.cc" alt="" coords="281,478,420,506"/>
+<area shape="rect" id="node21" href="$block__prototype_8h.html" title="src/block_prototype.h" alt="" coords="689,161,836,189"/>
+<area shape="rect" id="node25" href="$diagram_8h.html" title="src/diagram.h" alt="" coords="858,393,960,421"/>
+<area shape="rect" id="node28" href="$bill__of__materials__window_8cc.html" title="src/bill_of_materials\l_window.cc" alt="" coords="1232,470,1371,514"/>
+<area shape="rect" id="node54" href="$sprite__engine_8h.html" title="src/sprite_engine.h" alt="" coords="800,83,933,111"/>
+<area shape="rect" id="node62" href="$block__picker_8h.html" title="src/block_picker.h" alt="" coords="171,161,297,189"/>
+<area shape="rect" id="node66" href="$block__transaction_8h.html" title="src/block_transaction.h" alt="" coords="1106,315,1264,343"/>
+<area shape="rect" id="node72" href="$level__widget_8h.html" title="src/level_widget.h" alt="" coords="1440,83,1567,111"/>
+<area shape="rect" id="node5" href="$application_8h.html" title="src/application.h" alt="" coords="734,478,852,506"/>
+<area shape="rect" id="node13" href="$diagram_8cc.html" title="src/diagram.cc" alt="" coords="877,478,984,506"/>
+<area shape="rect" id="node15" href="$gl__widget_8cc.html" title="src/gl_widget.cc" alt="" coords="530,478,645,506"/>
+<area shape="rect" id="node17" href="$level__widget_8cc.html" title="src/level_widget.cc" alt="" coords="1031,478,1163,506"/>
+<area shape="rect" id="node7" href="$application_8cc.html" title="src/application.cc" alt="" coords="1152,563,1275,591"/>
+<area shape="rect" id="node9" href="$main_8cc.html" title="src/main.cc" alt="" coords="749,563,837,591"/>
+<area shape="rect" id="node23" href="$block__instance_8h.html" title="src/block_instance.h" alt="" coords="728,238,869,266"/>
+<area shape="rect" id="node37" href="$block__prototype_8cc.html" title="src/block_prototype.cc" alt="" coords="547,393,700,421"/>
+<area shape="rect" id="node39" href="$line__tool_8cc.html" title="src/line_tool.cc" alt="" coords="725,393,835,421"/>
+<area shape="rect" id="node50" href="$block__picker_8cc.html" title="src/block_picker.cc" alt="" coords="168,238,300,266"/>
+<area shape="rect" id="node34" href="$block__oracle_8h.html" title="src/block_oracle.h" alt="" coords="701,315,829,343"/>
+<area shape="rect" id="node41" href="$block__instance_8cc.html" title="src/block_instance.cc" alt="" coords="529,315,676,343"/>
+<area shape="rect" id="node43" href="$block__transaction_8cc.html" title="src/block_transaction.cc" alt="" coords="985,393,1148,421"/>
+<area shape="rect" id="node57" href="$sprite__engine_8cc.html" title="src/sprite_engine.cc" alt="" coords="861,161,1000,189"/>
+</map>

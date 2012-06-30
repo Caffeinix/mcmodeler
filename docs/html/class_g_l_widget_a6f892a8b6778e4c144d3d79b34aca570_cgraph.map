@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="qt.tag$qscopedpointer.html#reset" title="QScopedPointer::reset" alt="" coords="219,5,375,33"/>
+<area shape="rect" id="node5" href="qt.tag$qwidget.html#focusPolicy-prop" title="QWidget::setFocusPolicy" alt="" coords="212,57,382,85"/>
+<area shape="rect" id="node7" href="qt.tag$qglwidget.html#format" title="QGLWidget::format" alt="" coords="230,109,365,137"/>
+<area shape="rect" id="node9" href="qt.tag$qglformat.html#setSwapInterval" title="QGLFormat::setSwapInterval" alt="" coords="200,161,394,189"/>
+<area shape="rect" id="node11" href="qt.tag$qglwidget-obsolete.html#setFormat" title="QGLWidget::setFormat" alt="" coords="219,213,376,241"/>
+<area shape="rect" id="node13" href="qt.tag$qobject.html#connect" title="QObject::connect" alt="" coords="235,265,360,293"/>
+<area shape="rect" id="node15" href="qt.tag$qglwidget.html#updateGL" title="QGLWidget::updateGL" alt="" coords="219,317,375,345"/>
+<area shape="rect" id="node17" href="$class_frame_timer.html#adb14560ddc9b3c0cecc59793f66cc139" title="FrameTimer::setDebugMode" alt="" coords="202,369,393,397"/>
+</map>

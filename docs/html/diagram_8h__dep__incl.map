@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$application_8h.html" title="src/application.h" alt="" coords="73,91,191,119"/>
+<area shape="rect" id="node9" href="$bill__of__materials__window_8cc.html" title="src/bill_of_materials\l_window.cc" alt="" coords="214,83,353,127"/>
+<area shape="rect" id="node11" href="$diagram_8cc.html" title="src/diagram.cc" alt="" coords="378,91,485,119"/>
+<area shape="rect" id="node13" href="$gl__widget_8cc.html" title="src/gl_widget.cc" alt="" coords="510,91,625,119"/>
+<area shape="rect" id="node15" href="$level__widget_8cc.html" title="src/level_widget.cc" alt="" coords="651,91,783,119"/>
+<area shape="rect" id="node17" href="$main__window_8cc.html" title="src/main_window.cc" alt="" coords="807,91,947,119"/>
+<area shape="rect" id="node5" href="$application_8cc.html" title="src/application.cc" alt="" coords="5,177,128,205"/>
+<area shape="rect" id="node7" href="$main_8cc.html" title="src/main.cc" alt="" coords="153,177,241,205"/>
+</map>

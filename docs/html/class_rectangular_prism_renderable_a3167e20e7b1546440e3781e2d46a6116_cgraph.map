@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_basic_renderable.html#ae806a334603164d8cc79090a86615d85" title="Returns the size that was passed into BasicRenderable&#39;s constructor." alt="" coords="251,5,405,33"/>
+<area shape="rect" id="node5" href="qt.tag$qvector.html#resize" title="QVector::resize" alt="" coords="272,57,384,85"/>
+<area shape="rect" id="node7" href="qt.tag$qvector3d.html#x" title="QVector3D::x" alt="" coords="278,109,378,137"/>
+<area shape="rect" id="node9" href="qt.tag$qvector3d.html#y" title="QVector3D::y" alt="" coords="278,161,378,189"/>
+<area shape="rect" id="node11" href="qt.tag$qvector3d.html#z" title="QVector3D::z" alt="" coords="278,213,378,241"/>
+</map>

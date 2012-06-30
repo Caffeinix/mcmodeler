@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>MCModeler by Caffeinix</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>MCModeler</h1>
+        <h2>A modeling tool for Minecraft</h2>
+        <a href="https://github.com/Caffeinix/mcmodeler" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <nav>
+      <div id="nav-background"></div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="screenshots.html">Screenshots</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>MCModeler FAQ</h1>
+
+<dl class="faq">
+  <dt>Why should I use MCModeler instead of just building in Creative Mode?</dt>
+  <dd>Lots of reasons.  For one, MCModeler gives you tools like flood fill, line drawing, and (once it's released) filled or hollow squares and circles.  Building is much, much faster in MCModeler than it is in Minecraft, even in Creative Mode.  More importantly, though, MCModeler isn't designed to be a <em>replacement</em> for building your creations in the world, but rather a tool to help you build with vision and confidence.  You wouldn't build a house in the real world without a floor plan, after all.  Why should your Minecraft creations be any more ad-hoc?  To that end, MCModeler uses a top-down plan view as its primary interface, so you can see exactly what you're building, and the 3D preview to show you how it's likely to look when it's done.</dd>
+
+  <dt>Will MCModeler support importing and exporting chunks, like MCEdit?</dt>
+  <dd>It's possible, but unlikely.  Building your masterpiece in MCModeler and simply placing it into your world sort of goes against the spirit of the thing.</dd>
+
+  <dt>Will MCModeler support lighting calculation?</dt>
+  <dd>Lighting calculation is one of the most complex parts of Minecraft.  It's slow and hard to get right, as is evidenced by the fact that it's often buggy in the game.  The method for computing it also sometimes changes without warning, either on purpose or by accident.  For these reasons, it's unlikely that MCModeler will have lighting support anytime soon, though if you think you can add it, go right ahead!</dd>
+
+  <dt>Why does MCModeler let me put blocks in impossible places, like torches hanging in mid-air or half a bed?</dt>
+  <dd>I've made a conscious decision with MCModeler to have as little dependence on Minecraft's behavior as I possibly can.  This makes it much easier to keep MCModeler up to date with new Minecraft blocks.  It also prevents me from having to account for changes or bugs in Minecraft (like the glitches that let you put torches on chests and crafting tables).  So MCModeler will make no attempt to keep you from doing impossible things, but if you do, you're going to have a bad time when you try to build it for real.</dd>
+
+  <dt>Will MCModeler support flowing water?</dt>
+  <dd>That depends on what you mean by flowing water.  MCModeler will not generate flow blocks from a source block, since that is dependent on behavior (see previous question).  If you want your source blocks to have flow blocks, you will need to place them yourself.  As for the appearance of flowing water and lava blocks, the answer is "sort of".  In Minecraft, the geometry of a water or lava flow block depends on the number and type of water or lava blocks that are present in the eight surrounding blocks, and you can get weird shapes where one corner is higher than the other.  I don't have immediate plans to implement that (though I might someday), but what I do intend to implement is a separate block (or possibly a block "orientation") for each of the seven possible flow block distances (three in the case of lava flows), which will get progressively shorter and shorter.  This will allow you to make reasonable-looking water and lava blades.  I will also label the tiles in the Level window with a number representing the distance from the source, sort of like Dwarf Fortress indicates rapids.</dd>
+</dl>
+        </section>
+
+        <aside id="sidebar">
+          <h2>Source code</h2>
+          <a href="https://github.com/Caffeinix/mcmodeler/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/Caffeinix/mcmodeler/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/Caffeinix/mcmodeler">MCModeler</a> is maintained by <a href="https://github.com/Caffeinix">Caffeinix</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>, and then manually messed around with a bunch.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
