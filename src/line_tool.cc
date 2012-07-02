@@ -20,54 +20,106 @@
 #include "block_prototype.h"
 #include "block_transaction.h"
 
-LineTool::LineTool(BlockOracle* oracle) : oracle_(oracle), start_(0, 0, 0), end_(0, 0, 0) {}
+LineTool::LineTool(BlockOracle* oracle) : oracle_(oracle) {}
 
-void LineTool::setPositionAtIndex(int index, const BlockPosition& position) {
-  switch (index) {
-  case 0:
-    start_ = position;
-    break;
-  case 1:
-    end_ = position;
-    break;
-  }
+bool LineTool::wantsMorePositions() {
+  return countPositions() < 2;
 }
 
 void LineTool::draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction) {
-  Q_ASSERT(start_.y() == end_.y());
+  if (wantsMorePositions()) {
+    return;
+  }
 
-  int dx = qAbs(end_.x() - start_.x());
-  int dz = qAbs(end_.z() - start_.z());
-  int sx = (start_.x() < end_.x() ? 1 : -1);
-  int sz = (start_.z() < end_.z() ? 1 : -1);
-  int err = dx - dz;
-  BlockPosition pos(start_);
+  const BlockPosition& start = positionAtIndex(0);
+  const BlockPosition& end = positionAtIndex(1);
 
-  int sanity_check = 0;
-  forever {
-    if (sanity_check > 1000) {
-      qWarning() << "Encountered an infinite loop in the line drawing algorithm.  Bailing out to avoid a hang.";
-      break;
-    }
+  Q_ASSERT(start.y() == end.y());
 
+  // What follows is an implementation of Bresenham's line algorithm.  See
+  // http://en.wikipedia.org/wiki/Bresenham's_line_algorithm.
+
+  int x1 = start.x();
+  int y1 = start.z();
+
+  int x2 = end.x();
+  int y2 = end.z();
+
+  // Flip start and end if line extends to the left.
+  if (start.x() > end.x()) {
+    x1 = end.x();
+    y1 = end.z();
+
+    x2 = start.x();
+    y2 = start.z();
+  }
+
+  int dx = abs(x2 - x1);
+  int dy = abs(y2 - y1);
+
+  // Increment if line extends downwards, otherwise decrement.
+  int inc_dec = (y2 >= y1 ? 1 : -1);
+
+  BlockPosition pos(start);
+
+  // Different algorithm depending on whether slope is less or greater than 1.
+  if (dx > dy) {
+    // Multiply everything by two to avoid non-integral values.
+    int two_dy = 2 * dy;
+    int two_dy_dx = 2 * (dy - dx);
+    int diff = (2 * dy) - dx;
+
+    int x = x1;
+    int y = y1;
+
+    pos = BlockPosition(x, pos.y(), y);
     BlockInstance new_block(prototype, pos, orientation);
     transaction->replaceBlock(oracle_->blockAt(pos), new_block);
 
-    // TODO(phoenix): There is a bug here somewhere.  Occasionally this
-    // never obtains and we loop infinitely!
-    if (pos == end_) {
-      break;
-    }
+    while (x < x2) {
+      ++x;
 
-    if (err * 2 > -dz) {
-      err -= dz;
-      pos = BlockPosition(pos.x() + sx, pos.y(), pos.z());
-    }
-    if (err * 2 < dx) {
-      err += dx;
-      pos = BlockPosition(pos.x(), pos.y(), pos.z() + sz);
-    }
+      if (diff < 0) {
+        // Midpoint is above line.
+        diff += two_dy;
+      } else {
+        // Midpoint is below line.
+        y += inc_dec;
+        diff += two_dy_dx;
+      }
 
-    ++sanity_check;
+      pos = BlockPosition(x, pos.y(), y);
+      BlockInstance new_block(prototype, pos, orientation);
+      transaction->replaceBlock(oracle_->blockAt(pos), new_block);
+    }
+  } else {
+    // Multiply everything by two to avoid non-integral values.
+    int two_dx = 2 * dx;
+    int two_dx_dy = 2 * (dx - dy);
+    int diff = (2 * dx) - dy;
+
+    int x = x1;
+    int y = y1;
+
+    pos = BlockPosition(x, pos.y(), y);
+    BlockInstance new_block(prototype, pos, orientation);
+    transaction->replaceBlock(oracle_->blockAt(pos), new_block);
+
+    while (y != y2) {  // This is safe since y will never change by more than one block per iteration.
+      y += inc_dec;
+
+      if (diff < 0) {
+        // Midpoint is above line.
+        diff += two_dx;
+      } else {
+        // Midpoint is below line.
+        ++x;
+        diff += two_dx_dy;
+      }
+
+      pos = BlockPosition(x, pos.y(), y);
+      BlockInstance new_block(prototype, pos, orientation);
+      transaction->replaceBlock(oracle_->blockAt(pos), new_block);
+    }
   }
 }

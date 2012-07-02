@@ -28,6 +28,7 @@ class Diagram;
 class BlockInstance;
 class BlockManager;
 class BlockTransaction;
+class Tool;
 
 /**
   * The canvas widget with which the user can interact to add and remove blocks.
@@ -46,6 +47,8 @@ class LevelWidget : public QGraphicsView {
   Q_OBJECT
  public:
   explicit LevelWidget(QWidget* parent = NULL);
+  virtual ~LevelWidget();
+
   void setDiagram(Diagram* diagram);
   void setBlockManager(BlockManager* block_mgr);
 
@@ -129,6 +132,9 @@ class LevelWidget : public QGraphicsView {
   void mouseReleaseEvent(QMouseEvent* event);
   void mouseDoubleClickEvent(QMouseEvent* event);
 
+  void updateTool(QKeyEvent* event);
+  void updateTool(QMouseEvent* event);
+
   /**
     * Tells the Diagram to set the block at the position of \p event, using the currently set block type.  If \p event
     * is a mouse event involving the left mouse button, then the block will be set to the currently set type unless it
@@ -146,7 +152,7 @@ class LevelWidget : public QGraphicsView {
     * @sa Diagram::drawLine()
     * @sa LineTool
     */
-  void drawLine(QMouseEvent* event);
+  void drawLine(QMouseEvent* event, bool commit);
 
   /**
     * Tells the Diagram to perform a flood fill operation starting at the position of \p event, using the currently
@@ -179,14 +185,25 @@ class LevelWidget : public QGraphicsView {
     */
   void removeBlock(const BlockPosition& position);
 
+  QGraphicsItem* addEphemeralBlock(const BlockInstance& block);
+
  protected slots:
   /**
     * Applies \p transaction to the current level.  Called whenever the Diagram changes.
     */
   void updateLevel(const BlockTransaction& transaction);
 
+  void updateEphemeralBlocks(const BlockTransaction& transaction);
+
  private:
+  enum State {
+    kStateInitial,
+    kStateUnsatisfied,
+    kStateBrushDrag
+  };
+
   QHash<BlockPosition, QGraphicsItem*> item_model_;
+  QHash<BlockPosition, QGraphicsItem*> ephemeral_item_model_;
   QGraphicsScene* scene_;
   int level_;
   Diagram* diagram_;
@@ -197,6 +214,8 @@ class LevelWidget : public QGraphicsView {
   blocktype_t block_type_;
   QPixmap template_image_;
   int copied_level_;
+  QScopedPointer<Tool> current_tool_;
+  State state_;
 };
 
 #endif // LEVEL_WIDGET_H

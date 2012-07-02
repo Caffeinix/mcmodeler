@@ -29,6 +29,10 @@ uint qHash(const BlockPosition& position) {
   return qHash(hash_seed);
 }
 
+BlockPosition::BlockPosition() : x_(0), y_(0), z_(0), vectors_known_(false) {
+
+}
+
 BlockPosition::BlockPosition(int x, int y, int z)
     : x_(x), y_(y), z_(z), vectors_known_(false) {
 }

@@ -16,6 +16,8 @@
 #ifndef TOOL_H
 #define TOOL_H
 
+#include <QVector>
+
 class BlockOrientation;
 class BlockPosition;
 class BlockPrototype;
@@ -30,13 +32,23 @@ class BlockTransaction;
   */
 class Tool : public QObject {
  public:
+  virtual void setStateFrom(Tool* other);
+
+  virtual void appendPosition(const BlockPosition& position);
+
+  virtual void clear();
+
+  virtual ~Tool();
+
   /**
     * Sets the \p position at a particular \p index, the meaning of which depends on the tool.  How many indices are
     * required or desired also depends on the tool.  Extra indices will be ignored.
     * @param index The index, starting at 0, for which \p position should be set.
     * @param position The BlockPosition to set at this index.
     */
-  virtual void setPositionAtIndex(int index, const BlockPosition& position) = 0;
+  virtual void setPositionAtIndex(int index, const BlockPosition& position);
+
+  virtual bool wantsMorePositions() = 0;
 
   /**
     * Modifies the BlockTransaction passed as \p transaction so that it reflects the results of applying the tool to
@@ -46,6 +58,13 @@ class Tool : public QObject {
     * @param[in,out] transaction The transaction that should be modified with the results of applying the tool.
     */
   virtual void draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction) = 0;
+
+  virtual BlockPosition positionAtIndex(int index) const;
+
+  virtual int countPositions() const;
+
+private:
+  QVector<BlockPosition> positions_;
 };
 
 #endif // TOOL_H

@@ -28,6 +28,8 @@
   */
 class BlockPosition {
  public:
+  BlockPosition();
+
   /** Constructs a BlockPosition with the given x, y, and z coordinates. */
   BlockPosition(int x, int y, int z);
 

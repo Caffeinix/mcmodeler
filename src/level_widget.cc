@@ -19,7 +19,9 @@
 #include "block_position.h"
 #include "block_transaction.h"
 #include "diagram.h"
+#include "line_tool.h"
 #include "macros.h"
+#include "pencil_tool.h"
 
 static const int kSpriteWidth = 16;
 static const int kSpriteHeight = 16;
@@ -38,12 +40,16 @@ LevelWidget::LevelWidget(QWidget* parent) :
     in_pan_mode_(false),
     last_block_position_(0, 0, 0),
     block_type_(kBlockTypeUnknown),
-    copied_level_(-1) {
+    copied_level_(-1),
+    state_(kStateInitial) {
   setScene(scene_);
   setBackgroundBrush(QBrush(QPixmap(":/grid_background.png")));
   setSceneRect(QRectF(-kCanvasWidth / 2, -kCanvasHeight / 2, kCanvasWidth, kCanvasHeight));
   setTransformationAnchor(QGraphicsView::NoAnchor);
+  setMouseTracking(true);
 }
+
+LevelWidget::~LevelWidget() {}
 
 void LevelWidget::setBlockManager(BlockManager* block_mgr) {
   block_mgr_ = block_mgr;
@@ -52,10 +58,13 @@ void LevelWidget::setBlockManager(BlockManager* block_mgr) {
 void LevelWidget::setDiagram(Diagram* diagram) {
   diagram_ = diagram;
   connect(diagram, SIGNAL(diagramChanged(BlockTransaction)), SLOT(updateLevel(BlockTransaction)));
+  connect(diagram, SIGNAL(ephemeralBlocksChanged(BlockTransaction)), SLOT(updateEphemeralBlocks(BlockTransaction)));
   setLevel(0);
+  current_tool_.reset(new PencilTool(diagram_));
 }
 
 void LevelWidget::updateLevel(const BlockTransaction& transaction) {
+  qDebug() << "Diagram changed.";
   QElapsedTimer timer;
   timer.start();
   foreach (const BlockInstance& old_block, transaction.old_blocks()) {
@@ -63,6 +72,22 @@ void LevelWidget::updateLevel(const BlockTransaction& transaction) {
   }
   foreach (const BlockInstance& new_block, transaction.new_blocks()) {
     addBlock(new_block);
+  }
+  // QGraphicsScene doesn't notify the view that things have changed until the next event loop
+  // cycle.  Qt apparently optimizes mouse moves so that they don't return control to the event loop
+  // while the mouse is in motion, which causes the view to freeze.  This hack fixes the problem.
+  qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
+}
+
+void LevelWidget::updateEphemeralBlocks(const BlockTransaction& transaction) {
+  // Remove all ephemeral items from the view.
+  foreach(QGraphicsItem* item, ephemeral_item_model_.values()) {
+    scene()->removeItem(item);
+  }
+  ephemeral_item_model_.clear();
+
+  foreach (const BlockInstance& new_block, transaction.new_blocks()) {
+    addEphemeralBlock(new_block);
   }
   // QGraphicsScene doesn't notify the view that things have changed until the next event loop
   // cycle.  Qt apparently optimizes mouse moves so that they don't return control to the event loop
@@ -93,33 +118,67 @@ bool LevelWidget::event(QEvent* event) {
   return QGraphicsView::event(event);
 }
 
-void LevelWidget::keyPressEvent(QKeyEvent* event) {
-  if (event->key() == Qt::Key_Space && !event->isAutoRepeat()) {
-    setCursor(Qt::OpenHandCursor);
-    in_pan_mode_ = true;
+void LevelWidget::updateTool(QKeyEvent* event) {
+  if (event->type() == QEvent::KeyPress) {
+    if (event->key() == Qt::Key_Shift) {
+      Tool* line_tool = new LineTool(diagram_);
+      line_tool->setStateFrom(current_tool_.data());
+      current_tool_.reset(line_tool);
+    }
+  } else {  // Key release.
+    Tool* pencil_tool = new PencilTool(diagram_);
+    pencil_tool->setStateFrom(current_tool_.data());
+    current_tool_.reset(pencil_tool);
   }
+}
+
+void LevelWidget::updateTool(QMouseEvent* event) {
+  if (event->modifiers() & Qt::ShiftModifier) {
+    Tool* line_tool = new LineTool(diagram_);
+    line_tool->setStateFrom(current_tool_.data());
+    current_tool_.reset(line_tool);
+  } else {
+    Tool* pencil_tool = new PencilTool(diagram_);
+    pencil_tool->setStateFrom(current_tool_.data());
+    current_tool_.reset(pencil_tool);
+  }
+}
+
+void LevelWidget::keyPressEvent(QKeyEvent* event) {
+  updateTool(event);
 }
 
 void LevelWidget::keyReleaseEvent(QKeyEvent* event) {
-  if (event->key() == Qt::Key_Space && !event->isAutoRepeat()) {
-    unsetCursor();
-    in_pan_mode_ = false;
-  }
+  updateTool(event);
 }
 
-void LevelWidget:: mousePressEvent(QMouseEvent* event) {
-  last_move_event_pos_ = event->pos();
-  if (in_pan_mode_) {
-    setCursor(Qt::ClosedHandCursor);
-  } else if (event->modifiers() & Qt::ControlModifier) {
-    fillBlocks(event);
-  } else if (event->modifiers() & Qt::ShiftModifier) {
-    if (!last_block_position_.cornerVector().isNull()) {
-      drawLine(event);
-    }
+void LevelWidget::mousePressEvent(QMouseEvent* event) {
+  updateTool(event);
+
+  if (current_tool_->countPositions() == 1 && !current_tool_->wantsMorePositions()) {
+    state_ = kStateBrushDrag;
   } else {
-    last_block_position_ = positionForPoint(mapToScene(event->pos()));
-    toggleBlock(event);
+    state_ = kStateInitial;
+  }
+
+  BlockTransaction transaction;
+  BlockPrototype* prototype = block_mgr_->getPrototype(block_type_);
+  current_tool_->draw(prototype, prototype->defaultOrientation(), &transaction);
+  diagram_->commitEphemeral(transaction);
+}
+
+void LevelWidget::mouseReleaseEvent(QMouseEvent* event) {
+  updateTool(event);
+  BlockPosition pos = positionForPoint(mapToScene(event->pos()));
+
+  if (!current_tool_->wantsMorePositions()) {
+    // Commit the current transaction for real.
+    BlockTransaction transaction;
+    BlockPrototype* prototype = block_mgr_->getPrototype(block_type_);
+    current_tool_->draw(prototype, prototype->defaultOrientation(), &transaction);
+    diagram_->commit(transaction);
+    current_tool_->clear();
+    state_ = kStateInitial;
   }
 }
 
@@ -129,14 +188,24 @@ void LevelWidget::mouseDoubleClickEvent(QMouseEvent* event) {
 }
 
 void LevelWidget::mouseMoveEvent(QMouseEvent* event) {
-  if (in_pan_mode_) {
-    QPoint delta = last_move_event_pos_ - event->pos();
-    translate(-delta.x(), -delta.y());
-  } else {
-    last_block_position_ = positionForPoint(mapToScene(event->pos()));
-    toggleBlock(event);
+  updateTool(event);
+
+  BlockPosition pos = positionForPoint(mapToScene(event->pos()));
+  if (state_ == kStateInitial) {
+    // Add a new point to the tool and draw it ephemerally.
+    current_tool_->appendPosition(pos);
+    state_ = kStateUnsatisfied;
+  } else if (state_ == kStateUnsatisfied) {
+    // Reset last point to current position and draw it ephemerally.
+    current_tool_->setPositionAtIndex(current_tool_->countPositions() - 1, pos);
+  } else if (state_ == kStateBrushDrag) {
+    // Brush-like tool, mouse is down.  Append current position to the brush stroke.
+    current_tool_->appendPosition(pos);
   }
-  last_move_event_pos_ = event->pos();
+  BlockTransaction transaction;
+  BlockPrototype* prototype = block_mgr_->getPrototype(block_type_);
+  current_tool_->draw(prototype, prototype->defaultOrientation(), &transaction);
+  diagram_->commitEphemeral(transaction);
 }
 
 QGraphicsItem* LevelWidget::itemAtPosition(const BlockPosition& position) const {
@@ -180,7 +249,7 @@ void LevelWidget::toggleBlock(QMouseEvent* event) {
   }
 }
 
-void LevelWidget::drawLine(QMouseEvent* event) {
+void LevelWidget::drawLine(QMouseEvent* event, bool commit) {
   if (block_type_ == kBlockTypeUnknown) {
     return;
   }
@@ -189,6 +258,7 @@ void LevelWidget::drawLine(QMouseEvent* event) {
   if (event->buttons() & Qt::RightButton) {
     return;
   }
+
   const BlockPrototype* prototype = block_mgr_->getPrototype(block_type_);
   diagram_->drawLine(last_block_position_, position, block_type_, prototype->defaultOrientation());
 }
@@ -207,13 +277,6 @@ void LevelWidget::fillBlocks(QMouseEvent* event) {
   }
 }
 
-void LevelWidget::mouseReleaseEvent(QMouseEvent* event) {
-  if (in_pan_mode_) {
-    setCursor(Qt::OpenHandCursor);
-  }
-  last_move_event_pos_ = event->pos();
-}
-
 BlockPosition LevelWidget::positionForPoint(const QPointF& point) const {
   BlockPosition ret(qRound(point.x() / kSpriteWidth), level_, qRound(point.y() / kSpriteHeight));
   return ret;
@@ -228,6 +291,25 @@ void LevelWidget::drawBackground(QPainter* painter, const QRectF& rect) {
 
 void LevelWidget::drawForeground(QPainter* painter, const QRectF& rect) {
   painter->drawPixmap(3, 3, 11, 11, QPixmap(":/origin.png"));
+}
+
+QGraphicsItem* LevelWidget::addEphemeralBlock(const BlockInstance& block) {
+  if (!block_mgr_ || !diagram_) {
+    return NULL;
+  }
+
+  const BlockPosition& position = block.position();
+
+  BlockPrototype* prototype = block.prototype();
+  QGraphicsPixmapItem* item = scene()->addPixmap(prototype->sprite(block.orientation()));
+  item->setOffset(-0.5 * kSpriteWidth, -0.5 * kSpriteHeight);
+  item->setPos(position.x() * kSpriteWidth, position.z() * kSpriteHeight);
+  item->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
+  item->setData(0, prototype->type());
+  item->setZValue(position.y() + 64.0);  // Stack on top of normal blocks.
+  item->setOpacity(0.25);
+  ephemeral_item_model_.insert(position, item);
+  return item;
 }
 
 QGraphicsItem* LevelWidget::addBlock(const BlockInstance& block) {

@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-#ifndef LINE_TOOL_H
-#define LINE_TOOL_H
+#ifndef PENCIL_TOOL_H
+#define PENCIL_TOOL_H
 
 #include "block_position.h"
 #include "tool.h"
@@ -22,11 +22,11 @@
 class BlockOracle;
 
 /**
-  * A Tool that draws straight lines between points.
+  * A Tool that draws individual blocks.
   */
-class LineTool : public Tool {
+class PencilTool : public Tool {
  public:
-  explicit LineTool(BlockOracle* oracle);
+  explicit PencilTool(BlockOracle* oracle);
   virtual bool wantsMorePositions();
   virtual void draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction);
 
@@ -34,4 +34,4 @@ class LineTool : public Tool {
   BlockOracle* oracle_;
 };
 
-#endif // LINE_TOOL_H
+#endif // PENCIL_TOOL_H
