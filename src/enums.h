@@ -58,6 +58,7 @@ enum BlockGeometry {
   kBlockGeometryLadder,
   kBlockGeometryPressurePlate,
   kBlockGeometrySlab,
+  kBlockGeometrySnow,
   kBlockGeometryStairs,
   kBlockGeometryTorchOnFloor,
   kBlockGeometryTorchOnWall

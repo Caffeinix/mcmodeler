@@ -65,6 +65,8 @@ BlockProperties::BlockProperties(const QVariantMap& block_data) {
         geometry_ = kBlockGeometryDoor;
       } else if (value.toString() == "stairs") {
         geometry_ = kBlockGeometryStairs;
+      } else if (value.toString() == "snow") {
+        geometry_ = kBlockGeometrySnow;
       } else {
         geometry_ = kBlockGeometryCube;
       }

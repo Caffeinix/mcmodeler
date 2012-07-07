@@ -20,6 +20,7 @@
 #include "about_box.h"
 #include "block_manager.h"
 #include "block_picker.h"
+#include "block_prototype.h"
 #include "block_type.h"
 #include "diagram.h"
 
@@ -54,8 +55,9 @@ void MainWindow::setBlockManager(BlockManager* block_mgr) {
 }
 
 void MainWindow::setupToolbox() {
-  for (blocktype_t i = 0; i < BlockPrototype::blockCount(); ++i) {
-    BlockPrototype* block = block_mgr_->getPrototype(i);
+  BlockTypeIterator iter = BlockPrototype::blockIterator();
+  while (iter.hasNext()) {
+    BlockPrototype* block = block_mgr_->getPrototype(iter.next());
     ui.block_picker_->addBlock(block);
   }
   connect(ui.block_picker_, SIGNAL(blockSelected(blocktype_t)),

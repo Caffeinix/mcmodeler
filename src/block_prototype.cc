@@ -74,11 +74,10 @@ void BlockPrototype::setupBlockProperties() {
 
   s_type_mapping = new QMap<blocktype_t, BlockProperties>();
   QVariantList blocks = root.toList();
-  int i = 0;
   foreach (QVariant block_variant, blocks) {
     QVariantMap block = block_variant.toMap();
-    s_type_mapping->insert(i, BlockProperties(block));
-    ++i;
+    blocktype_t type = block.value("id", kBlockTypeUnknown).value<blocktype_t>();
+    s_type_mapping->insert(type, BlockProperties(block));
   }
 }
 
@@ -92,11 +91,8 @@ QString BlockPrototype::nameOfType(blocktype_t type) {
 }
 
 // static
-int BlockPrototype::blockCount() {
-  if (!s_type_mapping) {
-    return 0;
-  }
-  return s_type_mapping->size();
+BlockTypeIterator BlockPrototype::blockIterator() {
+  return BlockTypeIterator(s_type_mapping->keys());
 }
 
 const BlockProperties& BlockPrototype::properties() const {
@@ -117,6 +113,9 @@ BlockPrototype::BlockPrototype(blocktype_t type, TexturePack* texture_pack, Bloc
       break;
     case kBlockGeometrySlab:
       renderable_.reset(new RectangularPrismRenderable(QVector3D(1.0f, 0.5f, 1.0f)));
+      break;
+    case kBlockGeometrySnow:
+      renderable_.reset(new RectangularPrismRenderable(QVector3D(1.0f, 0.125f, 1.0f)));
       break;
     case kBlockGeometryChest:
       renderable_.reset(new RectangularPrismRenderable(QVector3D(0.9f, 0.9f, 0.9f),
@@ -167,7 +166,8 @@ BlockPrototype::BlockPrototype(blocktype_t type, TexturePack* texture_pack, Bloc
     }
   }
   QPoint sprite_offset = properties_.spriteOffset();
-  if (!properties_.isValid()) {
+  qDebug() << "Sprite offset:" << sprite_offset;
+  if (!properties_.isValid() || sprite_offset.x() < 0 || sprite_offset.y() < 0) {
     sprite_texture_ = Texture(widget, ":/null_sprite.png", 0, 0, 16, 16);
   } else if (properties_.isBiomeGrass()) {
     sprite_texture_ = Texture(widget, terrain_png, sprite_offset.x(), sprite_offset.y(), 16, 16,

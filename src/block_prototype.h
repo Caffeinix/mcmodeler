@@ -29,6 +29,8 @@ class BlockPosition;
 class TexturePack;
 class QGLWidget;
 
+typedef QListIterator<blocktype_t> BlockTypeIterator;
+
 /**
   * Provides access to data and behavior common to a particular kind of block.  Each block type (sand, stone pressure
   * plate, etc) has a single BlockPrototype instance associated with it, which can be accessed through the BlockManager
@@ -50,9 +52,10 @@ class BlockPrototype : public RenderDelegate {
   static QString nameOfType(blocktype_t type);
 
   /**
-    * Returns the number of unique block types known to MCModeler.
+    * Returns a non-mutable iterator over all known block types.
+    * @todo This should move to BlockManager and stop being static.
     */
-  static int blockCount();
+  static BlockTypeIterator blockIterator();
 
   /**
     * Constructs a BlockPrototype.
