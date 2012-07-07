@@ -128,99 +128,25 @@ PaneRenderable::TextureCoords PaneRenderable::createTextureCoords(const Geometry
 
 void PaneRenderable::addGeometry(const PaneRenderable::Geometry& geometry,
                                  const PaneRenderable::TextureCoords& texture_coords) {
-  // add the front face
-  addQuad(geometry[0][kBottomLeftCorner], geometry[0][kBottomRightCorner],
-          geometry[0][kTopRightCorner], geometry[0][kTopLeftCorner], texture_coords.at(0));
+  for (int t = 0, g = 0; t < texture_coords.size(); t += 6, g += 2) {
+    // add the front face
+    addQuad(geometry[g][kBottomLeftCorner], geometry[g][kBottomRightCorner],
+            geometry[g][kTopRightCorner], geometry[g][kTopLeftCorner], texture_coords.at(t));
 
-  // add the back face
-  addQuad(geometry[1][kBottomRightCorner], geometry[1][kBottomLeftCorner],
-          geometry[1][kTopLeftCorner], geometry[1][kTopRightCorner], texture_coords.at(1));
+    // add the back face
+    addQuad(geometry[g + 1][kBottomRightCorner], geometry[g + 1][kBottomLeftCorner],
+            geometry[g + 1][kTopLeftCorner], geometry[g + 1][kTopRightCorner], texture_coords.at(t + 1));
 
-  // add the sides
-  addQuad(geometry[1][kBottomLeftCorner], geometry[1][kBottomRightCorner],
-          geometry[0][kBottomRightCorner], geometry[0][kBottomLeftCorner], texture_coords.at(2));  // Bottom
-  addQuad(geometry[1][kBottomRightCorner], geometry[1][kTopRightCorner],
-          geometry[0][kTopRightCorner], geometry[0][kBottomRightCorner], texture_coords.at(3));    // Right
-  addQuad(geometry[1][kTopRightCorner], geometry[1][kTopLeftCorner],
-          geometry[0][kTopLeftCorner], geometry[0][kTopRightCorner], texture_coords.at(4));        // Top
-  addQuad(geometry[1][kTopLeftCorner], geometry[1][kBottomLeftCorner],
-          geometry[0][kBottomLeftCorner], geometry[0][kTopLeftCorner], texture_coords.at(5));      // Left
-
-
-  // add the front face
-  addQuad(geometry[2][kBottomLeftCorner], geometry[2][kBottomRightCorner],
-          geometry[2][kTopRightCorner], geometry[2][kTopLeftCorner], texture_coords.at(0 + 6));
-
-  // add the back face
-  addQuad(geometry[3][kBottomRightCorner], geometry[3][kBottomLeftCorner],
-          geometry[3][kTopLeftCorner], geometry[3][kTopRightCorner], texture_coords.at(0 + 7));
-
-  // add the sides
-  addQuad(geometry[3][kBottomLeftCorner], geometry[3][kBottomRightCorner],
-          geometry[2][kBottomRightCorner], geometry[2][kBottomLeftCorner], texture_coords.at(0 + 8));  // Bottom
-  addQuad(geometry[3][kBottomRightCorner], geometry[3][kTopRightCorner],
-          geometry[2][kTopRightCorner], geometry[2][kBottomRightCorner], texture_coords.at(0 + 9));    // Right
-  addQuad(geometry[3][kTopRightCorner], geometry[3][kTopLeftCorner],
-          geometry[2][kTopLeftCorner], geometry[2][kTopRightCorner], texture_coords.at(0 + 10));        // Top
-  addQuad(geometry[3][kTopLeftCorner], geometry[3][kBottomLeftCorner],
-          geometry[2][kBottomLeftCorner], geometry[2][kTopLeftCorner], texture_coords.at(0 + 11));      // Left
-
-
-  // add the front face
-  addQuad(geometry[4][kBottomLeftCorner], geometry[4][kBottomRightCorner],
-          geometry[4][kTopRightCorner], geometry[4][kTopLeftCorner], texture_coords.at(6 + 6));
-
-  // add the back face
-  addQuad(geometry[5][kBottomRightCorner], geometry[5][kBottomLeftCorner],
-          geometry[5][kTopLeftCorner], geometry[5][kTopRightCorner], texture_coords.at(6 + 7));
-
-  // add the sides
-  addQuad(geometry[5][kBottomLeftCorner], geometry[5][kBottomRightCorner],
-          geometry[4][kBottomRightCorner], geometry[4][kBottomLeftCorner], texture_coords.at(6 + 8));  // Bottom
-  addQuad(geometry[5][kBottomRightCorner], geometry[5][kTopRightCorner],
-          geometry[4][kTopRightCorner], geometry[4][kBottomRightCorner], texture_coords.at(6 + 9));    // Right
-  addQuad(geometry[5][kTopRightCorner], geometry[5][kTopLeftCorner],
-          geometry[4][kTopLeftCorner], geometry[4][kTopRightCorner], texture_coords.at(6 + 10));        // Top
-  addQuad(geometry[5][kTopLeftCorner], geometry[5][kBottomLeftCorner],
-          geometry[4][kBottomLeftCorner], geometry[4][kTopLeftCorner], texture_coords.at(6 + 11));      // Left
-
-
-  // add the front face
-  addQuad(geometry[6][kBottomLeftCorner], geometry[6][kBottomRightCorner],
-          geometry[6][kTopRightCorner], geometry[6][kTopLeftCorner], texture_coords.at(12 + 6));
-
-  // add the back face
-  addQuad(geometry[7][kBottomRightCorner], geometry[7][kBottomLeftCorner],
-          geometry[7][kTopLeftCorner], geometry[7][kTopRightCorner], texture_coords.at(12 + 7));
-
-  // add the sides
-  addQuad(geometry[7][kBottomLeftCorner], geometry[7][kBottomRightCorner],
-          geometry[6][kBottomRightCorner], geometry[6][kBottomLeftCorner], texture_coords.at(12 + 8));  // Bottom
-  addQuad(geometry[7][kBottomRightCorner], geometry[7][kTopRightCorner],
-          geometry[6][kTopRightCorner], geometry[6][kBottomRightCorner], texture_coords.at(12 + 9));    // Right
-  addQuad(geometry[7][kTopRightCorner], geometry[7][kTopLeftCorner],
-          geometry[6][kTopLeftCorner], geometry[6][kTopRightCorner], texture_coords.at(12 + 10));        // Top
-  addQuad(geometry[7][kTopLeftCorner], geometry[7][kBottomLeftCorner],
-          geometry[6][kBottomLeftCorner], geometry[6][kTopLeftCorner], texture_coords.at(12 + 11));      // Left
-
-
-  // add the front face
-  addQuad(geometry[8][kBottomLeftCorner], geometry[8][kBottomRightCorner],
-          geometry[8][kTopRightCorner], geometry[8][kTopLeftCorner], texture_coords.at(12 + 12));
-
-  // add the back face
-  addQuad(geometry[9][kBottomRightCorner], geometry[9][kBottomLeftCorner],
-          geometry[9][kTopLeftCorner], geometry[9][kTopRightCorner], texture_coords.at(12 + 13));
-
-  // add the sides
-  addQuad(geometry[9][kBottomLeftCorner], geometry[9][kBottomRightCorner],
-          geometry[8][kBottomRightCorner], geometry[8][kBottomLeftCorner], texture_coords.at(12 + 14));  // Bottom
-  addQuad(geometry[9][kBottomRightCorner], geometry[9][kTopRightCorner],
-          geometry[8][kTopRightCorner], geometry[8][kBottomRightCorner], texture_coords.at(12 + 15));    // Right
-  addQuad(geometry[9][kTopRightCorner], geometry[9][kTopLeftCorner],
-          geometry[8][kTopLeftCorner], geometry[8][kTopRightCorner], texture_coords.at(12 + 16));        // Top
-  addQuad(geometry[9][kTopLeftCorner], geometry[9][kBottomLeftCorner],
-          geometry[8][kBottomLeftCorner], geometry[8][kTopLeftCorner], texture_coords.at(12 + 17));      // Left
+    // add the sides
+    addQuad(geometry[g + 1][kBottomLeftCorner], geometry[g + 1][kBottomRightCorner],
+            geometry[g][kBottomRightCorner], geometry[g][kBottomLeftCorner], texture_coords.at(t + 2));  // Bottom
+    addQuad(geometry[g + 1][kBottomRightCorner], geometry[g + 1][kTopRightCorner],
+            geometry[g][kTopRightCorner], geometry[g][kBottomRightCorner], texture_coords.at(t + 3));    // Right
+    addQuad(geometry[g + 1][kTopRightCorner], geometry[g + 1][kTopLeftCorner],
+            geometry[g][kTopLeftCorner], geometry[g][kTopRightCorner], texture_coords.at(t + 4));        // Top
+    addQuad(geometry[g + 1][kTopLeftCorner], geometry[g + 1][kBottomLeftCorner],
+            geometry[g][kBottomLeftCorner], geometry[g][kTopLeftCorner], texture_coords.at(t + 5));      // Left
+  }
 }
 
 bool PaneRenderable::shouldRenderQuad(int index,
