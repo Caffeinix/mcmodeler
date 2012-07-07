@@ -33,11 +33,12 @@ const char kCategoryNether[] = "nether";
 
 const char kGeometryBed[] = "bed";
 const char kGeometryCube[] = "cube";
-const char kGeometrySlab[] = "slab";
 const char kGeometryCactus[] = "cactus";
 const char kGeometryChest[] = "chest";
 const char kGeometryDoor[] = "door";
 const char kGeometryLadder[] = "ladder";
+const char kGeometryPane[] = "pane";
+const char kGeometrySlab[] = "slab";
 const char kGeometryStairs[] = "stairs";
 const char kGeometryPressurePlate[] = "pressure_plate";
 const char kGeometrySnow[] = "snow";
@@ -47,6 +48,18 @@ const char kOrientationFacingSouth[] = "Facing south";
 const char kOrientationFacingWest[] = "Facing west";
 const char kOrientationFacingNorth[] = "Facing north";
 const char kOrientationFacingEast[] = "Facing east";
+const char kOrientationPaneNorthSouth[] = "Facing north/south";
+const char kOrientationPaneEastWest[] = "Facing east/west";
+const char kOrientationPaneNorthHalf[] = "North half";
+const char kOrientationPaneSouthHalf[] = "South half";
+const char kOrientationPaneEastHalf[] = "East half";
+const char kOrientationPaneWestHalf[] = "West half";
+const char kOrientationPaneNorthwestCorner[] = "Northwest corner";
+const char kOrientationPaneSouthwestCorner[] = "Southwest corner";
+const char kOrientationPaneNortheastCorner[] = "Northeast corner";
+const char kOrientationPaneSoutheastCorner[] = "Southeast corner";
+const char kOrientationPaneCross[] = "Cross";
+
 
 // Anatomy of a 32-bit MCModeler block ID:
 // XXXXXXXX|UUUU|BBBB|RRRRRRRR|MMMMMMMM
@@ -140,6 +153,30 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationNone,
                   textures(QPoint(4, 0)),
                   false);
+  blocks << block("Spruce Wood Planks",
+                  0x05 + (0x1 << kBlockDataShift),
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryCube,
+                  QPoint(6, 12),
+                  QVariantList() << kOrientationNone,
+                  textures(QPoint(6, 12)),
+                  false);
+  blocks << block("Birch Wood Planks",
+                  0x05 + (0x2 << kBlockDataShift),
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryCube,
+                  QPoint(6, 13),
+                  QVariantList() << kOrientationNone,
+                  textures(QPoint(6, 13)),
+                  false);
+  blocks << block("Jungle Wood Planks",
+                  0x05 + (0x3 << kBlockDataShift),
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryCube,
+                  QPoint(7, 12),
+                  QVariantList() << kOrientationNone,
+                  textures(QPoint(7, 12)),
+                  false);
 
   blocks << block("Oak Wood",
                   0x11,
@@ -164,6 +201,14 @@ Application::Application(int argc, char *argv[]) :
                   QPoint(4, 7),
                   QVariantList() << kOrientationNone,
                   textures(QList<QPoint>() << QPoint(4, 7) << QPoint(4, 7) << QPoint(5, 1) << QPoint(4, 7) << QPoint(5, 1) << QPoint(4, 7)),
+                  false);
+  blocks << block("Jungle Wood",
+                  0x11 + (0x3 << kBlockDataShift),
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryCube,
+                  QPoint(9, 9),
+                  QVariantList() << kOrientationNone,
+                  textures(QList<QPoint>() << QPoint(9, 9) << QPoint(9, 9) << QPoint(5, 1) << QPoint(9, 9) << QPoint(5, 1) << QPoint(9, 9)),
                   false);
 
   blocks << block("Oak Leaves",
@@ -216,11 +261,24 @@ Application::Application(int argc, char *argv[]) :
                   textures(QPoint(1, 0)),
                   false);
   blocks << block("Glass",
-                  0x14,
-                  QStringList() << kCategoryConstruction,
+                  0x66,
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
                   kGeometryCube,
                   QPoint(1, 3),
                   QVariantList() << kOrientationNone,
+                  textures(QPoint(1, 3)),
+                  true);
+  blocks << block("Glass Pane",
+                  0x14,
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryPane,
+                  QPoint(1, 3),
+                  QVariantList() << kOrientationPaneNorthSouth << kOrientationPaneEastWest
+                                 << kOrientationPaneNorthHalf << kOrientationPaneSouthHalf
+                                 << kOrientationPaneEastHalf << kOrientationPaneWestHalf
+                                 << kOrientationPaneNorthwestCorner << kOrientationPaneSouthwestCorner
+                                 << kOrientationPaneNortheastCorner << kOrientationPaneSoutheastCorner
+                                 << kOrientationPaneCross,
                   textures(QPoint(1, 3)),
                   true);
   blocks << block("Cobblestone",
@@ -231,6 +289,48 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationNone,
                   textures(QPoint(0, 1)),
                   false);
+  blocks << block("Mossy Cobblestone",
+                  0x30,
+                  QStringList() << kCategoryConstruction << kCategoryMining,
+                  kGeometryCube,
+                  QPoint(4, 2),
+                  QVariantList() << kOrientationNone,
+                  textures(QPoint(4, 2)),
+                  false);
+
+  blocks << block("Stone Brick",
+                  0x04,
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryCube,
+                  QPoint(6, 3),
+                  QVariantList() << kOrientationNone,
+                  textures(QPoint(6, 3)),
+                  false);
+  blocks << block("Mossy Stone Brick",
+                  0x04 + (0x1 << kBlockDataShift),
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryCube,
+                  QPoint(4, 6),
+                  QVariantList() << kOrientationNone,
+                  textures(QPoint(4, 6)),
+                  false);
+  blocks << block("Cracked Stone Brick",
+                  0x04 + (0x2 << kBlockDataShift),
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryCube,
+                  QPoint(5, 6),
+                  QVariantList() << kOrientationNone,
+                  textures(QPoint(5, 6)),
+                  false);
+  blocks << block("Chiseled Stone Brick",
+                  0x04 + (0x3 << kBlockDataShift),
+                  QStringList() << kCategoryConstruction,
+                  kGeometryCube,
+                  QPoint(5, 13),
+                  QVariantList() << kOrientationNone,
+                  textures(QPoint(5, 13)),
+                  false);
+
   blocks << block("Sand",
                   0x0C,
                   QStringList() << kCategoryBasic,
@@ -407,6 +507,7 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationNone,
                   textures(QPoint(2, 13)),
                   false);
+
   blocks << block("Cobblestone Slab",
                   0x44 + (0x3 << kBlockDataShift),
                   QStringList() << kCategoryConstruction,
@@ -455,6 +556,55 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationNone,
                   textures(QPoint(4, 0)),
                   false);
+  blocks << block("Spruce Wood Slab",
+                  0x7E + (0x1 << kBlockDataShift),
+                  QStringList() << kCategoryConstruction,
+                  kGeometrySlab,
+                  QPoint(6, 12),
+                  QVariantList() << kOrientationNone,
+                  textures(QPoint(6, 12)),
+                  true);
+  blocks << block("Double Spruce Wood Slab",
+                  0x7D + (0x1 << kBlockDataShift),
+                  QStringList() << kCategoryConstruction,
+                  kGeometryCube,
+                  QPoint(6, 12),
+                  QVariantList() << kOrientationNone,
+                  textures(QPoint(6, 12)),
+                  false);
+  blocks << block("Birch Wood Slab",
+                  0x7E + (0x2 << kBlockDataShift),
+                  QStringList() << kCategoryConstruction,
+                  kGeometrySlab,
+                  QPoint(6, 13),
+                  QVariantList() << kOrientationNone,
+                  textures(QPoint(6, 13)),
+                  true);
+  blocks << block("Double Birch Wood Slab",
+                  0x7D + (0x2 << kBlockDataShift),
+                  QStringList() << kCategoryConstruction,
+                  kGeometryCube,
+                  QPoint(6, 13),
+                  QVariantList() << kOrientationNone,
+                  textures(QPoint(6, 13)),
+                  false);
+  blocks << block("Jungle Wood Slab",
+                  0x7E + (0x3 << kBlockDataShift),
+                  QStringList() << kCategoryConstruction,
+                  kGeometrySlab,
+                  QPoint(7, 12),
+                  QVariantList() << kOrientationNone,
+                  textures(QPoint(7, 12)),
+                  true);
+  blocks << block("Double Jungle Wood Slab",
+                  0x7D + (0x3 << kBlockDataShift),
+                  QStringList() << kCategoryConstruction,
+                  kGeometryCube,
+                  QPoint(7, 12),
+                  QVariantList() << kOrientationNone,
+                  textures(QPoint(7, 12)),
+                  false);
+
   blocks << block("Brick",
                   0x2D,
                   QStringList() << kCategoryBasic << kCategoryConstruction,
@@ -519,6 +669,14 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationNone,
                   textures(QPoint(0, 9)),
                   false);
+  blocks << block("Emerald Block",
+                  0x85,
+                  QStringList() << kCategoryConstruction,
+                  kGeometryCube,
+                  QPoint(9, 1),
+                  QVariantList() << kOrientationNone,
+                  textures(QPoint(9, 1)),
+                  false);
   blocks << block("Double Chest (Left Half)",
                   0x36 + (0x1 << kUserDataShift),
                   QStringList() << kCategoryBasic << kCategoryTools,
@@ -566,14 +724,6 @@ Application::Application(int argc, char *argv[]) :
                   QPoint(3, 2),
                   QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
                   textures(QList<QPoint>() << QPoint(3, 2) << QPoint(4, 0) << QPoint(4, 0) << QPoint(4, 0) << QPoint(4, 0) << QPoint(4, 0)),
-                  false);
-  blocks << block("Mossy Cobblestone",
-                  0x30,
-                  QStringList() << kCategoryConstruction << kCategoryMining,
-                  kGeometryCube,
-                  QPoint(4, 2),
-                  QVariantList() << kOrientationNone,
-                  textures(QPoint(4, 2)),
                   false);
   blocks << block("Obsidian",
                   0x31,
@@ -671,6 +821,7 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
                   textures(QList<QPoint>() << QPoint(10, 4) << QPoint(10, 4) << QPoint(9, 1) << QPoint(10, 4) << QPoint(11, 4) << QPoint(10, 4)),
                   false);
+
   blocks << block("Field",
                   0x3C,
                   QStringList() << kCategoryBasic,
@@ -687,6 +838,7 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationNone,
                   textures(QList<QPoint>() << QPoint(2, 0) << QPoint(2, 0) << QPoint(2, 0) << QPoint(2, 0) << QPoint(6, 5) << QPoint(2, 0)),
                   false);
+
   blocks << block("Pumpkin",
                   0x56,
                   QStringList() << kCategoryVegetation,
@@ -695,6 +847,15 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
                   textures(QList<QPoint>() << QPoint(7, 7) << QPoint(6, 7) << QPoint(6, 7) << QPoint(6, 7) << QPoint(6, 6) << QPoint(6, 7)),
                   false);
+  blocks << block("Jack o' Lantern",
+                  0x5B,
+                  QStringList() << kCategoryVegetation,
+                  kGeometryCube,
+                  QPoint(8, 7),
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  textures(QList<QPoint>() << QPoint(8, 7) << QPoint(6, 7) << QPoint(6, 7) << QPoint(6, 7) << QPoint(6, 6) << QPoint(6, 7)),
+                  false);
+
   blocks << block("Netherrack",
                   0x57,
                   QStringList() << kCategoryBasic << kCategoryNether,
@@ -719,6 +880,7 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationNone,
                   textures(QPoint(9, 6)),
                   false);
+
   blocks << block("Glowstone Lamp (Off)",
                   0x7B,
                   QStringList() << kCategoryRedstone,
@@ -735,6 +897,7 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationNone,
                   textures(QPoint(4, 13)),
                   false);
+
   blocks << block("Sandstone",
                   0x18,
                   QStringList() << kCategoryBasic << kCategoryConstruction,
@@ -759,6 +922,7 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationNone,
                   textures(QList<QPoint>() << QPoint(5, 14) << QPoint(5, 14) << QPoint(0, 13) << QPoint(5, 14) << QPoint(0, 11) << QPoint(5, 14)),
                   false);
+
   blocks << block("Note Block",
                   0x19,
                   QStringList() << kCategoryRedstone,
@@ -767,6 +931,7 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationNone,
                   textures(QPoint(10, 4)),
                   false);
+
   blocks << block("Bed (Bottom Half)",
                   0x1A,
                   QStringList() << kCategoryBasic,
@@ -784,6 +949,7 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
                   textures(QList<QPoint>() << QPoint(7, 9) << QPoint(7, 9) << QPoint(4, 0) << QPoint(5, 11) << QPoint(7, 8) << QPoint(8, 9)),
                   true);
+
   blocks << block("Wooden Pressure Plate",
                   0x48,
                   QStringList() << kCategoryRedstone,
@@ -792,6 +958,7 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationNone,
                   textures(QPoint(4, 0)),
                   true);
+
   blocks << block("Wooden Door (Bottom Half)",
                   0x40,
                   QStringList() << kCategoryBasic << kCategoryConstruction,
@@ -808,6 +975,23 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
                   textures(QPoint(1, 5)),
                   true);
+  blocks << block("Iron Door (Bottom Half)",
+                  0x47,
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryDoor,
+                  QPoint(2, 6),
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  textures(QPoint(2, 6)),
+                  true);
+  blocks << block("Iron Door (Top Half)",
+                  0x47 + (0x8 << kBlockDataShift),
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryDoor,
+                  QPoint(2, 5),
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  textures(QPoint(2, 5)),
+                  true);
+
   blocks << block("Cobblestone Stairs",
                   0x43,
                   QStringList() << kCategoryBasic << kCategoryConstruction,
@@ -815,6 +999,38 @@ Application::Application(int argc, char *argv[]) :
                   QPoint(0, 1),
                   QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
                   textures(QPoint(0, 1)),
+                  true);
+  blocks << block("Brick Stairs",
+                  0x6C,
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryStairs,
+                  QPoint(7, 0),
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  textures(QPoint(7, 0)),
+                  true);
+  blocks << block("Stone Brick Stairs",
+                  0x6D,
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryStairs,
+                  QPoint(6, 3),
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  textures(QPoint(6, 3)),
+                  true);
+  blocks << block("Nether Brick Stairs",
+                  0x72,
+                  QStringList() << kCategoryBasic << kCategoryConstruction << kCategoryNether,
+                  kGeometryStairs,
+                  QPoint(0, 15),
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  textures(QPoint(0, 15)),
+                  true);
+  blocks << block("Sandstone Stairs",
+                  0x72,
+                  QStringList() << kCategoryBasic << kCategoryConstruction << kCategoryNether,
+                  kGeometryStairs,
+                  QPoint(0, 13),
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  textures(QPoint(0, 13)),
                   true);
   blocks << block("Oak Wood Stairs",
                   0x35,
@@ -824,6 +1040,31 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
                   textures(QPoint(4, 0)),
                   true);
+  blocks << block("Spruce Wood Stairs",
+                  0x86,
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryStairs,
+                  QPoint(6, 12),
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  textures(QPoint(6, 12)),
+                  true);
+  blocks << block("Birch Wood Stairs",
+                  0x86,
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryStairs,
+                  QPoint(6, 13),
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  textures(QPoint(6, 13)),
+                  true);
+  blocks << block("Jungle Wood Stairs",
+                  0x86,
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryStairs,
+                  QPoint(7, 12),
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  textures(QPoint(7, 12)),
+                  true);
+
   blocks << block("Ladder",
                   0x41,
                   QStringList() << kCategoryBasic << kCategoryConstruction,

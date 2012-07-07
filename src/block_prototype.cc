@@ -28,6 +28,7 @@
 #include "door_renderable.h"
 #include "ladder_renderable.h"
 #include "overlapping_faces_renderable.h"
+#include "pane_renderable.h"
 #include "rectangular_prism_renderable.h"
 #include "renderable.h"
 #include "stairs_renderable.h"
@@ -121,6 +122,9 @@ BlockPrototype::BlockPrototype(blocktype_t type, TexturePack* texture_pack, Bloc
       renderable_.reset(new RectangularPrismRenderable(QVector3D(0.9f, 0.9f, 0.9f),
                                                        RectangularPrismRenderable::kTextureScale));
       break;
+    case kBlockGeometryPane:
+      renderable_.reset(new PaneRenderable(QVector3D(1.0f, 1.0f, 0.125f)));
+      break;
     case kBlockGeometryPressurePlate:
       renderable_.reset(new RectangularPrismRenderable(QVector3D(0.8f, 0.05f, 0.8f)));
       break;
@@ -166,7 +170,6 @@ BlockPrototype::BlockPrototype(blocktype_t type, TexturePack* texture_pack, Bloc
     }
   }
   QPoint sprite_offset = properties_.spriteOffset();
-  qDebug() << "Sprite offset:" << sprite_offset;
   if (!properties_.isValid() || sprite_offset.x() < 0 || sprite_offset.y() < 0) {
     sprite_texture_ = Texture(widget, ":/null_sprite.png", 0, 0, 16, 16);
   } else if (properties_.isBiomeGrass()) {

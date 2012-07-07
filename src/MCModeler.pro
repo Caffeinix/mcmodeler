@@ -38,7 +38,8 @@ HEADERS = \
     block_picker_item_delegate.h \
     ladder_renderable.h \
     sprite_engine.h \
-    texture_pack.h
+    texture_pack.h \
+    pane_renderable.h
 
 SOURCES = \
     about_box.cc \
@@ -74,7 +75,8 @@ SOURCES = \
     block_picker_item_delegate.cc \
     ladder_renderable.cc \
     sprite_engine.cc \
-    texture_pack.cc
+    texture_pack.cc \
+    pane_renderable.cc
 
 QT += opengl
 
