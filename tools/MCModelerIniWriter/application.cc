@@ -281,6 +281,19 @@ Application::Application(int argc, char *argv[]) :
                                  << kOrientationPaneCross,
                   textures(QPoint(1, 3)),
                   true);
+  blocks << block("Iron Bars",
+                  0x65,
+                  QStringList() << kCategoryBasic << kCategoryConstruction,
+                  kGeometryPane,
+                  QPoint(5, 5),
+                  QVariantList() << kOrientationPaneNorthSouth << kOrientationPaneEastWest
+                                 << kOrientationPaneNorthHalf << kOrientationPaneSouthHalf
+                                 << kOrientationPaneEastHalf << kOrientationPaneWestHalf
+                                 << kOrientationPaneNorthwestCorner << kOrientationPaneSouthwestCorner
+                                 << kOrientationPaneNortheastCorner << kOrientationPaneSoutheastCorner
+                                 << kOrientationPaneCross,
+                  textures(QPoint(5, 5)),
+                  true);
   blocks << block("Cobblestone",
                   0x04,
                   QStringList() << kCategoryBasic << kCategoryConstruction,
