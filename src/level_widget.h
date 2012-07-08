@@ -71,6 +71,11 @@ class LevelWidget : public QGraphicsView {
   void setBlockType(blocktype_t type);
 
   /**
+    * Sets the tool with which we are currently drawing to \p tool.
+    */
+  void setCurrentTool(Tool* tool);
+
+  /**
     * Copies the current level into a special clipboard-like buffer.
     */
   void copyLevel();
@@ -202,6 +207,8 @@ class LevelWidget : public QGraphicsView {
     kStateBrushDrag
   };
 
+  void setState(State state);
+
   QHash<BlockPosition, QGraphicsItem*> item_model_;
   QHash<BlockPosition, QGraphicsItem*> ephemeral_item_model_;
   QGraphicsScene* scene_;
@@ -214,7 +221,7 @@ class LevelWidget : public QGraphicsView {
   blocktype_t block_type_;
   QPixmap template_image_;
   int copied_level_;
-  QScopedPointer<Tool> current_tool_;
+  Tool* current_tool_;
   State state_;
 };
 

@@ -42,12 +42,14 @@ LevelWidget::LevelWidget(QWidget* parent) :
     last_block_position_(0, 0, 0),
     block_type_(kBlockTypeUnknown),
     copied_level_(-1),
+    current_tool_(NULL),
     state_(kStateInitial) {
   setScene(scene_);
   setBackgroundBrush(QBrush(QPixmap(":/grid_background.png")));
   setSceneRect(QRectF(-kCanvasWidth / 2, -kCanvasHeight / 2, kCanvasWidth, kCanvasHeight));
   setTransformationAnchor(QGraphicsView::NoAnchor);
   setMouseTracking(true);
+  setCursor(QCursor(Qt::CrossCursor));
 }
 
 LevelWidget::~LevelWidget() {}
@@ -61,7 +63,6 @@ void LevelWidget::setDiagram(Diagram* diagram) {
   connect(diagram, SIGNAL(diagramChanged(BlockTransaction)), SLOT(updateLevel(BlockTransaction)));
   connect(diagram, SIGNAL(ephemeralBlocksChanged(BlockTransaction)), SLOT(updateEphemeralBlocks(BlockTransaction)));
   setLevel(0);
-  current_tool_.reset(new PencilTool(diagram_));
 }
 
 void LevelWidget::updateLevel(const BlockTransaction& transaction) {
@@ -120,29 +121,33 @@ bool LevelWidget::event(QEvent* event) {
 }
 
 void LevelWidget::updateTool(QKeyEvent* event) {
-  if (event->type() == QEvent::KeyPress) {
-    if (event->key() == Qt::Key_Shift) {
-      Tool* line_tool = new LineTool(diagram_);
-      line_tool->setStateFrom(current_tool_.data());
-      current_tool_.reset(line_tool);
-    }
-  } else {  // Key release.
-    Tool* pencil_tool = new PencilTool(diagram_);
-    pencil_tool->setStateFrom(current_tool_.data());
-    current_tool_.reset(pencil_tool);
-  }
+//  if (event->type() == QEvent::KeyPress) {
+//    if (event->key() == Qt::Key_Shift) {
+//      Tool* line_tool = new LineTool(diagram_);
+//      line_tool->setStateFrom(current_tool_.data());
+//      current_tool_.reset(line_tool);
+//    }
+//  } else {  // Key release.
+//    Tool* pencil_tool = new PencilTool(diagram_);
+//    pencil_tool->setStateFrom(current_tool_.data());
+//    current_tool_.reset(pencil_tool);
+//  }
 }
 
 void LevelWidget::updateTool(QMouseEvent* event) {
-  if (event->modifiers() & Qt::ShiftModifier) {
-    Tool* line_tool = new LineTool(diagram_);
-    line_tool->setStateFrom(current_tool_.data());
-    current_tool_.reset(line_tool);
-  } else {
-    Tool* pencil_tool = new PencilTool(diagram_);
-    pencil_tool->setStateFrom(current_tool_.data());
-    current_tool_.reset(pencil_tool);
-  }
+//  if (event->modifiers() & Qt::ShiftModifier) {
+//    Tool* line_tool = new LineTool(diagram_);
+//    line_tool->setStateFrom(current_tool_.data());
+//    current_tool_.reset(line_tool);
+//  } else {
+//    Tool* pencil_tool = new PencilTool(diagram_);
+//    pencil_tool->setStateFrom(current_tool_.data());
+//    current_tool_.reset(pencil_tool);
+//  }
+}
+
+void LevelWidget::setState(LevelWidget::State state) {
+  state_ = state;
 }
 
 void LevelWidget::keyPressEvent(QKeyEvent* event) {
@@ -157,9 +162,9 @@ void LevelWidget::mousePressEvent(QMouseEvent* event) {
   updateTool(event);
 
   if (current_tool_->isBrush() && !current_tool_->wantsMorePositions()) {
-    state_ = kStateBrushDrag;
+    setState(kStateBrushDrag);
   } else {
-    state_ = kStateInitial;
+    setState(kStateInitial);
   }
 
   BlockTransaction transaction;
@@ -179,7 +184,7 @@ void LevelWidget::mouseReleaseEvent(QMouseEvent* event) {
     current_tool_->draw(prototype, prototype->defaultOrientation(), &transaction);
     diagram_->commit(transaction);
     current_tool_->clear();
-    state_ = kStateInitial;
+    setState(kStateInitial);
   }
 }
 
@@ -195,7 +200,7 @@ void LevelWidget::mouseMoveEvent(QMouseEvent* event) {
   if (state_ == kStateInitial) {
     // Add a new point to the tool and draw it ephemerally.
     current_tool_->appendPosition(pos);
-    state_ = kStateUnsatisfied;
+    setState(kStateUnsatisfied);
   } else if (state_ == kStateUnsatisfied) {
     // Reset last point to current position and draw it ephemerally.
     current_tool_->setPositionAtIndex(current_tool_->countPositions() - 1, pos);
@@ -373,6 +378,13 @@ void LevelWidget::setLevel(int level) {
 
 void LevelWidget::setBlockType(blocktype_t type) {
   block_type_ = type;
+}
+
+void LevelWidget::setCurrentTool(Tool* tool) {
+  qDebug() << "Setting current tool to" << tool;
+  current_tool_ = tool;
+  current_tool_->clear();
+  setState(kStateInitial);
 }
 
 void LevelWidget::copyLevel() {

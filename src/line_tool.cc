@@ -23,7 +23,7 @@
 LineTool::LineTool(BlockOracle* oracle) : oracle_(oracle) {}
 
 bool LineTool::isBrush() const {
-  return true;
+  return false;
 }
 
 bool LineTool::wantsMorePositions() {

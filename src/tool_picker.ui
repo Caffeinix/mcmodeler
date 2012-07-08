@@ -18,7 +18,7 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QListWidget" name="listWidget">
+    <widget class="QListWidget" name="list_widget_">
      <property name="verticalScrollBarPolicy">
       <enum>Qt::ScrollBarAlwaysOff</enum>
      </property>
@@ -46,48 +46,10 @@
      <property name="currentRow">
       <number>-1</number>
      </property>
-     <item>
-      <property name="text">
-       <string>Pencil</string>
-      </property>
-      <property name="icon">
-       <iconset resource="icons.qrc">
-        <normaloff>:/icons/pencil_tool.png</normaloff>:/icons/pencil_tool.png</iconset>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Line</string>
-      </property>
-      <property name="icon">
-       <iconset resource="icons.qrc">
-        <normaloff>:/icons/line_tool.png</normaloff>:/icons/line_tool.png</iconset>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Rectangle</string>
-      </property>
-      <property name="icon">
-       <iconset resource="icons.qrc">
-        <normaloff>:/icons/rectangle_tool.png</normaloff>:/icons/rectangle_tool.png</iconset>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Circle</string>
-      </property>
-      <property name="icon">
-       <iconset resource="icons.qrc">
-        <normaloff>:/icons/circle_tool.png</normaloff>:/icons/circle_tool.png</iconset>
-      </property>
-     </item>
     </widget>
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="icons.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

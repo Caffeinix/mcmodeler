@@ -13,37 +13,29 @@
  * limitations under the License.
  */
 
-#ifndef TOOL_PICKER_H
-#define TOOL_PICKER_H
+#ifndef QVARIANT_PTR_H
+#define QVARIANT_PTR_H
 
-#include <QWidget>
+#include <QVariant>
 
-class QListWidgetItem;
-
-class Diagram;
-class Tool;
-
-namespace Ui {
-class ToolPicker;
-}
-
-class ToolPicker : public QWidget {
-  Q_OBJECT
-
+/**
+  * Helper class for storing and retrieving pointers in QVariants.
+  */
+template <typename T> class QVariantPtr {
  public:
-  explicit ToolPicker(QWidget* parent = NULL);
-  virtual ~ToolPicker();
+  /**
+    * Given a QVariant \p v containing a pointer value, returns the pointer.
+    */
+  static T* asPointer(const QVariant& v) {
+    return static_cast<T*>(v.value<void*>());
+  }
 
-  void setDiagram(Diagram* diagram);
-
- signals:
-  void currentToolChanged(Tool* new_tool);
-
- private slots:
-  void updateCurrentTool(QListWidgetItem* old_item, QListWidgetItem* new_item);
-
- private:
-  Ui::ToolPicker* ui;
+  /**
+    * Given a pointer value \p ptr, returns a QVariant holding that pointer.
+    */
+  static QVariant asVariant(T* ptr) {
+    return QVariant::fromValue<void*>(ptr);
+  }
 };
 
-#endif // TOOL_PICKER_H
+#endif  // QVARIANT_PTR_H

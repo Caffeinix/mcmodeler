@@ -32,12 +32,18 @@
          <number>0</number>
         </property>
         <item>
-         <widget class="QListWidget" name="tool_picker_">
+         <widget class="ToolPicker" name="tool_picker_" native="true">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>39</height>
+           </size>
           </property>
           <property name="maximumSize">
            <size>
@@ -45,87 +51,6 @@
             <height>39</height>
            </size>
           </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="verticalScrollBarPolicy">
-           <enum>Qt::ScrollBarAlwaysOff</enum>
-          </property>
-          <property name="horizontalScrollBarPolicy">
-           <enum>Qt::ScrollBarAlwaysOff</enum>
-          </property>
-          <property name="editTriggers">
-           <set>QAbstractItemView::NoEditTriggers</set>
-          </property>
-          <property name="showDropIndicator" stdset="0">
-           <bool>false</bool>
-          </property>
-          <property name="movement">
-           <enum>QListView::Static</enum>
-          </property>
-          <property name="flow">
-           <enum>QListView::LeftToRight</enum>
-          </property>
-          <property name="resizeMode">
-           <enum>QListView::Adjust</enum>
-          </property>
-          <property name="viewMode">
-           <enum>QListView::IconMode</enum>
-          </property>
-          <property name="uniformItemSizes">
-           <bool>true</bool>
-          </property>
-          <property name="currentRow">
-           <number>-1</number>
-          </property>
-          <item>
-           <property name="toolTip">
-            <string>Pencil tool</string>
-           </property>
-           <property name="icon">
-            <iconset resource="icons.qrc">
-             <normaloff>:/icons/pencil_tool.png</normaloff>:/icons/pencil_tool.png</iconset>
-           </property>
-           <property name="flags">
-            <set>ItemIsSelectable|ItemIsEnabled</set>
-           </property>
-          </item>
-          <item>
-           <property name="toolTip">
-            <string>Line tool</string>
-           </property>
-           <property name="icon">
-            <iconset resource="icons.qrc">
-             <normaloff>:/icons/line_tool.png</normaloff>:/icons/line_tool.png</iconset>
-           </property>
-           <property name="flags">
-            <set>ItemIsSelectable|ItemIsEnabled</set>
-           </property>
-          </item>
-          <item>
-           <property name="toolTip">
-            <string>Rectangle tool</string>
-           </property>
-           <property name="icon">
-            <iconset resource="icons.qrc">
-             <normaloff>:/icons/rectangle_tool.png</normaloff>:/icons/rectangle_tool.png</iconset>
-           </property>
-           <property name="flags">
-            <set>ItemIsSelectable|ItemIsEnabled</set>
-           </property>
-          </item>
-          <item>
-           <property name="toolTip">
-            <string>Circle tool</string>
-           </property>
-           <property name="icon">
-            <iconset resource="icons.qrc">
-             <normaloff>:/icons/circle_tool.png</normaloff>:/icons/circle_tool.png</iconset>
-           </property>
-           <property name="flags">
-            <set>ItemIsSelectable|ItemIsEnabled</set>
-           </property>
-          </item>
          </widget>
         </item>
         <item>
@@ -363,10 +288,14 @@
    <header>block_picker.h</header>
    <container>1</container>
   </customwidget>
+  <customwidget>
+   <class>ToolPicker</class>
+   <extends>QWidget</extends>
+   <header>tool_picker.h</header>
+   <container>1</container>
+  </customwidget>
  </customwidgets>
- <resources>
-  <include location="icons.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>action_quit_</sender>

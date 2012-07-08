@@ -24,7 +24,6 @@
 #include "block_type.h"
 #include "diagram.h"
 #include "tool_picker.h"
-#include "tool_picker_item_delegate.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -40,14 +39,14 @@ MainWindow::MainWindow(QWidget *parent)
 #endif
 
   ui.level_widget_->setLevel(ui.level_slider_->value());
-
   ui.tool_picker_->setAttribute(Qt::WA_MacShowFocusRect, false);
-  ui.tool_picker_->setItemDelegate(new ToolPickerItemDelegate(this));
+  connect(ui.tool_picker_, SIGNAL(currentToolChanged(Tool*)), ui.level_widget_, SLOT(setCurrentTool(Tool*)));
 }
 
 void MainWindow::setDiagram(Diagram* diagram) {
   diagram_ = diagram;
   ui.level_widget_->setDiagram(diagram);
+  ui.tool_picker_->setDiagram(diagram);
   bill_of_materials_window_.reset(new BillOfMaterialsWindow(diagram));
   connect(diagram_, SIGNAL(diagramChanged(BlockTransaction)), SLOT(setDocumentModified()));
 }

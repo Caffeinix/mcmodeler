@@ -39,12 +39,14 @@ HEADERS = \
     ladder_renderable.h \
     sprite_engine.h \
     texture_pack.h \
+<<<<<<< HEAD
     pencil_tool.h \
     rectangle_tool.h \
     tool_picker.h \
-    tool_picker_item_delegate.h \
-    pane_renderable.h \
-    qvariant_ptr.h
+    tool_picker_item_delegate.h
+=======
+    pane_renderable.h
+>>>>>>> 4b2e9879ba6338f7925577ab33690eaac19d2f0d
 
 SOURCES = \
     about_box.cc \
@@ -81,12 +83,15 @@ SOURCES = \
     ladder_renderable.cc \
     sprite_engine.cc \
     texture_pack.cc \
+<<<<<<< HEAD
     tool.cc \
     pencil_tool.cc \
     rectangle_tool.cc \
     tool_picker.cc \
-    tool_picker_item_delegate.cc \
+    tool_picker_item_delegate.cc
+=======
     pane_renderable.cc
+>>>>>>> 4b2e9879ba6338f7925577ab33690eaac19d2f0d
 
 QT += opengl
 
@@ -141,7 +146,6 @@ win32 {
 }
 
 TARGET = "MCModeler"
-
 
 
 
