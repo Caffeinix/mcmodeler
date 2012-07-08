@@ -39,7 +39,10 @@ HEADERS = \
     ladder_renderable.h \
     sprite_engine.h \
     texture_pack.h \
-    pencil_tool.h
+    pencil_tool.h \
+    rectangle_tool.h \
+    tool_picker.h \
+    tool_picker_item_delegate.h
 
 SOURCES = \
     about_box.cc \
@@ -77,19 +80,24 @@ SOURCES = \
     sprite_engine.cc \
     texture_pack.cc \
     tool.cc \
-    pencil_tool.cc
+    pencil_tool.cc \
+    rectangle_tool.cc \
+    tool_picker.cc \
+    tool_picker_item_delegate.cc
 
 QT += opengl
 
 RESOURCES += \
-    textures.qrc
+    textures.qrc \
+    icons.qrc
 
 FORMS += \
     about_box.ui \
     bill_of_materials_window.ui \
     gl_preview_window.ui \
     main_window.ui \
-    block_picker.ui
+    block_picker.ui \
+    tool_picker.ui
 
 INCLUDEPATH += ../third_party \
                ../third_party/qjson/include
@@ -130,6 +138,14 @@ win32 {
 }
 
 TARGET = "MCModeler"
+
+
+
+
+
+
+
+
 
 
 

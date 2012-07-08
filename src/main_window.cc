@@ -22,6 +22,8 @@
 #include "block_picker.h"
 #include "block_type.h"
 #include "diagram.h"
+#include "tool_picker.h"
+#include "tool_picker_item_delegate.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -37,6 +39,9 @@ MainWindow::MainWindow(QWidget *parent)
 #endif
 
   ui.level_widget_->setLevel(ui.level_slider_->value());
+
+  ui.tool_picker_->setAttribute(Qt::WA_MacShowFocusRect, false);
+  ui.tool_picker_->setItemDelegate(new ToolPickerItemDelegate(this));
 }
 
 void MainWindow::setDiagram(Diagram* diagram) {
