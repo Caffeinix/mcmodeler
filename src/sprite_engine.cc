@@ -56,6 +56,12 @@ QPixmap SpriteEngine::createSprite(const Texture& texture,
         painter.fillRect(0, 0, pixmap.width(), pixmap.height(), QColor(0, 0, 0, 96));
       }
       break;
+    case kBlockGeometrySnow:
+      if (orientation == BlockOrientation::paletteOrientation()) {
+        painter.setCompositionMode(QPainter::CompositionMode_Clear);
+        painter.fillRect(0, 0, pixmap.width(), 3 * pixmap.height() / 4, Qt::black);
+      }
+      break;
     default:
       if (properties.validOrientations().count() > 1) {
         painter.setPen(QPen(QColor(0, 255, 0, 128), 2.0));

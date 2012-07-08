@@ -42,7 +42,8 @@ HEADERS = \
     pencil_tool.h \
     rectangle_tool.h \
     tool_picker.h \
-    tool_picker_item_delegate.h
+    tool_picker_item_delegate.h \
+    pane_renderable.h
 
 SOURCES = \
     about_box.cc \
@@ -83,7 +84,8 @@ SOURCES = \
     pencil_tool.cc \
     rectangle_tool.cc \
     tool_picker.cc \
-    tool_picker_item_delegate.cc
+    tool_picker_item_delegate.cc \
+    pane_renderable.cc
 
 QT += opengl
 

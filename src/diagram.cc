@@ -24,6 +24,12 @@
 #include "line_tool.h"
 
 /**
+  * The current version of the MCModeler file format.  This must be increased whenever a backwards-incompatible change
+  * is made.  The nybbles roughly correspond to major, minor, and maintenance version numbers.
+  */
+static const quint32 kCurrentFileFormatVersion = 0x110;
+
+/**
   * An RAII class that automatically calls Diagram::commit() on a diagram with its transaction when it is destroyed.
   */
 class ScopedTransactionCommitter {
@@ -63,8 +69,42 @@ void Diagram::load(QDataStream* stream) {
   *stream >> filetype;
   *stream >> version;
   QString mcdiagram_filetype = "mcdiagram";
-  Q_ASSERT(strncmp(filetype, mcdiagram_filetype.toAscii(), mcdiagram_filetype.size()) == 0);
-  Q_ASSERT(version == 0x0100);
+  if (strncmp(filetype, mcdiagram_filetype.toAscii(), mcdiagram_filetype.size()) != 0) {
+    QMessageBox* error_dialog = new QMessageBox();
+    error_dialog->setAttribute(Qt::WA_DeleteOnClose, true);
+    error_dialog->setWindowTitle(qAppName());
+    error_dialog->setText("The file you have selected could not be opened.");
+    error_dialog->setInformativeText("The file does not appear to be an MCModeler diagram.");
+    error_dialog->setIcon(QMessageBox::Critical);
+    error_dialog->exec();
+    return;
+  }
+  if (version != kCurrentFileFormatVersion) {
+    QMessageBox* error_dialog = new QMessageBox();
+    error_dialog->setAttribute(Qt::WA_DeleteOnClose, true);
+    error_dialog->setWindowTitle(qAppName());
+    if (version < kCurrentFileFormatVersion) {
+      error_dialog->setText("The diagram you have selected was created using an older version of MCModeler.");
+      error_dialog->setInformativeText("The save file format has changed in an incompatible way since then. "
+                                       "You can try to open it anyway, but it will almost certainly display "
+                                       "incorrectly, and may even crash.\n\n"
+                                       "Do you want to try to open the diagram?");
+    } else {
+      error_dialog->setText("The diagram you have selected was created using a newer version of MCModeler.");
+      error_dialog->setInformativeText("You can try to open it anyway, but the save file format has changed in an "
+                                       "incompatible way, so this version will almost certainly display the diagram "
+                                       "incorrectly. It may even crash.\n\n"
+                                       "For best results, update MCModeler and try again with that version.\n\n"
+                                       "Do you want to try to open the diagram?");
+    }
+    error_dialog->addButton("&Open Anyway", QMessageBox::DestructiveRole);
+    error_dialog->addButton("&Cancel", QMessageBox::AcceptRole);
+    error_dialog->setIcon(QMessageBox::Warning);
+    int result = error_dialog->exec();
+    if (result == QMessageBox::Accepted) {
+      return;
+    }
+  }
   delete[] filetype;
   qint32 block_count;
   *stream >> block_count;
@@ -96,7 +136,7 @@ void Diagram::load(QDataStream* stream) {
 void Diagram::save(QDataStream* stream) {
   stream->setVersion(QDataStream::Qt_4_7);
   stream->setFloatingPointPrecision(QDataStream::SinglePrecision);
-  static const quint32 version = 0x0100;
+  static const quint32 version = 0x0110;
 
   *stream << "mcdiagram";
   *stream << version;

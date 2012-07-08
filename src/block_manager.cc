@@ -29,11 +29,6 @@ BlockManager::~BlockManager() {
 }
 
 BlockPrototype* BlockManager::getPrototype(blocktype_t type) const {
-  if (type >= BlockPrototype::blockCount()) {
-    qWarning() << "Tried to create a block prototype for block type" << type
-               << "but we only know about" << BlockPrototype::blockCount() << "blocks!";
-    type = 0;
-  }
   BlockPrototype* block = blocks_.value(type);
   if (block) {
     return block;

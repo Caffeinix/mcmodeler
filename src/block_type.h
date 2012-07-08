@@ -16,13 +16,16 @@
 #ifndef BLOCK_TYPE_H
 #define BLOCK_TYPE_H
 
+#include <QtGlobal>  // For quint32
+
 /**
-  * Represents a block type, aka a block ID.  These do not correspond to the Minecraft block IDs, but are instead
-  * determined by the order in which blocks are read from the JSON.
-  * @todo This may soon change to make save files more compatible.  Minecraft's block IDs serve as a good reference
-  *       that will not change.
+  * Represents a block type, aka a block ID.  These mostly correspond to the Minecraft block IDs, but are 32 bits long.
+  * The bottom 16 bits represent the Minecraft block ID (though most of those are unused in Minecraft at present).
+  * The next four bits represent the Minecraft block data.  The next four bits represent MCModeler-specific block
+  * data which does not exist in Minecraft (for instance whether the block is the top or bottom half of a bed).
+  * The upper eight bits are currently unused and should always be 0.
   */
-typedef int blocktype_t;
+typedef qint32 blocktype_t;
 
 /**
   * Special block type ID for "air", or empty space.  This is used whenever it is necessary to generate a BlockPrototype
