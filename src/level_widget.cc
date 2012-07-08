@@ -99,10 +99,10 @@ void LevelWidget::updateEphemeralBlocks(const BlockTransaction& transaction) {
   ephemeral_items_.clear();
 
   foreach (const BlockInstance& old_block, transaction.old_blocks()) {
-    addEphemeralRemovedBlock(old_block);
+    ephemerallyRemoveBlock(old_block);
   }
   foreach (const BlockInstance& new_block, transaction.new_blocks()) {
-    addEphemeralBlock(new_block);
+    ephemerallyAddBlock(new_block);
   }
   // QGraphicsScene doesn't notify the view that things have changed until the next event loop
   // cycle.  Qt apparently optimizes mouse moves so that they don't return control to the event loop
@@ -315,7 +315,7 @@ void LevelWidget::drawForeground(QPainter* painter, const QRectF& rect) {
   painter->drawPixmap(3, 3, 11, 11, QPixmap(":/origin.png"));
 }
 
-QGraphicsItem* LevelWidget::addEphemeralBlock(const BlockInstance& block) {
+QGraphicsItem* LevelWidget::ephemerallyAddBlock(const BlockInstance& block) {
   if (!block_mgr_ || !diagram_) {
     return NULL;
   }
@@ -336,7 +336,7 @@ QGraphicsItem* LevelWidget::addEphemeralBlock(const BlockInstance& block) {
   return item;
 }
 
-QGraphicsItem* LevelWidget::addEphemeralRemovedBlock(const BlockInstance& block) {
+QGraphicsItem* LevelWidget::ephemerallyRemoveBlock(const BlockInstance& block) {
   if (!block_mgr_ || !diagram_) {
     return NULL;
   }

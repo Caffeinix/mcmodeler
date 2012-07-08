@@ -251,22 +251,22 @@ BlockPrototype* BlockPrototype::neighboringBlockForFace(Face face, const QVector
   }
 
   if (face == kFrontFace) {
-    return oracle_->blockAt(BlockPosition(location + front)).prototype();
+    return oracle_->blockAt(BlockPosition(location + front), BlockOracle::kPhysicalOrEphemeralBlocks).prototype();
   }
   if (face == kBackFace) {
-    return oracle_->blockAt(BlockPosition(location + back)).prototype();
+    return oracle_->blockAt(BlockPosition(location + back), BlockOracle::kPhysicalOrEphemeralBlocks).prototype();
   }
   if (face == kLeftFace) {
-    return oracle_->blockAt(BlockPosition(location + left)).prototype();
+    return oracle_->blockAt(BlockPosition(location + left), BlockOracle::kPhysicalOrEphemeralBlocks).prototype();
   }
   if (face == kRightFace) {
-    return oracle_->blockAt(BlockPosition(location + right)).prototype();
+    return oracle_->blockAt(BlockPosition(location + right), BlockOracle::kPhysicalOrEphemeralBlocks).prototype();
   }
   if (face == kTopFace) {
-    return oracle_->blockAt(BlockPosition(location + top)).prototype();
+    return oracle_->blockAt(BlockPosition(location + top), BlockOracle::kPhysicalOrEphemeralBlocks).prototype();
   }
   if (face == kBottomFace) {
-    return oracle_->blockAt(BlockPosition(location + bottom)).prototype();
+    return oracle_->blockAt(BlockPosition(location + bottom), BlockOracle::kPhysicalOrEphemeralBlocks).prototype();
   }
   return NULL;
 }

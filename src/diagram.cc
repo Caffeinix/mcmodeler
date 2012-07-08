@@ -179,10 +179,16 @@ void Diagram::addBlockInternal(const BlockInstance& block) {
   level_map.insert(position, block);
 }
 
-void Diagram::addEphemeralBlockInternal(const BlockInstance& block) {
+void Diagram::ephemerallyAddBlockInternal(const BlockInstance& block) {
   Q_ASSERT(block.prototype()->type() != kBlockTypeAir);
   const BlockPosition& position = block.position();
   ephemeral_blocks_.insert(position, block);
+}
+
+void Diagram::ephemerallyRemoveBlockInternal(const BlockInstance& block) {
+  Q_ASSERT(block.prototype()->type() != kBlockTypeAir);
+  const BlockPosition& position = block.position();
+  ephemeral_block_removals_.insert(position, block);
 }
 
 void Diagram::removeBlockInternal(const BlockPosition& position) {
@@ -195,6 +201,7 @@ void Diagram::removeBlockInternal(const BlockPosition& position) {
 
 void Diagram::commit(const BlockTransaction& transaction) {
   ephemeral_blocks_.clear();
+  ephemeral_block_removals_.clear();
   foreach (const BlockInstance& old_block, transaction.old_blocks()) {
     removeBlockInternal(old_block.position());
   }
@@ -207,8 +214,12 @@ void Diagram::commit(const BlockTransaction& transaction) {
 
 void Diagram::commitEphemeral(const BlockTransaction& transaction) {
   ephemeral_blocks_.clear();
+  ephemeral_block_removals_.clear();
+  foreach (const BlockInstance& old_block, transaction.old_blocks()) {
+    ephemerallyRemoveBlockInternal(old_block);
+  }
   foreach (const BlockInstance& new_block, transaction.new_blocks()) {
-    addEphemeralBlockInternal(new_block);
+    ephemerallyAddBlockInternal(new_block);
   }
   emit ephemeralBlocksChanged(transaction);
 }
@@ -309,8 +320,15 @@ void Diagram::copyLevel(int source_level, int dest_level) {
   }
 }
 
-BlockInstance Diagram::blockAt(const BlockPosition& position) {
+BlockInstance Diagram::blockAt(const BlockPosition& position, BlockOracle::Mode mode) {
   BlockInstance default_value(blockManager()->getPrototype(kBlockTypeAir), position, BlockOrientation::noOrientation());
+  if (mode == kPhysicalOrEphemeralBlocks) {
+    if (ephemeral_block_removals_.contains(position)) {
+      return default_value;
+    } else if (ephemeral_blocks_.contains(position)) {
+      return ephemeral_blocks_.value(position, default_value);
+    }
+  }
   return block_map_.value(position, default_value);
 }
 
@@ -322,12 +340,31 @@ QHash<BlockPosition, BlockInstance> Diagram::level(int level_index) {
 void Diagram::render() {
   QVector<const BlockInstance*> transparent_blocks;
   QHash<BlockPosition, BlockInstance>::const_iterator iter;
-  for (iter = block_map_.constBegin(); iter != block_map_.constEnd(); ++iter) {
-    const BlockInstance& b = iter.value();
-    if (b.prototype()->isTransparent()) {
-      transparent_blocks.append(&b);
-    } else {
-      b.render();
+
+  // Try to give the compiler as much opportunity to optimize this branch out as possible.
+  bool need_to_consider_ephemeral_removals = (ephemeral_block_removals_.size() > 0);
+  if (need_to_consider_ephemeral_removals) {
+    // Slow path: ephemeral removals to consider.
+    for (iter = block_map_.constBegin(); iter != block_map_.constEnd(); ++iter) {
+      if (ephemeral_block_removals_.contains(iter.key())) {
+        continue;
+      }
+      const BlockInstance& b = iter.value();
+      if (b.prototype()->isTransparent()) {
+        transparent_blocks.append(&b);
+      } else {
+        b.render();
+      }
+    }
+  } else {
+    // Fast path: no ephemeral removals.
+    for (iter = block_map_.constBegin(); iter != block_map_.constEnd(); ++iter) {
+      const BlockInstance& b = iter.value();
+      if (b.prototype()->isTransparent()) {
+        transparent_blocks.append(&b);
+      } else {
+        b.render();
+      }
     }
   }
 

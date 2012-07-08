@@ -198,7 +198,7 @@ class LevelWidget : public QGraphicsView {
     * updateEphemeralBlocks() is called, at which point it will be removed.  Ephemeral blocks are drawn on top of
     * non-ephemeral blocks, and will be drawn translucent if the current tool is not a brush.
     */
-  QGraphicsItem* addEphemeralBlock(const BlockInstance& block);
+  QGraphicsItem* ephemerallyAddBlock(const BlockInstance& block);
 
   /**
     * Adds \p block to the LevelWidget as an ephemerally removed block.  The block will only be hidden until the next
@@ -211,7 +211,7 @@ class LevelWidget : public QGraphicsView {
     * block was there before and reinstate it later.  It also makes it possible to "partially" remove blocks, for
     * instance if the tool doing the removal is not a brush.
     */
-  QGraphicsItem* addEphemeralRemovedBlock(const BlockInstance& block);
+  QGraphicsItem* ephemerallyRemoveBlock(const BlockInstance& block);
 
  protected slots:
   /**

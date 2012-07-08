@@ -61,11 +61,10 @@ class Diagram : public QObject, public BlockOracle {
   }
 
   /**
-    * Returns the BlockInstance for the block at \p position.  If there is no block at that location, the return value
-    * will have a prototype whose type is kBlockTypeAir, a position of \p position, and no orientation.
-    * @note The instance returned from this method will _always_ have a position of \p position.
+    * @inheritDoc
+    * @sa BlockOracle::blockAt()
     */
-  virtual BlockInstance blockAt(const BlockPosition& position);
+  virtual BlockInstance blockAt(const BlockPosition& position, BlockOracle::Mode mode = kPhysicalBlocksOnly);
 
   /**
     * Tells all blocks in the diagram to render themselves.
@@ -178,17 +177,23 @@ class Diagram : public QObject, public BlockOracle {
   void addBlockInternal(const BlockInstance& block);
 
   /**
-    * Adds an ephemeral block to the diagram.  This should only be called from commitEphemeral() unless you know what
-    * you're doing, since it will neither fire ephemeralBlocksChanged() nor create a BlockTransaction for the change.
-    * @note Only ephemeral additions can be recorded; there is no \t addEphemeralBlockRemovalInternal() method.
-    */
-  void addEphemeralBlockInternal(const BlockInstance& block);
-
-  /**
     * Directly removes a block from the diagram.  This should only be called from commit() unless you know what you're
     * doing, since it will neither fire diagramChanged() nor create a BlockTransaction for the change.
     */
   void removeBlockInternal(const BlockPosition& position);
+
+  /**
+    * Ephemerally adds a block to the diagram.  This should only be called from commitEphemeral() unless you know what
+    * you're doing, since it will neither fire ephemeralBlocksChanged() nor create a BlockTransaction for the change.
+    */
+  void ephemerallyAddBlockInternal(const BlockInstance& block);
+
+  /**
+    * Ephemerally removes a block from the diagram.  This should only be called from commitEphemeral() unless you know
+    * what you're doing, since it will neither fire ephemeralBlocksChanged() nor create a BlockTransaction for the
+    * change.
+    */
+  void ephemerallyRemoveBlockInternal(const BlockInstance& block);
 
   /**
     * Recursion helper function for fillBlocks.
@@ -225,6 +230,7 @@ class Diagram : public QObject, public BlockOracle {
     * A map of the ephemeral blocks in the diagram.
     */
   QHash<BlockPosition, BlockInstance> ephemeral_blocks_;
+  QHash<BlockPosition, BlockInstance> ephemeral_block_removals_;
 
   /**
     * The block manager set using setBlockManager.  Can technically be NULL, but shouldn't be by the time any other

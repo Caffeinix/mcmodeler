@@ -26,11 +26,21 @@ class BlockInstance;
   */
 class BlockOracle {
  public:
+  enum Mode {
+    kPhysicalBlocksOnly,
+    kPhysicalOrEphemeralBlocks
+  };
+
   /**
     * Returns the BlockInstance at \p position.  If there is no block there, the block type of the returned instance
     * will be kBlockTypeAir.  The position of the instance will always equal \p position.
+    * @param mode If kPhysicalBlocksOnly (the default), all ephemeral additions and removals will be ignored and the
+    *             block that is physically at this moment present at that location will be returned.
+    *             If kPhysicalOrEphemeralBlocks, then if an ephemeral block exists at \p position, the ephemeral block
+    *             will be returned, and if a block has been ephemerally removed at \p position, the return value will
+    *             have a type of kBlockTypeAir.
     */
-  virtual BlockInstance blockAt(const BlockPosition& position) = 0;
+  virtual BlockInstance blockAt(const BlockPosition& position, Mode mode = kPhysicalBlocksOnly) = 0;
 };
 
 #endif // BLOCK_ORACLE_H
