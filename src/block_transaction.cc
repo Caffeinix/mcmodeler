@@ -21,6 +21,30 @@
 BlockTransaction::BlockTransaction() {
 }
 
+BlockTransaction::BlockTransaction(const BlockTransaction& other)
+    : old_positions_(other.old_positions_),
+      new_positions_(other.new_positions_),
+      old_blocks_(other.old_blocks_),
+      new_blocks_(other.new_blocks_) {
+}
+
+BlockTransaction& BlockTransaction::operator=(const BlockTransaction& other) {
+  old_positions_ = other.old_positions_;
+  old_blocks_ = other.old_blocks_;
+  new_positions_ = other.new_positions_;
+  new_blocks_ = other.new_blocks_;
+  return *this;
+}
+
+BlockTransaction BlockTransaction::reversed() const {
+  BlockTransaction reversed;
+  reversed.old_blocks_ = new_blocks_;
+  reversed.old_positions_ = new_positions_;
+  reversed.new_blocks_ = old_blocks_;
+  reversed.new_positions_ = old_positions_;
+  return reversed;
+}
+
 void BlockTransaction::setBlock(const BlockInstance& new_block) {
   if (new_block.prototype()->type() != kBlockTypeAir &&
       !new_positions_.contains(new_block.position())) {

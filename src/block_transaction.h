@@ -59,6 +59,22 @@ class BlockTransaction {
   BlockTransaction();
 
   /**
+    * Copy constructor.
+    */
+  BlockTransaction(const BlockTransaction& other);
+
+  /**
+    * Assignment operator.
+    */
+  BlockTransaction& operator=(const BlockTransaction& other);
+
+  /**
+    * Returns a BlockTransaction that will undo this one.  That is, it removes the blocks that this one adds and adds
+    * the blocks that this one removes.
+    */
+  BlockTransaction reversed() const;
+
+  /**
     * Records the replacement of \p old_block with \p new_block.  The blocks must have the same position.  If
     * \p old_block has a type of kBlockTypeAir, this is equivalent to setBlock().  If \p new_block has a type of
     * kBlockTypeAir, this is equivalent to clearBlock().
@@ -144,8 +160,6 @@ class BlockTransaction {
   QSet<BlockPosition> new_positions_;
   QList<BlockInstance> old_blocks_;
   QList<BlockInstance> new_blocks_;
-
-  Q_DISABLE_COPY(BlockTransaction)
 };
 
 #endif // BLOCK_TRANSACTION_H

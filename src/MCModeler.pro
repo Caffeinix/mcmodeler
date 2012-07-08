@@ -44,7 +44,8 @@ HEADERS = \
     tool_picker.h \
     tool_picker_item_delegate.h \
     pane_renderable.h \
-    qvariant_ptr.h
+    qvariant_ptr.h \
+    undo_command.h
 
 SOURCES = \
     about_box.cc \
@@ -86,7 +87,8 @@ SOURCES = \
     rectangle_tool.cc \
     tool_picker.cc \
     tool_picker_item_delegate.cc \
-    pane_renderable.cc
+    pane_renderable.cc \
+    undo_command.cc
 
 QT += opengl
 
@@ -141,6 +143,8 @@ win32 {
 }
 
 TARGET = "MCModeler"
+
+
 
 
 
