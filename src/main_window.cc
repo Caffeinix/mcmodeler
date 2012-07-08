@@ -60,12 +60,13 @@ void MainWindow::setBlockManager(BlockManager* block_mgr) {
 
 void MainWindow::setupToolbox() {
   BlockTypeIterator iter = BlockPrototype::blockIterator();
+  connect(ui.block_picker_, SIGNAL(blockSelected(blocktype_t)),
+          ui.level_widget_, SLOT(setBlockType(blocktype_t)));
   while (iter.hasNext()) {
     BlockPrototype* block = block_mgr_->getPrototype(iter.next());
     ui.block_picker_->addBlock(block);
   }
-  connect(ui.block_picker_, SIGNAL(blockSelected(blocktype_t)),
-          ui.level_widget_, SLOT(setBlockType(blocktype_t)));
+  ui.block_picker_->setUpSelection();
 }
 
 void MainWindow::setTemplateImage() {

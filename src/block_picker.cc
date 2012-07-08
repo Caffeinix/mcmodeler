@@ -29,6 +29,11 @@ BlockPicker::BlockPicker(QWidget* parent)
 BlockPicker::~BlockPicker() {
 }
 
+void BlockPicker::setUpSelection() {
+  ui.tab_widget_->setCurrentIndex(0);
+  updateSelectedBlock();
+}
+
 QWidget* BlockPicker::findTab(const QString& text) {
   for (int i = 0; i < ui.tab_widget_->count(); ++i) {
     if (ui.tab_widget_->tabText(i) == text) {
@@ -102,5 +107,6 @@ void BlockPicker::addBlock(BlockPrototype* block) {
     item->setData(Qt::UserRole, block->type());
     item->setToolTip(block->name());
     list->addItem(item);
+    list->setCurrentRow(0);
   }
 }

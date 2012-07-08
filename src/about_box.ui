@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>453</width>
-    <height>250</height>
+    <height>287</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -124,7 +124,8 @@
 &lt;p&gt;All of the above software is licensed under the 
 &lt;a href='http://www.gnu.org/licenses/lgpl-2.1.html'&gt;Lesser GNU Public License (LGPL) 
 version 2.1&lt;/a&gt;. 
-A copy of both of the above licenses should have been distributed with this software. 
+A copy of both of the above licenses should have been distributed with this software. &lt;/p&gt;
+&lt;p&gt;Tool icons based on &lt;a href=&quot;http://brankic1979.com/icons/&quot;&gt;brankic1979's free icon set&lt;/a&gt;.&lt;/p&gt;
 </string>
      </property>
      <property name="wordWrap">

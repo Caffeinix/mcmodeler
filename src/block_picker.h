@@ -42,6 +42,12 @@ class BlockPicker : public QWidget {
     */
   void addBlock(BlockPrototype* block);
 
+  /**
+    * Sets the currently selected block to the first block of the first tab and fires blockSelected().  This method
+    * should be called once all blocks have been added to the picker.
+    */
+  void setUpSelection();
+
  signals:
   /**
     * Emitted whenever the selected block changes.  This can happen either because the user selected another sprite
