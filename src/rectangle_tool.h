@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-#ifndef PENCIL_TOOL_H
-#define PENCIL_TOOL_H
+#ifndef RECTANGLE_TOOL_H
+#define RECTANGLE_TOOL_H
 
 #include "block_position.h"
 #include "tool.h"
@@ -22,11 +22,11 @@
 class BlockOracle;
 
 /**
-  * A Tool that draws individual blocks.
+  * A Tool that draws hollow rectangles between two corners.
   */
-class PencilTool : public Tool {
+class RectangleTool : public Tool {
  public:
-  explicit PencilTool(BlockOracle* oracle);
+  explicit RectangleTool(BlockOracle* oracle);
   virtual bool wantsMorePositions();
   virtual bool isBrush() const;
   virtual void draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction);
@@ -35,4 +35,4 @@ class PencilTool : public Tool {
   BlockOracle* oracle_;
 };
 
-#endif // PENCIL_TOOL_H
+#endif // RECTANGLE_TOOL_H

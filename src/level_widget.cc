@@ -22,6 +22,7 @@
 #include "line_tool.h"
 #include "macros.h"
 #include "pencil_tool.h"
+#include "rectangle_tool.h"
 
 static const int kSpriteWidth = 16;
 static const int kSpriteHeight = 16;
@@ -155,7 +156,7 @@ void LevelWidget::keyReleaseEvent(QKeyEvent* event) {
 void LevelWidget::mousePressEvent(QMouseEvent* event) {
   updateTool(event);
 
-  if (current_tool_->countPositions() == 1 && !current_tool_->wantsMorePositions()) {
+  if (current_tool_->isBrush() && !current_tool_->wantsMorePositions()) {
     state_ = kStateBrushDrag;
   } else {
     state_ = kStateInitial;
@@ -307,7 +308,9 @@ QGraphicsItem* LevelWidget::addEphemeralBlock(const BlockInstance& block) {
   item->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
   item->setData(0, prototype->type());
   item->setZValue(position.y() + 64.0);  // Stack on top of normal blocks.
-  item->setOpacity(0.25);
+  if (!current_tool_->isBrush()) {
+    item->setOpacity(0.25);
+  }
   ephemeral_item_model_.insert(position, item);
   return item;
 }

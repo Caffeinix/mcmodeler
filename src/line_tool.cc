@@ -22,6 +22,10 @@
 
 LineTool::LineTool(BlockOracle* oracle) : oracle_(oracle) {}
 
+bool LineTool::isBrush() const {
+  return true;
+}
+
 bool LineTool::wantsMorePositions() {
   return countPositions() < 2;
 }

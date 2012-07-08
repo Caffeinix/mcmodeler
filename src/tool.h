@@ -32,13 +32,13 @@ class BlockTransaction;
   */
 class Tool : public QObject {
  public:
+  virtual ~Tool();
+
   virtual void setStateFrom(Tool* other);
 
   virtual void appendPosition(const BlockPosition& position);
 
   virtual void clear();
-
-  virtual ~Tool();
 
   /**
     * Sets the \p position at a particular \p index, the meaning of which depends on the tool.  How many indices are
@@ -49,6 +49,8 @@ class Tool : public QObject {
   virtual void setPositionAtIndex(int index, const BlockPosition& position);
 
   virtual bool wantsMorePositions() = 0;
+
+  virtual bool isBrush() const = 0;
 
   /**
     * Modifies the BlockTransaction passed as \p transaction so that it reflects the results of applying the tool to

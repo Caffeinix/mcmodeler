@@ -28,6 +28,7 @@ class LineTool : public Tool {
  public:
   explicit LineTool(BlockOracle* oracle);
   virtual bool wantsMorePositions();
+  virtual bool isBrush() const;
   virtual void draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction);
 
  private:

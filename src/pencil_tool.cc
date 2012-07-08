@@ -26,6 +26,10 @@ bool PencilTool::wantsMorePositions() {
   return countPositions() == 0;
 }
 
+bool PencilTool::isBrush() const {
+  return true;
+}
+
 void PencilTool::draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction) {
   if (wantsMorePositions()) {
     return;
