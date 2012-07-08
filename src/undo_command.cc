@@ -27,9 +27,11 @@ UndoCommand::UndoCommand(const BlockTransaction& transaction, Diagram* diagram, 
 UndoCommand::~UndoCommand() {}
 
 void UndoCommand::undo() {
+  qDebug() << "UndoCommand::undo()";
   diagram_->commit(transaction_.reversed());
 }
 
 void UndoCommand::redo() {
+  qDebug() << "UndoCommand::redo()";
   diagram_->commit(transaction_);
 }

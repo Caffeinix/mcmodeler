@@ -26,6 +26,10 @@ bool LineTool::isBrush() const {
   return false;
 }
 
+QString LineTool::actionName() const {
+  return "Draw Line";
+}
+
 bool LineTool::wantsMorePositions() {
   return countPositions() < 2;
 }

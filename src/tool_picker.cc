@@ -20,6 +20,7 @@
 
 #include "block_manager.h"
 #include "diagram.h"
+#include "eraser_tool.h"
 #include "pencil_tool.h"
 #include "line_tool.h"
 #include "rectangle_tool.h"
@@ -40,6 +41,12 @@ void ToolPicker::setDiagram(Diagram* diagram) {
   item->setToolTip("Pencil");
   item->setIcon(QIcon(":/icons/pencil_tool.png"));
   item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new PencilTool(diagram)));
+  ui->list_widget_->addItem(item);
+
+  item = new QListWidgetItem();
+  item->setToolTip("Eraser");
+  item->setIcon(QIcon(":/icons/eraser_tool.png"));
+  item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new EraserTool(diagram)));
   ui->list_widget_->addItem(item);
 
   item = new QListWidgetItem();

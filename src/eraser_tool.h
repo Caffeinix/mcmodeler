@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-#ifndef LINE_TOOL_H
-#define LINE_TOOL_H
+#ifndef ERASER_TOOL_H
+#define ERASER_TOOL_H
 
 #include "block_position.h"
 #include "tool.h"
@@ -22,11 +22,11 @@
 class BlockOracle;
 
 /**
-  * A Tool that draws straight lines between points.
+  * A Tool that erases individual blocks.
   */
-class LineTool : public Tool {
+class EraserTool : public Tool {
  public:
-  explicit LineTool(BlockOracle* oracle);
+  explicit EraserTool(BlockOracle* oracle);
   virtual QString actionName() const;
   virtual bool wantsMorePositions();
   virtual bool isBrush() const;
@@ -36,4 +36,4 @@ class LineTool : public Tool {
   BlockOracle* oracle_;
 };
 
-#endif // LINE_TOOL_H
+#endif // ERASER_TOOL_H

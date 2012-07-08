@@ -27,6 +27,7 @@ class BlockOracle;
 class PencilTool : public Tool {
  public:
   explicit PencilTool(BlockOracle* oracle);
+  virtual QString actionName() const;
   virtual bool wantsMorePositions();
   virtual bool isBrush() const;
   virtual void draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction);

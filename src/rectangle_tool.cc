@@ -22,6 +22,10 @@
 
 RectangleTool::RectangleTool(BlockOracle* oracle) : oracle_(oracle) {}
 
+QString RectangleTool::actionName() const {
+  return "Draw Rectangle";
+}
+
 bool RectangleTool::wantsMorePositions() {
   return countPositions() < 2;
 }

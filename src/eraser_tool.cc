@@ -13,28 +13,28 @@
  * limitations under the License.
  */
 
-#include "pencil_tool.h"
+#include "eraser_tool.h"
 
 #include "block_instance.h"
 #include "block_oracle.h"
 #include "block_prototype.h"
 #include "block_transaction.h"
 
-PencilTool::PencilTool(BlockOracle* oracle) : oracle_(oracle) {}
+EraserTool::EraserTool(BlockOracle* oracle) : oracle_(oracle) {}
 
-QString PencilTool::actionName() const {
-  return "Draw Blocks";
+QString EraserTool::actionName() const {
+  return "Erase Blocks";
 }
 
-bool PencilTool::wantsMorePositions() {
+bool EraserTool::wantsMorePositions() {
   return countPositions() == 0;
 }
 
-bool PencilTool::isBrush() const {
+bool EraserTool::isBrush() const {
   return true;
 }
 
-void PencilTool::draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction) {
+void EraserTool::draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction) {
   if (wantsMorePositions()) {
     return;
   }
@@ -42,7 +42,6 @@ void PencilTool::draw(BlockPrototype* prototype, BlockOrientation* orientation, 
   for (int i = 0; i < countPositions(); ++i) {
     // TODO(phoenix): Should eventually draw lines between these points.
     const BlockPosition& point = positionAtIndex(i);
-    BlockInstance new_block(prototype, point, orientation);
-    transaction->replaceBlock(oracle_->blockAt(point), new_block);
+    transaction->clearBlock(oracle_->blockAt(point));
   }
 }

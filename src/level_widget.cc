@@ -24,6 +24,8 @@
 #include "pencil_tool.h"
 #include "rectangle_tool.h"
 
+#include "undo_command.h"
+
 static const int kSpriteWidth = 16;
 static const int kSpriteHeight = 16;
 
@@ -50,6 +52,9 @@ LevelWidget::LevelWidget(QWidget* parent) :
   setTransformationAnchor(QGraphicsView::NoAnchor);
   setMouseTracking(true);
   setCursor(QCursor(Qt::CrossCursor));
+
+  undo_view_.setStack(&undo_stack_);
+  undo_view_.show();
 }
 
 LevelWidget::~LevelWidget() {}
@@ -178,11 +183,14 @@ void LevelWidget::mouseReleaseEvent(QMouseEvent* event) {
   BlockPosition pos = positionForPoint(mapToScene(event->pos()));
 
   if (!current_tool_->wantsMorePositions()) {
-    // Commit the current transaction for real.
+    // Commit the current transaction for real.  QUndoStack insists upon being the one to perform the command when we
+    // push it, so we don't actually call Diagram::commit directly here (that happens in UndoCommand::redo, oddly).
     BlockTransaction transaction;
     BlockPrototype* prototype = block_mgr_->getPrototype(block_type_);
     current_tool_->draw(prototype, prototype->defaultOrientation(), &transaction);
-    diagram_->commit(transaction);
+    UndoCommand* command = new UndoCommand(transaction, diagram_);
+    command->setText(current_tool_->actionName());
+    undo_stack_.push(command);
     current_tool_->clear();
     setState(kStateInitial);
   }

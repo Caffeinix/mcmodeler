@@ -21,6 +21,9 @@
 #include <QGraphicsView>
 #include <QScopedPointer>
 
+#include <QUndoStack>
+#include <QUndoView>
+
 #include "block_type.h"
 #include "block_position.h"
 
@@ -223,6 +226,9 @@ class LevelWidget : public QGraphicsView {
   int copied_level_;
   Tool* current_tool_;
   State state_;
+
+  QUndoStack undo_stack_;
+  QUndoView undo_view_;
 };
 
 #endif // LEVEL_WIDGET_H

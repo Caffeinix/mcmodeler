@@ -4,5 +4,6 @@
         <file>line_tool.png</file>
         <file>rectangle_tool.png</file>
         <file>circle_tool.png</file>
+        <file>eraser_tool.png</file>
     </qresource>
 </RCC>

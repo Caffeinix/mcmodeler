@@ -25,19 +25,37 @@ class BlockTransaction;
 
 /**
   * An abstract class representing a particular method of drawing blocks given one or more positions.
-  * To use a Tool, repeatedly call setPositionAtIndex() until the tool has enough points to work with (how many points
-  * this is depends on the tool: for a line tool, the required number is two, whereas a flood fill tool would only need
-  * one).  Then, call draw() and pass the block information describing what you want to draw, and a BlockTransaction
-  * you want the tool to populate.
+  * To use a Tool, repeatedly call appendPosition() or setPositionAtIndex() until the tool returns \c false from
+  * wantsMorePositions(), indicating that it has enough points to work with (how many points this is depends on the
+  * tool: for a line tool, the required number is two, whereas a flood fill tool would only need one).  Then, call
+  * draw() and pass the block information describing what you want to draw, and a BlockTransaction you want the tool to
+  * populate.
   */
 class Tool : public QObject {
  public:
   virtual ~Tool();
 
+  /**
+    * Returns the name of the action this tool performs.  For example, the Rectangle tool might have an actionName of
+    * "Draw Rectangle".
+    */
+  virtual QString actionName() const = 0;
+
+  /**
+    * Copies the positions that have been recorded so far by \p other and re-interprets them for this tool instead.
+    */
   virtual void setStateFrom(Tool* other);
 
+  /**
+    * Appends \p position to this tool.  The meaning of the position depends on the tool.  How many indices are
+    * required or desired also depends on the tool.  Extra indices will be ignored.
+    * @param position The BlockPosition to append.
+    */
   virtual void appendPosition(const BlockPosition& position);
 
+  /**
+    * Removes all positions from this tool.
+    */
   virtual void clear();
 
   /**
@@ -48,8 +66,18 @@ class Tool : public QObject {
     */
   virtual void setPositionAtIndex(int index, const BlockPosition& position);
 
+  /**
+    * Returns \c true if this Tool requires more than its current number of positions in order to fully perform its
+    * action.  A \c false return value does not imply that no more positions will be accepted, however; many tools such
+    * as brushes can accept an arbitrary number of positions, but only actually need one or two.
+    */
   virtual bool wantsMorePositions() = 0;
 
+  /**
+    * Returns \c true if this Tool represents a brush.  Brushes must return \c false from wantsMorePositions() after
+    * receiving a single position, and once a position being added results in a particular block being filled, that
+    * block must always be filled thereafter regardless of what other positions are added to the Tool.
+    */
   virtual bool isBrush() const = 0;
 
   /**
@@ -61,11 +89,18 @@ class Tool : public QObject {
     */
   virtual void draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction) = 0;
 
-  virtual BlockPosition positionAtIndex(int index) const;
-
+  /**
+    * Returns the number of positions that have been added to this Tool.
+    */
   virtual int countPositions() const;
 
-private:
+ protected:
+  /**
+    * Returns the position at \p index, or the origin position if \p index is out of bounds.
+    */
+  virtual BlockPosition positionAtIndex(int index) const;
+
+ private:
   QVector<BlockPosition> positions_;
 };
 
