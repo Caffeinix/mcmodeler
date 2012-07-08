@@ -201,6 +201,7 @@ void Diagram::commit(const BlockTransaction& transaction) {
   foreach (const BlockInstance& new_block, transaction.new_blocks()) {
     addBlockInternal(new_block);
   }
+  emit ephemeralBlocksChanged(transaction);
   emit diagramChanged(transaction);
 }
 

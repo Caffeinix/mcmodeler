@@ -72,8 +72,13 @@ void LevelWidget::setDiagram(Diagram* diagram) {
 
 void LevelWidget::updateLevel(const BlockTransaction& transaction) {
   qDebug() << "Diagram changed.";
-  QElapsedTimer timer;
-  timer.start();
+
+  // Remove all ephemeral items from the view.
+  foreach(QGraphicsItem* item, ephemeral_items_) {
+    scene()->removeItem(item);
+  }
+  ephemeral_items_.clear();
+
   foreach (const BlockInstance& old_block, transaction.old_blocks()) {
     removeBlock(old_block.position());
   }
@@ -88,11 +93,14 @@ void LevelWidget::updateLevel(const BlockTransaction& transaction) {
 
 void LevelWidget::updateEphemeralBlocks(const BlockTransaction& transaction) {
   // Remove all ephemeral items from the view.
-  foreach(QGraphicsItem* item, ephemeral_item_model_.values()) {
+  foreach(QGraphicsItem* item, ephemeral_items_) {
     scene()->removeItem(item);
   }
-  ephemeral_item_model_.clear();
+  ephemeral_items_.clear();
 
+  foreach (const BlockInstance& old_block, transaction.old_blocks()) {
+    addEphemeralRemovedBlock(old_block);
+  }
   foreach (const BlockInstance& new_block, transaction.new_blocks()) {
     addEphemeralBlock(new_block);
   }
@@ -324,7 +332,35 @@ QGraphicsItem* LevelWidget::addEphemeralBlock(const BlockInstance& block) {
   if (!current_tool_->isBrush()) {
     item->setOpacity(0.25);
   }
-  ephemeral_item_model_.insert(position, item);
+  ephemeral_items_.append(item);
+  return item;
+}
+
+QGraphicsItem* LevelWidget::addEphemeralRemovedBlock(const BlockInstance& block) {
+  if (!block_mgr_ || !diagram_) {
+    return NULL;
+  }
+
+  const BlockPosition& position = block.position();
+
+  QPixmap pixmap(kSpriteWidth, kSpriteHeight);
+  pixmap.fill(Qt::white);
+  QPainter painter(&pixmap);
+  QBrush brush(QPixmap(":/grid_background.png"));
+  painter.setBrush(brush);
+  painter.setPen(Qt::NoPen);
+  painter.setBrushOrigin(-kSpriteWidth / 2, -kSpriteHeight / 2);
+  painter.drawRect(0, 0, kSpriteWidth, kSpriteHeight);
+  QGraphicsPixmapItem* item = scene()->addPixmap(pixmap);
+  item->setOffset(-0.5 * kSpriteWidth, -0.5 * kSpriteHeight);
+  item->setPos(position.x() * kSpriteWidth, position.z() * kSpriteHeight);
+  item->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
+  item->setData(0, kBlockTypeAir);
+  item->setZValue(position.y() + 63.0);  // Stack on top of normal blocks.
+  if (!current_tool_->isBrush()) {
+    item->setOpacity(0.25);
+  }
+  ephemeral_items_.append(item);
   return item;
 }
 

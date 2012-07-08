@@ -193,7 +193,25 @@ class LevelWidget : public QGraphicsView {
     */
   void removeBlock(const BlockPosition& position);
 
+  /**
+    * Adds \p block to the LevelWidget as an ephemeral block.  The block will only be shown until the next time
+    * updateEphemeralBlocks() is called, at which point it will be removed.  Ephemeral blocks are drawn on top of
+    * non-ephemeral blocks, and will be drawn translucent if the current tool is not a brush.
+    */
   QGraphicsItem* addEphemeralBlock(const BlockInstance& block);
+
+  /**
+    * Adds \p block to the LevelWidget as an ephemerally removed block.  The block will only be hidden until the next
+    * time updateEphemeralBlocks() is called, at which point it will be shown again.  If a block is ephemerally
+    * removed from a position and another is ephemerally added there, the added one will take precedence.
+    *
+    * @note Ephemerally removed blocks are implemented using a hack.  Rather than actually removing blocks from the
+    * item model and adding them back when the ephemeral blocks are cleared, we simply overlay the existing block with
+    * an ephemeral block painted to look like the canvas background.  This prevents us from having to remember what
+    * block was there before and reinstate it later.  It also makes it possible to "partially" remove blocks, for
+    * instance if the tool doing the removal is not a brush.
+    */
+  QGraphicsItem* addEphemeralRemovedBlock(const BlockInstance& block);
 
  protected slots:
   /**
@@ -201,6 +219,10 @@ class LevelWidget : public QGraphicsView {
     */
   void updateLevel(const BlockTransaction& transaction);
 
+  /**
+    * Applies \p transaction to the ephemeral blocks of the current level.  Both added and removed blocks are applied.
+    * Called whenever the Diagram changes its ephemeral blocks.
+    */
   void updateEphemeralBlocks(const BlockTransaction& transaction);
 
  private:
@@ -213,7 +235,7 @@ class LevelWidget : public QGraphicsView {
   void setState(State state);
 
   QHash<BlockPosition, QGraphicsItem*> item_model_;
-  QHash<BlockPosition, QGraphicsItem*> ephemeral_item_model_;
+  QVector<QGraphicsItem*> ephemeral_items_;
   QGraphicsScene* scene_;
   int level_;
   Diagram* diagram_;

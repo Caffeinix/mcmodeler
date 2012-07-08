@@ -121,11 +121,16 @@ class Diagram : public QObject, public BlockOracle {
   void copyLevel(int source_level, int dest_level);
 
   /**
-    * Applies \p transaction to the diagram.  You can call this to perform custom transactions not covered by the
-    * convenience methods above.
+    * Applies \p transaction to the diagram.  This is the method to call to make changes to the diagram.
     */
   void commit(const BlockTransaction& transaction);
 
+  /**
+    * Applies \p transaction to the diagram ephemerally.  Ephemeral commits will be temporarily reflected in the UI, but
+    * will not actually affect the underlying model until committed for real using commit().
+    * @note For technical reasons, although the parameter to ephemeralBlocksChanged() will be exactly \p transaction,
+    * ephemeral \i removals in particular will not be shown in the 3D preview.
+    */
   void commitEphemeral(const BlockTransaction& transaction);
 
   /**
@@ -151,6 +156,10 @@ class Diagram : public QObject, public BlockOracle {
     */
   void diagramChanged(const BlockTransaction& transaction);
 
+  /**
+    * Emitted when the diagram's ephemeral blocks change.
+    * @param transaction The BlockTransaction that caused the change.
+    */
   void ephemeralBlocksChanged(const BlockTransaction& transaction);
 
  private:
@@ -168,6 +177,11 @@ class Diagram : public QObject, public BlockOracle {
     */
   void addBlockInternal(const BlockInstance& block);
 
+  /**
+    * Adds an ephemeral block to the diagram.  This should only be called from commitEphemeral() unless you know what
+    * you're doing, since it will neither fire ephemeralBlocksChanged() nor create a BlockTransaction for the change.
+    * @note Only ephemeral additions can be recorded; there is no \t addEphemeralBlockRemovalInternal() method.
+    */
   void addEphemeralBlockInternal(const BlockInstance& block);
 
   /**
