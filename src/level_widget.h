@@ -76,7 +76,7 @@ class LevelWidget : public QGraphicsView {
   /**
     * Sets the tool with which we are currently drawing to \p tool.
     */
-  void setCurrentTool(Tool* tool);
+  void setSelectedTool(Tool* tool);
 
   /**
     * Copies the current level into a special clipboard-like buffer.
@@ -153,22 +153,13 @@ class LevelWidget : public QGraphicsView {
     */
   void toggleBlock(QMouseEvent* event);
 
-  /**
-    * Tells the Diagram to draw a line from the position of the previous mouse event to the position of \p event, using
-    * the currently selected block type.
-    * @sa setBlockType()
-    * @sa Diagram::drawLine()
-    * @sa LineTool
-    */
-  void drawLine(QMouseEvent* event, bool commit);
-
-  /**
-    * Tells the Diagram to perform a flood fill operation starting at the position of \p event, using the currently
-    * selected block type.
-    * @sa setBlockType()
-    * @sa Diagram::fillBlocks()
-    */
-  void fillBlocks(QMouseEvent* event);
+//  /**
+//    * Tells the Diagram to perform a flood fill operation starting at the position of \p event, using the currently
+//    * selected block type.
+//    * @sa setBlockType()
+//    * @sa Diagram::fillBlocks()
+//    */
+//  void fillBlocks(QMouseEvent* event);
 
   /**
     * Synchronizes the view with the diagram by clearing all blocks and drawing them again.  This is an expensive
@@ -226,13 +217,11 @@ class LevelWidget : public QGraphicsView {
   void updateEphemeralBlocks(const BlockTransaction& transaction);
 
  private:
-  enum State {
-    kStateInitial,
-    kStateUnsatisfied,
-    kStateBrushDrag
-  };
-
-  void setState(State state);
+  /**
+    * Returns the tool the level widget should currently use to draw.  This may be either selected_tool_ or
+    * modifier_tool_ depending on the circumstances.
+    */
+  Tool* currentTool() const;
 
   QHash<BlockPosition, QGraphicsItem*> item_model_;
   QVector<QGraphicsItem*> ephemeral_items_;
@@ -246,8 +235,12 @@ class LevelWidget : public QGraphicsView {
   blocktype_t block_type_;
   QPixmap template_image_;
   int copied_level_;
-  Tool* current_tool_;
-  State state_;
+
+  /// The tool that is currently selected in the tool picker.
+  Tool* selected_tool_;
+
+  /// The tool, if any, that we are using instead of selected_tool_ due to modifier keys.
+  QScopedPointer<Tool> modifier_tool_;
 
   QUndoStack undo_stack_;
   QUndoView undo_view_;

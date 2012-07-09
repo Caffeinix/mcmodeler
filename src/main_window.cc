@@ -40,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent)
 
   ui.level_widget_->setLevel(ui.level_slider_->value());
   ui.tool_picker_->setAttribute(Qt::WA_MacShowFocusRect, false);
-  connect(ui.tool_picker_, SIGNAL(currentToolChanged(Tool*)), ui.level_widget_, SLOT(setCurrentTool(Tool*)));
+  connect(ui.tool_picker_, SIGNAL(currentToolChanged(Tool*)), ui.level_widget_, SLOT(setSelectedTool(Tool*)));
 }
 
 void MainWindow::setDiagram(Diagram* diagram) {

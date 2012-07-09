@@ -16,12 +16,33 @@
 #include "block_position.h"
 #include "tool.h"
 
+Tool::Tool() : state_(kInitial) {}
 Tool::~Tool() {}
 
 void Tool::setStateFrom(Tool* other) {
   positions_.resize(other->countPositions());
   for (int i = 0; i < other->countPositions(); ++i) {
     positions_.replace(i, other->positionAtIndex(i));
+  }
+  setState(kInitial);
+}
+
+void Tool::proposePosition(const BlockPosition &position) {
+  if (state_ == kInitial) {
+    appendPosition(position);
+    setState(kProposed);
+  } else if (state_ == kProposed) {
+    setPositionAtIndex(countPositions() - 1, position);
+  } else if (state_ == kBrushDrag) {
+    appendPosition(position);
+  }
+}
+
+void Tool::acceptLastPosition() {
+  if (isBrush() && !wantsMorePositions()) {
+    setState(Tool::kBrushDrag);
+  } else {
+    setState(Tool::kInitial);
   }
 }
 
@@ -30,6 +51,10 @@ void Tool::appendPosition(const BlockPosition& position) {
 }
 
 void Tool::setPositionAtIndex(int index, const BlockPosition& position) {
+  if (index < 0) {
+    qCritical() << "Error: attempted to set position" << index << "on tool" << actionName();
+    return;
+  }
   if (positions_.size() <= index) {
     positions_.resize(index + 1);
   }
@@ -38,6 +63,7 @@ void Tool::setPositionAtIndex(int index, const BlockPosition& position) {
 
 void Tool::clear() {
   positions_.clear();
+  setState(kInitial);
 }
 
 BlockPosition Tool::positionAtIndex(int index) const {

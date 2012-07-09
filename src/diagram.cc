@@ -224,17 +224,6 @@ void Diagram::commitEphemeral(const BlockTransaction& transaction) {
   emit ephemeralBlocksChanged(transaction);
 }
 
-void Diagram::drawLine(const BlockPosition& start_pos, const BlockPosition& end_pos,
-                       const blocktype_t& type, BlockOrientation* orientation) {
-  BlockTransaction transaction;
-  ScopedTransactionCommitter committer(this, transaction);
-  BlockPrototype* prototype = blockManager()->getPrototype(type);
-  LineTool tool(this);
-  tool.setPositionAtIndex(0, start_pos);
-  tool.setPositionAtIndex(1, end_pos);
-  tool.draw(prototype, orientation, &transaction);
-}
-
 void Diagram::fillBlocks(const BlockPosition& start_pos, const blocktype_t& type, BlockOrientation* orientation) {
   BlockTransaction transaction;
   ScopedTransactionCommitter committer(this, transaction);

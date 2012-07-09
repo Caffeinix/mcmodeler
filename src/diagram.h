@@ -105,15 +105,6 @@ class Diagram : public QObject, public BlockOracle {
   void fillBlocks(const BlockPosition& start_pos, const blocktype_t& type, BlockOrientation* orientation);
 
   /**
-    * Creates and commits a BlockTransaction which draws a line of blocks with type \p type and orientation \p
-    * orientation from \p start_pos to \p end_pos.  The line is currently always one block thick.
-    * @bug This algorithm has a bug which can occasionally cause it to hang.  A sanity check exists to prevent it from
-    * hanging infinitely, but the behavior is still mildly unpleasant.
-    */
-  void drawLine(const BlockPosition& start_pos, const BlockPosition& end_pos,
-                const blocktype_t& type, BlockOrientation* orientation);
-
-  /**
     * Creates and commits a BlockTransaction which copies all blocks on \p source_level to \p dest_level.
     * @note A "level" is currently defined to be the set of blocks sharing a particular _y_ coordinate.
     */
