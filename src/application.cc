@@ -25,7 +25,7 @@
 Application::Application(int& argc, char** argv)
     : QApplication(argc, argv), block_mgr_(NULL) {
   setApplicationName("MCModeler");
-  setApplicationVersion("0.1 dev 2");
+  setApplicationVersion("0.3 dev 1");
 
   BlockPrototype::setupBlockProperties();
 

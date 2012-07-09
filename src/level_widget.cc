@@ -54,10 +54,16 @@ LevelWidget::LevelWidget(QWidget* parent) :
   setCursor(QCursor(Qt::CrossCursor));
 
   undo_view_.setStack(&undo_stack_);
-  undo_view_.show();
+  undo_view_.setWindowTitle("History");
 }
 
 LevelWidget::~LevelWidget() {}
+
+void LevelWidget::showEvent(QShowEvent* event) {
+  qDebug() << window()->frameGeometry();
+  undo_view_.move(window()->frameGeometry().topRight() + QPoint(6, 0));
+  undo_view_.show();
+}
 
 void LevelWidget::setBlockManager(BlockManager* block_mgr) {
   block_mgr_ = block_mgr;
@@ -151,7 +157,7 @@ void LevelWidget::updateTool(QMouseEvent* event) {
     Tool* eraser_tool = new EraserTool(diagram_);
     eraser_tool->setStateFrom(selected_tool_);
     modifier_tool_.reset(eraser_tool);
-  } else {
+  } else if (event->type() == QEvent::MouseButtonRelease) {
     modifier_tool_.reset(NULL);
   }
 }
@@ -174,6 +180,29 @@ void LevelWidget::keyReleaseEvent(QKeyEvent* event) {
 
 void LevelWidget::mousePressEvent(QMouseEvent* event) {
   updateTool(event);
+
+  {
+    BlockPosition position = positionForPoint(mapToScene(event->pos()));
+    BlockInstance block = diagram_->blockAt(position);
+    BlockPrototype* prototype = block.prototype();
+    // TODO(phoenix): Need some way of identifying tool types other than string comparison!
+    if (currentTool()->actionName() == "Draw Blocks" && prototype->type() == block_type_) {
+      // User is clicking on a block with that block.  We use this to signal intent to cycle orientations.
+      BlockOrientation* old_orientation = block.orientation();
+      const QVector<BlockOrientation*>& orientations = block.prototype()->orientations();
+      int orientation_index = orientations.indexOf(old_orientation);
+      orientation_index = (orientation_index + 1) % orientations.size();
+      qDebug() << "Using orientation" << orientations.at(orientation_index)->name();
+      BlockInstance new_block(prototype, position, orientations.at(orientation_index));
+      BlockTransaction transaction;
+      transaction.replaceBlock(block, new_block);
+      UndoCommand* command = new UndoCommand(transaction, diagram_);
+      command->setText("Change Block Orientation");
+      undo_stack_.push(command);
+      currentTool()->clear();
+      return;
+    }
+  }
 
   currentTool()->acceptLastPosition();
   BlockTransaction transaction;
@@ -222,53 +251,6 @@ QGraphicsItem* LevelWidget::itemAtPosition(const BlockPosition& position) const 
 BlockPosition LevelWidget::positionForEvent(QMouseEvent* event) const {
   return positionForPoint(mapToScene(event->pos()));
 }
-
-void LevelWidget::toggleBlock(QMouseEvent* event) {
-  if (block_type_ == kBlockTypeUnknown) {
-    return;
-  }
-
-  BlockPosition position = positionForEvent(event);
-  if (event->buttons() & Qt::RightButton) {
-    diagram_->clearBlock(position);
-  } else {
-    BlockPrototype* prototype = block_mgr_->getPrototype(block_type_);
-    const BlockInstance& old_block = diagram_->blockAt(position);
-    if (block_type_ == old_block.prototype()->type()) {
-      // Only change orientation on mouse down; otherwise we get a bunch of orientation changes during mouse move.
-      if (event->type() == QEvent::MouseButtonPress || event->type() == QEvent::MouseButtonDblClick) {
-        BlockOrientation* old_orientation = old_block.orientation();
-        const QVector<BlockOrientation*>& orientations = old_block.prototype()->orientations();
-        int orientation_index = orientations.indexOf(old_orientation);
-        if (orientation_index == orientations.size() - 1) {
-          orientation_index = 0;
-        } else {
-          ++orientation_index;
-        }
-        qDebug() << "Using orientation" << orientations.at(orientation_index)->name();
-        BlockInstance new_block(prototype, position, orientations.at(orientation_index));
-        diagram_->setBlock(position, new_block);
-      }
-    } else {
-      BlockInstance new_block(prototype, position, prototype->defaultOrientation());
-      diagram_->setBlock(position, new_block);
-    }
-  }
-}
-
-//void LevelWidget::fillBlocks(QMouseEvent* event) {
-//  if (block_type_ == kBlockTypeUnknown) {
-//    return;
-//  }
-
-//  BlockPosition position = positionForEvent(event);
-//  if (event->buttons() & Qt::RightButton) {
-//    diagram_->fillBlocks(position, kBlockTypeAir, BlockOrientation::noOrientation());
-//  } else {
-//    const BlockPrototype* prototype = block_mgr_->getPrototype(block_type_);
-//    diagram_->fillBlocks(position, block_type_, prototype->defaultOrientation());
-//  }
-//}
 
 BlockPosition LevelWidget::positionForPoint(const QPointF& point) const {
   BlockPosition ret(qRound(point.x() / kSpriteWidth), level_, qRound(point.y() / kSpriteHeight));

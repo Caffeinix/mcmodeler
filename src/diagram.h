@@ -38,10 +38,10 @@ class BlockTransaction;
   * serializing and deserializing that data upon request.  It provides some convenience methods for performing batch
   * operations on blocks, such as flood filling and drawing lines.
   *
-  * All operations on the Diagram take place within the scope of a BlockTransaction.  You can either call one of the
-  * convenience methods, which create and commit a BlockTransaction for you, or you can create a BlockTransaction
-  * that describes the change you'd like to make and then call commit() on the Diagram yourself.  Whenever a change is
-  * made to the diagram, the diagramChanged() signal is emitted with the transaction that was performed.
+  * All operations on the Diagram take place within the scope of a BlockTransaction.  To make changes to the diagram,
+  * create a BlockTransaction that describes the change you'd like to make and then call commit() on the Diagram
+  * yourself.  Whenever a change is made to the diagram, the diagramChanged() signal is emitted with the transaction
+  * that was performed.
   *
   * Diagram treats the world as horizontal slices, each corresponding to a level in the LevelWidget.  You can get a
   * map of a given level by calling the level() method.  You can also look up the block at a particular 3D location by
@@ -82,27 +82,6 @@ class Diagram : public QObject, public BlockOracle {
     * Populates the diagram with blocks deserialized from \p stream.
     */
   void load(QDataStream* stream);
-
-  /**
-    * Creates and commits a BlockTransaction which replaces the block at \p pos with \block.  The position of \p block
-    * must be the same as \p pos.  This is enforced.
-    */
-  void setBlock(const BlockPosition& pos, const BlockInstance& block);
-
-  /**
-    * Creates and commits a BlockTransaction which clears the block at \p pos.
-    */
-  void clearBlock(const BlockPosition& pos);
-
-  /**
-    * Creates and commits a BlockTransaction which performs a two-dimensional flood fill of blocks starting at \p
-    * start_pos.  Any blocks contiguous with \p start_pos which have the same y coordinate and type as the block found
-    * there will be changed to \p type and assigned \p orientation.
-    * @warning We currently use a fairly naive flood fill algorithm.  In the presence of an infinite canvas, this can
-    * present some problems.  The algorithm will eventually stop filling after a large number of iterations, but it can
-    * fill a vast number of blocks.
-    */
-  void fillBlocks(const BlockPosition& start_pos, const blocktype_t& type, BlockOrientation* orientation);
 
   /**
     * Creates and commits a BlockTransaction which copies all blocks on \p source_level to \p dest_level.
@@ -185,26 +164,6 @@ class Diagram : public QObject, public BlockOracle {
     * change.
     */
   void ephemerallyRemoveBlockInternal(const BlockInstance& block);
-
-  /**
-    * Recursion helper function for fillBlocks.
-    * @param pos The current position we are filling.
-    * @param source_type The type of the block we should replace.
-    * @param dest_type The type of block we should replace it with.
-    * @param dest_orientation The orientation we should set newly created blocks to.
-    * @param start_pos The point at which the initial fillBlocks began.
-    * @param depth Recursive stack depth.  Used for sanity checking to avoid stack overflow.
-    * @param filled_blocks The set of all blocks we have filled so far.  This is shared among all the recursive helpers.
-    * @param transaction The transaction we are building which, when committed, will perform the flood fill.
-    */
-  void fillBlocksRecurse(const BlockPosition& pos,
-                         const blocktype_t& source_type,
-                         const blocktype_t& dest_type,
-                         BlockOrientation* dest_orientation,
-                         const BlockPosition& start_pos,
-                         int depth,
-                         QSet<BlockPosition>* filled_blocks,
-                         BlockTransaction* transaction);
 
   /**
     * A map of all blocks in the diagram, regardless of level.  Used mainly for rendering.

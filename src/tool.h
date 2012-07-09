@@ -16,6 +16,8 @@
 #ifndef TOOL_H
 #define TOOL_H
 
+#include <QDebug>
+#include <QObject>
 #include <QVector>
 
 class BlockOrientation;
@@ -144,6 +146,10 @@ class Tool : public QObject {
     */
   virtual void setState(State state) {
     state_ = state;
+  }
+
+  virtual State state() const {
+    return state_;
   }
 
   /**

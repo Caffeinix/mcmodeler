@@ -6,5 +6,6 @@
         <file>circle_tool.png</file>
         <file>eraser_tool.png</file>
         <file>filled_rectangle_tool.png</file>
+        <file>flood_fill_tool.png</file>
     </qresource>
 </RCC>

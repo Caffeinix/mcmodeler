@@ -36,10 +36,9 @@ class Tool;
 /**
   * The canvas widget with which the user can interact to add and remove blocks.
   *
-  * The LevelWidget is a pure view in the sense of model/view/controller.  As such, it _never_ actively changes the
-  * state of the world, but merely reacts to changes in the model.  You will see methods below such as addBlock(),
-  * drawLine(), and fillBlocks(); rest assured that despite the names, none of these methods actually do any such
-  * thing.  They all convert event coordinates to 3D BlockPositions and then tell the Diagram to do the actual drawing.
+  * The LevelWidget is a view in the sense of model/view/controller.  As such, it _never_ directly changes the state of
+  * the world, but merely updates and listens for changes to the model (in this case, a Diagram).
+  *
   * When the diagram changes, it emits Diagram::diagramChanged(), which is connected to updateLevel() in this class.
   * This causes the view to apply the BlockTransaction (which was very likely a consequence of its own request to the
   * Diagram), which synchronizes the view with the model.
@@ -74,7 +73,10 @@ class LevelWidget : public QGraphicsView {
   void setBlockType(blocktype_t type);
 
   /**
-    * Sets the tool with which we are currently drawing to \p tool.
+    * Sets the tool that is selected in the tool picker to \p tool.
+    *
+    * @note This may not match the tool returned by currentTool() if a modifier tool is specified.
+    * @sa updateTool()
     */
   void setSelectedTool(Tool* tool);
 
@@ -140,7 +142,14 @@ class LevelWidget : public QGraphicsView {
   void mouseReleaseEvent(QMouseEvent* event);
   void mouseDoubleClickEvent(QMouseEvent* event);
 
+  /**
+    * Checks for key press events that might affect the current tool, and changes it if necessary.
+    */
   void updateTool(QKeyEvent* event);
+
+  /**
+    * Checks for mouse event modifiers that might affect the current tool, and changes it if necessary.
+    */
   void updateTool(QMouseEvent* event);
 
   /**
@@ -152,14 +161,6 @@ class LevelWidget : public QGraphicsView {
     * @sa Diagram::setBlock()
     */
   void toggleBlock(QMouseEvent* event);
-
-//  /**
-//    * Tells the Diagram to perform a flood fill operation starting at the position of \p event, using the currently
-//    * selected block type.
-//    * @sa setBlockType()
-//    * @sa Diagram::fillBlocks()
-//    */
-//  void fillBlocks(QMouseEvent* event);
 
   /**
     * Synchronizes the view with the diagram by clearing all blocks and drawing them again.  This is an expensive
@@ -215,6 +216,9 @@ class LevelWidget : public QGraphicsView {
     * Called whenever the Diagram changes its ephemeral blocks.
     */
   void updateEphemeralBlocks(const BlockTransaction& transaction);
+
+ protected:
+  virtual void showEvent(QShowEvent* event);
 
  private:
   /**

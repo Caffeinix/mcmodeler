@@ -157,18 +157,6 @@ void Diagram::save(QDataStream* stream) {
   }
 }
 
-void Diagram::setBlock(const BlockPosition& pos, const BlockInstance& block) {
-  BlockTransaction transaction;
-  ScopedTransactionCommitter committer(this, transaction);
-  transaction.replaceBlock(blockAt(pos), block);
-}
-
-void Diagram::clearBlock(const BlockPosition& pos) {
-  BlockTransaction transaction;
-  ScopedTransactionCommitter committer(this, transaction);
-  transaction.clearBlock(blockAt(pos));
-}
-
 void Diagram::addBlockInternal(const BlockInstance& block) {
   Q_ASSERT(block.prototype()->type() != kBlockTypeAir);
   const BlockPosition& position = block.position();
@@ -223,62 +211,6 @@ void Diagram::commitEphemeral(const BlockTransaction& transaction) {
   }
   emit ephemeralBlocksChanged(transaction);
 }
-
-void Diagram::fillBlocks(const BlockPosition& start_pos, const blocktype_t& type, BlockOrientation* orientation) {
-  BlockTransaction transaction;
-  ScopedTransactionCommitter committer(this, transaction);
-
-  BlockInstance start_block = blockAt(start_pos);
-  const blocktype_t source_type = start_block.prototype()->type();
-  QSet<BlockPosition> filled_blocks;
-  fillBlocksRecurse(start_pos, source_type, type, orientation, start_pos, 1, &filled_blocks, &transaction);
-}
-
-void Diagram::fillBlocksRecurse(const BlockPosition& pos,
-                                const blocktype_t& source_type,
-                                const blocktype_t& dest_type,
-                                BlockOrientation* dest_orientation,
-                                const BlockPosition& start_pos,
-                                int depth,
-                                QSet<BlockPosition>* filled_blocks,
-                                BlockTransaction* transaction) {
-  if (filled_blocks->contains(pos)) {
-    // We've already filled this block.
-    return;
-  }
-  if (qAbs(pos.x() - start_pos.x()) > 64 ||
-      qAbs(pos.z() - start_pos.z()) > 64) {
-    // This is unlikely to be a bounded area, so return to prevent stack overflow.
-    return;
-  }
-  if (depth > 8192) {
-    // Generic runaway recursion catcher.
-    return;
-  }
-  BlockInstance old_block = blockAt(pos);
-  if (old_block.prototype()->type() != source_type) {
-    return;
-  }
-  if (dest_type == kBlockTypeAir) {
-    transaction->clearBlock(old_block);
-  } else {
-    BlockPrototype* prototype = blockManager()->getPrototype(dest_type);
-    BlockInstance new_block(prototype, pos, dest_orientation);
-    transaction->replaceBlock(old_block, new_block);
-  }
-  filled_blocks->insert(pos);
-
-  // TODO: this hard-codes top-down orientation again.
-  fillBlocksRecurse(pos + BlockPosition(1, 0, 0), source_type, dest_type, dest_orientation,
-                    start_pos, depth, filled_blocks, transaction);
-  fillBlocksRecurse(pos + BlockPosition(-1, 0, 0), source_type, dest_type, dest_orientation,
-                    start_pos, depth, filled_blocks, transaction);
-  fillBlocksRecurse(pos + BlockPosition(0, 0, 1), source_type, dest_type, dest_orientation,
-                    start_pos, depth, filled_blocks, transaction);
-  fillBlocksRecurse(pos + BlockPosition(0, 0, -1), source_type, dest_type, dest_orientation,
-                    start_pos, depth, filled_blocks, transaction);
-}
-
 
 void Diagram::copyLevel(int source_level, int dest_level) {
   QHash<BlockPosition, BlockInstance>& source_level_map = block_list_[source_level];

@@ -22,6 +22,7 @@
 #include "diagram.h"
 #include "eraser_tool.h"
 #include "filled_rectangle_tool.h"
+#include "flood_fill_tool.h"
 #include "pencil_tool.h"
 #include "line_tool.h"
 #include "rectangle_tool.h"
@@ -66,6 +67,12 @@ void ToolPicker::setDiagram(Diagram* diagram) {
   item->setToolTip("Filled Rectangle");
   item->setIcon(QIcon(":/icons/filled_rectangle_tool.png"));
   item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new FilledRectangleTool(diagram)));
+  ui->list_widget_->addItem(item);
+
+  item = new QListWidgetItem();
+  item->setToolTip("Flood Fill");
+  item->setIcon(QIcon(":/icons/flood_fill_tool.png"));
+  item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new FloodFillTool(diagram)));
   ui->list_widget_->addItem(item);
 
   // Select the pencil tool.

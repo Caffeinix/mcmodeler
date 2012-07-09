@@ -34,8 +34,10 @@ MainWindow::MainWindow(QWidget *parent)
       bill_of_materials_window_(NULL) {
   ui.setupUi(this);
 
+  move(12, 12);
 #ifdef Q_OS_MACX
   ui.menu_bar_->setParent(NULL);
+  move(12, 12 + ui.menu_bar_->height());
 #endif
 
   ui.level_widget_->setLevel(ui.level_slider_->value());
