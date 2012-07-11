@@ -119,6 +119,7 @@ void LevelWidget::updateEphemeralBlocks(const BlockTransaction& transaction) {
 void LevelWidget::loadLevel() {
   scene()->clear();
   item_model_.clear();
+  ephemeral_items_.clear();
   if (!diagram_) {
     return;
   }
