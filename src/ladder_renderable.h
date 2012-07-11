@@ -29,7 +29,7 @@ class LadderRenderable : public RectangularPrismRenderable {
  protected:
   virtual Geometry moveToOrigin(const Geometry& geometry);
   virtual bool shouldRenderQuad(int index, const QVector3D& location, const BlockOrientation* orientation) const;
-  virtual Texture textureForQuad(int index) const;
+  virtual Texture textureForQuad(int index, const BlockOrientation* orientation) const;
 
 };
 

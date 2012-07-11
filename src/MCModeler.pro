@@ -48,7 +48,8 @@ HEADERS = \
     undo_command.h \
     eraser_tool.h \
     filled_rectangle_tool.h \
-    flood_fill_tool.h
+    flood_fill_tool.h \
+    track_renderable.h
 
 SOURCES = \
     about_box.cc \
@@ -94,7 +95,8 @@ SOURCES = \
     undo_command.cc \
     eraser_tool.cc \
     filled_rectangle_tool.cc \
-    flood_fill_tool.cc
+    flood_fill_tool.cc \
+    track_renderable.cc
 
 QT += opengl
 
@@ -149,6 +151,8 @@ win32 {
 }
 
 TARGET = "MCModeler"
+
+
 
 
 

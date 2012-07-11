@@ -39,6 +39,7 @@
 #include "stairs_renderable.h"
 #include "texture.h"
 #include "texture_pack.h"
+#include "track_renderable.h"
 
 QMap<blocktype_t, BlockProperties>* BlockPrototype::s_type_mapping = NULL;
 
@@ -158,6 +159,9 @@ BlockPrototype::BlockPrototype(blocktype_t type, TexturePack* texture_pack, Bloc
       break;
     case kBlockGeometryLadder:
       renderable_.reset(new LadderRenderable());
+      break;
+    case kBlockGeometryTrack:
+      renderable_.reset(new TrackRenderable());
       break;
     default:
       qWarning() << "No renderable could be found for block" << properties_.name();

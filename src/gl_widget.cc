@@ -118,7 +118,7 @@ void GLWidget::initializeGL() {
   scene_display_list_ = glGenLists(2);
   glNewList(ground_plane_display_list_, GL_COMPILE);
   glPushMatrix();
-  glTranslatef(-50.0f, 0.005, -50.0f);
+  glTranslatef(-50.0f, -1 / 256, -50.0f);
   for (int i = 0; i < 100; ++i) {
     glBegin(GL_QUAD_STRIP);
     glVertex3f(i, 0, 0);

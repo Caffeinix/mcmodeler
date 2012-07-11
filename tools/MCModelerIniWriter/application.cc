@@ -42,23 +42,32 @@ const char kGeometrySlab[] = "slab";
 const char kGeometryStairs[] = "stairs";
 const char kGeometryPressurePlate[] = "pressure_plate";
 const char kGeometrySnow[] = "snow";
+const char kGeometryTrack[] = "track";
 
 const char kOrientationNone[] = "";
 const char kOrientationFacingSouth[] = "Facing south";
 const char kOrientationFacingWest[] = "Facing west";
 const char kOrientationFacingNorth[] = "Facing north";
 const char kOrientationFacingEast[] = "Facing east";
-const char kOrientationPaneNorthSouth[] = "Facing north/south";
-const char kOrientationPaneEastWest[] = "Facing east/west";
-const char kOrientationPaneNorthHalf[] = "North half";
-const char kOrientationPaneSouthHalf[] = "South half";
-const char kOrientationPaneEastHalf[] = "East half";
-const char kOrientationPaneWestHalf[] = "West half";
-const char kOrientationPaneNorthwestCorner[] = "Northwest corner";
-const char kOrientationPaneSouthwestCorner[] = "Southwest corner";
-const char kOrientationPaneNortheastCorner[] = "Northeast corner";
-const char kOrientationPaneSoutheastCorner[] = "Southeast corner";
-const char kOrientationPaneCross[] = "Cross";
+const char kOrientationRunningNorthSouth[] = "Running north/south";
+const char kOrientationRunningEastWest[] = "Running east/west";
+const char kOrientationNorthwestCorner[] = "Northwest corner";
+const char kOrientationSouthwestCorner[] = "Southwest corner";
+const char kOrientationNortheastCorner[] = "Northeast corner";
+const char kOrientationSoutheastCorner[] = "Southeast corner";
+const char kOrientationAscendingSouth[] = "Ascending south";
+const char kOrientationAscendingWest[] = "Ascending west";
+const char kOrientationAscendingNorth[] = "Ascending north";
+const char kOrientationAscendingEast[] = "Ascending east";
+const char kOrientationNorthHalf[] = "North half";
+const char kOrientationSouthHalf[] = "South half";
+const char kOrientationEastHalf[] = "East half";
+const char kOrientationWestHalf[] = "West half";
+const char kOrientationTFacingSouth[] = "T facing south";
+const char kOrientationTFacingWest[] = "T facing west";
+const char kOrientationTFacingNorth[] = "T facing north";
+const char kOrientationTFacingEast[] = "T facing east";
+const char kOrientationCross[] = "Cross";
 
 
 // Anatomy of a 32-bit MCModeler block ID:
@@ -273,12 +282,14 @@ Application::Application(int argc, char *argv[]) :
                   QStringList() << kCategoryBasic << kCategoryConstruction,
                   kGeometryPane,
                   QPoint(1, 3),
-                  QVariantList() << kOrientationPaneNorthSouth << kOrientationPaneEastWest
-                                 << kOrientationPaneNorthHalf << kOrientationPaneSouthHalf
-                                 << kOrientationPaneEastHalf << kOrientationPaneWestHalf
-                                 << kOrientationPaneNorthwestCorner << kOrientationPaneSouthwestCorner
-                                 << kOrientationPaneNortheastCorner << kOrientationPaneSoutheastCorner
-                                 << kOrientationPaneCross,
+                  QVariantList() << kOrientationRunningNorthSouth << kOrientationRunningEastWest
+                                 << kOrientationNorthHalf << kOrientationSouthHalf
+                                 << kOrientationEastHalf << kOrientationWestHalf
+                                 << kOrientationNorthwestCorner << kOrientationSouthwestCorner
+                                 << kOrientationNortheastCorner << kOrientationSoutheastCorner
+                                 << kOrientationTFacingSouth << kOrientationTFacingWest
+                                 << kOrientationTFacingNorth << kOrientationTFacingEast
+                                 << kOrientationCross,
                   textures(QPoint(1, 3)),
                   true);
   blocks << block("Iron Bars",
@@ -286,12 +297,14 @@ Application::Application(int argc, char *argv[]) :
                   QStringList() << kCategoryBasic << kCategoryConstruction,
                   kGeometryPane,
                   QPoint(5, 5),
-                  QVariantList() << kOrientationPaneNorthSouth << kOrientationPaneEastWest
-                                 << kOrientationPaneNorthHalf << kOrientationPaneSouthHalf
-                                 << kOrientationPaneEastHalf << kOrientationPaneWestHalf
-                                 << kOrientationPaneNorthwestCorner << kOrientationPaneSouthwestCorner
-                                 << kOrientationPaneNortheastCorner << kOrientationPaneSoutheastCorner
-                                 << kOrientationPaneCross,
+                  QVariantList() << kOrientationRunningNorthSouth << kOrientationRunningEastWest
+                                 << kOrientationNorthHalf << kOrientationSouthHalf
+                                 << kOrientationEastHalf << kOrientationWestHalf
+                                 << kOrientationNorthwestCorner << kOrientationSouthwestCorner
+                                 << kOrientationNortheastCorner << kOrientationSoutheastCorner
+                                 << kOrientationTFacingSouth << kOrientationTFacingWest
+                                 << kOrientationTFacingNorth << kOrientationTFacingEast
+                                 << kOrientationCross,
                   textures(QPoint(5, 5)),
                   true);
   blocks << block("Cobblestone",
@@ -1085,6 +1098,18 @@ Application::Application(int argc, char *argv[]) :
                   QPoint(3, 5),
                   QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
                   textures(QList<QPoint>() << QPoint(3, 5)),
+                  true);
+  blocks << block("Minecart Track",
+                  0x42,
+                  QStringList() << kCategoryConstruction << kCategoryRedstone,
+                  kGeometryTrack,
+                  QPoint(0, 8),
+                  QVariantList() << kOrientationRunningNorthSouth << kOrientationRunningEastWest
+                                 << kOrientationAscendingSouth << kOrientationAscendingWest
+                                 << kOrientationAscendingNorth << kOrientationAscendingEast
+                                 << kOrientationNorthwestCorner << kOrientationSouthwestCorner
+                                 << kOrientationNortheastCorner << kOrientationSoutheastCorner,
+                  textures(QList<QPoint>() << QPoint(0, 8) << QPoint(0, 7)),
                   true);
   blocks << block("Vines",
                   0x6A,

@@ -57,7 +57,7 @@ bool BasicRenderable::shouldRenderQuad(int index,
   return true;
 }
 
-Texture BasicRenderable::textureForQuad(int index) const {
+Texture BasicRenderable::textureForQuad(int index, const BlockOrientation* orientation) const {
   return texture(index);
 }
 
@@ -81,7 +81,7 @@ void BasicRenderable::renderAt(const QVector3D& location, const BlockOrientation
     if (!shouldRenderQuad(start / 4, location, orientation)) {
       continue;
     }
-    glBindTexture(GL_TEXTURE_2D, textureForQuad(start / 4).textureId());
+    glBindTexture(GL_TEXTURE_2D, textureForQuad(start / 4, orientation).textureId());
     glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);

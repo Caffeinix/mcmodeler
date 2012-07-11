@@ -34,7 +34,7 @@ LadderRenderable::Geometry LadderRenderable::moveToOrigin(const LadderRenderable
   return out_geometry;
 }
 
-Texture LadderRenderable::textureForQuad(int index) const {
+Texture LadderRenderable::textureForQuad(int index, const BlockOrientation* orientation) const {
   // We only have one texture, so always use it.
   return texture(0);
 }

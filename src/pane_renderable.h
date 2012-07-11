@@ -87,7 +87,7 @@ class PaneRenderable : public RectangularPrismRenderable {
 
   virtual void applyOrientationTransform(const BlockOrientation* orientation) const;
   virtual bool shouldRenderQuad(int index, const QVector3D& location, const BlockOrientation* orientation) const;
-  virtual Texture textureForQuad(int index) const;
+  virtual Texture textureForQuad(int index, const BlockOrientation* orientation) const;
 };
 
 #endif // PANE_RENDERABLE_H

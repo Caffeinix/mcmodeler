@@ -128,11 +128,12 @@ class BasicRenderable : public Renderable {
   virtual bool shouldRenderQuad(int index, const QVector3D& location, const BlockOrientation* orientation) const;
 
   /**
-    * Returns the texture that should be used to draw the quad at \p index.  By default, this just calls
-    * Renderable::texture(), but you may wish to override it if you wish to use the same texture for multiple quads
-    * without having to specify it multiple times.
+    * Returns the texture that should be used to draw the quad at \p index for a block in \p orientation.  By default,
+    * this just calls Renderable::texture() with index, but you may wish to override it if you wish to use the same
+    * texture for multiple quads without having to specify it multiple times, or to use a different texture depending
+    * on the orientation of the block.
     */
-  virtual Texture textureForQuad(int index) const;
+  virtual Texture textureForQuad(int index, const BlockOrientation* orientation) const;
 
   /**
     * Returns the size that was passed into BasicRenderable's constructor.

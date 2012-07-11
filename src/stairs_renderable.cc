@@ -172,6 +172,6 @@ void StairsRenderable::applyOrientationTransform(const BlockOrientation* orienta
   }
 }
 
-Texture StairsRenderable::textureForQuad(int index) const {
+Texture StairsRenderable::textureForQuad(int index, const BlockOrientation* orientation) const {
   return texture(index % 6);
 }

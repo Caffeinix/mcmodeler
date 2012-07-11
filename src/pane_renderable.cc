@@ -152,8 +152,8 @@ void PaneRenderable::addGeometry(const PaneRenderable::Geometry& geometry,
 bool PaneRenderable::shouldRenderQuad(int index,
                                       const QVector3D& location,
                                       const BlockOrientation* orientation) const {
-  if (orientation == BlockOrientation::get("Facing north/south") ||
-      orientation == BlockOrientation::get("Facing east/west")) {
+  if (orientation == BlockOrientation::get("Running north/south") ||
+      orientation == BlockOrientation::get("Running east/west")) {
     return index >= kFullWidthFront && index <= kFullWidthLeft;
   } else if (orientation == BlockOrientation::get("North half")) {
     return index >= kNorthHalfFront && index <= kNorthHalfLeft;
@@ -175,6 +175,14 @@ bool PaneRenderable::shouldRenderQuad(int index,
   } else if (orientation == BlockOrientation::get("Southwest corner")) {
     return (index >= kSouthHalfFront && index <= kSouthHalfLeft) ||
            (index >= kWestHalfFront && index <= kWestHalfLeft);
+  } else if (orientation == BlockOrientation::get("T facing south")) {
+    return index > kFullWidthLeft && !(index >= kSouthHalfFront && index <= kSouthHalfLeft);
+  } else if (orientation == BlockOrientation::get("T facing west")) {
+    return index > kFullWidthLeft && !(index >= kWestHalfFront && index <= kWestHalfLeft);
+  } else if (orientation == BlockOrientation::get("T facing north")) {
+    return index > kFullWidthLeft && !(index >= kNorthHalfFront && index <= kNorthHalfLeft);
+  } else if (orientation == BlockOrientation::get("T facing east")) {
+    return index > kFullWidthLeft && !(index >= kEastHalfFront && index <= kEastHalfLeft);
   } else if (orientation == BlockOrientation::get("Cross")) {
     return index > kFullWidthLeft;
   } else {
@@ -188,6 +196,6 @@ void PaneRenderable::applyOrientationTransform(const BlockOrientation* orientati
   }
 }
 
-Texture PaneRenderable::textureForQuad(int index) const {
+Texture PaneRenderable::textureForQuad(int index, const BlockOrientation* orientation) const {
   return texture(index % 6);
 }

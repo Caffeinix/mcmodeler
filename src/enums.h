@@ -61,6 +61,7 @@ enum BlockGeometry {
   kBlockGeometrySlab,
   kBlockGeometrySnow,
   kBlockGeometryStairs,
+  kBlockGeometryTrack,
   kBlockGeometryTorchOnFloor,
   kBlockGeometryTorchOnWall
 };
