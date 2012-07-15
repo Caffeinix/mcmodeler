@@ -21,6 +21,16 @@
 class TorchRenderable : public BasicRenderable {
  public:
   TorchRenderable(const QVector3D &size);
+
+  virtual Geometry createGeometry();
+  virtual TextureCoords createTextureCoords(const Geometry& geometry);
+  virtual Geometry moveToOrigin(const Geometry& geometry);
+  virtual void addGeometry(const Geometry& geometry, const TextureCoords& texture_coords);
+
+ protected:
+  virtual void applyOrientationTransform(const BlockOrientation* orientation) const;
+  virtual bool shouldRenderQuad(int index, const QVector3D& location, const BlockOrientation* orientation) const;
+  virtual Texture textureForQuad(int index, const BlockOrientation* orientation) const;
 };
 
 #endif // TORCH_RENDERABLE_H

@@ -40,6 +40,7 @@
 #include "stairs_renderable.h"
 #include "texture.h"
 #include "texture_pack.h"
+#include "torch_renderable.h"
 #include "track_renderable.h"
 
 QMap<blocktype_t, BlockProperties>* BlockPrototype::s_type_mapping = NULL;
@@ -164,8 +165,12 @@ BlockPrototype::BlockPrototype(blocktype_t type, TexturePack* texture_pack, Bloc
     case BlockGeometry::kGeometryTrack:
       renderable_.reset(new TrackRenderable());
       break;
+    case BlockGeometry::kGeometryTorch:
+      renderable_.reset(new TorchRenderable(QVector3D(0.125, 10./16., 0.125)));
+      break;
     default:
-      qWarning() << "No renderable could be found for block" << properties_.name();
+      qWarning() << "No renderable could be found for block" << properties_.name()
+                 << "with geometry" << properties_.geometry();
       renderable_.reset(new RectangularPrismRenderable(QVector3D(1.0f, 1.0f, 1.0f)));
       break;
   }

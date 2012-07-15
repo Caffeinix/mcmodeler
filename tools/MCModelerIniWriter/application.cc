@@ -42,6 +42,7 @@ const char kGeometrySlab[] = "kGeometrySlab";
 const char kGeometryStairs[] = "kGeometryStairs";
 const char kGeometryPressurePlate[] = "kGeometryPressurePlate";
 const char kGeometrySnow[] = "kGeometrySnow";
+const char kGeometryTorch[] = "kGeometryTorch";
 const char kGeometryTrack[] = "kGeometryTrack";
 
 const char kOrientationNone[] = "";
@@ -68,6 +69,11 @@ const char kOrientationTFacingWest[] = "T facing west";
 const char kOrientationTFacingNorth[] = "T facing north";
 const char kOrientationTFacingEast[] = "T facing east";
 const char kOrientationCross[] = "Cross";
+const char kOrientationOnFloor[] = "On floor";
+const char kOrientationOnNorthWall[] = "On north wall";
+const char kOrientationOnEastWall[] = "On east wall";
+const char kOrientationOnSouthWall[] = "On south wall";
+const char kOrientationOnWestWall[] = "On west wall";
 
 
 // Anatomy of a 32-bit MCModeler block ID:
@@ -1127,7 +1133,15 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationNone,
                   textures(QPoint(2, 4)),
                   true);
-
+  blocks << block("Torch",
+                  0x32,
+                  QStringList() << kCategoryBasic,
+                  kGeometryTorch,
+                  QPoint(0, 5),
+                  QVariantList() << kOrientationOnFloor << kOrientationOnSouthWall << kOrientationOnWestWall
+                                 << kOrientationOnNorthWall << kOrientationOnEastWall,
+                  textures(QList<QPoint>() << QPoint(0, 5) << QPoint(0, 5) << QPoint(0, 5) << QPoint(0, 5)),
+                  true);
 
   QJson::Serializer serializer;
   QByteArray json = serializer.serialize(blocks);
