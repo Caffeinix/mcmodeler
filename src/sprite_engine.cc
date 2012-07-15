@@ -15,6 +15,7 @@
 
 #include "sprite_engine.h"
 
+#include "block_geometry.h"
 #include "block_properties.h"
 #include "texture.h"
 
@@ -34,7 +35,7 @@ QPixmap SpriteEngine::createSprite(const Texture& texture,
   QPainter painter(&pixmap);
   painter.save();
   switch (properties.geometry()) {
-    case kBlockGeometryStairs:
+    case BlockGeometry::kGeometryStairs:
       if (orientation == BlockOrientation::get("Facing south")) {
         painter.fillRect(0, pixmap.height() / 2, pixmap.width(), pixmap.height(), QColor(0, 0, 0, 96));
       } else if (orientation == BlockOrientation::get("Facing north")) {
@@ -48,7 +49,7 @@ QPixmap SpriteEngine::createSprite(const Texture& texture,
         painter.fillRect(0, 0, pixmap.width() / 2, pixmap.height() / 2, Qt::black);
       }
       break;
-    case kBlockGeometrySlab:
+    case BlockGeometry::kGeometrySlab:
       if (orientation == BlockOrientation::paletteOrientation()) {
         painter.setCompositionMode(QPainter::CompositionMode_Clear);
         painter.fillRect(0, 0, pixmap.width(), pixmap.height() / 2, Qt::black);
@@ -56,7 +57,7 @@ QPixmap SpriteEngine::createSprite(const Texture& texture,
         painter.fillRect(0, 0, pixmap.width(), pixmap.height(), QColor(0, 0, 0, 96));
       }
       break;
-    case kBlockGeometrySnow:
+    case BlockGeometry::kGeometrySnow:
       if (orientation == BlockOrientation::paletteOrientation()) {
         painter.setCompositionMode(QPainter::CompositionMode_Clear);
         painter.fillRect(0, 0, pixmap.width(), 3 * pixmap.height() / 4, Qt::black);

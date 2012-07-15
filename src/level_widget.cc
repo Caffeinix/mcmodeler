@@ -60,7 +60,6 @@ LevelWidget::LevelWidget(QWidget* parent) :
 LevelWidget::~LevelWidget() {}
 
 void LevelWidget::showEvent(QShowEvent* event) {
-  qDebug() << window()->frameGeometry();
   undo_view_.move(window()->frameGeometry().topRight() + QPoint(6, 0));
   undo_view_.show();
 }

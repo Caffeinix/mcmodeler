@@ -22,6 +22,7 @@
 #include <QVariantMap>
 #include <QVector>
 
+#include "block_geometry.h"
 #include "block_orientation.h"
 #include "enums.h"
 
@@ -93,7 +94,7 @@ class BlockProperties {
   /**
     * Returns what kind of geometry this block type uses.
     */
-  BlockGeometry geometry() const;
+  BlockGeometry::Geometry geometry() const;
 
   /**
     * Returns a list of valid orientations for this block type.  The orientations should be ordered such that the first
@@ -145,7 +146,7 @@ class BlockProperties {
 private:
   QString name_;
   QStringList categories_;
-  BlockGeometry geometry_;
+  BlockGeometry::Geometry geometry_;
   QVector<BlockOrientation*> valid_orientations_;
   QVector<QPoint> tile_offsets_;
   QPoint sprite_offset_;

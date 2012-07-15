@@ -75,8 +75,6 @@ TrackRenderable::TextureCoords TrackRenderable::createTextureCoords(const Geomet
   tex[kTopLeftCorner] = QVector2D(flat_quad[kTopRightCorner].x(), flat_quad[kTopRightCorner].z());
   texture_coords << tex;
 
-  qDebug() << texture_coords;
-
   return texture_coords;
 }
 

@@ -28,6 +28,7 @@
 #include <QJson/Parser>
 
 #include "bed_renderable.h"
+#include "block_geometry.h"
 #include "block_oracle.h"
 #include "block_position.h"
 #include "door_renderable.h"
@@ -125,42 +126,42 @@ BlockPrototype::BlockPrototype(blocktype_t type, TexturePack* texture_pack, Bloc
 
   properties_ = s_type_mapping->value(type_);
   switch (properties_.geometry()) {
-    case kBlockGeometryCube:
+    case BlockGeometry::kGeometryCube:
       renderable_.reset(new RectangularPrismRenderable(QVector3D(1.0f, 1.0f, 1.0f)));
       break;
-    case kBlockGeometrySlab:
+    case BlockGeometry::kGeometrySlab:
       renderable_.reset(new RectangularPrismRenderable(QVector3D(1.0f, 0.5f, 1.0f)));
       break;
-    case kBlockGeometrySnow:
+    case BlockGeometry::kGeometrySnow:
       renderable_.reset(new RectangularPrismRenderable(QVector3D(1.0f, 0.125f, 1.0f)));
       break;
-    case kBlockGeometryChest:
+    case BlockGeometry::kGeometryChest:
       renderable_.reset(new RectangularPrismRenderable(QVector3D(0.9f, 0.9f, 0.9f),
                                                        RectangularPrismRenderable::kTextureScale));
       break;
-    case kBlockGeometryPane:
+    case BlockGeometry::kGeometryPane:
       renderable_.reset(new PaneRenderable(QVector3D(1.0f, 1.0f, 0.125f)));
       break;
-    case kBlockGeometryPressurePlate:
+    case BlockGeometry::kGeometryPressurePlate:
       renderable_.reset(new RectangularPrismRenderable(QVector3D(0.8f, 0.05f, 0.8f)));
       break;
-    case kBlockGeometryStairs:
+    case BlockGeometry::kGeometryStairs:
       renderable_.reset(new StairsRenderable(QVector3D(1.0f, 1.0f, 1.0f)));
       break;
-    case kBlockGeometryCactus:
+    case BlockGeometry::kGeometryCactus:
       renderable_.reset(new OverlappingFacesRenderable(QVector3D(1.0f, 1.0f, 1.0f),
                                                        QVector3D(0.0625f, 0.0f, 0.0625f)));
       break;
-    case kBlockGeometryBed:
+    case BlockGeometry::kGeometryBed:
       renderable_.reset(new BedRenderable());
       break;
-    case kBlockGeometryDoor:
+    case BlockGeometry::kGeometryDoor:
       renderable_.reset(new DoorRenderable());
       break;
-    case kBlockGeometryLadder:
+    case BlockGeometry::kGeometryLadder:
       renderable_.reset(new LadderRenderable());
       break;
-    case kBlockGeometryTrack:
+    case BlockGeometry::kGeometryTrack:
       renderable_.reset(new TrackRenderable());
       break;
     default:
@@ -231,14 +232,14 @@ void BlockPrototype::renderInstance(const BlockInstance& instance) const {
 bool BlockPrototype::shouldRenderFace(const Renderable* renderable, Face face, const QVector3D& location) const {
   Q_UNUSED(renderable);
 
-  BlockGeometry geometry = properties().geometry();
-  if (geometry != kBlockGeometryCube && geometry != kBlockGeometrySlab) {
+  BlockGeometry::Geometry geometry = properties().geometry();
+  if (geometry != BlockGeometry::kGeometryCube && geometry != BlockGeometry::kGeometrySlab) {
     return true;
   }
 
   BlockPrototype* other = neighboringBlockForFace(face, location);
   return (other->type() ==  kBlockTypeAir ||
-          other->properties().geometry() != kBlockGeometryCube ||
+          other->properties().geometry() != BlockGeometry::kGeometryCube ||
           (other->properties().isTransparent() && other->type() != type()));
 }
 

@@ -49,7 +49,11 @@ HEADERS = \
     eraser_tool.h \
     filled_rectangle_tool.h \
     flood_fill_tool.h \
-    track_renderable.h
+    track_renderable.h \
+    torch_renderable.h \
+    enumeration.h \
+    enumeration_impl.h \
+    block_geometry.h
 
 SOURCES = \
     about_box.cc \
@@ -96,7 +100,8 @@ SOURCES = \
     eraser_tool.cc \
     filled_rectangle_tool.cc \
     flood_fill_tool.cc \
-    track_renderable.cc
+    track_renderable.cc \
+    torch_renderable.cc
 
 QT += opengl
 

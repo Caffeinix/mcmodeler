@@ -18,10 +18,13 @@
 #include <QDebug>
 #include <QMetaProperty>
 
+#include "enumeration.h"
+#include "block_geometry.h"
+
 BlockProperties::BlockProperties()
     : name_(QString()),
       categories_(QStringList()),
-      geometry_(kBlockGeometryCube),
+      geometry_(BlockGeometry::kGeometryCube),
       valid_orientations_(QVector<BlockOrientation*>()),
       tile_offsets_(QVector<QPoint>()),
       sprite_offset_(QPoint(-1, -1)),
@@ -48,32 +51,7 @@ BlockProperties::BlockProperties(const QVariantMap& block_data) {
       is_biome_tree_ = value.toBool();
     } else if (key == "geometry") {
       // Convert from string to BlockGeometry enum.
-      // TODO(phoenix): Implement this for real.
-      if (value.toString() == "bed") {
-        geometry_ = kBlockGeometryBed;
-      } else if (value.toString() == "slab") {
-        geometry_ = kBlockGeometrySlab;
-      } else if (value.toString() == "cactus") {
-        geometry_ = kBlockGeometryCactus;
-      } else if (value.toString() == "chest") {
-        geometry_ = kBlockGeometryChest;
-      } else if (value.toString() == "ladder") {
-        geometry_ = kBlockGeometryLadder;
-      } else if (value.toString() == "pressure_plate") {
-        geometry_ = kBlockGeometryPressurePlate;
-      } else if (value.toString() == "door") {
-        geometry_ = kBlockGeometryDoor;
-      } else if (value.toString() == "pane") {
-        geometry_ = kBlockGeometryPane;
-      } else if (value.toString() == "stairs") {
-        geometry_ = kBlockGeometryStairs;
-      } else if (value.toString() == "snow") {
-        geometry_ = kBlockGeometrySnow;
-      } else if (value.toString() == "track") {
-        geometry_ = kBlockGeometryTrack;
-      } else {
-        geometry_ = kBlockGeometryCube;
-      }
+      geometry_ = Enumeration<BlockGeometry, BlockGeometry::Geometry>::fromString(value.toString());
     } else if (key == "validOrientations") {
       // Convert from QVariantList of strings to QVector of BlockOrientations.
       QVector<BlockOrientation*> orientations;
@@ -110,7 +88,7 @@ QStringList BlockProperties::categories() const {
   return categories_;
 }
 
-BlockGeometry BlockProperties::geometry() const {
+BlockGeometry::Geometry BlockProperties::geometry() const {
   return geometry_;
 }
 

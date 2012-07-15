@@ -13,29 +13,14 @@
  * limitations under the License.
  */
 
-#ifndef ENUMS_H
-#define ENUMS_H
+#ifndef TORCH_RENDERABLE_H
+#define TORCH_RENDERABLE_H
 
-/**
-  * Represents the faces of a rectangular prism, in the order OpenGL expects them to be supplied.
-  */
-enum Face {
-  kFrontFace = 0,
-  kBackFace = 1,
-  kBottomFace = 2,
-  kRightFace = 3,
-  kTopFace = 4,
-  kLeftFace = 5
+#include "basic_renderable.h"
+
+class TorchRenderable : public BasicRenderable {
+ public:
+  TorchRenderable(const QVector3D &size);
 };
 
-/**
-  * Represents the four corners of a quad in counter-clockwise order.
-  */
-enum Corner {
-  kBottomLeftCorner = 0,
-  kBottomRightCorner = 1,
-  kTopRightCorner = 2,
-  kTopLeftCorner = 3
-};
-
-#endif // ENUMS_H
+#endif // TORCH_RENDERABLE_H
