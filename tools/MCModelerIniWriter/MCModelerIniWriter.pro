@@ -19,7 +19,10 @@ SOURCES += main.cc \
     application.cc
 
 HEADERS += \
-    application.h
+    application.h \
+    ../../src/block_geometry.h \
+    ../../src/enumeration_impl.h \
+    ../../src/enumeration.h
 
 INCLUDEPATH += ../../third_party/qjson/include
 
