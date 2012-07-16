@@ -3,16 +3,10 @@
 
 #include <QCoreApplication>
 
-class Application : public QCoreApplication
-{
-    Q_OBJECT
-public:
-    Application(int argc, char *argv[]);
-
-signals:
-
-public slots:
-
+class Application : public QCoreApplication {
+  Q_OBJECT
+ public:
+  Application(int argc, char* argv[]);
 };
 
 #endif // APPLICATION_H

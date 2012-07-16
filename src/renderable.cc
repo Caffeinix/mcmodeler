@@ -31,6 +31,10 @@ Texture Renderable::texture(int local_id) const {
   }
 }
 
+int Renderable::textureCount() const {
+  return textures_.size();
+}
+
 void Renderable::setTexture(int local_id, const Texture& texture) {
   if (local_id >= textures_.size()) {
     textures_.resize(local_id + 1);

@@ -39,8 +39,8 @@ Texture LadderRenderable::textureForQuad(int index, const BlockOrientation* orie
   return texture(0);
 }
 
-bool LadderRenderable::shouldRenderQuad(int index, const QVector3D &location,
-                                        const BlockOrientation *orientation) const {
+bool LadderRenderable::shouldRenderQuad(int index, const QVector3D& location,
+                                        const BlockOrientation* orientation) const {
   // Ladders only have one face, the front one.
   return index == kFrontFace;
 }

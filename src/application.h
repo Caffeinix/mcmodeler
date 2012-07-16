@@ -17,6 +17,7 @@
 #define APPLICATION_H
 
 #include <QApplication>
+#include <QScopedPointer>
 
 #include "block_manager.h"
 #include "diagram.h"
@@ -32,9 +33,20 @@ class Application : public QApplication {
   explicit Application(int& argc, char** argv);
   virtual ~Application();
 
+  /**
+    * Returns the application instance.  This is equivalent to `static_cast<Application*>(qApp)`.
+    */
+  static Application* instance();
+
+  /**
+    * Returns the application settings.
+    */
+  QSettings* settings() const;
+
  private:
   QScopedPointer<Diagram> diagram_;
   QScopedPointer<BlockManager> block_mgr_;
+  QScopedPointer<QSettings> settings_;
 };
 
 #endif // APPLICATION_H

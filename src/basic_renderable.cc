@@ -39,8 +39,8 @@ void BasicRenderable::appendVertex(const QVector3D& vertex,
   tex_coords_.append(tex_coord);
 }
 
-void BasicRenderable::addQuad(const QVector3D &a, const QVector3D &b,
-                              const QVector3D &c, const QVector3D &d,
+void BasicRenderable::addQuad(const QVector3D& a, const QVector3D& b,
+                              const QVector3D& c, const QVector3D& d,
                               const QVector<QVector2D> &tex) {
   QVector3D norm = QVector3D::normal(a, b, c);
   appendVertex(a, norm, tex[kBottomLeftCorner]);

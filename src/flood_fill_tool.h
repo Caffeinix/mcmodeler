@@ -29,7 +29,7 @@ class FloodFillTool : public Tool {
   virtual QString actionName() const;
   virtual bool wantsMorePositions();
   virtual bool isBrush() const;
-  virtual void draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction);
+  virtual void draw(BlockPrototype* prototype, const BlockOrientation* orientation, BlockTransaction* transaction);
 
  private:
   /**
@@ -46,7 +46,7 @@ class FloodFillTool : public Tool {
   void fillBlocksRecurse(const BlockPosition& pos,
                          const blocktype_t& source_type,
                          BlockPrototype* dest_prototype,
-                         BlockOrientation* dest_orientation,
+                         const BlockOrientation* dest_orientation,
                          const BlockPosition& start_pos,
                          int depth,
                          QSet<BlockPosition>* filled_blocks,

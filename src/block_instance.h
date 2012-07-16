@@ -36,7 +36,7 @@ class BlockInstance {
     * @param orientation The orientation of this block.  Valid orientations depend on the prototype, and can be
     *     found by calling BlockPrototype::orientations() and BlockPrototype::defaultOrientation().
     */
-  BlockInstance(BlockPrototype* prototype, const BlockPosition& position, BlockOrientation* orientation);
+  BlockInstance(BlockPrototype* prototype, const BlockPosition& position, const BlockOrientation* orientation);
   ~BlockInstance();
 
   BlockInstance(const BlockInstance& other);
@@ -44,7 +44,7 @@ class BlockInstance {
 
   inline BlockPrototype* prototype() const { return prototype_; }
   inline BlockPosition position() const { return position_; }
-  inline BlockOrientation* orientation() const { return orientation_; }
+  inline const BlockOrientation* orientation() const { return orientation_; }
 
   /**
     * Renders this BlockInstance in a 3D context.  Equivalent to prototype()->renderInstance(*this).  The particular
@@ -58,7 +58,7 @@ class BlockInstance {
  private:
   BlockPrototype* prototype_;
   BlockPosition position_;
-  BlockOrientation* orientation_;
+  const BlockOrientation* orientation_;
 };
 
 #endif // BLOCK_INSTANCE_H

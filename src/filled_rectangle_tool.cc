@@ -35,7 +35,7 @@ bool FilledRectangleTool::isBrush() const {
 }
 
 void FilledRectangleTool::draw(BlockPrototype* prototype,
-                               BlockOrientation* orientation,
+                               const BlockOrientation* orientation,
                                BlockTransaction* transaction) {
   if (wantsMorePositions()) {
     return;

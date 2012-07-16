@@ -75,7 +75,7 @@ class BlockPrototype : public RenderDelegate {
   /**
     * Returns the sprite pixmap that should be used to represent this kind of block in a 2D context.
     */
-  QPixmap sprite(BlockOrientation* orientation = BlockOrientation::noOrientation()) const;
+  QPixmap sprite(const BlockOrientation* orientation = BlockOrientation::noOrientation()) const;
 
   /**
     * Returns the name of this block.  For example, "Netherrack" or "Diamond ore".
@@ -103,13 +103,13 @@ class BlockPrototype : public RenderDelegate {
     * cobblestone, most other blocks) it will return the value of BlockOrientation::noOrientation().  Otherwise, the
     * return value will depend on the block type.  Most blocks start out facing south.
     */
-  BlockOrientation* defaultOrientation() const;
+  const BlockOrientation* defaultOrientation() const;
 
   /**
     * Returns a vector of valid orientations for this block.  The default orientation will be the first element in the
     * vector.
     */
-  QVector<BlockOrientation*> orientations() const;
+  virtual QVector<const BlockOrientation*> orientations() const;
 
   /**
     * Returns whether this block is "transparent" in the Minecraft sense.  Transparent blocks may or may not be

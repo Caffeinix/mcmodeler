@@ -34,7 +34,7 @@ bool LineTool::wantsMorePositions() {
   return countPositions() < 2;
 }
 
-void LineTool::draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction) {
+void LineTool::draw(BlockPrototype* prototype, const BlockOrientation* orientation, BlockTransaction* transaction) {
   if (wantsMorePositions()) {
     return;
   }

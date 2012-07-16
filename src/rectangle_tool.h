@@ -30,7 +30,7 @@ class RectangleTool : public Tool {
   virtual QString actionName() const;
   virtual bool wantsMorePositions();
   virtual bool isBrush() const;
-  virtual void draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction);
+  virtual void draw(BlockPrototype* prototype, const BlockOrientation* orientation, BlockTransaction* transaction);
 
  private:
   BlockOracle* oracle_;

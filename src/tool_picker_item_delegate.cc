@@ -22,7 +22,8 @@
 ToolPickerItemDelegate::ToolPickerItemDelegate(QObject* parent) : QItemDelegate(parent) {
 }
 
-void ToolPickerItemDelegate::drawDecoration(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect, const QPixmap &pixmap) const {
+void ToolPickerItemDelegate::drawDecoration(QPainter* painter, const QStyleOptionViewItem& option,
+                                            const QRect& rect, const QPixmap& pixmap) const {
   if (option.state & QStyle::State_Selected) {
     painter->setRenderHint(QPainter::Antialiasing, true);
     QLinearGradient gradient(rect.topLeft(), rect.bottomLeft());

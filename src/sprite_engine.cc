@@ -15,6 +15,7 @@
 
 #include "sprite_engine.h"
 
+#include "application.h"
 #include "block_geometry.h"
 #include "block_properties.h"
 #include "texture.h"
@@ -63,6 +64,42 @@ QPixmap SpriteEngine::createSprite(const Texture& texture,
         painter.fillRect(0, 0, pixmap.width(), 3 * pixmap.height() / 4, Qt::black);
       }
       break;
+    case BlockGeometry::kGeometryFlow:
+    {
+      QHash<int, QColor> colors;
+
+      if (Application::instance()->settings()->value("ColorizeFlows", true).toBool()) {
+        colors.insert(1, QColor(0x990000));
+        colors.insert(2, QColor(0x996600));
+        colors.insert(3, QColor(0x999900));
+        colors.insert(4, QColor(0x009900));
+        colors.insert(5, QColor(0x009999));
+        colors.insert(6, QColor(0x000099));
+        colors.insert(7, QColor(0x660099));
+      }
+      int index = properties.validOrientations().indexOf(orientation);
+      QString label("F");
+      if (index >= 0) {
+        label = QString::number(index + 1);
+      }
+
+      // Draw text background.
+      painter.setBrush(Qt::white);
+      painter.setPen(QPen(painter.brush(), 2.0));
+      QPainterPath text_path;
+      QSize text_size = painter.fontMetrics().size(Qt::TextSingleLine, label);
+      QPoint baseline(pixmap.width() / 2 - text_size.width() / 2,
+                      pixmap.height() / 2 + painter.fontMetrics().ascent() / 2 - 1);
+      QFont font = painter.font();
+      font.setBold(true);
+      text_path.addText(baseline, font, label);
+      painter.setRenderHint(QPainter::Antialiasing, true);
+      painter.drawPath(text_path);
+
+      // Draw text foreground over background.
+      painter.fillPath(text_path, colors.value(index + 1, QColor(0x333333)));
+      break;
+    }
     default:
       if (properties.validOrientations().count() > 1) {
         painter.setPen(QPen(QColor(0, 255, 0, 128), 2.0));

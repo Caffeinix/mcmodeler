@@ -38,7 +38,7 @@ bool FloodFillTool::isBrush() const {
   return false;
 }
 
-void FloodFillTool::draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction) {
+void FloodFillTool::draw(BlockPrototype* prototype, const BlockOrientation* orientation, BlockTransaction* transaction) {
   if (countPositions() < 1) {
     return;
   }
@@ -53,7 +53,7 @@ void FloodFillTool::draw(BlockPrototype* prototype, BlockOrientation* orientatio
 void FloodFillTool::fillBlocksRecurse(const BlockPosition& pos,
                                       const blocktype_t& source_type,
                                       BlockPrototype* dest_prototype,
-                                      BlockOrientation* dest_orientation,
+                                      const BlockOrientation* dest_orientation,
                                       const BlockPosition& start_pos,
                                       int depth,
                                       QSet<BlockPosition>* filled_blocks,

@@ -32,6 +32,7 @@
 #include "block_oracle.h"
 #include "block_position.h"
 #include "door_renderable.h"
+#include "flow_block_renderable.h"
 #include "ladder_renderable.h"
 #include "overlapping_faces_renderable.h"
 #include "pane_renderable.h"
@@ -168,6 +169,9 @@ BlockPrototype::BlockPrototype(blocktype_t type, TexturePack* texture_pack, Bloc
     case BlockGeometry::kGeometryTorch:
       renderable_.reset(new TorchRenderable(QVector3D(0.125, 10./16., 0.125)));
       break;
+    case BlockGeometry::kGeometryFlow:
+      renderable_.reset(new FlowBlockRenderable());
+      break;
     default:
       qWarning() << "No renderable could be found for block" << properties_.name()
                  << "with geometry" << properties_.geometry();
@@ -209,11 +213,11 @@ BlockPrototype::BlockPrototype(blocktype_t type, TexturePack* texture_pack, Bloc
   sprite_engine_.reset(new SpriteEngine());
 }
 
-QPixmap BlockPrototype::sprite(BlockOrientation* orientation) const {
+QPixmap BlockPrototype::sprite(const BlockOrientation* orientation) const {
   return sprite_engine_->createSprite(sprite_texture_, properties_, orientation);
 }
 
-BlockOrientation* BlockPrototype::defaultOrientation() const {
+const BlockOrientation* BlockPrototype::defaultOrientation() const {
   if (properties().validOrientations().empty()) {
     return BlockOrientation::noOrientation();
   } else {
@@ -221,8 +225,8 @@ BlockOrientation* BlockPrototype::defaultOrientation() const {
   }
 }
 
-QVector<BlockOrientation*> BlockPrototype::orientations() const {
-  QVector<BlockOrientation*> orientations = properties().validOrientations();
+QVector<const BlockOrientation*> BlockPrototype::orientations() const {
+  QVector<const BlockOrientation*> orientations = properties().validOrientations();
   if (orientations.empty()) {
     orientations.append(BlockOrientation::noOrientation());
   }

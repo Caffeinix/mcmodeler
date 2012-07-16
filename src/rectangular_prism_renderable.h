@@ -48,6 +48,11 @@ class RectangularPrismRenderable : public BasicRenderable {
     kTextureScale
   };
 
+  enum FaceCulling {
+    kCullHiddenFaces,
+    kShowAllFaces
+  };
+
   /**
     * Creates a RectangularPrismRenderable with the given \p size.  By default, textures will be clipped, but you can
     * pass a TextureSizing explicitly in \p sizing.

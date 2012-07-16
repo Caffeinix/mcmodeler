@@ -15,7 +15,9 @@
 
 #include "block_instance.h"
 
-BlockInstance::BlockInstance(BlockPrototype* prototype, const BlockPosition& position, BlockOrientation* orientation)
+BlockInstance::BlockInstance(BlockPrototype* prototype,
+                             const BlockPosition& position,
+                             const BlockOrientation* orientation)
     : prototype_(prototype), position_(position), orientation_(orientation) {}
 BlockInstance::~BlockInstance() {}
 

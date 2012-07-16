@@ -25,7 +25,9 @@
 Application::Application(int& argc, char** argv)
     : QApplication(argc, argv), block_mgr_(NULL) {
   setApplicationName("MCModeler");
-  setApplicationVersion("0.3 dev 1");
+  setApplicationVersion("0.3 dev 2");
+  setOrganizationName("Caffeinix");
+  setOrganizationDomain("com.github.caffeinix");
 
   BlockPrototype::setupBlockProperties();
 
@@ -35,6 +37,8 @@ Application::Application(int& argc, char** argv)
   diagram_.reset(new Diagram());
   block_mgr_.reset(new BlockManager(diagram_.data(), gl_preview_window->glWidget()));
   diagram_->setBlockManager(block_mgr_.data());
+
+  settings_.reset(new QSettings());
 
   gl_preview_window->setDiagram(diagram_.data());
   gl_preview_window->setBlockManager(block_mgr_.data());
@@ -47,4 +51,12 @@ Application::Application(int& argc, char** argv)
 }
 
 Application::~Application() {
+}
+
+Application* Application::instance() {
+  return static_cast<Application*>(QCoreApplication::instance());
+}
+
+QSettings* Application::settings() const {
+  return settings_.data();
 }

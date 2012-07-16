@@ -87,6 +87,8 @@ class Renderable {
     */
   Texture texture(int local_id) const;
 
+  int textureCount() const;
+
   /**
     * Returns the render delegate.
     */

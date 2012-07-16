@@ -56,13 +56,13 @@ GLWidget::GLWidget(QWidget* parent)
 GLWidget::~GLWidget() {
 }
 
-void GLWidget::setDiagram(Diagram *diagram) {
+void GLWidget::setDiagram(Diagram* diagram) {
   diagram_ = diagram;
   connect(diagram_, SIGNAL(diagramChanged(BlockTransaction)), SLOT(setSceneDirty()));
   connect(diagram_, SIGNAL(ephemeralBlocksChanged(BlockTransaction)), SLOT(setSceneDirty()));
 }
 
-void GLWidget::setBlockManager(BlockManager *block_mgr) {
+void GLWidget::setBlockManager(BlockManager* block_mgr) {
   block_mgr_ = block_mgr;
 }
 

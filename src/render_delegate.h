@@ -33,6 +33,12 @@ class RenderDelegate {
     * adjacent blocks are transparent.
     */
   virtual bool shouldRenderFace(const Renderable* renderable, Face face, const QVector3D& location) const = 0;
+
+  /**
+    * Returns a vector of valid orientations for this block.  The default orientation will be the first element in the
+    * vector.
+    */
+  virtual QVector<const BlockOrientation*> orientations() const = 0;
 };
 
 #endif // RENDER_DELEGATE_H

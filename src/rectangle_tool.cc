@@ -34,7 +34,7 @@ bool RectangleTool::isBrush() const {
   return false;
 }
 
-void RectangleTool::draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction) {
+void RectangleTool::draw(BlockPrototype* prototype, const BlockOrientation* orientation, BlockTransaction* transaction) {
   if (wantsMorePositions()) {
     return;
   }

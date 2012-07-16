@@ -25,7 +25,7 @@ BlockProperties::BlockProperties()
     : name_(QString()),
       categories_(QStringList()),
       geometry_(BlockGeometry::kGeometryCube),
-      valid_orientations_(QVector<BlockOrientation*>()),
+      valid_orientations_(QVector<const BlockOrientation*>()),
       tile_offsets_(QVector<QPoint>()),
       sprite_offset_(QPoint(-1, -1)),
       is_transparent_(false),
@@ -54,7 +54,7 @@ BlockProperties::BlockProperties(const QVariantMap& block_data) {
       geometry_ = Enumeration<BlockGeometry, BlockGeometry::Geometry>::fromString(value.toString());
     } else if (key == "validOrientations") {
       // Convert from QVariantList of strings to QVector of BlockOrientations.
-      QVector<BlockOrientation*> orientations;
+      QVector<const BlockOrientation*> orientations;
       QVariantList orientation_names = value.toList();
       foreach (QVariant orientation, orientation_names) {
         orientations << BlockOrientation::get(orientation.toString().toUtf8().constData());
@@ -92,7 +92,7 @@ BlockGeometry::Geometry BlockProperties::geometry() const {
   return geometry_;
 }
 
-QVector<BlockOrientation*> BlockProperties::validOrientations() const {
+QVector<const BlockOrientation*> BlockProperties::validOrientations() const {
   return valid_orientations_;
 }
 

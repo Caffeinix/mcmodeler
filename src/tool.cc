@@ -27,7 +27,7 @@ void Tool::setStateFrom(Tool* other) {
   setState(kInitial);
 }
 
-void Tool::proposePosition(const BlockPosition &position) {
+void Tool::proposePosition(const BlockPosition& position) {
   if (state_ == kInitial) {
     appendPosition(position);
     setState(kProposed);

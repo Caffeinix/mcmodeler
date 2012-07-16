@@ -32,6 +32,7 @@ class BlockGeometry : public QObject {
     kGeometryDoor,
     kGeometryFence,
     kGeometryField,
+    kGeometryFlow,
     kGeometryLadder,
     kGeometryPane,
     kGeometryPressurePlate,

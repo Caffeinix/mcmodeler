@@ -92,7 +92,7 @@ QPixmap Texture::texturePixmap(const QPixmap& tilesheet, int x_index, int y_inde
   return texture_pixmap;
 }
 
-void Texture::initWithTile(QGLWidget *widget, const QPixmap &tilesheet, int x_index, int y_index, int x_size,
+void Texture::initWithTile(QGLWidget* widget, const QPixmap& tilesheet, int x_index, int y_index, int x_size,
                            int y_size, QColor color, QPainter::CompositionMode mode) {
   if (widget) {
     widget->makeCurrent();

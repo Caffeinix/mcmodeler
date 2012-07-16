@@ -31,8 +31,8 @@ class ToolPickerItemDelegate : public QItemDelegate {
     * @copydoc
     * This is overridden here to draw a custom selection highlight.
     */
-  void drawDecoration(QPainter *painter, const QStyleOptionViewItem &option,
-                      const QRect &rect, const QPixmap &pixmap) const;
+  void drawDecoration(QPainter* painter, const QStyleOptionViewItem& option,
+                      const QRect& rect, const QPixmap& pixmap) const;
 };
 
 #endif // TOOL_PICKER_ITEM_DELEGATE_H

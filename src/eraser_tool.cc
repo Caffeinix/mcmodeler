@@ -34,7 +34,7 @@ bool EraserTool::isBrush() const {
   return true;
 }
 
-void EraserTool::draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction) {
+void EraserTool::draw(BlockPrototype* prototype, const BlockOrientation* orientation, BlockTransaction* transaction) {
   if (wantsMorePositions()) {
     return;
   }

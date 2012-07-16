@@ -36,7 +36,19 @@ TexturePack* TexturePack::createDefaultTexturePack() {
 // Static.
 QDir TexturePack::minecraftDirectory() {
   QDir dir(QDesktopServices::storageLocation(QDesktopServices::DataLocation));
-  dir.cdUp();
+
+  // We now have a reference to our OWN storage location, which is somewhere under Application Data/Application Support,
+  // but (a) may not exist and (b) may not be in the same subdir on Windows (e.g., we might get back "Roaming" but
+  // Minecraft is in "LocalLow").  Furthermore, we can't use cdUp() because our parent directory may not exist either
+  // on Windows (the organization name is used as a parent directory name).  Qt offers no other way to programatically
+  // obtain the parent directory of a logical directory, so we have to do it ourselves with string manipulation!
+  QString path = QDir::cleanPath(dir.absolutePath());  // Make sure we have no extra directory separators.
+  while (!dir.exists()) {
+    // Delete last path component.  The path delimiter is a forward slash even on Windows.
+    path.chop(path.size() - path.lastIndexOf('/'));
+    dir.setPath(path);
+  }
+  // Now we have an existing directory, so we can use cd() and cdUp() to safely navigate from here.
   // On Mac or Linux, this is probably the right directory, so look for .minecraft or minecraft
   // as a subfolder.
   if (dir.cd(".minecraft") || dir.cd("minecraft")) {

@@ -146,17 +146,17 @@ class BasicRenderable : public Renderable {
     * Appends \p vertex with normal vector \p normal and texture coordinates \p tex_coord to the vertex list.
     * You should usually not call this directly; call addQuad() instead.
     */
-  void appendVertex(const QVector3D &vertex,
-                    const QVector3D &normal,
-                    const QVector2D &tex_coord);
+  void appendVertex(const QVector3D& vertex,
+                    const QVector3D& normal,
+                    const QVector2D& tex_coord);
 
   /**
     * Adds a quad with corners \p a, \p b, \p c, and \p d to the vertex list.  Normals will be computed automatically
     * (so make sure to specify your corners in the correct order).  Texture coordinates will be computed based on
     * \p tex, which should contain one texture coordinate per corner.
     */
-  void addQuad(const QVector3D &a, const QVector3D &b,
-               const QVector3D &c, const QVector3D &d,
+  void addQuad(const QVector3D& a, const QVector3D& b,
+               const QVector3D& c, const QVector3D& d,
                const QVector<QVector2D> &tex);
 
   /**

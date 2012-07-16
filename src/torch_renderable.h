@@ -20,7 +20,7 @@
 
 class TorchRenderable : public BasicRenderable {
  public:
-  TorchRenderable(const QVector3D &size);
+  TorchRenderable(const QVector3D& size);
 
   virtual Geometry createGeometry();
   virtual TextureCoords createTextureCoords(const Geometry& geometry);

@@ -108,7 +108,7 @@ class Tool : public QObject {
     * @param orientation The orientation that added blocks should have.
     * @param[in,out] transaction The transaction that should be modified with the results of applying the tool.
     */
-  virtual void draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction) = 0;
+  virtual void draw(BlockPrototype* prototype, const BlockOrientation* orientation, BlockTransaction* transaction) = 0;
 
  protected:
   /**

@@ -34,7 +34,7 @@ bool PencilTool::isBrush() const {
   return true;
 }
 
-void PencilTool::draw(BlockPrototype* prototype, BlockOrientation* orientation, BlockTransaction* transaction) {
+void PencilTool::draw(BlockPrototype* prototype, const BlockOrientation* orientation, BlockTransaction* transaction) {
   if (wantsMorePositions()) {
     return;
   }

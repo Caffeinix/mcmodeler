@@ -13,27 +13,25 @@
  * limitations under the License.
  */
 
-#ifndef LINE_TOOL_H
-#define LINE_TOOL_H
+#ifndef FLOW_BLOCK_RENDERABLE_H
+#define FLOW_BLOCK_RENDERABLE_H
 
-#include "block_position.h"
-#include "tool.h"
+#include <QVector>
 
-class BlockOracle;
+#include "renderable.h"
 
-/**
-  * A Tool that draws straight lines between points.
-  */
-class LineTool : public Tool {
+class BlockOrientation;
+class RectangularPrismRenderable;
+class FlowBlockRenderable : public Renderable {
  public:
-  explicit LineTool(BlockOracle* oracle);
-  virtual QString actionName() const;
-  virtual bool wantsMorePositions();
-  virtual bool isBrush() const;
-  virtual void draw(BlockPrototype* prototype, const BlockOrientation* orientation, BlockTransaction* transaction);
+  FlowBlockRenderable();
+  virtual ~FlowBlockRenderable();
+
+  virtual void initialize();
+  virtual void renderAt(const QVector3D& location, const BlockOrientation* orientation) const;
 
  private:
-  BlockOracle* oracle_;
+  mutable QHash<const BlockOrientation*, RectangularPrismRenderable*> renderables_;
 };
 
-#endif // LINE_TOOL_H
+#endif // FLOW_BLOCK_RENDERABLE_H

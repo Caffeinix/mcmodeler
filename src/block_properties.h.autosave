@@ -100,7 +100,7 @@ class BlockProperties {
     * Returns a list of valid orientations for this block type.  The orientations should be ordered such that the first
     * valid orientation is a reasonable default.
     */
-  QVector<const BlockOrientation *> validOrientations() const;
+  QVector<const BlockOrientation* > validOrientations() const;
 
   /**
     * Returns a list of tile offsets within the terrain.png file.  The number and order of offsets in the list depends

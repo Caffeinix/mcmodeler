@@ -63,6 +63,13 @@ const char kOrientationOnNorthWall[] = "On north wall";
 const char kOrientationOnEastWall[] = "On east wall";
 const char kOrientationOnSouthWall[] = "On south wall";
 const char kOrientationOnWestWall[] = "On west wall";
+const char kOrientationOneBlockFromSource[] = "One block from source";
+const char kOrientationTwoBlocksFromSource[] = "Two blocks from source";
+const char kOrientationThreeBlocksFromSource[] = "Three blocks from source";
+const char kOrientationFourBlocksFromSource[] = "Four blocks from source";
+const char kOrientationFiveBlocksFromSource[] = "Five blocks from source";
+const char kOrientationSixBlocksFromSource[] = "Six blocks from source";
+const char kOrientationSevenBlocksFromSource[] = "Seven blocks from source";
 
 
 // Anatomy of a 32-bit MCModeler block ID:
@@ -145,7 +152,7 @@ QVariantMap block(const QString& name,
   return block;
 }
 
-Application::Application(int argc, char *argv[]) :
+Application::Application(int argc, char* argv[]) :
     QCoreApplication(argc, argv) {
   QVariantList blocks;
 
@@ -392,12 +399,32 @@ Application::Application(int argc, char *argv[]) :
                   QVariantList() << kOrientationNone,
                   textures(QPoint(13, 12)),
                   true);
+  blocks << block("Water (Flow)",
+                  0x08 + (0x0F << kBlockDataShift),
+                  QStringList() << kCategoryBasic,
+                  BlockGeometry::kGeometryFlow,
+                  QPoint(13, 12),
+                  QVariantList() << kOrientationOneBlockFromSource << kOrientationTwoBlocksFromSource
+                                 << kOrientationThreeBlocksFromSource << kOrientationFourBlocksFromSource
+                                 << kOrientationFiveBlocksFromSource << kOrientationSixBlocksFromSource
+                                 << kOrientationSevenBlocksFromSource,
+                  textures(QPoint(13, 12)),
+                  true);
   blocks << block("Lava (Source)",
                   0x0A,
                   QStringList() << kCategoryBasic,
                   BlockGeometry::kGeometryCube,
                   QPoint(13, 14),
                   QVariantList() << kOrientationNone,
+                  textures(QPoint(13, 14)),
+                  true);
+  blocks << block("Lava (Flow)",
+                  0x0A + (0x0E << kBlockDataShift),
+                  QStringList() << kCategoryBasic,
+                  BlockGeometry::kGeometryFlow,
+                  QPoint(13, 14),
+                  QVariantList() << kOrientationOneBlockFromSource << kOrientationTwoBlocksFromSource
+                                 << kOrientationThreeBlocksFromSource,
                   textures(QPoint(13, 14)),
                   true);
   blocks << block("Wool",

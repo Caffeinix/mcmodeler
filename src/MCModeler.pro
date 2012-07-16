@@ -53,7 +53,8 @@ HEADERS = \
     torch_renderable.h \
     enumeration.h \
     enumeration_impl.h \
-    block_geometry.h
+    block_geometry.h \
+    flow_block_renderable.h
 
 SOURCES = \
     about_box.cc \
@@ -101,7 +102,8 @@ SOURCES = \
     filled_rectangle_tool.cc \
     flood_fill_tool.cc \
     track_renderable.cc \
-    torch_renderable.cc
+    torch_renderable.cc \
+    flow_block_renderable.cc
 
 QT += opengl
 

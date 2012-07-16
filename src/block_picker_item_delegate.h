@@ -31,8 +31,8 @@ class BlockPickerItemDelegate : public QItemDelegate {
     * @copydoc
     * This is overridden here to center the icon in the cell as well as to draw a custom selection highlight.
     */
-  void drawDecoration(QPainter *painter, const QStyleOptionViewItem &option,
-                      const QRect &rect, const QPixmap &pixmap) const;
+  void drawDecoration(QPainter* painter, const QStyleOptionViewItem& option,
+                      const QRect& rect, const QPixmap& pixmap) const;
 };
 
 #endif // BLOCK_PICKER_ITEM_DELEGATE_H

@@ -25,7 +25,7 @@
 #include "diagram.h"
 #include "tool_picker.h"
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent),
       diagram_(NULL),
       block_mgr_(NULL),

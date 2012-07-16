@@ -188,8 +188,8 @@ void LevelWidget::mousePressEvent(QMouseEvent* event) {
     // TODO(phoenix): Need some way of identifying tool types other than string comparison!
     if (currentTool()->actionName() == "Draw Blocks" && prototype->type() == block_type_) {
       // User is clicking on a block with that block.  We use this to signal intent to cycle orientations.
-      BlockOrientation* old_orientation = block.orientation();
-      const QVector<BlockOrientation*>& orientations = block.prototype()->orientations();
+      const BlockOrientation* old_orientation = block.orientation();
+      const QVector<const BlockOrientation*>& orientations = block.prototype()->orientations();
       int orientation_index = orientations.indexOf(old_orientation);
       orientation_index = (orientation_index + 1) % orientations.size();
       qDebug() << "Using orientation" << orientations.at(orientation_index)->name();
