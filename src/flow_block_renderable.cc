@@ -33,7 +33,7 @@ void FlowBlockRenderable::renderAt(const QVector3D& location, const BlockOrienta
   if (renderables_.isEmpty()) {
     // First time we have been rendered, so set up our delegate renderables.
     Q_ASSERT(renderDelegate() != NULL);
-    QVector<BlockOrientation*> orientations = renderDelegate()->orientations();
+    QVector<const BlockOrientation*> orientations = renderDelegate()->orientations();
     int len = orientations.size();
     for (int i = 0; i < len; ++i) {
       QVector3D size(1.0, 1.0, 1.0);

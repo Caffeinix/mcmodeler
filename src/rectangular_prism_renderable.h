@@ -50,14 +50,18 @@ class RectangularPrismRenderable : public BasicRenderable {
 
   enum FaceCulling {
     kCullHiddenFaces,
-    kShowAllFaces
+    kDoNotCullFaces
   };
 
   /**
     * Creates a RectangularPrismRenderable with the given \p size.  By default, textures will be clipped, but you can
-    * pass a TextureSizing explicitly in \p sizing.
+    * pass a TextureSizing explicitly in \p sizing.  If \p culling is omitted or kCullHiddenFaces is passed, then hidden
+    * face culling will be performed when possible.  Even transparent blocks will undergo a limited form of hidden face
+    * culling if the adjacent block is of the same type.  To disable this, pass kDoNotCullFaces.
+    *
     */
-  explicit RectangularPrismRenderable(const QVector3D& size, TextureSizing sizing = kTextureClip);
+  explicit RectangularPrismRenderable(const QVector3D& size, TextureSizing sizing = kTextureClip,
+                                      FaceCulling culling = kCullHiddenFaces);
   virtual ~RectangularPrismRenderable() {}
 
   virtual void applyOrientationTransform(const BlockOrientation* orientation) const;
@@ -86,8 +90,16 @@ class RectangularPrismRenderable : public BasicRenderable {
     */
   virtual Face mapToDefaultOrientation(Face local_face, const BlockOrientation* from_orientation) const;
 
+  /**
+    * @copydoc
+    * If back face culling is turned off for this block, we use a nearest-neighbor filter instead of the default linear
+    * filter so we don't screw up the alpha channel.
+    */
+  virtual int textureMinFilter(const BlockOrientation* orientation) const;
+
  private:
   TextureSizing sizing_;
+  FaceCulling culling_;
 };
 
 #endif // RECTANGULAR_PRISM_RENDERABLE_H

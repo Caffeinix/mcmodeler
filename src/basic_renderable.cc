@@ -16,6 +16,7 @@
 #include "basic_renderable.h"
 
 #include "enums.h"
+#include "render_delegate.h"
 
 BasicRenderable::BasicRenderable(const QVector3D& size)
     : size_(size) {
@@ -61,6 +62,10 @@ Texture BasicRenderable::textureForQuad(int index, const BlockOrientation* orien
   return texture(index);
 }
 
+int BasicRenderable::textureMinFilter(const BlockOrientation* orientation) const {
+  return GL_LINEAR;
+}
+
 void BasicRenderable::renderAt(const QVector3D& location, const BlockOrientation* orientation) const {
   if (!isInitialized()) {
     qWarning() << "Tried to render a BasicRenderable without first calling initialize().";
@@ -83,7 +88,7 @@ void BasicRenderable::renderAt(const QVector3D& location, const BlockOrientation
     }
     glBindTexture(GL_TEXTURE_2D, textureForQuad(start / 4, orientation).textureId());
     glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, textureMinFilter(orientation));
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);

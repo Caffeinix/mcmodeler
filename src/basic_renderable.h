@@ -136,6 +136,12 @@ class BasicRenderable : public Renderable {
   virtual Texture textureForQuad(int index, const BlockOrientation* orientation) const;
 
   /**
+    * Returns the OpenGL constant describing the filter that should be used to scale down textures.  By default, this
+    * returns \c GL_LINEAR, but some blocks may wish to use other filters.
+    */
+  virtual int textureMinFilter(const BlockOrientation* orientation) const;
+
+  /**
     * Returns the size that was passed into BasicRenderable's constructor.
     */
   const QVector3D& size() const {

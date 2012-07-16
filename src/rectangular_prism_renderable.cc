@@ -18,9 +18,10 @@
 #include "block_orientation.h"
 #include "render_delegate.h"
 
-RectangularPrismRenderable::RectangularPrismRenderable(const QVector3D& size, TextureSizing sizing)
+RectangularPrismRenderable::RectangularPrismRenderable(const QVector3D& size, TextureSizing sizing, FaceCulling culling)
     : BasicRenderable(size),
-      sizing_(sizing) {
+      sizing_(sizing),
+      culling_(culling) {
 }
 
 void RectangularPrismRenderable::addGeometry(const RectangularPrismRenderable::Geometry& geometry,
@@ -174,9 +175,13 @@ void RectangularPrismRenderable::applyOrientationTransform(const BlockOrientatio
 bool RectangularPrismRenderable::shouldRenderQuad(int index,
                                                   const QVector3D& location,
                                                   const BlockOrientation* orientation) const {
-  // Rectangular prisms have one quad per face, so we can just check the delegate.
-  Face face = mapToDefaultOrientation(static_cast<Face>(index), orientation);
-  return !(renderDelegate() && !renderDelegate()->shouldRenderFace(this, face, location));
+  if (culling_ == kDoNotCullFaces) {
+    return true;
+  } else {
+    // Rectangular prisms have one quad per face, so we can just check the delegate.
+    Face face = mapToDefaultOrientation(static_cast<Face>(index), orientation);
+    return !(renderDelegate() && !renderDelegate()->shouldRenderFace(this, face, location));
+  }
 }
 
 Face RectangularPrismRenderable::mapToDefaultOrientation(Face local_face, const BlockOrientation* orientation) const {
@@ -221,4 +226,12 @@ Face RectangularPrismRenderable::mapToDefaultOrientation(Face local_face, const 
     }
   }
   return local_face;
+}
+
+int RectangularPrismRenderable::textureMinFilter(const BlockOrientation* orientation) const {
+  if (culling_ == kDoNotCullFaces) {
+    return GL_NEAREST;
+  } else {
+    return BasicRenderable::textureMinFilter(orientation);
+  }
 }

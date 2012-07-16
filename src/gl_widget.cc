@@ -94,6 +94,9 @@ void GLWidget::initializeGL() {
   glEnable(GL_MULTISAMPLE_ARB);
   glEnable(GL_SAMPLE_ALPHA_TO_COVERAGE_ARB);
 
+  glAlphaFunc(GL_GREATER, 0.01);
+  glEnable(GL_ALPHA_TEST);
+
   glEnable(GL_LIGHTING);
   glEnable(GL_LIGHT0);
   glEnable(GL_FOG);

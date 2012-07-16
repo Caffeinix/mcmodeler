@@ -137,6 +137,11 @@ BlockPrototype::BlockPrototype(blocktype_t type, TexturePack* texture_pack, Bloc
     case BlockGeometry::kGeometrySnow:
       renderable_.reset(new RectangularPrismRenderable(QVector3D(1.0f, 0.125f, 1.0f)));
       break;
+    case BlockGeometry::kGeometryLeaves:
+      renderable_.reset(new RectangularPrismRenderable(QVector3D(1.0, 1.0, 1.0),
+                                                       RectangularPrismRenderable::kTextureClip,
+                                                       RectangularPrismRenderable::kDoNotCullFaces));
+      break;
     case BlockGeometry::kGeometryChest:
       renderable_.reset(new RectangularPrismRenderable(QVector3D(0.9f, 0.9f, 0.9f),
                                                        RectangularPrismRenderable::kTextureScale));
@@ -247,7 +252,7 @@ bool BlockPrototype::shouldRenderFace(const Renderable* renderable, Face face, c
   }
 
   BlockPrototype* other = neighboringBlockForFace(face, location);
-  return (other->type() ==  kBlockTypeAir ||
+  return (other->type() == kBlockTypeAir ||
           other->properties().geometry() != BlockGeometry::kGeometryCube ||
           (other->properties().isTransparent() && other->type() != type()));
 }
