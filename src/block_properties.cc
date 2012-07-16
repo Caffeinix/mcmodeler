@@ -20,6 +20,7 @@
 
 #include "enumeration.h"
 #include "block_geometry.h"
+#include "block_property_keys.h"
 
 BlockProperties::BlockProperties()
     : name_(QString()),
@@ -34,25 +35,22 @@ BlockProperties::BlockProperties()
       is_valid_(false) {}
 
 BlockProperties::BlockProperties(const QVariantMap& block_data) {
-  // TODO(phoenix): It might be cleaner to create a BlockPropertiesJson class which has read/write Q_PROPERTIES for
-  // all of these, then use QJson's QObject helper to construct one for each block.  Then it should be possible to
-  // read out the properties directly without having to do string matches (which are prone to typos).
   foreach (QString key, block_data.keys()) {
     QVariant value = block_data.value(key);
-    if (key == "name") {
+    if (key == kBlockPropertyKeyName) {
       name_ = value.toString();
-    } else if (key == "categories") {
+    } else if (key == kBlockPropertyKeyCategories) {
       categories_ = value.toStringList();
-    } else if (key == "isTransparent") {
+    } else if (key == kBlockPropertyKeyTransparent) {
       is_transparent_ = value.toBool();
-    } else if (key == "isBiomeGrass") {
+    } else if (key == kBlockPropertyKeyBiomeGrass) {
       is_biome_grass_ = value.toBool();
-    } else if (key == "isBiomeTree") {
+    } else if (key == kBlockPropertyKeyBiomeTree) {
       is_biome_tree_ = value.toBool();
-    } else if (key == "geometry") {
+    } else if (key == kBlockPropertyKeyGeometry) {
       // Convert from string to BlockGeometry enum.
       geometry_ = Enumeration<BlockGeometry, BlockGeometry::Geometry>::fromString(value.toString());
-    } else if (key == "validOrientations") {
+    } else if (key == kBlockPropertyKeyOrientations) {
       // Convert from QVariantList of strings to QVector of BlockOrientations.
       QVector<const BlockOrientation*> orientations;
       QVariantList orientation_names = value.toList();
@@ -60,7 +58,7 @@ BlockProperties::BlockProperties(const QVariantMap& block_data) {
         orientations << BlockOrientation::get(orientation.toString().toUtf8().constData());
       }
       valid_orientations_ = orientations;
-    } else if (key == "tileOffsets") {
+    } else if (key == kBlockPropertyKeyTextures) {
       // Convert from QVariantList of QVariantLists representing points to a QVector of QPoints.
       QVector<QPoint> offsets;
       QVariantList offset_lists = value.toList();
@@ -69,7 +67,7 @@ BlockProperties::BlockProperties(const QVariantMap& block_data) {
         offsets << QPoint(offset_list.at(0).toInt(), offset_list.at(1).toInt());
       }
       tile_offsets_ = offsets;
-    } else if (key == "spriteOffset") {
+    } else if (key == kBlockPropertyKeySpriteIndex) {
       // Convert from QVariantList representing a point to a QPoint.
       QPoint offset;
       QVariantList offset_list = value.toList();

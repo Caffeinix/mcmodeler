@@ -12,18 +12,8 @@
 #include <QJson/Serializer>
 
 #include "../../src/block_geometry.h"
+#include "../../src/block_property_keys.h"
 #include "../../src/enumeration.h"
-
-const char kNameKey[] = "name";
-const char kIdKey[] = "id";
-const char kCategoriesKey[] = "categories";
-const char kGeometryKey[] = "geometry";
-const char kSpriteIndexKey[] = "spriteOffset";
-const char kOrientationsKey[] = "validOrientations";
-const char kTexturesKey[] = "tileOffsets";
-const char kTransparentKey[] = "isTransparent";
-const char kBiomeGrassKey[] = "isBiomeGrass";
-const char kBiomeTreeKey[] = "isBiomeTree";
 
 const char kCategoryBasic[] = "basic";
 const char kCategoryConstruction[] = "construction";
@@ -81,10 +71,10 @@ const char kOrientationSevenBlocksFromSource[] = "Seven blocks from source";
 // M = Minecraft block ID
 //
 // So:
-// 0x    11 = oak wood
-// 0x 10011 = spruce wood
-// 0x    02 = grass
-// 0x100002 = grass with snow side and top textures
+// 0x     11 = oak wood
+// 0x  10011 = spruce wood
+// 0x     02 = grass
+// 0x1000002 = grass with snow side and top textures
 //
 // Get it?
 
@@ -139,16 +129,16 @@ QVariantMap block(const QString& name,
   }
 
   QVariantMap block;
-  block.insert(kNameKey, name);
-  block.insert(kIdKey, id);
-  block.insert(kCategoriesKey, types);
-  block.insert(kGeometryKey, Enumeration<BlockGeometry, BlockGeometry::Geometry>::toString(geometry));
-  block.insert(kSpriteIndexKey, toArray(sprite_index));
-  block.insert(kOrientationsKey, orientations);
-  block.insert(kTexturesKey, textures);
-  block.insert(kTransparentKey, transparent);
-  block.insert(kBiomeGrassKey, biome_grass);
-  block.insert(kBiomeTreeKey, biome_tree);
+  block.insert(kBlockPropertyKeyName, name);
+  block.insert(kBlockPropertyKeyId, id);
+  block.insert(kBlockPropertyKeyCategories, types);
+  block.insert(kBlockPropertyKeyGeometry, Enumeration<BlockGeometry, BlockGeometry::Geometry>::toString(geometry));
+  block.insert(kBlockPropertyKeySpriteIndex, toArray(sprite_index));
+  block.insert(kBlockPropertyKeyOrientations, orientations);
+  block.insert(kBlockPropertyKeyTextures, textures);
+  block.insert(kBlockPropertyKeyTransparent, transparent);
+  block.insert(kBlockPropertyKeyBiomeGrass, biome_grass);
+  block.insert(kBlockPropertyKeyBiomeTree, biome_tree);
   return block;
 }
 

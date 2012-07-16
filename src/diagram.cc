@@ -27,7 +27,7 @@
   * The current version of the MCModeler file format.  This must be increased whenever a backwards-incompatible change
   * is made.  The nybbles roughly correspond to major, minor, and maintenance version numbers.
   */
-static const quint32 kCurrentFileFormatVersion = 0x110;
+static const quint32 kCurrentFileFormatVersion = 0x120;
 
 /**
   * An RAII class that automatically calls Diagram::commit() on a diagram with its transaction when it is destroyed.
@@ -63,7 +63,6 @@ BlockManager* Diagram::blockManager() const {
 void Diagram::load(QDataStream* stream) {
   stream->setVersion(QDataStream::Qt_4_7);
   stream->setFloatingPointPrecision(QDataStream::SinglePrecision);
-  // TODO: error checking...
   char* filetype;
   quint32 version;
   *stream >> filetype;
@@ -118,17 +117,7 @@ void Diagram::load(QDataStream* stream) {
   }
 
   while (!stream->atEnd()) {
-    float position_x, position_y, position_z;
-    *stream >> position_x;
-    *stream >> position_y;
-    *stream >> position_z;
-    BlockPosition position(position_x, position_y, position_z);
-    qint32 type_byte;
-    *stream >> type_byte;
-    blocktype_t type = static_cast<blocktype_t>(type_byte);
-    BlockPrototype* prototype = blockManager()->getPrototype(type);
-    // TODO(phoenix): Read/write orientation data!
-    BlockInstance new_block(prototype, position, prototype->defaultOrientation());
+    BlockInstance new_block(stream, blockManager());
     transaction.setBlock(new_block);
   }
 }
@@ -136,24 +125,14 @@ void Diagram::load(QDataStream* stream) {
 void Diagram::save(QDataStream* stream) {
   stream->setVersion(QDataStream::Qt_4_7);
   stream->setFloatingPointPrecision(QDataStream::SinglePrecision);
-  static const quint32 version = 0x0110;
 
   *stream << "mcdiagram";
-  *stream << version;
+  *stream << kCurrentFileFormatVersion;
   *stream << static_cast<qint32>(blockCount());
   QHash<BlockPosition, BlockInstance>::const_iterator iter;
   for (iter = block_map_.constBegin(); iter != block_map_.constEnd(); ++iter) {
-    const BlockPosition& position = iter.key();
-    const QVector3D& vec = position.cornerVector();
-    BlockInstance instance = iter.value();
-    float position_x = vec.x();
-    float position_y = vec.y();
-    float position_z = vec.z();
-    *stream << position_x;
-    *stream << position_y;
-    *stream << position_z;
-    *stream << static_cast<qint32>(instance.prototype()->type());
-    // TODO(phoenix): Read/write orientation data!
+    const BlockInstance& instance = iter.value();
+    instance.serialize(stream);
   }
 }
 
@@ -221,9 +200,7 @@ void Diagram::copyLevel(int source_level, int dest_level) {
 
   // Remove all blocks in the dest level.
   foreach (const BlockPosition& key, dest_level_map.keys()) {
-    // TODO(phoenix): Make a default constructor and isValid() method for BlockInstance.
-    BlockInstance invalid_instance(NULL, BlockPosition(0, 0, 0), NULL);
-    transaction.clearBlock(dest_level_map.value(key, invalid_instance));
+    transaction.clearBlock(dest_level_map.value(key));
   }
 
   // Add all blocks in the source level to the dest level, adjusting their altitudes.

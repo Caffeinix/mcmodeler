@@ -22,7 +22,8 @@ HEADERS += \
     application.h \
     ../../src/block_geometry.h \
     ../../src/enumeration_impl.h \
-    ../../src/enumeration.h
+    ../../src/enumeration.h \
+    ../../src/block_property_keys.h
 
 INCLUDEPATH += ../../third_party/qjson/include
 
