@@ -169,6 +169,17 @@ void StairsRenderable::applyOrientationTransform(const BlockOrientation* orienta
     glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
   } else if (orientation == BlockOrientation::get("Facing west")) {
     glRotatef(-90.0f, 0.0f, 1.0f, 0.0f);
+  } else if (orientation == BlockOrientation::get("Facing north, inverted")) {
+    glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
+    glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
+  } else if (orientation == BlockOrientation::get("Facing east, inverted")) {
+    glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
+    glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
+  } else if (orientation == BlockOrientation::get("Facing west, inverted")) {
+    glRotatef(-90.0f, 0.0f, 1.0f, 0.0f);
+    glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
+  } else if (orientation == BlockOrientation::get("Facing south, inverted")) {
+    glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
   }
 }
 

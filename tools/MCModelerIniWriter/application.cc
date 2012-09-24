@@ -29,6 +29,10 @@ const char kOrientationFacingSouth[] = "Facing south";
 const char kOrientationFacingWest[] = "Facing west";
 const char kOrientationFacingNorth[] = "Facing north";
 const char kOrientationFacingEast[] = "Facing east";
+const char kOrientationFacingSouthInverted[] = "Facing south, inverted";
+const char kOrientationFacingWestInverted[] = "Facing west, inverted";
+const char kOrientationFacingNorthInverted[] = "Facing north, inverted";
+const char kOrientationFacingEastInverted[] = "Facing east, inverted";
 const char kOrientationRunningNorthSouth[] = "Running north/south";
 const char kOrientationRunningEastWest[] = "Running east/west";
 const char kOrientationNorthwestCorner[] = "Northwest corner";
@@ -1035,7 +1039,9 @@ Application::Application(int argc, char* argv[]) :
                   QStringList() << kCategoryBasic << kCategoryConstruction,
                   BlockGeometry::kGeometryStairs,
                   QPoint(0, 1),
-                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast
+                                 << kOrientationFacingSouthInverted << kOrientationFacingWestInverted << kOrientationFacingNorthInverted
+                                 << kOrientationFacingEastInverted,
                   textures(QPoint(0, 1)),
                   true);
   blocks << block("Brick Stairs",
@@ -1043,7 +1049,9 @@ Application::Application(int argc, char* argv[]) :
                   QStringList() << kCategoryBasic << kCategoryConstruction,
                   BlockGeometry::kGeometryStairs,
                   QPoint(7, 0),
-                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast
+                                 << kOrientationFacingSouthInverted << kOrientationFacingWestInverted << kOrientationFacingNorthInverted
+                                 << kOrientationFacingEastInverted,
                   textures(QPoint(7, 0)),
                   true);
   blocks << block("Stone Brick Stairs",
@@ -1051,7 +1059,9 @@ Application::Application(int argc, char* argv[]) :
                   QStringList() << kCategoryBasic << kCategoryConstruction,
                   BlockGeometry::kGeometryStairs,
                   QPoint(6, 3),
-                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast
+                                 << kOrientationFacingSouthInverted << kOrientationFacingWestInverted << kOrientationFacingNorthInverted
+                                 << kOrientationFacingEastInverted,
                   textures(QPoint(6, 3)),
                   true);
   blocks << block("Nether Brick Stairs",
@@ -1059,7 +1069,9 @@ Application::Application(int argc, char* argv[]) :
                   QStringList() << kCategoryBasic << kCategoryConstruction << kCategoryNether,
                   BlockGeometry::kGeometryStairs,
                   QPoint(0, 15),
-                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast
+                                 << kOrientationFacingSouthInverted << kOrientationFacingWestInverted << kOrientationFacingNorthInverted
+                                 << kOrientationFacingEastInverted,
                   textures(QPoint(0, 15)),
                   true);
   blocks << block("Sandstone Stairs",
@@ -1067,7 +1079,9 @@ Application::Application(int argc, char* argv[]) :
                   QStringList() << kCategoryBasic << kCategoryConstruction << kCategoryNether,
                   BlockGeometry::kGeometryStairs,
                   QPoint(0, 13),
-                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast
+                                 << kOrientationFacingSouthInverted << kOrientationFacingWestInverted << kOrientationFacingNorthInverted
+                                 << kOrientationFacingEastInverted,
                   textures(QPoint(0, 13)),
                   true);
   blocks << block("Oak Wood Stairs",
@@ -1075,7 +1089,9 @@ Application::Application(int argc, char* argv[]) :
                   QStringList() << kCategoryBasic << kCategoryConstruction,
                   BlockGeometry::kGeometryStairs,
                   QPoint(4, 0),
-                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast
+                                 << kOrientationFacingSouthInverted << kOrientationFacingWestInverted << kOrientationFacingNorthInverted
+                                 << kOrientationFacingEastInverted,
                   textures(QPoint(4, 0)),
                   true);
   blocks << block("Spruce Wood Stairs",
@@ -1083,7 +1099,9 @@ Application::Application(int argc, char* argv[]) :
                   QStringList() << kCategoryBasic << kCategoryConstruction,
                   BlockGeometry::kGeometryStairs,
                   QPoint(6, 12),
-                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast
+                                 << kOrientationFacingSouthInverted << kOrientationFacingWestInverted << kOrientationFacingNorthInverted
+                                 << kOrientationFacingEastInverted,
                   textures(QPoint(6, 12)),
                   true);
   blocks << block("Birch Wood Stairs",
@@ -1091,7 +1109,9 @@ Application::Application(int argc, char* argv[]) :
                   QStringList() << kCategoryBasic << kCategoryConstruction,
                   BlockGeometry::kGeometryStairs,
                   QPoint(6, 13),
-                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast
+                                 << kOrientationFacingSouthInverted << kOrientationFacingWestInverted << kOrientationFacingNorthInverted
+                                 << kOrientationFacingEastInverted,
                   textures(QPoint(6, 13)),
                   true);
   blocks << block("Jungle Wood Stairs",
@@ -1099,7 +1119,9 @@ Application::Application(int argc, char* argv[]) :
                   QStringList() << kCategoryBasic << kCategoryConstruction,
                   BlockGeometry::kGeometryStairs,
                   QPoint(7, 12),
-                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast,
+                  QVariantList() << kOrientationFacingSouth << kOrientationFacingWest << kOrientationFacingNorth << kOrientationFacingEast
+                                 << kOrientationFacingSouthInverted << kOrientationFacingWestInverted << kOrientationFacingNorthInverted
+                                 << kOrientationFacingEastInverted,
                   textures(QPoint(7, 12)),
                   true);
 
