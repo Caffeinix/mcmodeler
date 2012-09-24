@@ -19,6 +19,7 @@
 #include <QIcon>
 
 #include "block_manager.h"
+#include "circle_tool.h"
 #include "diagram.h"
 #include "eraser_tool.h"
 #include "filled_rectangle_tool.h"
@@ -73,6 +74,12 @@ void ToolPicker::setDiagram(Diagram* diagram) {
   item->setToolTip("Filled Rectangle");
   item->setIcon(QIcon(":/icons/filled_rectangle_tool.png"));
   item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new FilledRectangleTool(diagram)));
+  ui->list_widget_->addItem(item);
+
+  item = new QListWidgetItem();
+  item->setToolTip("Circle");
+  item->setIcon(QIcon(":/icons/circle_tool.png"));
+  item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new CircleTool(diagram)));
   ui->list_widget_->addItem(item);
 
   item = new QListWidgetItem();
