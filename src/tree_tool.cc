@@ -106,7 +106,6 @@ void TreeTool::draw(BlockPrototype* prototype, const BlockOrientation* orientati
 }
 
 void TreeTool::randomizeTree() {
-  qDebug() << sampleNormal();
   trunk_height_ = NORM_RANGE(3, 5);
   canopy_radius_ = NORM_RANGE(2, 4) + (trunk_height_ - 3);
   clip_radius_ = canopy_radius_ - 1;
