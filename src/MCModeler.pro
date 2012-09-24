@@ -55,6 +55,8 @@ HEADERS = \
     enumeration_impl.h \
     block_geometry.h \
     flow_block_renderable.h \
+    block_property_keys.h \
+    tree_tool.h
 
 SOURCES = \
     about_box.cc \
@@ -103,7 +105,8 @@ SOURCES = \
     flood_fill_tool.cc \
     track_renderable.cc \
     torch_renderable.cc \
-    flow_block_renderable.cc
+    flow_block_renderable.cc \
+    tree_tool.cc
 
 QT += opengl
 
@@ -158,6 +161,8 @@ win32 {
 }
 
 TARGET = "MCModeler"
+
+
 
 
 
