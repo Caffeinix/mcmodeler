@@ -154,7 +154,7 @@ void MainWindow::saveToFile(const QString& filename) {
     diagram_->save(&ostream);
     file.close();
     setWindowFilePath(filename);
-    setWindowTitle(QFileInfo(filename).fileName());
+    setWindowTitle(QFileInfo(filename).fileName() + "[*]");
     setWindowModified(false);
     performPendingAction();
   } else {
@@ -177,7 +177,7 @@ void MainWindow::openFile(const QString& filename) {
   diagram_->load(&istream);
   file.close();
   setWindowFilePath(filename);
-  setWindowTitle(QFileInfo(filename).fileName());
+  setWindowTitle(QFileInfo(filename).fileName() + "[*]");
   setWindowModified(false);
 }
 
