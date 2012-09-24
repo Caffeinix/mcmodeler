@@ -230,6 +230,13 @@ BlockInstance Diagram::blockAt(const BlockPosition& position, BlockOracle::Mode 
   return block_map_.value(position, default_value);
 }
 
+bool Diagram::levelsAreVertical() const {
+  // This will need some extra code to work correctly (we need to save it out in the file format, for one thing, and
+  // adjacency calculations need to take it into account as well), so it's off for now.
+  // TODO(phoenix): Make this work fully, then allow it to be enabled.
+  return false;
+}
+
 QHash<BlockPosition, BlockInstance> Diagram::level(int level_index) {
   return block_list_.value(level_index);
 }
@@ -241,7 +248,7 @@ void Diagram::render() {
 
   // Try to give the compiler as much opportunity to optimize this branch out as possible.
   bool need_to_consider_ephemeral_removals = (ephemeral_block_removals_.size() > 0);
-  if (need_to_consider_ephemeral_removals) {
+  if (Q_UNLIKELY(need_to_consider_ephemeral_removals)) {
     // Slow path: ephemeral removals to consider.
     for (iter = block_map_.constBegin(); iter != block_map_.constEnd(); ++iter) {
       if (ephemeral_block_removals_.contains(iter.key())) {

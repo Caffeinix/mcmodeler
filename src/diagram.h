@@ -67,6 +67,12 @@ class Diagram : public QObject, public BlockOracle {
   virtual BlockInstance blockAt(const BlockPosition& position, BlockOracle::Mode mode = kPhysicalBlocksOnly);
 
   /**
+    * @inheritDoc
+    * @sa BlockOracle::levelsAreVertical();
+    */
+  virtual bool levelsAreVertical() const;
+
+  /**
     * Tells all blocks in the diagram to render themselves.
     * @todo This probably does not belong in the Diagram class, but it's unclear where it should go instead.
     */

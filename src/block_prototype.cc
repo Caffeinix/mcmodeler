@@ -239,7 +239,12 @@ QVector<const BlockOrientation*> BlockPrototype::orientations() const {
 }
 
 void BlockPrototype::renderInstance(const BlockInstance& instance) const {
-  renderable_->renderAt(instance.position().centerVector(), instance.orientation());
+  if (oracle_ && oracle_->levelsAreVertical()) {
+    BlockPosition pos(instance.position().x(), -instance.position().z(), -instance.position().y());
+    renderable_->renderAt(pos.centerVector(), instance.orientation());
+  } else {
+    renderable_->renderAt(instance.position().centerVector(), instance.orientation());
+  }
 }
 
 // TODO(phoenix): This doesn't look like it belongs here.  Shouldn't the Renderable be responsible for this?
@@ -248,6 +253,12 @@ bool BlockPrototype::shouldRenderFace(const Renderable* renderable, Face face, c
 
   BlockGeometry::Geometry geometry = properties().geometry();
   if (geometry != BlockGeometry::kGeometryCube && geometry != BlockGeometry::kGeometrySlab) {
+    return true;
+  }
+
+  if (oracle_ && oracle_->levelsAreVertical()) {
+    // We don't yet support face culling for vertical orientation.
+    // TODO(phoenix): Figure out what changes are necessary to get this working.
     return true;
   }
 

@@ -41,6 +41,11 @@ class BlockOracle {
     *             have a type of kBlockTypeAir.
     */
   virtual BlockInstance blockAt(const BlockPosition& position, Mode mode = kPhysicalBlocksOnly) = 0;
+
+  /**
+    * Returns \c true if a "level" is a vertical slice, i.e., it defines an x-y plane instead of an x-z plane.
+    */
+  virtual bool levelsAreVertical() const = 0;
 };
 
 #endif // BLOCK_ORACLE_H
