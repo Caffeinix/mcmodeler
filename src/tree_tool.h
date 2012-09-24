@@ -28,11 +28,19 @@ class TreeTool : public Tool {
   virtual QString actionName() const;
   virtual bool wantsMorePositions();
   virtual bool isBrush() const;
+  virtual void clear();
   virtual void draw(BlockPrototype* prototype, const BlockOrientation* orientation, BlockTransaction* transaction);
 
  private:
+  void randomizeTree();
   BlockOracle* oracle_;
   BlockManager* block_manager_;
+
+  int trunk_height_;
+  int canopy_radius_;
+  int clip_radius_;
+  int canopy_offset_;
+  int foliage_seed_;
 };
 
 #endif // TREE_TOOL_H
