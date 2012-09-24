@@ -93,7 +93,7 @@ void ToolPicker::setDiagram(Diagram* diagram) {
 
   item = new QListWidgetItem();
   item->setToolTip("Tree");
-  item->setIcon(QIcon(":/icons/flood_fill_tool.png"));
+  item->setIcon(QIcon(":/icons/tree_tool.png"));
   item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new TreeTool(diagram, block_mgr_)));
   ui->list_widget_->addItem(item);
 
