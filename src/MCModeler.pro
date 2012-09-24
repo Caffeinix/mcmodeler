@@ -55,7 +55,6 @@ HEADERS = \
     enumeration_impl.h \
     block_geometry.h \
     flow_block_renderable.h \
-    block_property_keys.h
 
 SOURCES = \
     about_box.cc \

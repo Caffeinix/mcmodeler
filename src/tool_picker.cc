@@ -28,14 +28,20 @@
 #include "rectangle_tool.h"
 #include "qvariant_ptr.h"
 #include "tool_picker_item_delegate.h"
+#include "tree_tool.h"
 
 ToolPicker::ToolPicker(QWidget* parent)
     : QWidget(parent),
-      ui(new Ui::ToolPicker) {
+      ui(new Ui::ToolPicker),
+      block_mgr_(NULL) {
   ui->setupUi(this);
   ui->list_widget_->setItemDelegate(new ToolPickerItemDelegate(this));
   connect(ui->list_widget_, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)),
           SLOT(updateCurrentTool(QListWidgetItem*, QListWidgetItem*)));
+}
+
+void ToolPicker::setBlockManager(BlockManager* block_manager) {
+  block_mgr_ = block_manager;
 }
 
 void ToolPicker::setDiagram(Diagram* diagram) {
@@ -73,6 +79,15 @@ void ToolPicker::setDiagram(Diagram* diagram) {
   item->setToolTip("Flood Fill");
   item->setIcon(QIcon(":/icons/flood_fill_tool.png"));
   item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new FloodFillTool(diagram)));
+  ui->list_widget_->addItem(item);
+
+  // TODO(phoenix): Currently we rely on setBlockManager being called before setDiagram.  We should not.
+  Q_ASSERT(block_mgr_);
+
+  item = new QListWidgetItem();
+  item->setToolTip("Tree");
+  item->setIcon(QIcon(":/icons/flood_fill_tool.png"));
+  item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new TreeTool(diagram, block_mgr_)));
   ui->list_widget_->addItem(item);
 
   // Select the pencil tool.

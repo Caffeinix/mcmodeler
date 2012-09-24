@@ -56,6 +56,7 @@ void MainWindow::setDiagram(Diagram* diagram) {
 void MainWindow::setBlockManager(BlockManager* block_mgr) {
   block_mgr_ = block_mgr;
   ui.level_widget_->setBlockManager(block_mgr);
+  ui.tool_picker_->setBlockManager(block_mgr);
 
   setupToolbox();
 }

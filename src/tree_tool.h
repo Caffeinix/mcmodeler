@@ -13,40 +13,26 @@
  * limitations under the License.
  */
 
-#ifndef TOOL_PICKER_H
-#define TOOL_PICKER_H
+#ifndef TREE_TOOL_H
+#define TREE_TOOL_H
 
-#include <QWidget>
-
-class QListWidgetItem;
+#include "tool.h"
 
 class BlockManager;
-class Diagram;
-class Tool;
+class BlockOracle;
 
-namespace Ui {
-class ToolPicker;
-}
-
-class ToolPicker : public QWidget {
-  Q_OBJECT
-
+class TreeTool : public Tool {
  public:
-  explicit ToolPicker(QWidget* parent = NULL);
-  virtual ~ToolPicker();
+  explicit TreeTool(BlockOracle* oracle, BlockManager* block_manager);
 
-  void setDiagram(Diagram* diagram);
-  void setBlockManager(BlockManager* block_manager);
-
- signals:
-  void currentToolChanged(Tool* new_tool);
-
- private slots:
-  void updateCurrentTool(QListWidgetItem* old_item, QListWidgetItem* new_item);
+  virtual QString actionName() const;
+  virtual bool wantsMorePositions();
+  virtual bool isBrush() const;
+  virtual void draw(BlockPrototype* prototype, const BlockOrientation* orientation, BlockTransaction* transaction);
 
  private:
-  Ui::ToolPicker* ui;
-  BlockManager* block_mgr_;
+  BlockOracle* oracle_;
+  BlockManager* block_manager_;
 };
 
-#endif // TOOL_PICKER_H
+#endif // TREE_TOOL_H

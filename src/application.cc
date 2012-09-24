@@ -43,8 +43,8 @@ Application::Application(int& argc, char** argv)
   gl_preview_window->setDiagram(diagram_.data());
   gl_preview_window->setBlockManager(block_mgr_.data());
 
-  main_window->setDiagram(diagram_.data());
   main_window->setBlockManager(block_mgr_.data());
+  main_window->setDiagram(diagram_.data());
 
   main_window->show();
   gl_preview_window->show();
