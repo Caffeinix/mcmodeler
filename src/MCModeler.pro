@@ -57,7 +57,8 @@ HEADERS = \
     flow_block_renderable.h \
     block_property_keys.h \
     tree_tool.h \
-    circle_tool.h
+    circle_tool.h \
+    sphere_tool.h
 
 SOURCES = \
     about_box.cc \
@@ -108,7 +109,8 @@ SOURCES = \
     torch_renderable.cc \
     flow_block_renderable.cc \
     tree_tool.cc \
-    circle_tool.cc
+    circle_tool.cc \
+    sphere_tool.cc
 
 QT += opengl
 
@@ -163,6 +165,8 @@ win32 {
 }
 
 TARGET = "MCModeler"
+
+
 
 
 
