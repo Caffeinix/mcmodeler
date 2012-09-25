@@ -30,6 +30,7 @@
 #include "qvariant_ptr.h"
 #include "tool_picker_item_delegate.h"
 #include "tree_tool.h"
+#include "sphere_tool.h"
 
 ToolPicker::ToolPicker(QWidget* parent)
     : QWidget(parent),
@@ -95,6 +96,12 @@ void ToolPicker::setDiagram(Diagram* diagram) {
   item->setToolTip("Tree");
   item->setIcon(QIcon(":/icons/tree_tool.png"));
   item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new TreeTool(diagram, block_mgr_)));
+  ui->list_widget_->addItem(item);
+
+  item = new QListWidgetItem();
+  item->setToolTip("Sphere");
+  item->setIcon(QIcon(":/icons/sphere_tool.png"));
+  item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new SphereTool(diagram)));
   ui->list_widget_->addItem(item);
 
   // Select the pencil tool.
