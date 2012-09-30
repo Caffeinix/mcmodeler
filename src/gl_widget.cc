@@ -215,7 +215,7 @@ void GLWidget::paintGL() {
 
   // Use two lights so that no two sides of a cube are the same shade.  This makes it easier to see edges.
   static GLfloat light_position[4] = { 2.5, 10.0, 5.0, 0.0 };
-  static GLfloat light_ambient_intensity[4] = { 2.5, 2.5, 2.5, 1.0 };
+  static GLfloat light_ambient_intensity[4] = { 3, 3, 3, 1.0 };
   static GLfloat light_diffuse_intensity[4] = { 0.8, 0.8, 0.8, 1.0 };
   glLightfv(GL_LIGHT0, GL_POSITION, light_position);
   glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient_intensity);
@@ -322,9 +322,11 @@ void GLWidget::applyPressedKeys() {
       camera_.translate(QVector3D(distance, 0, 0));
       break;
     case Qt::Key_E:
+    case Qt::Key_Space:
       camera_.translateWorld(QVector3D(0, distance, 0));
       break;
     case Qt::Key_C:
+    case Qt::Key_Shift:
       camera_.translateWorld(QVector3D(0, -distance, 0));
       break;
     default:
