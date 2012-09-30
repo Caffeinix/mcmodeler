@@ -99,20 +99,13 @@ void GLWidget::initializeGL() {
 
   glEnable(GL_LIGHTING);
   glEnable(GL_LIGHT0);
+  glEnable(GL_LIGHT1);
   glEnable(GL_FOG);
   glFogf(GL_FOG_MODE, GL_LINEAR);
   static GLfloat fog_color[] = { 0.5f, 0.75f, 1.0f, 1.0f };
   glFogfv(GL_FOG_COLOR, fog_color);
   glFogf(GL_FOG_START, 50);
   glFogf(GL_FOG_END, 100);
-//  glEnable(GL_LIGHT1);
-  static GLfloat light_position[4] = { 0.5, 0.0, 0.0, 1.0 };
-  static GLfloat light_ambient_intensity[4] = { 0.0, 0.0, 0.0, 1.0 };
-  static GLfloat light_diffuse_intensity[4] = { 2.0, 2.0, 2.0, 1.0 };
-  glLightfv(GL_LIGHT0, GL_POSITION, light_position);
-  glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient_intensity);
-  glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse_intensity);
-  glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.1f);
 
   GLfloat global_ambient[] = { 0.0f, 0.0f, 0.0f, 1.0f };
   glLightModelfv(GL_LIGHT_MODEL_AMBIENT, global_ambient);
@@ -220,12 +213,20 @@ void GLWidget::paintGL() {
   time_since_last_frame_.start();
   camera_.apply();
 
-  static GLfloat light_position[4] = { 0.0, 10.0, 5.0, 0.0 };
-  static GLfloat light_ambient_intensity[4] = { 3, 3, 3, 1.0 };
+  // Use two lights so that no two sides of a cube are the same shade.  This makes it easier to see edges.
+  static GLfloat light_position[4] = { 2.5, 10.0, 5.0, 0.0 };
+  static GLfloat light_ambient_intensity[4] = { 2.5, 2.5, 2.5, 1.0 };
   static GLfloat light_diffuse_intensity[4] = { 0.8, 0.8, 0.8, 1.0 };
   glLightfv(GL_LIGHT0, GL_POSITION, light_position);
   glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient_intensity);
   glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse_intensity);
+
+  static GLfloat secondary_light_position[4] = { 0, 0, -1.0, 0.0 };
+  static GLfloat secondary_light_ambient_intensity[4] = { 0, 0, 0, 1.0 };
+  static GLfloat secondary_light_diffuse_intensity[4] = { 0.1, 0.1, 0.1, 1.0 };
+  glLightfv(GL_LIGHT1, GL_POSITION, secondary_light_position);
+  glLightfv(GL_LIGHT1, GL_AMBIENT, secondary_light_ambient_intensity);
+  glLightfv(GL_LIGHT1, GL_DIFFUSE, secondary_light_diffuse_intensity);
 
   // Can't put this in the display list or it doesn't rotate correctly.
   drawSkybox();
