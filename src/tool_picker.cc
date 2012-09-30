@@ -33,12 +33,6 @@ ToolPicker::ToolPicker(QWidget* parent)
           SLOT(updateCurrentTool(QListWidgetItem*, QListWidgetItem*)));
 }
 
-  ui->list_widget_->addItem(item);
-
-  item = new QListWidgetItem();
-  item->setToolTip("Sphere");
-  item->setIcon(QIcon(":/icons/sphere_tool.png"));
-  item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new SphereTool(diagram)));
 void ToolPicker::updateCurrentTool(QListWidgetItem* new_item, QListWidgetItem* old_item) {
   if (!new_item) {
     return;

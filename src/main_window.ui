@@ -27,9 +27,6 @@
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0" colspan="2">
          <layout class="QHBoxLayout" name="horizontalLayout">
-          <property name="spacing">
-           <number>18</number>
-          </property>
           <item>
            <widget class="ToolPicker" name="tool_picker_" native="true">
             <property name="sizePolicy">
@@ -41,28 +38,6 @@
             <property name="minimumSize">
              <size>
               <width>0</width>
-              <height>39</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>39</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="ToolPicker" name="secondary_tool_picker_" native="true">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>180</width>
               <height>39</height>
              </size>
             </property>

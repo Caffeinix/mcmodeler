@@ -30,6 +30,7 @@
 #include "line_tool.h"
 #include "pencil_tool.h"
 #include "rectangle_tool.h"
+#include "sphere_tool.h"
 #include "tool_picker.h"
 #include "tree_tool.h"
 
@@ -79,7 +80,7 @@ void MainWindow::setupToolbox() {
   }
   ui.block_picker_->setUpSelection();
 
-  // Set up tool picker.
+  // Set up primary tool picker.
   ui.tool_picker_->addTool(new PencilTool(diagram_), "Pencil", QIcon(":/icons/pencil_tool.png"));
   ui.tool_picker_->addTool(new EraserTool(diagram_), "Eraser", QIcon(":/icons/eraser_tool.png"));
   ui.tool_picker_->addTool(new LineTool(diagram_), "Line", QIcon(":/icons/line_tool.png"));
@@ -87,7 +88,7 @@ void MainWindow::setupToolbox() {
   ui.tool_picker_->addTool(new CircleTool(diagram_), "Circle", QIcon(":/icons/circle_tool.png"));
   ui.tool_picker_->addTool(new FloodFillTool(diagram_), "Flood Fill", QIcon(":/icons/flood_fill_tool.png"));
   ui.tool_picker_->addTool(new TreeTool(diagram_, block_mgr_), "Tree", QIcon(":/icons/tree_tool.png"));
-  // ui.tool_picker_->addTool(new SphereTool(diagram_, block_mgr_), "Sphere", QIcon(":/icons/sphere_tool.png"));
+  ui.tool_picker_->addTool(new SphereTool(diagram_), "Sphere", QIcon(":/icons/sphere_tool.png"));
 }
 
 void MainWindow::setTemplateImage() {
