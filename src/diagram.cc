@@ -27,7 +27,13 @@
   * The current version of the MCModeler file format.  This must be increased whenever a backwards-incompatible change
   * is made.  The nybbles roughly correspond to major, minor, and maintenance version numbers.
   */
-static const quint32 kCurrentFileFormatVersion = 0x120;
+static const quint32 kCurrentFileFormatVersion = 0x130;
+
+/**
+  * The number of bytes we are holding reserved for future expansion.  These will all be set to zero when writing out
+  * the file, so as long as zero is a reasonable default, the format will be forwards-compatible.
+  */
+static const int kNumReservedBytes = 256;
 
 /**
   * An RAII class that automatically calls Diagram::commit() on a diagram with its transaction when it is destroyed.
@@ -105,6 +111,9 @@ void Diagram::load(QDataStream* stream) {
     }
   }
   delete[] filetype;
+
+  stream->skipRawData(kNumReservedBytes);
+
   qint32 block_count;
   *stream >> block_count;
 
@@ -128,6 +137,10 @@ void Diagram::save(QDataStream* stream) {
 
   *stream << "mcdiagram";
   *stream << kCurrentFileFormatVersion;
+  char* reserved = new char[kNumReservedBytes];
+  memset(reserved, '\0', kNumReservedBytes);
+  stream->writeRawData(reserved, kNumReservedBytes);
+  delete[] reserved;
   *stream << static_cast<qint32>(blockCount());
   QHash<BlockPosition, BlockInstance>::const_iterator iter;
   for (iter = block_map_.constBegin(); iter != block_map_.constEnd(); ++iter) {
