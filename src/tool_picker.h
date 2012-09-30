@@ -35,8 +35,7 @@ class ToolPicker : public QWidget {
   explicit ToolPicker(QWidget* parent = NULL);
   virtual ~ToolPicker();
 
-  void setDiagram(Diagram* diagram);
-  void setBlockManager(BlockManager* block_manager);
+  void addTool(Tool* tool, QString label, QIcon icon);
 
  signals:
   void currentToolChanged(Tool* new_tool);
@@ -46,6 +45,7 @@ class ToolPicker : public QWidget {
 
  private:
   Ui::ToolPicker* ui;
+  Diagram* diagram_;
   BlockManager* block_mgr_;
 };
 

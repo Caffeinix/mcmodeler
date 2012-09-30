@@ -19,7 +19,6 @@
 #include "block_transaction.h"
 
 static const int kMaxFillDistance = 64;
-static const int kPreviewMaxFillDistance = 32;
 
 FloodFillTool::FloodFillTool(BlockOracle* oracle) : oracle_(oracle) {
 }
@@ -39,7 +38,7 @@ bool FloodFillTool::isBrush() const {
 }
 
 void FloodFillTool::draw(BlockPrototype* prototype, const BlockOrientation* orientation, BlockTransaction* transaction) {
-  if (countPositions() < 1) {
+  if (countPositions() < 1 || state() == kProposed) {
     return;
   }
 
@@ -63,9 +62,6 @@ void FloodFillTool::fillBlocksRecurse(const BlockPosition& pos,
     return;
   }
   int fill_distance = kMaxFillDistance;
-  if (state() == kProposed) {
-    fill_distance = kPreviewMaxFillDistance;
-  }
   if (qAbs(pos.x() - start_pos.x()) > fill_distance ||
       qAbs(pos.z() - start_pos.z()) > fill_distance) {
     // This is unlikely to be a bounded area, so return to prevent stack overflow.

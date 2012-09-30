@@ -54,15 +54,15 @@ class MainWindow : public QMainWindow {
   void showBillOfMaterials();
 
  protected:
-  void closeEvent(QCloseEvent* event);
+  virtual void closeEvent(QCloseEvent* event);
+  virtual bool event(QEvent* event);
 
  private:
+  void setupToolbox();
+
   void doOpen();
   void maybeSave();
-
   void performPendingAction();
-
-  void setupToolbox();
 
   Ui::MainWindow ui;
   Diagram* diagram_;

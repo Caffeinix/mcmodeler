@@ -19,96 +19,26 @@
 #include <QIcon>
 
 #include "block_manager.h"
-#include "circle_tool.h"
 #include "diagram.h"
-#include "eraser_tool.h"
-#include "filled_rectangle_tool.h"
-#include "flood_fill_tool.h"
-#include "pencil_tool.h"
-#include "line_tool.h"
-#include "rectangle_tool.h"
 #include "qvariant_ptr.h"
 #include "tool_picker_item_delegate.h"
-#include "tree_tool.h"
 #include "sphere_tool.h"
 
 ToolPicker::ToolPicker(QWidget* parent)
     : QWidget(parent),
-      ui(new Ui::ToolPicker),
-      block_mgr_(NULL) {
+      ui(new Ui::ToolPicker) {
   ui->setupUi(this);
   ui->list_widget_->setItemDelegate(new ToolPickerItemDelegate(this));
   connect(ui->list_widget_, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)),
           SLOT(updateCurrentTool(QListWidgetItem*, QListWidgetItem*)));
 }
 
-void ToolPicker::setBlockManager(BlockManager* block_manager) {
-  block_mgr_ = block_manager;
-}
-
-void ToolPicker::setDiagram(Diagram* diagram) {
-  QListWidgetItem* item = new QListWidgetItem();
-  item->setToolTip("Pencil");
-  item->setIcon(QIcon(":/icons/pencil_tool.png"));
-  item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new PencilTool(diagram)));
-  ui->list_widget_->addItem(item);
-
-  item = new QListWidgetItem();
-  item->setToolTip("Eraser");
-  item->setIcon(QIcon(":/icons/eraser_tool.png"));
-  item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new EraserTool(diagram)));
-  ui->list_widget_->addItem(item);
-
-  item = new QListWidgetItem();
-  item->setToolTip("Line");
-  item->setIcon(QIcon(":/icons/line_tool.png"));
-  item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new LineTool(diagram)));
-  ui->list_widget_->addItem(item);
-
-  item = new QListWidgetItem();
-  item->setToolTip("Rectangle");
-  item->setIcon(QIcon(":/icons/rectangle_tool.png"));
-  item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new RectangleTool(diagram)));
-  ui->list_widget_->addItem(item);
-
-  item = new QListWidgetItem();
-  item->setToolTip("Filled Rectangle");
-  item->setIcon(QIcon(":/icons/filled_rectangle_tool.png"));
-  item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new FilledRectangleTool(diagram)));
-  ui->list_widget_->addItem(item);
-
-  item = new QListWidgetItem();
-  item->setToolTip("Circle");
-  item->setIcon(QIcon(":/icons/circle_tool.png"));
-  item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new CircleTool(diagram)));
-  ui->list_widget_->addItem(item);
-
-  item = new QListWidgetItem();
-  item->setToolTip("Flood Fill");
-  item->setIcon(QIcon(":/icons/flood_fill_tool.png"));
-  item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new FloodFillTool(diagram)));
-  ui->list_widget_->addItem(item);
-
-  // TODO(phoenix): Currently we rely on setBlockManager being called before setDiagram.  We should not.
-  Q_ASSERT(block_mgr_);
-
-  item = new QListWidgetItem();
-  item->setToolTip("Tree");
-  item->setIcon(QIcon(":/icons/tree_tool.png"));
-  item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new TreeTool(diagram, block_mgr_)));
   ui->list_widget_->addItem(item);
 
   item = new QListWidgetItem();
   item->setToolTip("Sphere");
   item->setIcon(QIcon(":/icons/sphere_tool.png"));
   item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(new SphereTool(diagram)));
-  ui->list_widget_->addItem(item);
-
-  // Select the pencil tool.
-  ui->list_widget_->setCurrentRow(0);
-  updateCurrentTool(ui->list_widget_->item(0), NULL);
-}
-
 void ToolPicker::updateCurrentTool(QListWidgetItem* new_item, QListWidgetItem* old_item) {
   if (!new_item) {
     return;
@@ -119,4 +49,16 @@ void ToolPicker::updateCurrentTool(QListWidgetItem* new_item, QListWidgetItem* o
 
 ToolPicker::~ToolPicker() {
   delete ui;
+}
+
+void ToolPicker::addTool(Tool *tool, QString label, QIcon icon) {
+  QListWidgetItem* item = new QListWidgetItem();
+  item->setToolTip(label);
+  item->setIcon(icon);
+  item->setData(Qt::UserRole, QVariantPtr<Tool>::asVariant(tool));
+  ui->list_widget_->addItem(item);
+  if (ui->list_widget_->currentRow() != 0) {
+    ui->list_widget_->setCurrentRow(0);
+    updateCurrentTool(ui->list_widget_->item(0), NULL);
+  }
 }

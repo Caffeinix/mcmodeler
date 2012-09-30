@@ -22,8 +22,16 @@
 #include "block_picker.h"
 #include "block_prototype.h"
 #include "block_type.h"
+#include "circle_tool.h"
 #include "diagram.h"
+#include "eraser_tool.h"
+#include "filled_rectangle_tool.h"
+#include "flood_fill_tool.h"
+#include "line_tool.h"
+#include "pencil_tool.h"
+#include "rectangle_tool.h"
 #include "tool_picker.h"
+#include "tree_tool.h"
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent),
@@ -48,7 +56,6 @@ MainWindow::MainWindow(QWidget* parent)
 void MainWindow::setDiagram(Diagram* diagram) {
   diagram_ = diagram;
   ui.level_widget_->setDiagram(diagram);
-  ui.tool_picker_->setDiagram(diagram);
   bill_of_materials_window_.reset(new BillOfMaterialsWindow(diagram));
   connect(diagram_, SIGNAL(diagramChanged(BlockTransaction)), SLOT(setDocumentModified()));
 }
@@ -56,12 +63,13 @@ void MainWindow::setDiagram(Diagram* diagram) {
 void MainWindow::setBlockManager(BlockManager* block_mgr) {
   block_mgr_ = block_mgr;
   ui.level_widget_->setBlockManager(block_mgr);
-  ui.tool_picker_->setBlockManager(block_mgr);
-
-  setupToolbox();
 }
 
 void MainWindow::setupToolbox() {
+  Q_ASSERT(block_mgr_);
+  Q_ASSERT(diagram_);
+
+  // Set up block picker.
   BlockTypeIterator iter = BlockPrototype::blockIterator();
   connect(ui.block_picker_, SIGNAL(blockSelected(blocktype_t)),
           ui.level_widget_, SLOT(setBlockType(blocktype_t)));
@@ -70,6 +78,16 @@ void MainWindow::setupToolbox() {
     ui.block_picker_->addBlock(block);
   }
   ui.block_picker_->setUpSelection();
+
+  // Set up tool picker.
+  ui.tool_picker_->addTool(new PencilTool(diagram_), "Pencil", QIcon(":/icons/pencil_tool.png"));
+  ui.tool_picker_->addTool(new EraserTool(diagram_), "Eraser", QIcon(":/icons/eraser_tool.png"));
+  ui.tool_picker_->addTool(new LineTool(diagram_), "Line", QIcon(":/icons/line_tool.png"));
+  ui.tool_picker_->addTool(new RectangleTool(diagram_), "Rectangle", QIcon(":/icons/rectangle_tool.png"));
+  ui.tool_picker_->addTool(new CircleTool(diagram_), "Circle", QIcon(":/icons/circle_tool.png"));
+  ui.tool_picker_->addTool(new FloodFillTool(diagram_), "Flood Fill", QIcon(":/icons/flood_fill_tool.png"));
+  ui.tool_picker_->addTool(new TreeTool(diagram_, block_mgr_), "Tree", QIcon(":/icons/tree_tool.png"));
+  // ui.tool_picker_->addTool(new SphereTool(diagram_, block_mgr_), "Sphere", QIcon(":/icons/sphere_tool.png"));
 }
 
 void MainWindow::setTemplateImage() {
@@ -200,6 +218,13 @@ void MainWindow::quit() {
 void MainWindow::closeEvent(QCloseEvent* event) {
   quit();
   event->ignore();
+}
+
+bool MainWindow::event(QEvent* event) {
+  if (event->type() == QEvent::Polish) {
+    setupToolbox();
+  }
+  return QMainWindow::event(event);
 }
 
 void MainWindow::performPendingAction() {
