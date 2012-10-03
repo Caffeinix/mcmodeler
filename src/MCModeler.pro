@@ -130,7 +130,7 @@ INCLUDEPATH += ../third_party \
                ../third_party/qjson/include
 
 win32:INCLUDEPATH += ../third_party/zlib-1.2.5
-win32:QMAKE_CXXFLAGS += -static
+win32:QMAKE_LFLAGS += -static-libgcc
 
 macx {
     QMAKE_LFLAGS += -F ../third_party/qjson/lib -L ../third_party/quazip/lib
